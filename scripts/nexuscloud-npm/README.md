@@ -2,7 +2,7 @@
 
 Fork build of [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx) with ZipVoice **`espeakVoice`** support — configurable eSpeak language for out-of-lexicon words (e.g. `"si"` for Sinhala).
 
-Built from [ishankrishan/edgevox-onnx](https://github.com/ishankrishan/edgevox-onnx) via GitHub Actions (`.github/workflows/build.yaml`).
+Built from [tuwanroshanuk/edgevox-onnx](https://github.com/tuwanroshanuk/edgevox-onnx) via GitHub Actions (`.github/workflows/build.yaml`).
 
 ## Contents
 
