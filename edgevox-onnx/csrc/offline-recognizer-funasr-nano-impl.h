@@ -1,0 +1,72 @@
+// edgevox-onnx/csrc/offline-recognizer-funasr-nano-impl.h
+//
+// Copyright (c)  2025  zengyw
+
+#ifndef EDGEVOX_ONNX_CSRC_OFFLINE_RECOGNIZER_FUNASR_NANO_IMPL_H_
+#define EDGEVOX_ONNX_CSRC_OFFLINE_RECOGNIZER_FUNASR_NANO_IMPL_H_
+
+#include <algorithm>
+#include <memory>
+#include <random>
+#include <string>
+#include <utility>
+#include <vector>
+
+#include "edgevox-onnx/csrc/funasr-nano-tokenizer.h"
+#include "edgevox-onnx/csrc/offline-funasr-nano-model.h"
+#include "edgevox-onnx/csrc/offline-model-config.h"
+#include "edgevox-onnx/csrc/offline-recognizer-impl.h"
+#include "edgevox-onnx/csrc/offline-recognizer.h"
+#include "edgevox-onnx/csrc/pad-sequence.h"
+
+namespace edgevox_onnx {
+
+class OfflineRecognizerFunASRNanoImpl : public OfflineRecognizerImpl {
+ public:
+  explicit OfflineRecognizerFunASRNanoImpl(
+      const OfflineRecognizerConfig &config);
+
+  template <typename Manager>
+  OfflineRecognizerFunASRNanoImpl(Manager *mgr,
+                                  const OfflineRecognizerConfig &config);
+
+  std::unique_ptr<OfflineStream> CreateStream() const override;
+
+  void DecodeStreams(OfflineStream **ss, int32_t n) const override;
+
+  OfflineRecognizerConfig GetConfig() const override { return config_; }
+
+ private:
+  void InitFeatConfig();
+  std::vector<float> ApplyLFR(const std::vector<float> &in) const;
+
+  std::vector<int64_t> BuildSourceIds(const std::string &system_prompt,
+                                      const std::string &user_prompt,
+                                      int32_t audio_token_len,
+                                      int32_t &fbank_beg_idx,
+                                      int32_t &fake_token_len) const;
+
+  int64_t SampleTokenFromLogitsFp16OrFp32(const void *logits,
+                                         bool is_fp16,
+                                         int32_t vocab_size) const;
+
+  int64_t SampleTokenWithTemperatureAndTopP(const void *logits,
+                                            bool is_fp16,
+                                            int32_t vocab_size,
+                                            float temperature,
+                                            float top_p) const;
+
+  OfflineRecognitionResult GenerateText(Ort::Value encoder_out,
+                                       const std::string &system_prompt,
+                                       const std::string &user_prompt) const;
+
+  OfflineRecognizerConfig config_;
+  std::unique_ptr<OfflineFunASRNanoModel> model_;
+  std::unique_ptr<FunASRNanoTokenizer> tokenizer_;
+  mutable std::mt19937 rng_;
+};
+
+}  // namespace edgevox_onnx
+
+#endif  // EDGEVOX_ONNX_CSRC_OFFLINE_RECOGNIZER_FUNASR_NANO_IMPL_H_
+

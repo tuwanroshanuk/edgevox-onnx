@@ -1,0 +1,40 @@
+// Copyright (c)  2026  Xiaomi Corporation (authors: Fangjun Kuang)
+//
+const fs = require('fs');
+const {Readable} = require('stream');
+const wav = require('wav');
+
+const edgevox_onnx = require('edgevox-onnx');
+
+function createOfflineRecognizer() {
+  let config = {
+    modelConfig: {
+      funasrNano: {
+        encoderAdaptor:
+            './edgevox-onnx-funasr-nano-int8-2025-12-30/encoder_adaptor.int8.onnx',
+        llm: './edgevox-onnx-funasr-nano-int8-2025-12-30/llm.int8.onnx',
+        embedding:
+            './edgevox-onnx-funasr-nano-int8-2025-12-30/embedding.int8.onnx',
+        tokenizer: './edgevox-onnx-funasr-nano-int8-2025-12-30/Qwen3-0.6B',
+      },
+      tokens: '',
+    }
+  };
+
+  return edgevox_onnx.createOfflineRecognizer(config);
+}
+
+const recognizer = createOfflineRecognizer();
+const stream = recognizer.createStream();
+
+const waveFilename =
+    './edgevox-onnx-funasr-nano-int8-2025-12-30/test_wavs/lyrics.wav';
+const wave = edgevox_onnx.readWave(waveFilename);
+stream.acceptWaveform(wave.sampleRate, wave.samples);
+
+recognizer.decode(stream);
+const text = recognizer.getResult(stream).text;
+console.log(text);
+
+stream.free();
+recognizer.free();

@@ -1,0 +1,18 @@
+// edgevox-onnx/csrc/bbpe.h
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+#ifndef EDGEVOX_ONNX_CSRC_BBPE_H_
+#define EDGEVOX_ONNX_CSRC_BBPE_H_
+#include <cstdint>
+#include <string>
+#include <unordered_map>
+
+// It is equivalent to the map BCHAR_TO_BYTE
+// from
+// https://github.com/k2-fsa/icefall/blob/master/icefall/byte_utils.py#L280
+const std::unordered_map<std::string, uint8_t> &GetByteBpeTable();
+
+const std::unordered_map<uint8_t, std::string> &GetByteBpeTableId2Token();
+
+#endif  // EDGEVOX_ONNX_CSRC_BBPE_H_

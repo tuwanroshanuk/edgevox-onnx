@@ -1,0 +1,34 @@
+/**
+@page resampler Linear Resampler
+
+edgevox-onnx provides a linear resampler for sample rate conversion through
+the @ref EdgevoxOnnxCreateLinearResampler() API.
+
+@see EdgevoxOnnxCreateLinearResampler, EdgevoxOnnxDestroyLinearResampler
+
+@code
+const EdgevoxOnnxLinearResampler *resampler =
+    EdgevoxOnnxCreateLinearResampler(48000, 16000, 0, 0);
+
+// Process intermediate chunks (flush = 0)
+const EdgevoxOnnxResampleOut *out =
+    EdgevoxOnnxLinearResamplerResample(resampler, input_samples, n, 0);
+// Use out->samples[0..out->n-1]
+EdgevoxOnnxLinearResamplerResampleFree(out);
+
+// Flush the final chunk (flush = 1)
+out = EdgevoxOnnxLinearResamplerResample(resampler, last_chunk, last_n, 1);
+EdgevoxOnnxLinearResamplerResampleFree(out);
+
+EdgevoxOnnxDestroyLinearResampler(resampler);
+@endcode
+
+If `filter_cutoff_hz` or `num_zeros` is 0, default values are used:
+
+@code
+float min_freq = samp_rate_in_hz < samp_rate_out_hz ? samp_rate_in_hz
+                                                     : samp_rate_out_hz;
+float filter_cutoff_hz = 0.99f * 0.5f * min_freq;
+int32_t num_zeros = 6;
+@endcode
+*/

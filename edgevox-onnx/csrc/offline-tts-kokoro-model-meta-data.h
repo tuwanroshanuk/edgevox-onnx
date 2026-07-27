@@ -1,0 +1,29 @@
+// edgevox-onnx/csrc/offline-tts-kokoro-model-meta-data.h
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+#ifndef EDGEVOX_ONNX_CSRC_OFFLINE_TTS_KOKORO_MODEL_META_DATA_H_
+#define EDGEVOX_ONNX_CSRC_OFFLINE_TTS_KOKORO_MODEL_META_DATA_H_
+
+#include <cstdint>
+#include <string>
+
+namespace edgevox_onnx {
+
+// please refer to
+// https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/kokoro/v0.19/add_meta_data.py
+// https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/kokoro/v1.0/add_meta_data.py
+// https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/kokoro/v1.1-zh/add_meta_data.py
+struct OfflineTtsKokoroModelMetaData {
+  int32_t sample_rate = 0;
+  int32_t num_speakers = 0;
+  int32_t version = 1;
+  int32_t has_espeak = 1;
+  int32_t max_token_len = 0;
+
+  std::string voice;
+};
+
+}  // namespace edgevox_onnx
+
+#endif  // EDGEVOX_ONNX_CSRC_OFFLINE_TTS_KOKORO_MODEL_META_DATA_H_

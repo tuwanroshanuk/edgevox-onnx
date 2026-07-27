@@ -1,0 +1,36 @@
+// Copyright (c)  2026  Xiaomi Corporation (authors: Fangjun Kuang)
+//
+const fs = require('fs');
+const {Readable} = require('stream');
+
+const edgevox_onnx = require('edgevox-onnx');
+
+function createOfflineRecognizer() {
+  let config = {
+    modelConfig: {
+      fireRedAsrCtc: {
+        model:
+            './edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/model.int8.onnx',
+      },
+      tokens:
+          './edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/tokens.txt',
+    }
+  };
+
+  return edgevox_onnx.createOfflineRecognizer(config);
+}
+
+const recognizer = createOfflineRecognizer();
+const stream = recognizer.createStream();
+
+const waveFilename =
+    './edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/test_wavs/1.wav';
+const wave = edgevox_onnx.readWave(waveFilename);
+stream.acceptWaveform(wave.sampleRate, wave.samples);
+
+recognizer.decode(stream);
+const text = recognizer.getResult(stream).text;
+console.log(text);
+
+stream.free();
+recognizer.free();

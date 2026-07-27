@@ -1,0 +1,41 @@
+// edgevox-onnx/csrc/qnn-config.h
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+#ifndef EDGEVOX_ONNX_CSRC_QNN_CONFIG_H_
+#define EDGEVOX_ONNX_CSRC_QNN_CONFIG_H_
+
+#include <string>
+
+#include "edgevox-onnx/csrc/parse-options.h"
+
+namespace edgevox_onnx {
+
+struct QnnConfig {
+  // Path to the backend library, e.g.,
+  // /some/path/to/libQnnHtp.so
+  std::string backend_lib;
+
+  // If it exists, you need to also provide system_lib.
+  // In this case, the model lib, i.e., libmodel.so, is ignored.
+  //
+  // For models with multiple QNN components, e.g. paraformer or online
+  // transducer, you can provide multiple context binaries separated by commas.
+  //
+  // If it does not exist and if the user want to save the context binary,
+  // it will save it to this path.
+  std::string context_binary;
+
+  // Required and used only when context_binary exists
+  // Example value: /some/path/to/libQnnSystem.so
+  std::string system_lib;
+
+  std::string ToString() const;
+
+  void Register(ParseOptions *po);
+
+  bool Validate() const;
+};
+
+}  // namespace edgevox_onnx
+#endif  // EDGEVOX_ONNX_CSRC_QNN_CONFIG_H_

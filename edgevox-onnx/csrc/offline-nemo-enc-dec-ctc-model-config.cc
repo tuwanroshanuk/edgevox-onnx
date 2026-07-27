@@ -1,0 +1,73 @@
+// edgevox-onnx/csrc/offline-nemo-enc-dec-ctc-model-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+#include "edgevox-onnx/csrc/offline-nemo-enc-dec-ctc-model-config.h"
+
+#include <string>
+
+#include "edgevox-onnx/csrc/file-utils.h"
+#include "edgevox-onnx/csrc/macros.h"
+#include "edgevox-onnx/csrc/text-utils.h"
+
+namespace edgevox_onnx {
+
+void OfflineNemoEncDecCtcModelConfig::Register(ParseOptions *po) {
+  po->Register(
+      "nemo-ctc-model", &model,
+      "Path to NeMo CTC model. For qnn, use compiled model library "
+      "(e.g. libmodel.so). For onnxruntime, use model.onnx.");
+
+  std::string prefix = "nemo-ctc";
+  ParseOptions p(prefix, po);
+
+  qnn_config.Register(&p);
+}
+
+bool OfflineNemoEncDecCtcModelConfig::Validate() const {
+  if (qnn_config.context_binary.empty()) {
+    if (model.empty()) {
+      EDGEVOX_ONNX_LOGE("Please provide a NeMo CTC model");
+      return false;
+    }
+
+    if (!FileExists(model)) {
+      EDGEVOX_ONNX_LOGE("NeMo model: '%s' does not exist", model.c_str());
+      return false;
+    }
+  }
+
+  if (model.empty() && !qnn_config.context_binary.empty()) {
+    // we require that the context_binary exists
+    if (!FileExists(qnn_config.context_binary)) {
+      EDGEVOX_ONNX_LOGE(
+          "Model is empty, but you provide a context binary that does not "
+          "exist");
+      return false;
+    }
+  }
+
+  if (EndsWith(model, ".so") || EndsWith(model, ".bin") ||
+      (model.empty() && !qnn_config.context_binary.empty())) {
+    return qnn_config.Validate();
+  }
+
+  return true;
+}
+
+std::string OfflineNemoEncDecCtcModelConfig::ToString() const {
+  std::ostringstream os;
+
+  os << "OfflineNemoEncDecCtcModelConfig(";
+  os << "model=\"" << model << "\"";
+
+  if (!qnn_config.backend_lib.empty()) {
+    os << ", qnn_config=" << qnn_config.ToString() << ", ";
+  }
+
+  os << ")";
+
+  return os.str();
+}
+
+}  // namespace edgevox_onnx

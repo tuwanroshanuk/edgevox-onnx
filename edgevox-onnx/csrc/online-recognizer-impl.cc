@@ -1,0 +1,371 @@
+// edgevox-onnx/csrc/online-recognizer-impl.cc
+//
+// Copyright (c)  2023-2025  Xiaomi Corporation
+
+#include "edgevox-onnx/csrc/online-recognizer-impl.h"
+#include "edgevox-onnx/csrc/ort-env.h"
+
+#include <memory>
+#include <sstream>
+#include <string>
+#include <utility>
+#include <vector>
+
+#if __ANDROID_API__ >= 9
+#include "android/asset_manager.h"
+#include "android/asset_manager_jni.h"
+#endif
+
+#if __OHOS__
+#include "rawfile/raw_file_manager.h"
+#endif
+
+#include "fst/extensions/far/far.h"
+#include "kaldifst/csrc/kaldi-fst-io.h"
+#include "edgevox-onnx/csrc/fst-utils.h"
+#include "edgevox-onnx/csrc/macros.h"
+#include "edgevox-onnx/csrc/online-recognizer-ctc-impl.h"
+#include "edgevox-onnx/csrc/online-recognizer-paraformer-impl.h"
+#include "edgevox-onnx/csrc/online-recognizer-transducer-impl.h"
+#include "edgevox-onnx/csrc/online-recognizer-transducer-nemo-impl.h"
+#include "edgevox-onnx/csrc/online-recognizer-transducer-nemo-parakeet-unified-impl.h"
+#include "edgevox-onnx/csrc/onnx-utils.h"
+#include "edgevox-onnx/csrc/session.h"
+#include "edgevox-onnx/csrc/text-utils.h"
+
+#if EDGEVOX_ONNX_ENABLE_RKNN
+#include "edgevox-onnx/csrc/rknn/online-recognizer-ctc-rknn-impl.h"
+#include "edgevox-onnx/csrc/rknn/online-recognizer-transducer-rknn-impl.h"
+#endif
+
+#ifdef EDGEVOX_ONNX_ENABLE_QNN
+#include "edgevox-onnx/csrc/qnn/online-recognizer-nemo-transducer-qnn-impl.h"
+#include "edgevox-onnx/csrc/qnn/online-recognizer-zipformer-transducer-qnn-impl.h"
+#endif
+
+namespace edgevox_onnx {
+
+static bool HasQnnOnlineTransducerModel(const OnlineModelConfig &config) {
+  return !config.transducer.encoder.empty() ||
+         !config.transducer.qnn_config.context_binary.empty();
+}
+
+
+static bool IsNeMoParakeetUnifiedStreaming(const Ort::Session &decoder_sess) {
+  Ort::AllocatorWithDefaultOptions allocator;
+  Ort::ModelMetadata meta_data = decoder_sess.GetModelMetadata();
+  return LookupCustomModelMetaData(meta_data, "streaming_model_type",
+                                   allocator) ==
+         "nemo_parakeet_unified_streaming";
+}
+
+std::unique_ptr<OnlineRecognizerImpl> OnlineRecognizerImpl::Create(
+    const OnlineRecognizerConfig &config) {
+  if (config.model_config.provider_config.provider == "rknn") {
+#if EDGEVOX_ONNX_ENABLE_RKNN
+    if (config.model_config.transducer.encoder.empty() &&
+        config.model_config.zipformer2_ctc.model.empty()) {
+      EDGEVOX_ONNX_LOGE(
+          "Only Zipformer transducers and CTC models are currently supported "
+          "by rknn. Fallback to CPU. Make sure you pass an onnx model");
+    } else if (!config.model_config.transducer.encoder.empty()) {
+      return std::make_unique<OnlineRecognizerTransducerRknnImpl>(config);
+    } else if (!config.model_config.zipformer2_ctc.model.empty()) {
+      return std::make_unique<OnlineRecognizerCtcRknnImpl>(config);
+    }
+#else
+    EDGEVOX_ONNX_LOGE(
+        "Please rebuild edgevox-onnx with -DEDGEVOX_ONNX_ENABLE_RKNN=ON if you "
+        "want to use rknn.");
+    EDGEVOX_ONNX_EXIT(-1);
+    return nullptr;
+#endif
+  }
+
+  if (config.model_config.provider_config.provider == "qnn") {
+#ifdef EDGEVOX_ONNX_ENABLE_QNN
+    if (HasQnnOnlineTransducerModel(config.model_config)) {
+      if (config.model_config.model_type == "nemo_transducer") {
+        return std::make_unique<OnlineRecognizerNemoTransducerQnnImpl>(config);
+      }
+      return std::make_unique<OnlineRecognizerZipformerTransducerQnnImpl>(
+          config);
+    }
+
+    EDGEVOX_ONNX_LOGE(
+        "Only Zipformer transducers and nemo_transducer are currently "
+        "supported by qnn for online recognition.");
+    EDGEVOX_ONNX_EXIT(-1);
+#else
+    EDGEVOX_ONNX_LOGE(
+        "Please rebuild edgevox-onnx with -DEDGEVOX_ONNX_ENABLE_QNN=ON if you "
+        "want to use qnn.");
+    EDGEVOX_ONNX_EXIT(-1);
+    return nullptr;
+#endif
+  }
+
+  if (!config.model_config.transducer.encoder.empty()) {
+    Ort::Env env = CreateOrtEnv();
+
+    Ort::SessionOptions sess_opts;
+    sess_opts.SetIntraOpNumThreads(1);
+    sess_opts.SetInterOpNumThreads(1);
+
+    auto sess = std::make_unique<Ort::Session>(
+        env, EDGEVOX_ONNX_TO_ORT_PATH(config.model_config.transducer.decoder),
+        sess_opts);
+
+    if (IsNeMoParakeetUnifiedStreaming(*sess)) {
+      return std::make_unique<
+          OnlineRecognizerTransducerNeMoParakeetUnifiedImpl>(config);
+    }
+
+    size_t node_count = sess->GetOutputCount();
+
+    if (node_count == 1) {
+      return std::make_unique<OnlineRecognizerTransducerImpl>(config);
+    } else {
+      return std::make_unique<OnlineRecognizerTransducerNeMoImpl>(config);
+    }
+  }
+
+  if (!config.model_config.paraformer.encoder.empty()) {
+    return std::make_unique<OnlineRecognizerParaformerImpl>(config);
+  }
+
+  if (!config.model_config.wenet_ctc.model.empty() ||
+      !config.model_config.zipformer2_ctc.model.empty() ||
+      !config.model_config.nemo_ctc.model.empty() ||
+      !config.model_config.t_one_ctc.model.empty()) {
+    return std::make_unique<OnlineRecognizerCtcImpl>(config);
+  }
+
+  EDGEVOX_ONNX_LOGE("Please specify a model");
+  EDGEVOX_ONNX_EXIT(-1);
+  return nullptr;
+}
+
+template <typename Manager>
+std::unique_ptr<OnlineRecognizerImpl> OnlineRecognizerImpl::Create(
+    Manager *mgr, const OnlineRecognizerConfig &config) {
+  if (config.model_config.provider_config.provider == "rknn") {
+#if EDGEVOX_ONNX_ENABLE_RKNN
+    // Currently, only zipformer v1 is supported for rknn
+    if (config.model_config.transducer.encoder.empty() &&
+        config.model_config.zipformer2_ctc.model.empty()) {
+      EDGEVOX_ONNX_LOGE(
+          "Only Zipformer transducers and CTC models are currently supported "
+          "by rknn. Fallback to CPU");
+    } else if (!config.model_config.transducer.encoder.empty()) {
+      return std::make_unique<OnlineRecognizerTransducerRknnImpl>(mgr, config);
+    } else if (!config.model_config.zipformer2_ctc.model.empty()) {
+      return std::make_unique<OnlineRecognizerCtcRknnImpl>(mgr, config);
+    }
+#else
+    EDGEVOX_ONNX_LOGE(
+        "Please rebuild edgevox-onnx with -DEDGEVOX_ONNX_ENABLE_RKNN=ON if you "
+        "want to use rknn.");
+    EDGEVOX_ONNX_EXIT(-1);
+    return nullptr;
+#endif
+  }
+
+  if (config.model_config.provider_config.provider == "qnn") {
+#ifdef EDGEVOX_ONNX_ENABLE_QNN
+    if (HasQnnOnlineTransducerModel(config.model_config)) {
+      if (config.model_config.model_type == "nemo_transducer") {
+        return std::make_unique<OnlineRecognizerNemoTransducerQnnImpl>(mgr,
+                                                                     config);
+      }
+      return std::make_unique<OnlineRecognizerZipformerTransducerQnnImpl>(
+          mgr, config);
+    }
+
+    EDGEVOX_ONNX_LOGE(
+        "Only Zipformer transducers and nemo_transducer are currently "
+        "supported by qnn for online recognition.");
+    EDGEVOX_ONNX_EXIT(-1);
+#else
+    EDGEVOX_ONNX_LOGE(
+        "Please rebuild edgevox-onnx with -DEDGEVOX_ONNX_ENABLE_QNN=ON if you "
+        "want to use qnn.");
+    EDGEVOX_ONNX_EXIT(-1);
+    return nullptr;
+#endif
+  }
+
+  if (!config.model_config.transducer.encoder.empty()) {
+    Ort::Env env = CreateOrtEnv();
+
+    Ort::SessionOptions sess_opts;
+    sess_opts.SetIntraOpNumThreads(1);
+    sess_opts.SetInterOpNumThreads(1);
+
+    auto decoder_model = ReadFile(mgr, config.model_config.transducer.decoder);
+    auto sess = std::make_unique<Ort::Session>(env, decoder_model.data(),
+                                               decoder_model.size(), sess_opts);
+
+    if (IsNeMoParakeetUnifiedStreaming(*sess)) {
+      return std::make_unique<
+          OnlineRecognizerTransducerNeMoParakeetUnifiedImpl>(mgr, config);
+    }
+
+    size_t node_count = sess->GetOutputCount();
+
+    if (node_count == 1) {
+      return std::make_unique<OnlineRecognizerTransducerImpl>(mgr, config);
+    } else {
+      return std::make_unique<OnlineRecognizerTransducerNeMoImpl>(mgr, config);
+    }
+  }
+
+  if (!config.model_config.paraformer.encoder.empty()) {
+    return std::make_unique<OnlineRecognizerParaformerImpl>(mgr, config);
+  }
+
+  if (!config.model_config.wenet_ctc.model.empty() ||
+      !config.model_config.zipformer2_ctc.model.empty() ||
+      !config.model_config.nemo_ctc.model.empty() ||
+      !config.model_config.t_one_ctc.model.empty()) {
+    return std::make_unique<OnlineRecognizerCtcImpl>(mgr, config);
+  }
+
+  EDGEVOX_ONNX_LOGE("Please specify a model");
+  EDGEVOX_ONNX_EXIT(-1);
+  return nullptr;
+}
+
+OnlineRecognizerImpl::OnlineRecognizerImpl(const OnlineRecognizerConfig &config)
+    : config_(config) {
+  if (!config.rule_fsts.empty()) {
+    std::vector<std::string> files;
+    SplitStringToVector(config.rule_fsts, ",", false, &files);
+    itn_list_.reserve(files.size());
+    for (const auto &f : files) {
+      if (config.model_config.debug) {
+        EDGEVOX_ONNX_LOGE("rule fst: %s", f.c_str());
+      }
+      itn_list_.push_back(std::make_unique<kaldifst::TextNormalizer>(f));
+    }
+  }
+
+  if (!config.rule_fars.empty()) {
+    if (config.model_config.debug) {
+      EDGEVOX_ONNX_LOGE("Loading FST archives");
+    }
+    std::vector<std::string> files;
+    SplitStringToVector(config.rule_fars, ",", false, &files);
+
+    itn_list_.reserve(files.size() + itn_list_.size());
+
+    for (const auto &f : files) {
+      if (config.model_config.debug) {
+        EDGEVOX_ONNX_LOGE("rule far: %s", f.c_str());
+      }
+      std::unique_ptr<fst::FarReader<fst::StdArc>> reader(
+          fst::FarReader<fst::StdArc>::Open(f));
+      for (; !reader->Done(); reader->Next()) {
+        std::unique_ptr<fst::StdConstFst> r(
+            fst::CastOrConvertToConstFst(reader->GetFst()->Copy()));
+
+        itn_list_.push_back(
+            std::make_unique<kaldifst::TextNormalizer>(std::move(r)));
+      }
+    }
+
+    if (config.model_config.debug) {
+      EDGEVOX_ONNX_LOGE("FST archives loaded!");
+    }
+  }
+
+  if (!config.hr.lexicon.empty() && !config.hr.rule_fsts.empty()) {
+    auto hr_config = config.hr;
+    hr_config.debug = config.model_config.debug;
+    hr_ = std::make_unique<HomophoneReplacer>(hr_config);
+  }
+}
+
+template <typename Manager>
+OnlineRecognizerImpl::OnlineRecognizerImpl(Manager *mgr,
+                                           const OnlineRecognizerConfig &config)
+    : config_(config) {
+  if (!config.rule_fsts.empty()) {
+    std::vector<std::string> files;
+    SplitStringToVector(config.rule_fsts, ",", false, &files);
+    itn_list_.reserve(files.size());
+    for (const auto &f : files) {
+      if (config.model_config.debug) {
+        EDGEVOX_ONNX_LOGE("rule fst: %s", f.c_str());
+      }
+      auto buf = ReadFile(mgr, f);
+      std::istringstream is(std::string(buf.data(), buf.size()));
+      itn_list_.push_back(std::make_unique<kaldifst::TextNormalizer>(is));
+    }
+  }
+
+  if (!config.rule_fars.empty()) {
+    std::vector<std::string> files;
+    SplitStringToVector(config.rule_fars, ",", false, &files);
+    itn_list_.reserve(files.size() + itn_list_.size());
+
+    for (const auto &f : files) {
+      if (config.model_config.debug) {
+        EDGEVOX_ONNX_LOGE("rule far: %s", f.c_str());
+      }
+
+      auto buf = ReadFile(mgr, f);
+
+      auto fsts = ReadFstsFromFar(buf);
+      for (auto &r : fsts) {
+        itn_list_.push_back(
+            std::make_unique<kaldifst::TextNormalizer>(std::move(r)));
+      }
+    }  // for (const auto &f : files)
+  }  // if (!config.rule_fars.empty())
+  if (!config.hr.lexicon.empty() && !config.hr.rule_fsts.empty()) {
+    auto hr_config = config.hr;
+    hr_config.debug = config.model_config.debug;
+    hr_ = std::make_unique<HomophoneReplacer>(mgr, hr_config);
+  }
+}
+
+std::string OnlineRecognizerImpl::ApplyInverseTextNormalization(
+    std::string text) const {
+  text = RemoveInvalidUtf8Sequences(text);
+
+  if (!itn_list_.empty()) {
+    for (const auto &tn : itn_list_) {
+      text = tn->Normalize(text);
+    }
+  }
+
+  return text;
+}
+
+std::string OnlineRecognizerImpl::ApplyHomophoneReplacer(
+    std::string text) const {
+  if (hr_) {
+    text = hr_->Apply(text);
+  }
+
+  return text;
+}
+
+#if __ANDROID_API__ >= 9
+template OnlineRecognizerImpl::OnlineRecognizerImpl(
+    AAssetManager *mgr, const OnlineRecognizerConfig &config);
+
+template std::unique_ptr<OnlineRecognizerImpl> OnlineRecognizerImpl::Create(
+    AAssetManager *mgr, const OnlineRecognizerConfig &config);
+#endif
+
+#if __OHOS__
+template OnlineRecognizerImpl::OnlineRecognizerImpl(
+    NativeResourceManager *mgr, const OnlineRecognizerConfig &config);
+
+template std::unique_ptr<OnlineRecognizerImpl> OnlineRecognizerImpl::Create(
+    NativeResourceManager *mgr, const OnlineRecognizerConfig &config);
+#endif
+
+}  // namespace edgevox_onnx

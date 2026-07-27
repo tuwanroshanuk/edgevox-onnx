@@ -1,0 +1,37 @@
+// edgevox-onnx/csrc/alsa-play.h
+//
+// Copyright (c)  2022-2023  Xiaomi Corporation
+
+#ifndef EDGEVOX_ONNX_CSRC_ALSA_PLAY_H_
+#define EDGEVOX_ONNX_CSRC_ALSA_PLAY_H_
+
+#include <cstdint>
+#include <memory>
+#include <vector>
+
+#include "alsa/asoundlib.h"
+#include "edgevox-onnx/csrc/resample.h"
+
+namespace edgevox_onnx {
+
+class AlsaPlay {
+ public:
+  AlsaPlay(const char *device_name, int32_t sample_rate);
+  ~AlsaPlay();
+  void Play(const std::vector<float> &samples);
+
+  // wait for all the samples to be played
+  void Drain();
+
+ private:
+  void SetParameters(int32_t sample_rate);
+
+ private:
+  snd_pcm_t *handle_ = nullptr;
+  std::unique_ptr<LinearResample> resampler_;
+  std::vector<int16_t> buf_;
+};
+
+}  // namespace edgevox_onnx
+
+#endif  // EDGEVOX_ONNX_CSRC_ALSA_PLAY_H_

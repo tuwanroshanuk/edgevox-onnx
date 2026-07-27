@@ -1,0 +1,152 @@
+// c-api-examples/kws-c-api.c
+//
+// Copyright (c)  2025  Xiaomi Corporation
+//
+// This file demonstrates how to use keywords spotter with edgevox-onnx's C
+// clang-format off
+//
+// Usage
+//
+// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/kws-models/edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile.tar.bz2
+// tar xvf edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile.tar.bz2
+// rm edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile.tar.bz2
+//
+// ./kws-c-api
+//
+// clang-format on
+#include <stdio.h>
+#include <stdlib.h>  // exit
+#include <string.h>  // memset
+
+#include "edgevox-onnx/c-api/c-api.h"
+
+int32_t main() {
+  EdgevoxOnnxKeywordSpotterConfig config;
+
+  memset(&config, 0, sizeof(config));
+  config.model_config.transducer.encoder =
+      "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+      "encoder-epoch-12-avg-2-chunk-16-left-64.int8.onnx";
+
+  config.model_config.transducer.decoder =
+      "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+      "decoder-epoch-12-avg-2-chunk-16-left-64.onnx";
+
+  config.model_config.transducer.joiner =
+      "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+      "joiner-epoch-12-avg-2-chunk-16-left-64.int8.onnx";
+
+  config.model_config.tokens =
+      "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+      "tokens.txt";
+
+  config.model_config.provider = "cpu";
+  config.model_config.num_threads = 1;
+  config.model_config.debug = 1;
+
+  config.keywords_file =
+      "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+      "test_wavs/test_keywords.txt";
+
+  const EdgevoxOnnxKeywordSpotter *kws = EdgevoxOnnxCreateKeywordSpotter(&config);
+  if (!kws) {
+    fprintf(stderr, "Please check your config");
+    exit(-1);
+  }
+
+  fprintf(stderr,
+          "--Test pre-defined keywords from test_wavs/test_keywords.txt--\n");
+
+  const char *wav_filename =
+      "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+      "test_wavs/3.wav";
+
+  float tail_paddings[8000] = {0};  // 0.5 seconds
+
+  const EdgevoxOnnxWave *wave = EdgevoxOnnxReadWave(wav_filename);
+  if (wave == NULL) {
+    fprintf(stderr, "Failed to read %s\n", wav_filename);
+    exit(-1);
+  }
+
+  const EdgevoxOnnxOnlineStream *stream = EdgevoxOnnxCreateKeywordStream(kws);
+  if (!stream) {
+    fprintf(stderr, "Failed to create stream\n");
+    exit(-1);
+  }
+
+  EdgevoxOnnxOnlineStreamAcceptWaveform(stream, wave->sample_rate, wave->samples,
+                                       wave->num_samples);
+
+  EdgevoxOnnxOnlineStreamAcceptWaveform(stream, wave->sample_rate, tail_paddings,
+                                       sizeof(tail_paddings) / sizeof(float));
+  EdgevoxOnnxOnlineStreamInputFinished(stream);
+  while (EdgevoxOnnxIsKeywordStreamReady(kws, stream)) {
+    EdgevoxOnnxDecodeKeywordStream(kws, stream);
+    const EdgevoxOnnxKeywordResult *r = EdgevoxOnnxGetKeywordResult(kws, stream);
+    if (r && r->json && strlen(r->keyword)) {
+      fprintf(stderr, "Detected keyword: %s\n", r->json);
+
+      // Remember to reset the keyword stream right after a keyword is detected
+      EdgevoxOnnxResetKeywordStream(kws, stream);
+    }
+    EdgevoxOnnxDestroyKeywordResult(r);
+  }
+  EdgevoxOnnxDestroyOnlineStream(stream);
+
+  // --------------------------------------------------------------------------
+
+  fprintf(stderr, "--Use pre-defined keywords + add a new keyword--\n");
+
+  stream = EdgevoxOnnxCreateKeywordStreamWithKeywords(kws, "y ǎn y uán @演员");
+
+  EdgevoxOnnxOnlineStreamAcceptWaveform(stream, wave->sample_rate, wave->samples,
+                                       wave->num_samples);
+
+  EdgevoxOnnxOnlineStreamAcceptWaveform(stream, wave->sample_rate, tail_paddings,
+                                       sizeof(tail_paddings) / sizeof(float));
+  EdgevoxOnnxOnlineStreamInputFinished(stream);
+  while (EdgevoxOnnxIsKeywordStreamReady(kws, stream)) {
+    EdgevoxOnnxDecodeKeywordStream(kws, stream);
+    const EdgevoxOnnxKeywordResult *r = EdgevoxOnnxGetKeywordResult(kws, stream);
+    if (r && r->json && strlen(r->keyword)) {
+      fprintf(stderr, "Detected keyword: %s\n", r->json);
+
+      // Remember to reset the keyword stream
+      EdgevoxOnnxResetKeywordStream(kws, stream);
+    }
+    EdgevoxOnnxDestroyKeywordResult(r);
+  }
+  EdgevoxOnnxDestroyOnlineStream(stream);
+
+  // --------------------------------------------------------------------------
+
+  fprintf(stderr, "--Use pre-defined keywords + add two new keywords--\n");
+
+  stream = EdgevoxOnnxCreateKeywordStreamWithKeywords(
+      kws, "y ǎn y uán @演员/zh ī m íng @知名");
+
+  EdgevoxOnnxOnlineStreamAcceptWaveform(stream, wave->sample_rate, wave->samples,
+                                       wave->num_samples);
+
+  EdgevoxOnnxOnlineStreamAcceptWaveform(stream, wave->sample_rate, tail_paddings,
+                                       sizeof(tail_paddings) / sizeof(float));
+  EdgevoxOnnxOnlineStreamInputFinished(stream);
+  while (EdgevoxOnnxIsKeywordStreamReady(kws, stream)) {
+    EdgevoxOnnxDecodeKeywordStream(kws, stream);
+    const EdgevoxOnnxKeywordResult *r = EdgevoxOnnxGetKeywordResult(kws, stream);
+    if (r && r->json && strlen(r->keyword)) {
+      fprintf(stderr, "Detected keyword: %s\n", r->json);
+
+      // Remember to reset the keyword stream
+      EdgevoxOnnxResetKeywordStream(kws, stream);
+    }
+    EdgevoxOnnxDestroyKeywordResult(r);
+  }
+  EdgevoxOnnxDestroyOnlineStream(stream);
+
+  EdgevoxOnnxFreeWave(wave);
+  EdgevoxOnnxDestroyKeywordSpotter(kws);
+
+  return 0;
+}

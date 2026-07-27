@@ -1,0 +1,84 @@
+name: edgevox_onnx
+
+description: >
+  Speech recognition, speech synthesis, speaker diarization, and speaker recognition
+  using next-gen Kaldi with onnxruntime without Internet connection.
+
+repository: https://github.com/k2-fsa/edgevox-onnx/tree/master/flutter
+
+issue_tracker: https://github.com/k2-fsa/edgevox-onnx/issues
+documentation: https://k2-fsa.github.io/sherpa/onnx/
+
+topics:
+  - speech-recognition
+  - speech-synthesis
+  - speaker-diarization
+  - audio-tagging
+  - voice-activity-detection
+
+# remember to change the version in ../edgevox_onnx_macos/macos/edgevox_onnx_macos.podspec
+version: 1.13.4
+
+homepage: https://github.com/k2-fsa/edgevox-onnx
+
+environment:
+  sdk: ">=3.1.0 <4.0.0"
+  flutter: ">=2.8.1"
+
+dependencies:
+  ffi: ^2.1.0
+  flutter:
+    sdk: flutter
+
+  edgevox_onnx_android_arm64: ^1.13.4
+  # edgevox_onnx_android_arm64:
+  #   path: ../edgevox_onnx_android_arm64
+
+  edgevox_onnx_android_armeabi: ^1.13.4
+  # edgevox_onnx_android_armeabi:
+  #   path: ../edgevox_onnx_android_armeabi
+
+  edgevox_onnx_android_x86: ^1.13.4
+  # edgevox_onnx_android_x86:
+  #   path: ../edgevox_onnx_android_x86
+
+  edgevox_onnx_android_x86_64: ^1.13.4
+  # edgevox_onnx_android_x86_64:
+  #   path: ../edgevox_onnx_android_x86_64
+
+  edgevox_onnx_macos: ^1.13.4
+  # edgevox_onnx_macos:
+  #   path: ../edgevox_onnx_macos
+
+  edgevox_onnx_linux: ^1.13.4
+  # edgevox_onnx_linux:
+  #   path: ../edgevox_onnx_linux
+
+  edgevox_onnx_windows: ^1.13.4
+  # edgevox_onnx_windows:
+  #   path: ../edgevox_onnx_windows
+
+  edgevox_onnx_ios: ^1.13.4
+  # edgevox_onnx_ios:
+  #   path: ../edgevox_onnx_ios
+
+dev_dependencies:
+  flutter_lints: ^3.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        default_package: edgevox_onnx_android_arm64
+
+      ios:
+        default_package: edgevox_onnx_ios
+
+      macos:
+        default_package: edgevox_onnx_macos
+
+      linux:
+        default_package: edgevox_onnx_linux
+
+      windows:
+        default_package: edgevox_onnx_windows

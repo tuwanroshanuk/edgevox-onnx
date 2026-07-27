@@ -1,0 +1,104 @@
+name: speaker-diarization
+
+on:
+  push:
+    branches:
+      - speaker-diarization
+  workflow_dispatch:
+
+concurrency:
+  group: speaker-diarization-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  linux:
+    name: speaker diarization
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest]
+        python-version: ["3.10"]
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update version
+        shell: bash
+        run: |
+          ./new-release.sh
+          git diff .
+
+      - name: ccache
+        uses: hendrikmuhs/ccache-action@v1.2
+        with:
+          key: ${{ matrix.os }}-speaker-diarization
+
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install pyannote
+        shell: bash
+        run: |
+          pip install pyannote.audio onnx onnxruntime
+
+      - name: Install edgevox-onnx from source
+        shell: bash
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install wheel twine setuptools
+
+          export CMAKE_CXX_COMPILER_LAUNCHER=ccache
+          export PATH="/usr/lib/ccache:/usr/local/opt/ccache/libexec:$PATH"
+
+          cat edgevox-onnx/python/edgevox_onnx/__init__.py
+
+          python3 setup.py bdist_wheel
+          ls -lh dist
+          pip install ./dist/*.whl
+
+      - name: Run tests
+        shell: bash
+        run: |
+          pushd scripts/pyannote/segmentation
+
+          python3 -c "import edgevox_onnx; print(edgevox_onnx.__file__)"
+          python3 -c "import edgevox_onnx; print(edgevox_onnx.__version__)"
+          python3 -c "import edgevox_onnx; print(dir(edgevox_onnx))"
+
+          curl -SL -O https://huggingface.co/csukuangfj/pyannote-models/resolve/main/segmentation-3.0/pytorch_model.bin
+
+          test_wavs=(
+            0-four-speakers-zh.wav
+            1-two-speakers-en.wav
+            2-two-speakers-en.wav
+            3-two-speakers-en.wav
+          )
+
+          for w in ${test_wavs[@]}; do
+            curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-segmentation-models/$w
+          done
+
+          soxi *.wav
+
+          curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-segmentation-models/edgevox-onnx-pyannote-segmentation-3-0.tar.bz2
+          tar xvf edgevox-onnx-pyannote-segmentation-3-0.tar.bz2
+          rm edgevox-onnx-pyannote-segmentation-3-0.tar.bz2
+          ls -lh edgevox-onnx-pyannote-segmentation-3-0
+
+          curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
+
+          for w in ${test_wavs[@]}; do
+            echo "---------test $w (onnx)----------"
+            time ./speaker-diarization-onnx.py \
+              --seg-model ./edgevox-onnx-pyannote-segmentation-3-0/model.onnx \
+              --speaker-embedding-model ./3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx \
+              --wav $w
+
+            echo "---------test $w (torch)----------"
+            time ./speaker-diarization-torch.py  --wav $w
+          done

@@ -1,0 +1,2 @@
+recursive-include edgevox_onnx/lib *
+recursive-include edgevox_onnx/include *

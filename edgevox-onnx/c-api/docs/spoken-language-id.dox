@@ -1,0 +1,39 @@
+/**
+@page spoken_language_id Spoken Language Identification
+
+edgevox-onnx supports spoken language identification through the
+@ref EdgevoxOnnxCreateSpokenLanguageIdentification() API. It uses
+Whisper-based models to detect the language of spoken audio.
+
+@see EdgevoxOnnxCreateSpokenLanguageIdentification,
+     EdgevoxOnnxSpokenLanguageIdentificationConfig
+
+@code
+EdgevoxOnnxSpokenLanguageIdentificationConfig config;
+memset(&config, 0, sizeof(config));
+config.whisper.encoder = "./edgevox-onnx-whisper-tiny/tiny-encoder.int8.onnx";
+config.whisper.decoder = "./edgevox-onnx-whisper-tiny/tiny-decoder.int8.onnx";
+config.num_threads = 1;
+config.provider = "cpu";
+
+const EdgevoxOnnxSpokenLanguageIdentification *slid =
+    EdgevoxOnnxCreateSpokenLanguageIdentification(&config);
+
+EdgevoxOnnxOfflineStream *stream =
+    EdgevoxOnnxSpokenLanguageIdentificationCreateOfflineStream(slid);
+EdgevoxOnnxAcceptWaveformOffline(stream, wave->sample_rate,
+                                wave->samples, wave->num_samples);
+
+const EdgevoxOnnxSpokenLanguageIdentificationResult *result =
+    EdgevoxOnnxSpokenLanguageIdentificationCompute(slid, stream);
+printf("Detected language: %s\n", result->lang);
+
+EdgevoxOnnxDestroySpokenLanguageIdentificationResult(result);
+EdgevoxOnnxDestroyOfflineStream(stream);
+EdgevoxOnnxDestroySpokenLanguageIdentification(slid);
+@endcode
+
+Model package: `edgevox-onnx-whisper-tiny`
+
+Example source: [spoken-language-identification-c-api.c](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/spoken-language-identification-c-api.c)
+*/

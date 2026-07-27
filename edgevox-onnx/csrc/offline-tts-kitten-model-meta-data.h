@@ -1,0 +1,34 @@
+// edgevox-onnx/csrc/offline-tts-kitten-model-meta-data.h
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+#ifndef EDGEVOX_ONNX_CSRC_OFFLINE_TTS_KITTEN_MODEL_META_DATA_H_
+#define EDGEVOX_ONNX_CSRC_OFFLINE_TTS_KITTEN_MODEL_META_DATA_H_
+
+#include <cstdint>
+#include <string>
+#include <vector>
+
+namespace edgevox_onnx {
+
+// please refer to
+// https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/kitten-tts/nano_v0_1/add_meta_data.py
+struct OfflineTtsKittenModelMetaData {
+  int32_t sample_rate = 0;
+  int32_t num_speakers = 0;
+  int32_t version = 1;
+  int32_t has_espeak = 1;
+
+  int32_t max_token_len = 256;
+  int32_t start_id = 0;
+  int32_t end_id = 0;
+  int32_t pad_id = 0;
+  int32_t add_pad_after_end = 0;
+
+  std::string voice;
+  std::vector<float> speaker_speed_priors;
+};
+
+}  // namespace edgevox_onnx
+
+#endif  // EDGEVOX_ONNX_CSRC_OFFLINE_TTS_KITTEN_MODEL_META_DATA_H_

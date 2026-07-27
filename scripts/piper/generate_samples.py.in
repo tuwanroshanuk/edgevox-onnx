@@ -1,0 +1,23 @@
+import edgevox_onnx
+import soundfile as sf
+
+config = edgevox_onnx.OfflineTtsConfig(
+    model=edgevox_onnx.OfflineTtsModelConfig(
+        vits=edgevox_onnx.OfflineTtsVitsModelConfig(
+            model="{{ model }}",
+            lexicon="{{ lexicon }}",
+            data_dir="{{ data_dir }}",
+            tokens="{{ tokens }}",
+        ),
+        num_threads=1,
+    ),
+    rule_fsts="{{ rule_fsts }}",
+)
+
+if not config.validate():
+    raise ValueError("Please check your config")
+
+tts = edgevox_onnx.OfflineTts(config)
+audio = tts.generate(text="{{text}}", sid={{sid}}, speed=1.0)
+
+sf.write("{{ output_filename }}", audio.samples, samplerate=audio.sample_rate)

@@ -1,0 +1,38 @@
+// Copyright (c)  2026  Xiaomi Corporation (authors: Fangjun Kuang)
+//
+const edgevox_onnx = require('edgevox-onnx');
+
+function createOfflineRecognizer() {
+  const config = {
+    modelConfig: {
+      cohereTranscribe: {
+        encoder:
+            './edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/encoder.int8.onnx',
+        decoder:
+            './edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/decoder.int8.onnx',
+        usePunct: 1,
+        useItn: 1,
+      },
+      tokens:
+          './edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/tokens.txt',
+    }
+  };
+
+  return edgevox_onnx.createOfflineRecognizer(config);
+}
+
+const recognizer = createOfflineRecognizer();
+const stream = recognizer.createStream();
+stream.setOption('language', 'en');
+
+const waveFilename =
+    './edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/en.wav';
+const wave = edgevox_onnx.readWave(waveFilename);
+stream.acceptWaveform(wave.sampleRate, wave.samples);
+
+recognizer.decode(stream);
+const text = recognizer.getResult(stream).text;
+console.log(text);
+
+stream.free();
+recognizer.free();
