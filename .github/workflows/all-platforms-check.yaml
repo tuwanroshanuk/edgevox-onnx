@@ -95,20 +95,19 @@ jobs:
         run: |
           echo "y" | ${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager --install "ndk;26.1.10909125"
           echo "ANDROID_NDK=${ANDROID_SDK_ROOT}/ndk/26.1.10909125" >> "$GITHUB_ENV"
-      - name: Configure & build core lib for arm64-v8a
+      - name: Build core lib for arm64-v8a
+        # Use the project's own build-android-arm64-v8a.sh rather than a
+        # hand-rolled cmake invocation: it fetches the prebuilt Android
+        # onnxruntime and exports EDGEVOX_ONNXRUNTIME_LIB_DIR/INCLUDE_DIR
+        # before configuring. cmake/onnxruntime.cmake has no fallback
+        # download path for Android -- it deliberately expects those env
+        # vars to already point at a fetched onnxruntime, same as every
+        # other Android workflow in this repo.
+        env:
+          EDGEVOX_ONNX_ENABLE_C_API: "ON"
         run: |
-          echo "Using ANDROID_NDK=${ANDROID_NDK}"
-          ls -lh "${ANDROID_NDK}"
-          mkdir -p build-android
-          cd build-android
-          cmake -DCMAKE_TOOLCHAIN_FILE=${ANDROID_NDK}/build/cmake/android.toolchain.cmake \
-                -DANDROID_ABI=arm64-v8a \
-                -DANDROID_PLATFORM=android-24 \
-                -DBUILD_SHARED_LIBS=ON \
-                -DEDGEVOX_ONNX_ENABLE_TESTS=OFF \
-                -DEDGEVOX_ONNX_ENABLE_PYTHON=OFF \
-                ..
-          cmake --build . --config Release -- -j2
+          chmod +x build-android-arm64-v8a.sh
+          ./build-android-arm64-v8a.sh
 
   all-platforms-status:
     name: All Platforms Status
