@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ishankrishan/edgevox-onnx.git"
+    "url": "git+https://github.com/tuwanroshanuk/edgevox-onnx.git"
   },
   "keywords": [
     "edgevox-onnx",
