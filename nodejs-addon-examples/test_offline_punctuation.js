@@ -3,12 +3,12 @@
 const edgevox_onnx = require('edgevox-onnx-node');
 
 // Please download test files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/punctuation-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/punctuation-models
 function createPunctuation() {
   const config = {
     model: {
       ctTransformer:
-          './edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx',
+          './sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx',
       debug: true,
       numThreads: 1,
       provider: 'cpu',

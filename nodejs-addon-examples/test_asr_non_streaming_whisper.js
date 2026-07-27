@@ -5,7 +5,7 @@ console.log(`git sha1: ${edgevox_onnx.gitSha1}`);
 console.log(`git date: ${edgevox_onnx.gitDate}`);
 
 // Please download test files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 const config = {
   'featConfig': {
     'sampleRate': 16000,
@@ -13,17 +13,17 @@ const config = {
   },
   'modelConfig': {
     'whisper': {
-      'encoder': './edgevox-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx',
-      'decoder': './edgevox-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx',
+      'encoder': './sherpa-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx',
+      'decoder': './sherpa-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx',
     },
-    'tokens': './edgevox-onnx-whisper-tiny.en/tiny.en-tokens.txt',
+    'tokens': './sherpa-onnx-whisper-tiny.en/tiny.en-tokens.txt',
     'numThreads': 2,
     'provider': 'cpu',
     'debug': 1,
   }
 };
 
-const waveFilename = './edgevox-onnx-whisper-tiny.en/test_wavs/0.wav';
+const waveFilename = './sherpa-onnx-whisper-tiny.en/test_wavs/0.wav';
 
 const recognizer = new edgevox_onnx.OfflineRecognizer(config);
 console.log('Started');

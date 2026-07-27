@@ -8,9 +8,9 @@
 // clang-format off
 //
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10.tar.bz2
-// tar xvf edgevox-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10.tar.bz2
-// rm edgevox-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10.tar.bz2
+// tar xvf sherpa-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10.tar.bz2
+// rm sherpa-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10.tar.bz2
 //
 // clang-format on
 
@@ -82,8 +82,8 @@ static edgevox_onnx::cxx::OfflineRecognizer CreateOfflineRecognizer() {
   OfflineRecognizerConfig config;
 
   // clang-format off
-  config.model_config.wenet_ctc.model = "edgevox-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/model.int8.onnx";
-  config.model_config.tokens = "edgevox-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/tokens.txt";
+  config.model_config.wenet_ctc.model = "sherpa-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/model.int8.onnx";
+  config.model_config.tokens = "sherpa-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/tokens.txt";
   // clang-format on
 
   config.model_config.num_threads = 2;

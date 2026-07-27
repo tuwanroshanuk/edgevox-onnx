@@ -7,16 +7,16 @@
 // API.
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
-// tar xvf edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
-// rm edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+// tar xvf sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+// rm sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/dict.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/dict.tar.bz2
 // tar xf dict.tar.bz2
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/replace.fst
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/test-hr.wav
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/lexicon.txt
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/replace.fst
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/test-hr.wav
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/lexicon.txt
 //
 // clang-format on
 
@@ -42,23 +42,23 @@ int32_t main() {
   online_model_config.num_threads = 1;
   online_model_config.provider = "cpu";
   online_model_config.tokens =
-      "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt";
+      "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt";
 
   online_model_config.transducer.encoder =
-      "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+      "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
       "encoder-epoch-99-avg-1.int8.onnx";
 
   // Note: We recommend not using int8.onnx for the decoder.
   online_model_config.transducer.decoder =
-      "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+      "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
       "decoder-epoch-99-avg-1.onnx";
 
   online_model_config.transducer.joiner =
-      "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+      "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
       "joiner-epoch-99-avg-1.int8.onnx";
 
   online_model_config.tokens =
-      "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt";
+      "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt";
 
   online_model_config.num_threads = 1;
 

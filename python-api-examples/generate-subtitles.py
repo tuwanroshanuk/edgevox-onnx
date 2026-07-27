@@ -12,16 +12,16 @@ Supported file formats are those supported by ffmpeg; for instance,
 Note that you need a non-streaming model for this script.
 
 Please visit
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 to download silero_vad.onnx
 
 For instance,
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 or download ten-vad.onnx, for instance
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/ten-vad.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/ten-vad.onnx
 
 Please replace --silero-vad-model with --ten-vad-model below to use ten-vad.
 
@@ -57,11 +57,11 @@ Please replace --silero-vad-model with --ten-vad-model below to use ten-vad.
 
 ./python-api-examples/generate-subtitles.py  \
   --silero-vad-model=/path/to/silero_vad.onnx \
-  --moonshine-preprocessor=./edgevox-onnx-moonshine-tiny-en-int8/preprocess.onnx \
-  --moonshine-encoder=./edgevox-onnx-moonshine-tiny-en-int8/encode.int8.onnx \
-  --moonshine-uncached-decoder=./edgevox-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx \
-  --moonshine-cached-decoder=./edgevox-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx \
-  --tokens=./edgevox-onnx-moonshine-tiny-en-int8/tokens.txt \
+  --moonshine-preprocessor=./sherpa-onnx-moonshine-tiny-en-int8/preprocess.onnx \
+  --moonshine-encoder=./sherpa-onnx-moonshine-tiny-en-int8/encode.int8.onnx \
+  --moonshine-uncached-decoder=./sherpa-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx \
+  --moonshine-cached-decoder=./sherpa-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx \
+  --tokens=./sherpa-onnx-moonshine-tiny-en-int8/tokens.txt \
   --num-threads=2 \
   /path/to/test.mp4
 
@@ -69,9 +69,9 @@ Please replace --silero-vad-model with --ten-vad-model below to use ten-vad.
 
 ./python-api-examples/generate-subtitles.py  \
   --silero-vad-model=/path/to/silero_vad.onnx \
-  --whisper-encoder=./edgevox-onnx-whisper-base.en/base.en-encoder.int8.onnx \
-  --whisper-decoder=./edgevox-onnx-whisper-base.en/base.en-decoder.int8.onnx \
-  --tokens=./edgevox-onnx-whisper-base.en/base.en-tokens.txt \
+  --whisper-encoder=./sherpa-onnx-whisper-base.en/base.en-encoder.int8.onnx \
+  --whisper-decoder=./sherpa-onnx-whisper-base.en/base.en-decoder.int8.onnx \
+  --tokens=./sherpa-onnx-whisper-base.en/base.en-tokens.txt \
   --whisper-task=transcribe \
   --num-threads=2 \
   /path/to/test.mp4
@@ -80,8 +80,8 @@ Please replace --silero-vad-model with --ten-vad-model below to use ten-vad.
 
 ./python-api-examples/generate-subtitles.py  \
   --silero-vad-model=/path/to/silero_vad.onnx \
-  --sense-voice=./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx \
-  --tokens=./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/tokens.txt \
+  --sense-voice=./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx \
+  --tokens=./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/tokens.txt \
   --num-threads=2 \
   /path/to/test.mp4
 
@@ -89,9 +89,9 @@ Please replace --silero-vad-model with --ten-vad-model below to use ten-vad.
 
 ./python-api-examples/generate-subtitles.py  \
   --silero-vad-model=/path/to/silero_vad.onnx \
-  --tokens=./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/tokens.txt \
-  --fire-red-asr-encoder=./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/encoder.int8.onnx \
-  --fire-red-asr-decoder=./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/decoder.int8.onnx \
+  --tokens=./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/tokens.txt \
+  --fire-red-asr-encoder=./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/encoder.int8.onnx \
+  --fire-red-asr-decoder=./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/decoder.int8.onnx \
   --num-threads=2 \
   /path/to/test.mp4
 
@@ -99,8 +99,8 @@ Please replace --silero-vad-model with --ten-vad-model below to use ten-vad.
 
 ./python-api-examples/generate-subtitles.py  \
   --silero-vad-model=/path/to/silero_vad.onnx \
-  --wenet-ctc=./edgevox-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/model.int8.onnx \
-  --tokens=./edgevox-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/tokens.txt \
+  --wenet-ctc=./sherpa-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/model.int8.onnx \
+  --tokens=./sherpa-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/tokens.txt \
   --num-threads=2 \
   /path/to/test.mp4
 
@@ -108,10 +108,10 @@ Please replace --silero-vad-model with --ten-vad-model below to use ten-vad.
 
 ./python-api-examples/generate-subtitles.py  \
   --silero-vad-model=./silero_vad.onnx \
-  --encoder ./edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/encoder.int8.onnx \
-  --decoder ./edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/decoder.int8.onnx \
-  --joiner ./edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/joiner.int8.onnx \
-  --tokens ./edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/tokens.txt \
+  --encoder ./sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/encoder.int8.onnx \
+  --decoder ./sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/decoder.int8.onnx \
+  --joiner ./sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/joiner.int8.onnx \
+  --tokens ./sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/tokens.txt \
   --model-type nemo_transducer \
   /path/to/test.mp4
 
@@ -119,8 +119,8 @@ Please replace --silero-vad-model with --ten-vad-model below to use ten-vad.
 
 ./python-api-examples/generate-subtitles.py  \
   --silero-vad-model=./silero_vad.onnx \
-  --fire-red-asr-ctc=./edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/model.int8.onnx \
-  --tokens=./edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/tokens.txt \
+  --fire-red-asr-ctc=./sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/model.int8.onnx \
+  --tokens=./sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/tokens.txt \
   --num-threads=2 \
   /path/to/test.mp4
 
@@ -128,10 +128,10 @@ Please replace --silero-vad-model with --ten-vad-model below to use ten-vad.
 
 ./python-api-examples/generate-subtitles.py  \
   --silero-vad-model=./silero_vad.onnx \
-  --funasr-nano-encoder-adaptor=./edgevox-onnx-funasr-nano-int8-2025-12-30/encoder_adaptor.int8.onnx \
-  --funasr-nano-llm=./edgevox-onnx-funasr-nano-int8-2025-12-30/llm.int8.onnx \
-  --funasr-nano-tokenizer=./edgevox-onnx-funasr-nano-int8-2025-12-30/Qwen3-0.6B \
-  --funasr-nano-embedding=./edgevox-onnx-funasr-nano-int8-2025-12-30/embedding.int8.onnx \
+  --funasr-nano-encoder-adaptor=./sherpa-onnx-funasr-nano-int8-2025-12-30/encoder_adaptor.int8.onnx \
+  --funasr-nano-llm=./sherpa-onnx-funasr-nano-int8-2025-12-30/llm.int8.onnx \
+  --funasr-nano-tokenizer=./sherpa-onnx-funasr-nano-int8-2025-12-30/Qwen3-0.6B \
+  --funasr-nano-embedding=./sherpa-onnx-funasr-nano-int8-2025-12-30/embedding.int8.onnx \
   --num-threads=2 \
   /path/to/test.mp4
 

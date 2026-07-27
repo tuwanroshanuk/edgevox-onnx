@@ -6,15 +6,15 @@ This file shows how to use spleeter for source separation.
 
 Please first download a spleeter model from
 
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/source-separation-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/source-separation-models
 
 The following is an example:
 
-    wget https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/edgevox-onnx-spleeter-2stems-fp16.tar.bz2
+    wget https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/sherpa-onnx-spleeter-2stems-fp16.tar.bz2
 
 Please also download a test file
 
-    wget https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/qi-feng-le-zh.wav
+    wget https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/qi-feng-le-zh.wav
 
 The test wav file is 16-bit encoded with 2 channels. If you have other
 formats, e.g., .mp4 or .mp3, please first use ffmpeg to convert it.
@@ -36,8 +36,8 @@ import soundfile as sf
 def create_offline_source_separation():
     # Please read the help message at the beginning of this file
     # to download model files
-    vocals = "./edgevox-onnx-spleeter-2stems-fp16/vocals.fp16.onnx"
-    accompaniment = "./edgevox-onnx-spleeter-2stems-fp16/accompaniment.fp16.onnx"
+    vocals = "./sherpa-onnx-spleeter-2stems-fp16/vocals.fp16.onnx"
+    accompaniment = "./sherpa-onnx-spleeter-2stems-fp16/accompaniment.fp16.onnx"
 
     if not Path(vocals).is_file():
         raise ValueError(f"{vocals} does not exist.")

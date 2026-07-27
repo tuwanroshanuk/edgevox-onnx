@@ -43,4 +43,4 @@ Heads with high combined scores (>0.7) are good candidates. A single head with
 a very high diagonal score (>0.9) is often sufficient for accurate timestamps.
 
 [whisper]: https://github.com/openai/whisper
-[edgevox-onnx]: https://github.com/k2-fsa/edgevox-onnx
+[sherpa-onnx]: https://github.com/k2-fsa/sherpa-onnx

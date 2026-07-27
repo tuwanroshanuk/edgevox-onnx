@@ -1,11 +1,11 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 fun main() {
   testZipVoiceTts()
 }
 
 fun testZipVoiceTts() {
-  val modelDir = "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia"
+  val modelDir = "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia"
   val referenceAudioFilename = "$modelDir/test_wavs/leijun-1.wav"
   val wave = WaveReader.readWave(filename = referenceAudioFilename)
 

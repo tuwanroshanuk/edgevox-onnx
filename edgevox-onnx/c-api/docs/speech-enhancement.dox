@@ -31,7 +31,7 @@ EdgevoxOnnxDestroyOfflineSpeechDenoiser(sd);
 
 Model file: `gtcrn_simple.onnx`
 
-Example source: [speech-enhancement-gtcrn-c-api.c](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/speech-enhancement-gtcrn-c-api.c)
+Example source: [speech-enhancement-gtcrn-c-api.c](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/speech-enhancement-gtcrn-c-api.c)
 
 @section se_offline_dpdfnet Offline DPDFNet
 
@@ -51,7 +51,7 @@ EdgevoxOnnxDestroyOfflineSpeechDenoiser(sd);
 Model file: `dpdfnet_baseline.onnx` (also: `dpdfnet2.onnx`, `dpdfnet4.onnx`,
 `dpdfnet8.onnx` for 16 kHz; `dpdfnet2_48khz_hr.onnx` for 48 kHz)
 
-Example source: [speech-enhancement-dpdfnet-c-api.c](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/speech-enhancement-dpdfnet-c-api.c)
+Example source: [speech-enhancement-dpdfnet-c-api.c](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/speech-enhancement-dpdfnet-c-api.c)
 
 @section se_online_gtcrn Online GTCRN
 
@@ -75,7 +75,7 @@ EdgevoxOnnxDestroyOnlineSpeechDenoiser(sd);
 
 Model file: `gtcrn_simple.onnx`
 
-Example source: [online-speech-enhancement-gtcrn-c-api.c](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/online-speech-enhancement-gtcrn-c-api.c)
+Example source: [online-speech-enhancement-gtcrn-c-api.c](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/online-speech-enhancement-gtcrn-c-api.c)
 
 @section se_online_dpdfnet Online DPDFNet
 
@@ -94,5 +94,5 @@ EdgevoxOnnxDestroyOnlineSpeechDenoiser(sd);
 
 Model file: `dpdfnet_baseline.onnx`
 
-Example source: [online-speech-enhancement-dpdfnet-c-api.c](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/online-speech-enhancement-dpdfnet-c-api.c)
+Example source: [online-speech-enhancement-dpdfnet-c-api.c](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/online-speech-enhancement-dpdfnet-c-api.c)
 */

@@ -5,7 +5,7 @@
 //
 // See also
 // https://k2-fsa.github.io/sherpa/onnx/hotwords/index.html#modeling-unit-is-cjkchar
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingDecodeFileTransducerHotwords {
   public static void main(String[] args) {
@@ -13,12 +13,12 @@ public class NonStreamingDecodeFileTransducerHotwords {
     // https://k2-fsa.github.io/sherpa/onnx/hotwords/index.html#modeling-unit-is-cjkchar
     // to download model files
     String encoder =
-        "./edgevox-onnx-conformer-zh-stateless2-2023-05-23/encoder-epoch-99-avg-1.int8.onnx";
-    String decoder = "./edgevox-onnx-conformer-zh-stateless2-2023-05-23/decoder-epoch-99-avg-1.onnx";
-    String joiner = "./edgevox-onnx-conformer-zh-stateless2-2023-05-23/joiner-epoch-99-avg-1.onnx";
-    String tokens = "./edgevox-onnx-conformer-zh-stateless2-2023-05-23/tokens.txt";
+        "./sherpa-onnx-conformer-zh-stateless2-2023-05-23/encoder-epoch-99-avg-1.int8.onnx";
+    String decoder = "./sherpa-onnx-conformer-zh-stateless2-2023-05-23/decoder-epoch-99-avg-1.onnx";
+    String joiner = "./sherpa-onnx-conformer-zh-stateless2-2023-05-23/joiner-epoch-99-avg-1.onnx";
+    String tokens = "./sherpa-onnx-conformer-zh-stateless2-2023-05-23/tokens.txt";
 
-    String waveFilename = "./edgevox-onnx-conformer-zh-stateless2-2023-05-23/test_wavs/6.wav";
+    String waveFilename = "./sherpa-onnx-conformer-zh-stateless2-2023-05-23/test_wavs/6.wav";
 
     WaveReader reader = new WaveReader(waveFilename);
 

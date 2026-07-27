@@ -1,4 +1,4 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 fun main() {
   testOnlineAsr("transducer")
@@ -18,62 +18,62 @@ fun testOnlineAsr(type: String) {
     val waveFilename: String
     val modelConfig: OnlineModelConfig = when (type) {
       "transducer" -> {
-        waveFilename = "./edgevox-onnx-streaming-zipformer-en-2023-02-21/test_wavs/0.wav"
+        waveFilename = "./sherpa-onnx-streaming-zipformer-en-2023-02-21/test_wavs/0.wav"
         // please refer to
         // https://k2-fsa.github.io/sherpa/onnx/pretrained_models/index.html
         // to download pre-trained models
         OnlineModelConfig(
             transducer = OnlineTransducerModelConfig(
-                encoder = "./edgevox-onnx-streaming-zipformer-en-2023-02-21/encoder-epoch-99-avg-1.onnx",
-                decoder = "./edgevox-onnx-streaming-zipformer-en-2023-02-21/decoder-epoch-99-avg-1.onnx",
-                joiner = "./edgevox-onnx-streaming-zipformer-en-2023-02-21/joiner-epoch-99-avg-1.onnx",
+                encoder = "./sherpa-onnx-streaming-zipformer-en-2023-02-21/encoder-epoch-99-avg-1.onnx",
+                decoder = "./sherpa-onnx-streaming-zipformer-en-2023-02-21/decoder-epoch-99-avg-1.onnx",
+                joiner = "./sherpa-onnx-streaming-zipformer-en-2023-02-21/joiner-epoch-99-avg-1.onnx",
             ),
-            tokens = "./edgevox-onnx-streaming-zipformer-en-2023-02-21/tokens.txt",
+            tokens = "./sherpa-onnx-streaming-zipformer-en-2023-02-21/tokens.txt",
             numThreads = 1,
             debug = false,
         )
       }
       "zipformer2-ctc" -> {
-        waveFilename = "./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000000.wav"
+        waveFilename = "./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000000.wav"
         OnlineModelConfig(
             zipformer2Ctc = OnlineZipformer2CtcModelConfig(
-                model = "./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/ctc-epoch-20-avg-1-chunk-16-left-128.onnx",
+                model = "./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/ctc-epoch-20-avg-1-chunk-16-left-128.onnx",
             ),
-            tokens = "./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/tokens.txt",
+            tokens = "./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/tokens.txt",
             numThreads = 1,
             debug = false,
         )
       }
       "nemo-ctc" -> {
-        waveFilename = "./edgevox-onnx-nemo-streaming-fast-conformer-ctc-en-80ms/test_wavs/0.wav"
+        waveFilename = "./sherpa-onnx-nemo-streaming-fast-conformer-ctc-en-80ms/test_wavs/0.wav"
         OnlineModelConfig(
             neMoCtc = OnlineNeMoCtcModelConfig(
-                model = "./edgevox-onnx-nemo-streaming-fast-conformer-ctc-en-80ms/model.onnx",
+                model = "./sherpa-onnx-nemo-streaming-fast-conformer-ctc-en-80ms/model.onnx",
             ),
-            tokens = "./edgevox-onnx-nemo-streaming-fast-conformer-ctc-en-80ms/tokens.txt",
+            tokens = "./sherpa-onnx-nemo-streaming-fast-conformer-ctc-en-80ms/tokens.txt",
             numThreads = 1,
             debug = false,
         )
       }
       "tone-ctc" -> {
-        waveFilename = "./edgevox-onnx-streaming-t-one-russian-2025-09-08/0.wav"
+        waveFilename = "./sherpa-onnx-streaming-t-one-russian-2025-09-08/0.wav"
         OnlineModelConfig(
             toneCtc = OnlineToneCtcModelConfig(
-                model = "./edgevox-onnx-streaming-t-one-russian-2025-09-08/model.onnx",
+                model = "./sherpa-onnx-streaming-t-one-russian-2025-09-08/model.onnx",
             ),
-            tokens = "./edgevox-onnx-streaming-t-one-russian-2025-09-08/tokens.txt",
+            tokens = "./sherpa-onnx-streaming-t-one-russian-2025-09-08/tokens.txt",
             numThreads = 1,
             debug = false,
         )
       }
       "ctc-hlg" -> {
-        waveFilename = "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/1.wav"
-        ctcFstDecoderConfig.graph = "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst"
+        waveFilename = "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/1.wav"
+        ctcFstDecoderConfig.graph = "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst"
         OnlineModelConfig(
             zipformer2Ctc = OnlineZipformer2CtcModelConfig(
-                model = "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx",
+                model = "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx",
             ),
-            tokens = "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt",
+            tokens = "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt",
             numThreads = 1,
             debug = false,
         )

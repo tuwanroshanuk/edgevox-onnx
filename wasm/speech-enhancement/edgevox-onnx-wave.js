@@ -1,1 +1,1 @@
-../nodejs/sherpa-onnx-wave.js
+../nodejs/edgevox-onnx-wave.js

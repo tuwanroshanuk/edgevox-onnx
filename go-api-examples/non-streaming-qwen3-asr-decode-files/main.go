@@ -4,7 +4,7 @@ import (
 	"log"
 	"strings"
 
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 )
 
 func main() {
@@ -12,17 +12,17 @@ func main() {
 
 	config := sherpa.OfflineRecognizerConfig{}
 
-	config.ModelConfig.Qwen3ASR.ConvFrontend = "./edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/conv_frontend.onnx"
-	config.ModelConfig.Qwen3ASR.Encoder = "./edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/encoder.int8.onnx"
-	config.ModelConfig.Qwen3ASR.Decoder = "./edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/decoder.int8.onnx"
-	config.ModelConfig.Qwen3ASR.Tokenizer = "./edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/tokenizer"
+	config.ModelConfig.Qwen3ASR.ConvFrontend = "./sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/conv_frontend.onnx"
+	config.ModelConfig.Qwen3ASR.Encoder = "./sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/encoder.int8.onnx"
+	config.ModelConfig.Qwen3ASR.Decoder = "./sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/decoder.int8.onnx"
+	config.ModelConfig.Qwen3ASR.Tokenizer = "./sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/tokenizer"
 	config.ModelConfig.Qwen3ASR.Hotwords = ""
 	// Seed for reproducibility (default: 42)
 	config.ModelConfig.Qwen3ASR.Seed = 42
 
 	config.ModelConfig.Tokens = ""
 
-	waveFilename := "./edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/test_wavs/raokouling.wav"
+	waveFilename := "./sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/test_wavs/raokouling.wav"
 
 	wave := sherpa.ReadWave(waveFilename)
 	if wave == nil {

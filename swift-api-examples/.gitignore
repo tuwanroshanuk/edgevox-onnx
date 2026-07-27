@@ -5,7 +5,7 @@ generate-subtitles-ten-vad
 spoken-language-identification
 tts-vits
 vits-vctk
-edgevox-onnx-paraformer-zh-2023-09-14
+sherpa-onnx-paraformer-zh-2023-09-14
 !*.sh
 *.bak
 streaming-hlg-decode-file

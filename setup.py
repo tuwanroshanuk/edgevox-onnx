@@ -92,7 +92,7 @@ setuptools.setup(
         if get_binaries_to_install()
         else None
     ),
-    url="https://github.com/k2-fsa/edgevox-onnx",
+    url="https://github.com/tuwanroshanuk/edgevox-onnx",
     long_description=read_long_description(),
     long_description_content_type="text/markdown",
     ext_modules=[cmake_extension("_edgevox_onnx")],

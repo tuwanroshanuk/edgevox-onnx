@@ -6,13 +6,13 @@
 // Spleeter 2-stems model (UNet-based).
 //
 // Please refer to
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/source-separation-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/source-separation-models
 // to download files used in this script
 
 import Foundation
 
 func run() {
-  let modelDir = "./edgevox-onnx-spleeter-2stems-fp16"
+  let modelDir = "./sherpa-onnx-spleeter-2stems-fp16"
 
   let config = SourceSeparationConfig(
     spleeter: .init(

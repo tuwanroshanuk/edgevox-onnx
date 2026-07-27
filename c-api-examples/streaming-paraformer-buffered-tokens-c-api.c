@@ -9,9 +9,9 @@
 // external files API.
 // clang-format off
 // 
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
-// tar xvf edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
-// rm edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+// tar xvf sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+// rm sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
 //
 // clang-format on
 
@@ -50,13 +50,13 @@ static size_t ReadFile(const char *filename, const char **buffer_out) {
 
 int32_t main() {
   const char *wav_filename =
-      "edgevox-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/0.wav";
+      "sherpa-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/0.wav";
   const char *encoder_filename =
-      "edgevox-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx";
+      "sherpa-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx";
   const char *decoder_filename =
-      "edgevox-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx";
+      "sherpa-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx";
   const char *tokens_filename =
-      "edgevox-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt";
+      "sherpa-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt";
   const char *provider = "cpu";
 
   const EdgevoxOnnxWave *wave = EdgevoxOnnxReadWave(wav_filename);

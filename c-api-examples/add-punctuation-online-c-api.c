@@ -3,15 +3,15 @@
 // Copyright (c)  zengyw
 
 // We assume you have pre-downloaded the model files for testing
-// from https://github.com/k2-fsa/edgevox-onnx/releases/tag/punctuation-models
+// from https://github.com/k2-fsa/sherpa-onnx/releases/tag/punctuation-models
 //
 // An example is given below:
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/punctuation-models/edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
-// tar xvf edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
-// rm edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/punctuation-models/sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
+// tar xvf sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
+// rm sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
 //
 // clang-format on
 
@@ -26,8 +26,8 @@ int32_t main() {
   memset(&config, 0, sizeof(config));
 
   // clang-format off
-  config.model.cnn_bilstm = "./edgevox-onnx-online-punct-en-2024-08-06/model.int8.onnx";
-  config.model.bpe_vocab = "./edgevox-onnx-online-punct-en-2024-08-06/bpe.vocab";
+  config.model.cnn_bilstm = "./sherpa-onnx-online-punct-en-2024-08-06/model.int8.onnx";
+  config.model.bpe_vocab = "./sherpa-onnx-online-punct-en-2024-08-06/bpe.vocab";
   // clang-format on
   config.model.num_threads = 1;
   config.model.debug = 1;

@@ -19,13 +19,13 @@ static AudioTaggingConfig GetAudioTaggingConfig(JNIEnv *env, jobject config,
   jclass cls = env->GetObjectClass(config);
 
   jfieldID fid = env->GetFieldID(
-      cls, "model", "Lcom/k2fsa/sherpa/onnx/AudioTaggingModelConfig;");
+      cls, "model", "Lcom/nexus/edgevox/onnx/AudioTaggingModelConfig;");
   jobject model = env->GetObjectField(config, fid);
   jclass model_cls = env->GetObjectClass(model);
 
   fid = env->GetFieldID(
       model_cls, "zipformer",
-      "Lcom/k2fsa/sherpa/onnx/OfflineZipformerAudioTaggingModelConfig;");
+      "Lcom/nexus/edgevox/onnx/OfflineZipformerAudioTaggingModelConfig;");
   jobject zipformer = env->GetObjectField(model, fid);
   jclass zipformer_cls = env->GetObjectClass(zipformer);
 
@@ -51,7 +51,7 @@ static AudioTaggingConfig GetAudioTaggingConfig(JNIEnv *env, jobject config,
 }  // namespace edgevox_onnx
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jlong JNICALL Java_com_k2fsa_edgevox_onnx_AudioTagging_newFromAsset(
+JNIEXPORT jlong JNICALL Java_com_nexus_edgevox_onnx_AudioTagging_newFromAsset(
     JNIEnv *env, jobject /*obj*/, jobject asset_manager, jobject _config) {
 #if __ANDROID_API__ >= 9
   AAssetManager *mgr = AAssetManager_fromJava(env, asset_manager);
@@ -82,7 +82,7 @@ JNIEXPORT jlong JNICALL Java_com_k2fsa_edgevox_onnx_AudioTagging_newFromAsset(
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jlong JNICALL Java_com_k2fsa_edgevox_onnx_AudioTagging_newFromFile(
+JNIEXPORT jlong JNICALL Java_com_nexus_edgevox_onnx_AudioTagging_newFromFile(
     JNIEnv *env, jobject /*obj*/, jobject _config) {
   bool ok = false;
 
@@ -107,36 +107,36 @@ JNIEXPORT jlong JNICALL Java_com_k2fsa_edgevox_onnx_AudioTagging_newFromFile(
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_AudioTagging_delete(
+JNIEXPORT void JNICALL Java_com_nexus_edgevox_onnx_AudioTagging_delete(
     JNIEnv *env, jobject /*obj*/, jlong ptr) {
   delete reinterpret_cast<edgevox_onnx::AudioTagging *>(ptr);
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jlong JNICALL Java_com_k2fsa_edgevox_onnx_AudioTagging_createStream(
+JNIEXPORT jlong JNICALL Java_com_nexus_edgevox_onnx_AudioTagging_createStream(
     JNIEnv *env, jobject /*obj*/, jlong ptr) {
   auto tagger = reinterpret_cast<edgevox_onnx::AudioTagging *>(ptr);
   std::unique_ptr<edgevox_onnx::OfflineStream> s = tagger->CreateStream();
 
   // The user is responsible to free the returned pointer.
   //
-  // See Java_com_k2fsa_edgevox_onnx_OfflineStream_delete() from
+  // See Java_com_nexus_edgevox_onnx_OfflineStream_delete() from
   // ./offline-stream.cc
   edgevox_onnx::OfflineStream *p = s.release();
   return (jlong)p;
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jobjectArray JNICALL Java_com_k2fsa_edgevox_onnx_AudioTagging_compute(
+JNIEXPORT jobjectArray JNICALL Java_com_nexus_edgevox_onnx_AudioTagging_compute(
     JNIEnv *env, jobject /*obj*/, jlong ptr, jlong streamPtr, jint top_k) {
   auto tagger = reinterpret_cast<edgevox_onnx::AudioTagging *>(ptr);
   auto stream = reinterpret_cast<edgevox_onnx::OfflineStream *>(streamPtr);
   std::vector<edgevox_onnx::AudioEvent> events = tagger->Compute(stream, top_k);
 
   // Find the AudioEvent class
-  jclass cls = env->FindClass("com/k2fsa/sherpa/onnx/AudioEvent");
+  jclass cls = env->FindClass("com/nexus/edgevox/onnx/AudioEvent");
   if (cls == nullptr) {
-    EDGEVOX_ONNX_LOGE("Failed to find class com/k2fsa/sherpa/onnx/AudioEvent");
+    EDGEVOX_ONNX_LOGE("Failed to find class com/nexus/edgevox/onnx/AudioEvent");
     return nullptr;
   }
 

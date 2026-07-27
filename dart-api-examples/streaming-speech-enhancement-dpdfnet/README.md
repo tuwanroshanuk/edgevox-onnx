@@ -8,7 +8,7 @@ Use 16 kHz DPDFNet models such as `dpdfnet_baseline.onnx`, `dpdfnet2.onnx`,
 
 DPDFNet models are available from either:
 
-- https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+- https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
 - https://huggingface.co/Ceva-IP/DPDFNet
 
 Then run:

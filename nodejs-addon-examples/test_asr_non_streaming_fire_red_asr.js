@@ -2,7 +2,7 @@
 const edgevox_onnx = require('edgevox-onnx-node');
 
 // Please download test files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 const config = {
   'featConfig': {
     'sampleRate': 16000,
@@ -11,11 +11,11 @@ const config = {
   'modelConfig': {
     'fireRedAsr': {
       'encoder':
-          './edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/encoder.int8.onnx',
+          './sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/encoder.int8.onnx',
       'decoder':
-          './edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/decoder.int8.onnx',
+          './sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/decoder.int8.onnx',
     },
-    'tokens': './edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/tokens.txt',
+    'tokens': './sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/tokens.txt',
     'numThreads': 2,
     'provider': 'cpu',
     'debug': 1,
@@ -23,7 +23,7 @@ const config = {
 };
 
 const waveFilename =
-    './edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/0.wav';
+    './sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/0.wav';
 
 const recognizer = new edgevox_onnx.OfflineRecognizer(config);
 console.log('Started');

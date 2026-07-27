@@ -5,7 +5,7 @@
 // usage: AsrWebsocketClient soPath srvIp srvPort wavPath numThreads
 package websocketsrv;
 
-import com.k2fsa.sherpa.onnx.OnlineRecognizer;
+import com.nexus.edgevox.onnx.OnlineRecognizer;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.*;

@@ -1,1 +1,1 @@
-../../sherpa-onnx/csrc/alsa.cc
+../../edgevox-onnx/csrc/alsa.cc

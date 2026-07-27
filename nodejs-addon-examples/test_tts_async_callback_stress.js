@@ -9,7 +9,7 @@
 //   node test_tts_async_callback_stress.js [model-dir] [iterations]
 //
 // please download model files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
 //
 // The model onnx filename is derived from the directory name (vits-piper-X -> X.onnx),
 // so any vits-piper voice works. Short runs (e.g. 30) suit CI; RSS is informational

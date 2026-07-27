@@ -2,7 +2,7 @@
 
 // This file shows how to use a matcha Chinese TTS model
 // to convert text to speech
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingTtsMatchaZh {
   public static void main(String[] args) {

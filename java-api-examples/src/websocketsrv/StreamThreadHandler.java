@@ -4,7 +4,7 @@
 // java StreamThreadHandler
 package websocketsrv;
 
-import com.k2fsa.sherpa.onnx.OnlineStream;
+import com.nexus.edgevox.onnx.OnlineStream;
 import java.nio.*;
 import java.util.*;
 import java.util.concurrent.*;

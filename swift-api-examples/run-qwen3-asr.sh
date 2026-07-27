@@ -7,7 +7,7 @@ if [ ! -d ../build-swift-macos ]; then
   exit 1
 fi
 
-if [ ! -f ./edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/encoder.int8.onnx ]; then
+if [ ! -f ./sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/encoder.int8.onnx ]; then
   echo "Please download the pre-trained model for testing."
   echo "You can refer to"
   echo ""
@@ -15,11 +15,11 @@ if [ ! -f ./edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/encoder.int8.onnx ]; the
   echo ""
   echo "for help"
 
-  wget -q https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
-  tar xvf edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
-  rm edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
+  wget -q https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
+  tar xvf sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
+  rm sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
 
-  ls -lh edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25
+  ls -lh sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25
 fi
 
 if [ ! -e ./qwen3-asr ]; then

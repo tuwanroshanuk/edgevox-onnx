@@ -17,7 +17,7 @@
 //!
 //! This crate now links statically by default. If `EDGEVOX_ONNX_LIB_DIR` is not
 //! set, the build script downloads a matching prebuilt `-lib` archive from
-//! [GitHub releases](https://github.com/k2-fsa/edgevox-onnx/releases) and uses
+//! [GitHub releases](https://github.com/k2-fsa/sherpa-onnx/releases) and uses
 //! it automatically during the build.
 //!
 //! In other words, the default setup for most users is simply:
@@ -58,28 +58,28 @@
 //! Default static archives:
 //!
 //! - Linux x86_64:
-//!   [edgevox-onnx-v1.13.4-linux-x64-static-lib.tar.bz2](https://github.com/k2-fsa/edgevox-onnx/releases/download/v1.13.4/edgevox-onnx-v1.13.4-linux-x64-static-lib.tar.bz2)
+//!   [sherpa-onnx-v1.13.4-linux-x64-static-lib.tar.bz2](https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.4/sherpa-onnx-v1.13.4-linux-x64-static-lib.tar.bz2)
 //! - Linux aarch64:
-//!   [edgevox-onnx-v1.13.4-linux-aarch64-static-lib.tar.bz2](https://github.com/k2-fsa/edgevox-onnx/releases/download/v1.13.4/edgevox-onnx-v1.13.4-linux-aarch64-static-lib.tar.bz2)
+//!   [sherpa-onnx-v1.13.4-linux-aarch64-static-lib.tar.bz2](https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.4/sherpa-onnx-v1.13.4-linux-aarch64-static-lib.tar.bz2)
 //! - macOS x86_64:
-//!   [edgevox-onnx-v1.13.4-osx-x64-static-lib.tar.bz2](https://github.com/k2-fsa/edgevox-onnx/releases/download/v1.13.4/edgevox-onnx-v1.13.4-osx-x64-static-lib.tar.bz2)
+//!   [sherpa-onnx-v1.13.4-osx-x64-static-lib.tar.bz2](https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.4/sherpa-onnx-v1.13.4-osx-x64-static-lib.tar.bz2)
 //! - macOS arm64:
-//!   [edgevox-onnx-v1.13.4-osx-arm64-static-lib.tar.bz2](https://github.com/k2-fsa/edgevox-onnx/releases/download/v1.13.4/edgevox-onnx-v1.13.4-osx-arm64-static-lib.tar.bz2)
+//!   [sherpa-onnx-v1.13.4-osx-arm64-static-lib.tar.bz2](https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.4/sherpa-onnx-v1.13.4-osx-arm64-static-lib.tar.bz2)
 //! - Windows x64:
-//!   [edgevox-onnx-v1.13.4-win-x64-static-MT-Release-lib.tar.bz2](https://github.com/k2-fsa/edgevox-onnx/releases/download/v1.13.4/edgevox-onnx-v1.13.4-win-x64-static-MT-Release-lib.tar.bz2)
+//!   [sherpa-onnx-v1.13.4-win-x64-static-MT-Release-lib.tar.bz2](https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.4/sherpa-onnx-v1.13.4-win-x64-static-MT-Release-lib.tar.bz2)
 //!
 //! Optional shared archives:
 //!
 //! - Linux x86_64:
-//!   [edgevox-onnx-v1.13.4-linux-x64-shared-lib.tar.bz2](https://github.com/k2-fsa/edgevox-onnx/releases/download/v1.13.4/edgevox-onnx-v1.13.4-linux-x64-shared-lib.tar.bz2)
+//!   [sherpa-onnx-v1.13.4-linux-x64-shared-lib.tar.bz2](https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.4/sherpa-onnx-v1.13.4-linux-x64-shared-lib.tar.bz2)
 //! - Linux aarch64:
-//!   [edgevox-onnx-v1.13.4-linux-aarch64-shared-cpu-lib.tar.bz2](https://github.com/k2-fsa/edgevox-onnx/releases/download/v1.13.4/edgevox-onnx-v1.13.4-linux-aarch64-shared-cpu-lib.tar.bz2)
+//!   [sherpa-onnx-v1.13.4-linux-aarch64-shared-cpu-lib.tar.bz2](https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.4/sherpa-onnx-v1.13.4-linux-aarch64-shared-cpu-lib.tar.bz2)
 //! - macOS x86_64:
-//!   [edgevox-onnx-v1.13.4-osx-x64-shared-lib.tar.bz2](https://github.com/k2-fsa/edgevox-onnx/releases/download/v1.13.4/edgevox-onnx-v1.13.4-osx-x64-shared-lib.tar.bz2)
+//!   [sherpa-onnx-v1.13.4-osx-x64-shared-lib.tar.bz2](https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.4/sherpa-onnx-v1.13.4-osx-x64-shared-lib.tar.bz2)
 //! - macOS arm64:
-//!   [edgevox-onnx-v1.13.4-osx-arm64-shared-lib.tar.bz2](https://github.com/k2-fsa/edgevox-onnx/releases/download/v1.13.4/edgevox-onnx-v1.13.4-osx-arm64-shared-lib.tar.bz2)
+//!   [sherpa-onnx-v1.13.4-osx-arm64-shared-lib.tar.bz2](https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.4/sherpa-onnx-v1.13.4-osx-arm64-shared-lib.tar.bz2)
 //! - Windows x64:
-//!   [edgevox-onnx-v1.13.4-win-x64-shared-MT-Release-lib.tar.bz2](https://github.com/k2-fsa/edgevox-onnx/releases/download/v1.13.4/edgevox-onnx-v1.13.4-win-x64-shared-MT-Release-lib.tar.bz2)
+//!   [sherpa-onnx-v1.13.4-win-x64-shared-MT-Release-lib.tar.bz2](https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.4/sherpa-onnx-v1.13.4-win-x64-shared-MT-Release-lib.tar.bz2)
 //!
 //! # How the Rust API is organized
 //!
@@ -96,20 +96,20 @@
 //! # Examples
 //!
 //! The repository contains end-to-end Rust examples under
-//! [`rust-api-examples/examples/`](https://github.com/k2-fsa/edgevox-onnx/tree/master/rust-api-examples/examples).
+//! [`rust-api-examples/examples/`](https://github.com/k2-fsa/sherpa-onnx/tree/master/rust-api-examples/examples).
 //! Good entry points are:
 //!
-//! - [`sense_voice.rs`](https://github.com/k2-fsa/edgevox-onnx/blob/master/rust-api-examples/examples/sense_voice.rs)
-//! - [`nemo_parakeet.rs`](https://github.com/k2-fsa/edgevox-onnx/blob/master/rust-api-examples/examples/nemo_parakeet.rs)
-//! - [`streaming_zipformer.rs`](https://github.com/k2-fsa/edgevox-onnx/blob/master/rust-api-examples/examples/streaming_zipformer.rs)
-//! - [`pocket_tts.rs`](https://github.com/k2-fsa/edgevox-onnx/blob/master/rust-api-examples/examples/pocket_tts.rs)
-//! - [`silero_vad_remove_silence.rs`](https://github.com/k2-fsa/edgevox-onnx/blob/master/rust-api-examples/examples/silero_vad_remove_silence.rs)
-//! - [`online_punctuation.rs`](https://github.com/k2-fsa/edgevox-onnx/blob/master/rust-api-examples/examples/online_punctuation.rs)
-//! - [`offline_punctuation.rs`](https://github.com/k2-fsa/edgevox-onnx/blob/master/rust-api-examples/examples/offline_punctuation.rs)
-//! - [`keyword_spotter.rs`](https://github.com/k2-fsa/edgevox-onnx/blob/master/rust-api-examples/examples/keyword_spotter.rs)
-//! - [`spoken_language_identification.rs`](https://github.com/k2-fsa/edgevox-onnx/blob/master/rust-api-examples/examples/spoken_language_identification.rs)
-//! - [`offline_speaker_diarization.rs`](https://github.com/k2-fsa/edgevox-onnx/blob/master/rust-api-examples/examples/offline_speaker_diarization.rs)
-//! - [`speaker_embedding_manager.rs`](https://github.com/k2-fsa/edgevox-onnx/blob/master/rust-api-examples/examples/speaker_embedding_manager.rs)
+//! - [`sense_voice.rs`](https://github.com/k2-fsa/sherpa-onnx/blob/master/rust-api-examples/examples/sense_voice.rs)
+//! - [`nemo_parakeet.rs`](https://github.com/k2-fsa/sherpa-onnx/blob/master/rust-api-examples/examples/nemo_parakeet.rs)
+//! - [`streaming_zipformer.rs`](https://github.com/k2-fsa/sherpa-onnx/blob/master/rust-api-examples/examples/streaming_zipformer.rs)
+//! - [`pocket_tts.rs`](https://github.com/k2-fsa/sherpa-onnx/blob/master/rust-api-examples/examples/pocket_tts.rs)
+//! - [`silero_vad_remove_silence.rs`](https://github.com/k2-fsa/sherpa-onnx/blob/master/rust-api-examples/examples/silero_vad_remove_silence.rs)
+//! - [`online_punctuation.rs`](https://github.com/k2-fsa/sherpa-onnx/blob/master/rust-api-examples/examples/online_punctuation.rs)
+//! - [`offline_punctuation.rs`](https://github.com/k2-fsa/sherpa-onnx/blob/master/rust-api-examples/examples/offline_punctuation.rs)
+//! - [`keyword_spotter.rs`](https://github.com/k2-fsa/sherpa-onnx/blob/master/rust-api-examples/examples/keyword_spotter.rs)
+//! - [`spoken_language_identification.rs`](https://github.com/k2-fsa/sherpa-onnx/blob/master/rust-api-examples/examples/spoken_language_identification.rs)
+//! - [`offline_speaker_diarization.rs`](https://github.com/k2-fsa/sherpa-onnx/blob/master/rust-api-examples/examples/offline_speaker_diarization.rs)
+//! - [`speaker_embedding_manager.rs`](https://github.com/k2-fsa/sherpa-onnx/blob/master/rust-api-examples/examples/speaker_embedding_manager.rs)
 //!
 //! # Offline recognition example
 //!
@@ -123,13 +123,13 @@
 //! let mut config = OfflineRecognizerConfig::default();
 //! config.model_config.sense_voice = OfflineSenseVoiceModelConfig {
 //!     model: Some(
-//!         "./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/model.int8.onnx".into(),
+//!         "./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/model.int8.onnx".into(),
 //!     ),
 //!     language: Some("auto".into()),
 //!     use_itn: true,
 //! };
 //! config.model_config.tokens = Some(
-//!     "./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/tokens.txt".into(),
+//!     "./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/tokens.txt".into(),
 //! );
 //!
 //! let recognizer = OfflineRecognizer::create(&config).expect("create recognizer");
@@ -150,16 +150,16 @@
 //!
 //! let mut config = OnlineRecognizerConfig::default();
 //! config.model_config.transducer.encoder = Some(
-//!     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.int8.onnx".into(),
+//!     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.int8.onnx".into(),
 //! );
 //! config.model_config.transducer.decoder = Some(
-//!     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx".into(),
+//!     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx".into(),
 //! );
 //! config.model_config.transducer.joiner = Some(
-//!     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.int8.onnx".into(),
+//!     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.int8.onnx".into(),
 //! );
 //! config.model_config.tokens = Some(
-//!     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt".into(),
+//!     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt".into(),
 //! );
 //! config.enable_endpoint = true;
 //! config.decoding_method = Some("greedy_search".into());
@@ -181,16 +181,16 @@
 //! let config = OfflineTtsConfig {
 //!     model: OfflineTtsModelConfig {
 //!         pocket: OfflineTtsPocketModelConfig {
-//!             lm_flow: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx".into()),
-//!             lm_main: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx".into()),
-//!             encoder: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/encoder.onnx".into()),
-//!             decoder: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx".into()),
+//!             lm_flow: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx".into()),
+//!             lm_main: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx".into()),
+//!             encoder: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/encoder.onnx".into()),
+//!             decoder: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx".into()),
 //!             text_conditioner: Some(
-//!                 "./edgevox-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx".into(),
+//!                 "./sherpa-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx".into(),
 //!             ),
-//!             vocab_json: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/vocab.json".into()),
+//!             vocab_json: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/vocab.json".into()),
 //!             token_scores_json: Some(
-//!                 "./edgevox-onnx-pocket-tts-int8-2026-01-26/token_scores.json".into(),
+//!                 "./sherpa-onnx-pocket-tts-int8-2026-01-26/token_scores.json".into(),
 //!             ),
 //!             ..Default::default()
 //!         },

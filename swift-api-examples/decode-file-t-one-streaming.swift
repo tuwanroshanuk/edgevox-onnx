@@ -13,10 +13,10 @@ extension AVAudioPCMBuffer {
 }
 
 func run() {
-  let filePath = "./edgevox-onnx-streaming-t-one-russian-2025-09-08/0.wav"
+  let filePath = "./sherpa-onnx-streaming-t-one-russian-2025-09-08/0.wav"
   let model =
-    "./edgevox-onnx-streaming-t-one-russian-2025-09-08/model.onnx"
-  let tokens = "./edgevox-onnx-streaming-t-one-russian-2025-09-08/tokens.txt"
+    "./sherpa-onnx-streaming-t-one-russian-2025-09-08/model.onnx"
+  let tokens = "./sherpa-onnx-streaming-t-one-russian-2025-09-08/tokens.txt"
 
   let toneCtcConfig = edgevoxOnnxOnlineToneCtcModelConfig(
     model: model)

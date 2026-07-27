@@ -9,11 +9,11 @@
 /*
 Usage
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
-tar xf edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
-rm edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+tar xf sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+rm sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos_24khz.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos_24khz.onnx
 
 ./zipvoice-tts-zh-en-c-api
 */
@@ -35,15 +35,15 @@ int32_t main(int32_t argc, char *argv[]) {
   EdgevoxOnnxOfflineTtsConfig config;
   memset(&config, 0, sizeof(config));
   config.model.zipvoice.encoder =
-      "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx";
+      "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx";
   config.model.zipvoice.decoder =
-      "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx";
+      "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx";
   config.model.zipvoice.data_dir =
-      "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data";
+      "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data";
   config.model.zipvoice.lexicon =
-      "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt";
+      "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt";
   config.model.zipvoice.tokens =
-      "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt";
+      "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt";
   config.model.zipvoice.vocoder = "./vocos_24khz.onnx";
   config.model.zipvoice.espeak_voice = "en-us";
 
@@ -59,7 +59,7 @@ int32_t main(int32_t argc, char *argv[]) {
   const char *reference_text =
       "那还是三十六年前, 一九八七年. 我呢考上了武汉大学的计算机系.";
   const char *reference_audio_file =
-      "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav";
+      "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav";
 
   const EdgevoxOnnxOfflineTts *tts = EdgevoxOnnxCreateOfflineTts(&config);
   if (!tts) {

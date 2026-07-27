@@ -1,4 +1,4 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 fun main() {
   testAudioTagging()
@@ -8,22 +8,22 @@ fun testAudioTagging() {
   val config = AudioTaggingConfig(
       model=AudioTaggingModelConfig(
         zipformer=OfflineZipformerAudioTaggingModelConfig(
-          model="./edgevox-onnx-zipformer-audio-tagging-2024-04-09/model.int8.onnx",
+          model="./sherpa-onnx-zipformer-audio-tagging-2024-04-09/model.int8.onnx",
         ),
         numThreads=1,
         debug=true,
         provider="cpu",
       ),
-      labels="./edgevox-onnx-zipformer-audio-tagging-2024-04-09/class_labels_indices.csv",
+      labels="./sherpa-onnx-zipformer-audio-tagging-2024-04-09/class_labels_indices.csv",
       topK=5,
    )
   val tagger = AudioTagging(config=config)
 
   val testFiles = arrayOf(
-    "./edgevox-onnx-zipformer-audio-tagging-2024-04-09/test_wavs/1.wav",
-    "./edgevox-onnx-zipformer-audio-tagging-2024-04-09/test_wavs/2.wav",
-    "./edgevox-onnx-zipformer-audio-tagging-2024-04-09/test_wavs/3.wav",
-    "./edgevox-onnx-zipformer-audio-tagging-2024-04-09/test_wavs/4.wav",
+    "./sherpa-onnx-zipformer-audio-tagging-2024-04-09/test_wavs/1.wav",
+    "./sherpa-onnx-zipformer-audio-tagging-2024-04-09/test_wavs/2.wav",
+    "./sherpa-onnx-zipformer-audio-tagging-2024-04-09/test_wavs/3.wav",
+    "./sherpa-onnx-zipformer-audio-tagging-2024-04-09/test_wavs/4.wav",
   )
   println("----------")
   for (waveFilename in testFiles) {

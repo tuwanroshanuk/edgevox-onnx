@@ -307,7 +307,7 @@ typedef struct EdgevoxOnnxHomophoneReplacerConfig {
  * @c model_config, and any optional decoding, endpoint, or hotword settings.
  *
  * Example model package:
- * `edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20`
+ * `sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20`
  *
  * @code
  * EdgevoxOnnxOnlineRecognizerConfig config;
@@ -317,16 +317,16 @@ typedef struct EdgevoxOnnxHomophoneReplacerConfig {
  * config.feat_config.feature_dim = 80;
  *
  * config.model_config.transducer.encoder =
- *     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+ *     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
  *     "encoder-epoch-99-avg-1.int8.onnx";
  * config.model_config.transducer.decoder =
- *     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+ *     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
  *     "decoder-epoch-99-avg-1.onnx";
  * config.model_config.transducer.joiner =
- *     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+ *     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
  *     "joiner-epoch-99-avg-1.int8.onnx";
  * config.model_config.tokens =
- *     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+ *     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
  *     "tokens.txt";
  * config.model_config.provider = "cpu";
  * config.model_config.num_threads = 1;
@@ -441,16 +441,16 @@ typedef struct EdgevoxOnnxOnlineStream EdgevoxOnnxOnlineStream;
  * config.feat_config.sample_rate = 16000;
  * config.feat_config.feature_dim = 80;
  * config.model_config.transducer.encoder =
- *     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+ *     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
  *     "encoder-epoch-99-avg-1.int8.onnx";
  * config.model_config.transducer.decoder =
- *     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+ *     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
  *     "decoder-epoch-99-avg-1.onnx";
  * config.model_config.transducer.joiner =
- *     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+ *     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
  *     "joiner-epoch-99-avg-1.int8.onnx";
  * config.model_config.tokens =
- *     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+ *     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
  *     "tokens.txt";
  * config.model_config.provider = "cpu";
  * config.model_config.num_threads = 1;
@@ -491,7 +491,7 @@ EDGEVOX_ONNX_API void EdgevoxOnnxDestroyOnlineRecognizer(
  *
  * @code
  * const EdgevoxOnnxWave *wave = EdgevoxOnnxReadWave(
- *     "./edgevox-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/0.wav");
+ *     "./sherpa-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/0.wav");
  * const EdgevoxOnnxOnlineStream *stream =
  *     EdgevoxOnnxCreateOnlineStream(recognizer);
  * @endcode
@@ -1124,13 +1124,13 @@ typedef struct EdgevoxOnnxOfflineModelConfig {
  * config.feat_config.feature_dim = 80;
  *
  * config.model_config.whisper.encoder =
- *     "./edgevox-onnx-whisper-tiny/tiny-encoder.onnx";
+ *     "./sherpa-onnx-whisper-tiny/tiny-encoder.onnx";
  * config.model_config.whisper.decoder =
- *     "./edgevox-onnx-whisper-tiny/tiny-decoder.onnx";
+ *     "./sherpa-onnx-whisper-tiny/tiny-decoder.onnx";
  * config.model_config.whisper.language = "en";
  * config.model_config.whisper.task = "transcribe";
  * config.model_config.tokens =
- *     "./edgevox-onnx-whisper-tiny/tiny-tokens.txt";
+ *     "./sherpa-onnx-whisper-tiny/tiny-tokens.txt";
  * config.model_config.provider = "cpu";
  * config.model_config.num_threads = 1;
  *
@@ -1141,24 +1141,24 @@ typedef struct EdgevoxOnnxOfflineModelConfig {
  *
  * @code
  * config.model_config.sense_voice.model =
- *     "./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/model.int8.onnx";
+ *     "./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/model.int8.onnx";
  * config.model_config.sense_voice.language = "auto";
  * config.model_config.sense_voice.use_itn = 1;
  * config.model_config.tokens =
- *     "./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/tokens.txt";
+ *     "./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/tokens.txt";
  * @endcode
  *
  * Example using Parakeet TDT:
  *
  * @code
  * config.model_config.transducer.encoder =
- *     "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/encoder.int8.onnx";
+ *     "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/encoder.int8.onnx";
  * config.model_config.transducer.decoder =
- *     "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/decoder.int8.onnx";
+ *     "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/decoder.int8.onnx";
  * config.model_config.transducer.joiner =
- *     "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/joiner.int8.onnx";
+ *     "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/joiner.int8.onnx";
  * config.model_config.tokens =
- *     "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/tokens.txt";
+ *     "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/tokens.txt";
  * config.model_config.model_type = "nemo_transducer";
  * @endcode
  * @see EdgevoxOnnxCreateOfflineRecognizer
@@ -1214,13 +1214,13 @@ typedef struct EdgevoxOnnxOfflineStream EdgevoxOnnxOfflineStream;
  * config.feat_config.sample_rate = 16000;
  * config.feat_config.feature_dim = 80;
  * config.model_config.whisper.encoder =
- *     "./edgevox-onnx-whisper-tiny/tiny-encoder.onnx";
+ *     "./sherpa-onnx-whisper-tiny/tiny-encoder.onnx";
  * config.model_config.whisper.decoder =
- *     "./edgevox-onnx-whisper-tiny/tiny-decoder.onnx";
+ *     "./sherpa-onnx-whisper-tiny/tiny-decoder.onnx";
  * config.model_config.whisper.language = "en";
  * config.model_config.whisper.task = "transcribe";
  * config.model_config.tokens =
- *     "./edgevox-onnx-whisper-tiny/tiny-tokens.txt";
+ *     "./sherpa-onnx-whisper-tiny/tiny-tokens.txt";
  * config.model_config.provider = "cpu";
  * config.model_config.num_threads = 1;
  * config.decoding_method = "greedy_search";
@@ -1233,24 +1233,24 @@ typedef struct EdgevoxOnnxOfflineStream EdgevoxOnnxOfflineStream;
  *
  * @code
  * config.model_config.sense_voice.model =
- *     "./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/model.int8.onnx";
+ *     "./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/model.int8.onnx";
  * config.model_config.sense_voice.language = "auto";
  * config.model_config.sense_voice.use_itn = 1;
  * config.model_config.tokens =
- *     "./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/tokens.txt";
+ *     "./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/tokens.txt";
  * @endcode
  *
  * Parakeet TDT example:
  *
  * @code
  * config.model_config.transducer.encoder =
- *     "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/encoder.int8.onnx";
+ *     "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/encoder.int8.onnx";
  * config.model_config.transducer.decoder =
- *     "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/decoder.int8.onnx";
+ *     "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/decoder.int8.onnx";
  * config.model_config.transducer.joiner =
- *     "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/joiner.int8.onnx";
+ *     "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/joiner.int8.onnx";
  * config.model_config.tokens =
- *     "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/tokens.txt";
+ *     "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/tokens.txt";
  * config.model_config.model_type = "nemo_transducer";
  * @endcode
  * @see EdgevoxOnnxOfflineRecognizerConfig, EdgevoxOnnxDestroyOfflineRecognizer
@@ -1296,7 +1296,7 @@ EDGEVOX_ONNX_API void EdgevoxOnnxDestroyOfflineRecognizer(
  *
  * @code
  * const EdgevoxOnnxWave *wave =
- *     EdgevoxOnnxReadWave("./edgevox-onnx-whisper-tiny.en/test_wavs/0.wav");
+ *     EdgevoxOnnxReadWave("./sherpa-onnx-whisper-tiny.en/test_wavs/0.wav");
  * const EdgevoxOnnxOfflineStream *stream =
  *     EdgevoxOnnxCreateOfflineStream(recognizer);
  * @endcode
@@ -1355,7 +1355,7 @@ EDGEVOX_ONNX_API void EdgevoxOnnxDestroyOfflineStream(
  *
  * @code
  * const EdgevoxOnnxWave *wave =
- *     EdgevoxOnnxReadWave("./edgevox-onnx-whisper-tiny.en/test_wavs/0.wav");
+ *     EdgevoxOnnxReadWave("./sherpa-onnx-whisper-tiny.en/test_wavs/0.wav");
  * const EdgevoxOnnxOfflineStream *stream =
  *     EdgevoxOnnxCreateOfflineStream(recognizer);
  * EdgevoxOnnxAcceptWaveformOffline(stream, wave->sample_rate,
@@ -1651,29 +1651,29 @@ typedef struct EdgevoxOnnxKeywordResult {
  * used.
  *
  * Example using
- * `edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile`:
+ * `sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile`:
  *
  * @code
  * EdgevoxOnnxKeywordSpotterConfig config;
  * memset(&config, 0, sizeof(config));
  *
  * config.model_config.transducer.encoder =
- *     "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+ *     "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
  *     "encoder-epoch-12-avg-2-chunk-16-left-64.int8.onnx";
  * config.model_config.transducer.decoder =
- *     "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+ *     "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
  *     "decoder-epoch-12-avg-2-chunk-16-left-64.onnx";
  * config.model_config.transducer.joiner =
- *     "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+ *     "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
  *     "joiner-epoch-12-avg-2-chunk-16-left-64.int8.onnx";
  * config.model_config.tokens =
- *     "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+ *     "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
  *     "tokens.txt";
  * config.model_config.provider = "cpu";
  * config.model_config.num_threads = 1;
  *
  * config.keywords_file =
- *     "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+ *     "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
  *     "test_wavs/test_keywords.txt";
  * config.max_active_paths = 4;
  * config.keywords_score = 3.0f;
@@ -2394,9 +2394,9 @@ typedef struct EdgevoxOnnxOfflineTtsSupertonicModelConfig {
  *
  * Concrete example model packages in this repository include:
  * - `kokoro-en-v0_19`
- * - `edgevox-onnx-pocket-tts-int8-2026-01-26`
+ * - `sherpa-onnx-pocket-tts-int8-2026-01-26`
  * - `matcha-icefall-en_US-ljspeech`
- * - `edgevox-onnx-zipvoice-distill-int8-zh-en-emilia`
+ * - `sherpa-onnx-zipvoice-distill-int8-zh-en-emilia`
  */
 typedef struct EdgevoxOnnxOfflineTtsModelConfig {
   /** VITS configuration. */
@@ -2937,8 +2937,8 @@ EDGEVOX_ONNX_API void EdgevoxOnnxFreeMultiChannelWave(
  * @code
  * EdgevoxOnnxSpokenLanguageIdentificationWhisperConfig whisper;
  * memset(&whisper, 0, sizeof(whisper));
- * whisper.encoder = "./edgevox-onnx-whisper-tiny/tiny-encoder.int8.onnx";
- * whisper.decoder = "./edgevox-onnx-whisper-tiny/tiny-decoder.int8.onnx";
+ * whisper.encoder = "./sherpa-onnx-whisper-tiny/tiny-encoder.int8.onnx";
+ * whisper.decoder = "./sherpa-onnx-whisper-tiny/tiny-decoder.int8.onnx";
  * @endcode
  */
 typedef struct EdgevoxOnnxSpokenLanguageIdentificationWhisperConfig {
@@ -2955,13 +2955,13 @@ typedef struct EdgevoxOnnxSpokenLanguageIdentificationWhisperConfig {
  *
  * The current implementation uses Whisper-based models.
  *
- * Example using `edgevox-onnx-whisper-tiny`:
+ * Example using `sherpa-onnx-whisper-tiny`:
  *
  * @code
  * EdgevoxOnnxSpokenLanguageIdentificationConfig config;
  * memset(&config, 0, sizeof(config));
- * config.whisper.encoder = "./edgevox-onnx-whisper-tiny/tiny-encoder.int8.onnx";
- * config.whisper.decoder = "./edgevox-onnx-whisper-tiny/tiny-decoder.int8.onnx";
+ * config.whisper.encoder = "./sherpa-onnx-whisper-tiny/tiny-encoder.int8.onnx";
+ * config.whisper.decoder = "./sherpa-onnx-whisper-tiny/tiny-decoder.int8.onnx";
  * config.num_threads = 1;
  * config.provider = "cpu";
  * @endcode
@@ -3429,13 +3429,13 @@ typedef struct EdgevoxOnnxOfflineZipformerAudioTaggingModelConfig {
  * one of them will be used and the choice is implementation-defined.
  *
  * Example using
- * `edgevox-onnx-zipformer-audio-tagging-2024-04-09`:
+ * `sherpa-onnx-zipformer-audio-tagging-2024-04-09`:
  *
  * @code
  * EdgevoxOnnxAudioTaggingModelConfig model;
  * memset(&model, 0, sizeof(model));
  * model.zipformer.model =
- *     "./edgevox-onnx-zipformer-audio-tagging-2024-04-09/model.int8.onnx";
+ *     "./sherpa-onnx-zipformer-audio-tagging-2024-04-09/model.int8.onnx";
  * model.num_threads = 1;
  * model.provider = "cpu";
  * @endcode
@@ -3460,11 +3460,11 @@ typedef struct EdgevoxOnnxAudioTaggingModelConfig {
  * EdgevoxOnnxAudioTaggingConfig config;
  * memset(&config, 0, sizeof(config));
  * config.model.zipformer.model =
- *     "./edgevox-onnx-zipformer-audio-tagging-2024-04-09/model.int8.onnx";
+ *     "./sherpa-onnx-zipformer-audio-tagging-2024-04-09/model.int8.onnx";
  * config.model.num_threads = 1;
  * config.model.provider = "cpu";
  * config.labels =
- *     "./edgevox-onnx-zipformer-audio-tagging-2024-04-09/class_labels_indices.csv";
+ *     "./sherpa-onnx-zipformer-audio-tagging-2024-04-09/class_labels_indices.csv";
  * config.top_k = 5;
  * @endcode
  * @see EdgevoxOnnxCreateAudioTagging
@@ -3573,7 +3573,7 @@ EDGEVOX_ONNX_API void EdgevoxOnnxAudioTaggingFreeResults(
  * EdgevoxOnnxOfflinePunctuationModelConfig model;
  * memset(&model, 0, sizeof(model));
  * model.ct_transformer =
- *     "./edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx";
+ *     "./sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx";
  * model.num_threads = 1;
  * model.provider = "cpu";
  * @endcode
@@ -3642,14 +3642,14 @@ EDGEVOX_ONNX_API void SherpaOfflinePunctuationFreeText(const char *text);
 /**
  * @brief Online punctuation model configuration.
  *
- * Example using `edgevox-onnx-online-punct-en-2024-08-06`:
+ * Example using `sherpa-onnx-online-punct-en-2024-08-06`:
  *
  * @code
  * EdgevoxOnnxOnlinePunctuationModelConfig model;
  * memset(&model, 0, sizeof(model));
  * model.cnn_bilstm =
- * "./edgevox-onnx-online-punct-en-2024-08-06/model.int8.onnx"; model.bpe_vocab =
- * "./edgevox-onnx-online-punct-en-2024-08-06/bpe.vocab"; model.num_threads = 1;
+ * "./sherpa-onnx-online-punct-en-2024-08-06/model.int8.onnx"; model.bpe_vocab =
+ * "./sherpa-onnx-online-punct-en-2024-08-06/bpe.vocab"; model.num_threads = 1;
  * model.provider = "cpu";
  * @endcode
  */
@@ -3871,7 +3871,7 @@ typedef struct EdgevoxOnnxFastClusteringConfig {
  * EdgevoxOnnxOfflineSpeakerDiarizationConfig config;
  * memset(&config, 0, sizeof(config));
  * config.segmentation.pyannote.model =
- *     "./edgevox-onnx-pyannote-segmentation-3-0/model.onnx";
+ *     "./sherpa-onnx-pyannote-segmentation-3-0/model.onnx";
  * config.embedding.model =
  *     "./3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx";
  * config.clustering.num_clusters = 4;

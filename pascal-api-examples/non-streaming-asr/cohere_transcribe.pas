@@ -5,7 +5,7 @@ This file shows how to use a non-streaming Cohere Transcribe model
 to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program cohere_transcribe;
@@ -35,16 +35,16 @@ var
 begin
   Initialize(Config);
 
-  Config.ModelConfig.CohereTranscribe.Encoder := './edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/encoder.int8.onnx';
-  Config.ModelConfig.CohereTranscribe.Decoder := './edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/decoder.int8.onnx';
+  Config.ModelConfig.CohereTranscribe.Encoder := './sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/encoder.int8.onnx';
+  Config.ModelConfig.CohereTranscribe.Decoder := './sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/decoder.int8.onnx';
   Config.ModelConfig.CohereTranscribe.UsePunct := True;
   Config.ModelConfig.CohereTranscribe.UseItn := True;
-  Config.ModelConfig.Tokens := './edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/tokens.txt';
+  Config.ModelConfig.Tokens := './sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/tokens.txt';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := True;
 
-  WaveFilename := './edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/en.wav';
+  WaveFilename := './sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/en.wav';
 
   Wave := EdgevoxOnnxReadWave(WaveFilename);
 

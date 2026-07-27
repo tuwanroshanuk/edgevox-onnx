@@ -31,21 +31,21 @@ should be int16_t; the sample rate can be arbitrary.
 (2) Download a model for computing speaker embeddings
 
 Please visit
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-recongition-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models
 to download a model. An example is given below:
 
-    wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-recongition-models/wespeaker_zh_cnceleb_resnet34.onnx
+    wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/wespeaker_zh_cnceleb_resnet34.onnx
 
 Note that `zh` means Chinese, while `en` means English.
 
 (3) Download the VAD model
 Please visit
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 to download silero_vad.onnx
 
 For instance,
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 (4) Please refer to ./generate-subtitles.py
 to download a non-streaming ASR model.

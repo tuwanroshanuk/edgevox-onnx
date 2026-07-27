@@ -35,7 +35,7 @@ model_dir={{ tts_model.model_dir }}
 model_name={{ tts_model.model_name }}
 lang={{ tts_model.lang }}
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/$model_dir.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/$model_dir.tar.bz2
 tar xf $model_dir.tar.bz2
 rm $model_dir.tar.bz2
 

@@ -34,7 +34,7 @@ struct FeatureExtractorConfig {
   // Please see
   // https://github.com/lhotse-speech/lhotse/blob/master/lhotse/features/fbank.py#L27
   // and
-  // https://github.com/k2-fsa/edgevox-onnx/issues/514
+  // https://github.com/k2-fsa/sherpa-onnx/issues/514
   float high_freq = -400.0f;
 
   // dithering constant, useful for signals with hard-zeroes in non-speech parts

@@ -1,6 +1,6 @@
 // Copyright 2025 Xiaomi Corporation
 
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class VersionTest {
   public static void main(String[] args) {

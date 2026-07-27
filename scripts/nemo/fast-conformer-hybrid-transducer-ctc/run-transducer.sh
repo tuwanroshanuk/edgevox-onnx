@@ -16,8 +16,8 @@ ms=(
 
 for m in ${ms[@]}; do
   ./export-onnx-transducer.py --model $m
-  d=edgevox-onnx-nemo-streaming-fast-conformer-transducer-en-${m}ms
-  d_int8=edgevox-onnx-nemo-streaming-fast-conformer-transducer-en-${m}ms-int8
+  d=sherpa-onnx-nemo-streaming-fast-conformer-transducer-en-${m}ms
+  d_int8=sherpa-onnx-nemo-streaming-fast-conformer-transducer-en-${m}ms-int8
   if [ ! -f $d/encoder.onnx ]; then
     mkdir -p $d $d_int8
     mv -v encoder.onnx $d/
@@ -41,7 +41,7 @@ done
 # Now test the exported models
 
 for m in ${ms[@]}; do
-  d=edgevox-onnx-nemo-streaming-fast-conformer-transducer-en-${m}ms
+  d=sherpa-onnx-nemo-streaming-fast-conformer-transducer-en-${m}ms
   python3 ./test-onnx-transducer.py \
     --encoder $d/encoder.onnx \
     --decoder $d/decoder.onnx \
@@ -49,7 +49,7 @@ for m in ${ms[@]}; do
     --tokens $d/tokens.txt \
     --wav ./0.wav
 
-  d=edgevox-onnx-nemo-streaming-fast-conformer-transducer-en-${m}ms-int8
+  d=sherpa-onnx-nemo-streaming-fast-conformer-transducer-en-${m}ms-int8
   python3 ./test-onnx-transducer.py \
     --encoder $d/encoder.int8.onnx \
     --decoder $d/decoder.int8.onnx \

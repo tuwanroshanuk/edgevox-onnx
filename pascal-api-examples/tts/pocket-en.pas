@@ -25,13 +25,13 @@ function GetOfflineTts: TEdgevoxOnnxOfflineTts;
 var
   Config: TEdgevoxOnnxOfflineTtsConfig;
 begin
-  Config.Model.Pocket.LmFlow := './edgevox-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx';
-  Config.Model.Pocket.LmMain := './edgevox-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx';
-  Config.Model.Pocket.Encoder := './edgevox-onnx-pocket-tts-int8-2026-01-26/encoder.onnx';
-  Config.Model.Pocket.Decoder := './edgevox-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx';
-  Config.Model.Pocket.TextConditioner := './edgevox-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx';
-  Config.Model.Pocket.VocabJson := './edgevox-onnx-pocket-tts-int8-2026-01-26/vocab.json';
-  Config.Model.Pocket.TokenScoresJson := './edgevox-onnx-pocket-tts-int8-2026-01-26/token_scores.json';
+  Config.Model.Pocket.LmFlow := './sherpa-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx';
+  Config.Model.Pocket.LmMain := './sherpa-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx';
+  Config.Model.Pocket.Encoder := './sherpa-onnx-pocket-tts-int8-2026-01-26/encoder.onnx';
+  Config.Model.Pocket.Decoder := './sherpa-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx';
+  Config.Model.Pocket.TextConditioner := './sherpa-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx';
+  Config.Model.Pocket.VocabJson := './sherpa-onnx-pocket-tts-int8-2026-01-26/vocab.json';
+  Config.Model.Pocket.TokenScoresJson := './sherpa-onnx-pocket-tts-int8-2026-01-26/token_scores.json';
   Config.Model.NumThreads := 2;
   Config.Model.Debug := True;
   Config.MaxNumSentences := 1;
@@ -55,7 +55,7 @@ begin
 
   Text := 'Friends fell out often because life was changing so fast. The easiest thing in the world was to lose touch with someone.';
 
-  WaveFilename := './edgevox-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav';
+  WaveFilename := './sherpa-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav';
   Wave := EdgevoxOnnxReadWave(WaveFilename);
   GenerationConfig.ReferenceAudio := Wave.Samples;
   GenerationConfig.ReferenceAudioLen := Length(Wave.Samples);

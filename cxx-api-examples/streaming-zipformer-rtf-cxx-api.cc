@@ -13,9 +13,9 @@
 // cmake ..
 // make
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
-// tar xvf edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
-// rm edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+// tar xvf sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+// rm sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
 //
 // #  1. Test on CPU, run once
 //
@@ -53,22 +53,22 @@ int32_t main(int argc, char *argv[]) {
   OnlineRecognizerConfig config;
 
   // please see
-  // https://k2-fsa.github.io/sherpa/onnx/pretrained_models/online-transducer/zipformer-transducer-models.html#csukuangfj-edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20-bilingual-chinese-english
+  // https://k2-fsa.github.io/sherpa/onnx/pretrained_models/online-transducer/zipformer-transducer-models.html#csukuangfj-sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20-bilingual-chinese-english
   config.model_config.transducer.encoder =
-      "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+      "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
       "encoder-epoch-99-avg-1.int8.onnx";
 
   // Note: We recommend not using int8.onnx for the decoder.
   config.model_config.transducer.decoder =
-      "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+      "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
       "decoder-epoch-99-avg-1.onnx";
 
   config.model_config.transducer.joiner =
-      "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+      "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
       "joiner-epoch-99-avg-1.int8.onnx";
 
   config.model_config.tokens =
-      "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt";
+      "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt";
 
   config.model_config.num_threads = 1;
   config.model_config.provider = use_gpu ? "cuda" : "cpu";
@@ -82,7 +82,7 @@ int32_t main(int argc, char *argv[]) {
   std::cout << "Loading model done\n";
 
   std::string wave_filename =
-      "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/"
+      "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/"
       "0.wav";
   Wave wave = ReadWave(wave_filename);
   if (wave.samples.empty()) {

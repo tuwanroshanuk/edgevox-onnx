@@ -16,7 +16,7 @@ CT-Transformer model.
 EdgevoxOnnxOfflinePunctuationConfig config;
 memset(&config, 0, sizeof(config));
 config.model.ct_transformer =
-    "./edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12-int8/model.int8.onnx";
+    "./sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12-int8/model.int8.onnx";
 config.model.num_threads = 1;
 config.model.provider = "cpu";
 
@@ -30,9 +30,9 @@ SherpaOfflinePunctuationFreeText(result);
 EdgevoxOnnxDestroyOfflinePunctuation(punct);
 @endcode
 
-Model package: `edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12-int8`
+Model package: `sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12-int8`
 
-Example source: [add-punctuation-c-api.c](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/add-punctuation-c-api.c)
+Example source: [add-punctuation-c-api.c](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/add-punctuation-c-api.c)
 
 @section punct_online Online Punctuation
 
@@ -42,9 +42,9 @@ Online punctuation processes text incrementally using a CNN-BiLSTM model.
 EdgevoxOnnxOnlinePunctuationConfig config;
 memset(&config, 0, sizeof(config));
 config.model.cnn_bilstm =
-    "./edgevox-onnx-online-punct-en-2024-08-06/model.int8.onnx";
+    "./sherpa-onnx-online-punct-en-2024-08-06/model.int8.onnx";
 config.model.bpe_vocab =
-    "./edgevox-onnx-online-punct-en-2024-08-06/bpe.vocab";
+    "./sherpa-onnx-online-punct-en-2024-08-06/bpe.vocab";
 config.model.num_threads = 1;
 config.model.provider = "cpu";
 
@@ -58,7 +58,7 @@ EdgevoxOnnxOnlinePunctuationFreeText(out);
 EdgevoxOnnxDestroyOnlinePunctuation(punct);
 @endcode
 
-Model package: `edgevox-onnx-online-punct-en-2024-08-06`
+Model package: `sherpa-onnx-online-punct-en-2024-08-06`
 
-Example source: [add-punctuation-online-c-api.c](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/add-punctuation-online-c-api.c)
+Example source: [add-punctuation-online-c-api.c](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/add-punctuation-online-c-api.c)
 */

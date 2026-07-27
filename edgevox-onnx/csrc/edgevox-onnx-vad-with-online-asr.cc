@@ -33,7 +33,7 @@ Usage:
 
 Note you can download silero_vad.onnx using
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 (1) Streaming transducer
 
@@ -50,26 +50,26 @@ wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_
 
 (2) Streaming zipformer2 CTC
 
-  wget -q https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
-  tar xvf edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
+  wget -q https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
+  tar xvf sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
 
   ./bin/edgevox-onnx-vad-with-online-asr \
     --debug=1 \
     --silero-vad-model=/path/to/silero_vad.onnx \
-    --zipformer2-ctc-model=./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/ctc-epoch-20-avg-1-chunk-16-left-128.onnx \
-    --tokens=./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/tokens.txt \
-    ./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000000.wav
+    --zipformer2-ctc-model=./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/ctc-epoch-20-avg-1-chunk-16-left-128.onnx \
+    --tokens=./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/tokens.txt \
+    ./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000000.wav
 
 (3) Streaming paraformer
 
-  wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
-  tar xvf edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+  wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+  tar xvf sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
 
   ./bin/edgevox-onnx-vad-with-online-asr \
     --silero-vad-model=/path/to/silero_vad.onnx \
-    --tokens=./edgevox-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt \
-    --paraformer-encoder=./edgevox-onnx-streaming-paraformer-bilingual-zh-en/encoder.onnx \
-    --paraformer-decoder=./edgevox-onnx-streaming-paraformer-bilingual-zh-en/decoder.onnx \
+    --tokens=./sherpa-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt \
+    --paraformer-encoder=./sherpa-onnx-streaming-paraformer-bilingual-zh-en/encoder.onnx \
+    --paraformer-decoder=./sherpa-onnx-streaming-paraformer-bilingual-zh-en/decoder.onnx \
     /path/to/long_duration.wav
 
 

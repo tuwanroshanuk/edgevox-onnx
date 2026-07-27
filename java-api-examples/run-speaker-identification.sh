@@ -5,7 +5,7 @@ set -ex
 source ./setup.sh
 
 if [ ! -f ./3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
 fi
 
 if [ ! -f ./sr-data/enroll/leijun-sr-1.wav ]; then

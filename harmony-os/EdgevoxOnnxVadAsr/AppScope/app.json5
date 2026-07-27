@@ -1,6 +1,6 @@
 {
   "app": {
-    "bundleName": "com.k2fsa.sherpa.onnx.vad.asr",
+    "bundleName": "com.nexus.edgevox.onnx.vad.asr",
     "vendor": "example",
     "versionCode": 1000000,
     "versionName": "1.0.0",

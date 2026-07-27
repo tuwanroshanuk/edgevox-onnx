@@ -5,13 +5,13 @@ set -ex
 source ./setup.sh
 
 if [ ! -f ./silero_vad.onnx ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 fi
 
-if [ ! -f ./edgevox-onnx-moonshine-tiny-en-int8/tokens.txt ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
-  tar xvf edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
-  rm edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
+if [ ! -f ./sherpa-onnx-moonshine-tiny-en-int8/tokens.txt ]; then
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
+  tar xvf sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
+  rm sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
 fi
 
 java \

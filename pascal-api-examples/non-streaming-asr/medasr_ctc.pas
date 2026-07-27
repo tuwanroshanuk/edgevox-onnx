@@ -5,7 +5,7 @@ This file shows how to use a non-streaming Google MedASR CTC model
 to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program medasr_ctc;
@@ -35,13 +35,13 @@ var
 begin
   Initialize(Config);
 
-  Config.ModelConfig.MedAsr.Model := './edgevox-onnx-medasr-ctc-en-int8-2025-12-25/model.int8.onnx';
-  Config.ModelConfig.Tokens := './edgevox-onnx-medasr-ctc-en-int8-2025-12-25/tokens.txt';
+  Config.ModelConfig.MedAsr.Model := './sherpa-onnx-medasr-ctc-en-int8-2025-12-25/model.int8.onnx';
+  Config.ModelConfig.Tokens := './sherpa-onnx-medasr-ctc-en-int8-2025-12-25/tokens.txt';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := True;
 
-  WaveFilename := './edgevox-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/0.wav';
+  WaveFilename := './sherpa-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/0.wav';
 
   Wave := EdgevoxOnnxReadWave(WaveFilename);
 

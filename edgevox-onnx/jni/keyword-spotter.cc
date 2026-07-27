@@ -39,7 +39,7 @@ static KeywordSpotterConfig GetKwsConfig(JNIEnv *env, jobject config,
 
   //---------- feat config ----------
   fid = env->GetFieldID(cls, "featConfig",
-                        "Lcom/k2fsa/sherpa/onnx/FeatureConfig;");
+                        "Lcom/nexus/edgevox/onnx/FeatureConfig;");
   jobject feat_config = env->GetObjectField(config, fid);
   jclass feat_config_cls = env->GetObjectClass(feat_config);
 
@@ -54,7 +54,7 @@ static KeywordSpotterConfig GetKwsConfig(JNIEnv *env, jobject config,
 
   //---------- model config ----------
   fid = env->GetFieldID(cls, "modelConfig",
-                        "Lcom/k2fsa/sherpa/onnx/OnlineModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OnlineModelConfig;");
   jobject model_config = env->GetObjectField(config, fid);
   jclass model_config_cls = env->GetObjectClass(model_config);
   ans.model_config =
@@ -73,7 +73,7 @@ static KeywordSpotterConfig GetKwsConfig(JNIEnv *env, jobject config,
 }  // namespace edgevox_onnx
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jlong JNICALL Java_com_k2fsa_edgevox_onnx_KeywordSpotter_newFromAsset(
+JNIEXPORT jlong JNICALL Java_com_nexus_edgevox_onnx_KeywordSpotter_newFromAsset(
     JNIEnv *env, jobject /*obj*/, jobject asset_manager, jobject _config) {
 #if __ANDROID_API__ >= 9
   AAssetManager *mgr = AAssetManager_fromJava(env, asset_manager);
@@ -102,7 +102,7 @@ JNIEXPORT jlong JNICALL Java_com_k2fsa_edgevox_onnx_KeywordSpotter_newFromAsset(
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jlong JNICALL Java_com_k2fsa_edgevox_onnx_KeywordSpotter_newFromFile(
+JNIEXPORT jlong JNICALL Java_com_nexus_edgevox_onnx_KeywordSpotter_newFromFile(
     JNIEnv *env, jobject /*obj*/, jobject _config) {
   bool ok = false;
   auto config = edgevox_onnx::GetKwsConfig(env, _config, &ok);
@@ -125,13 +125,13 @@ JNIEXPORT jlong JNICALL Java_com_k2fsa_edgevox_onnx_KeywordSpotter_newFromFile(
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_KeywordSpotter_delete(
+JNIEXPORT void JNICALL Java_com_nexus_edgevox_onnx_KeywordSpotter_delete(
     JNIEnv * /*env*/, jobject /*obj*/, jlong ptr) {
   delete reinterpret_cast<edgevox_onnx::KeywordSpotter *>(ptr);
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_KeywordSpotter_decode(
+JNIEXPORT void JNICALL Java_com_nexus_edgevox_onnx_KeywordSpotter_decode(
     JNIEnv * /*env*/, jobject /*obj*/, jlong ptr, jlong stream_ptr) {
   auto kws = reinterpret_cast<edgevox_onnx::KeywordSpotter *>(ptr);
   auto stream = reinterpret_cast<edgevox_onnx::OnlineStream *>(stream_ptr);
@@ -140,7 +140,7 @@ JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_KeywordSpotter_decode(
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_KeywordSpotter_reset(
+JNIEXPORT void JNICALL Java_com_nexus_edgevox_onnx_KeywordSpotter_reset(
     JNIEnv * /*env*/, jobject /*obj*/, jlong ptr, jlong stream_ptr) {
   auto kws = reinterpret_cast<edgevox_onnx::KeywordSpotter *>(ptr);
   auto stream = reinterpret_cast<edgevox_onnx::OnlineStream *>(stream_ptr);
@@ -149,7 +149,7 @@ JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_KeywordSpotter_reset(
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jlong JNICALL Java_com_k2fsa_edgevox_onnx_KeywordSpotter_createStream(
+JNIEXPORT jlong JNICALL Java_com_nexus_edgevox_onnx_KeywordSpotter_createStream(
     JNIEnv *env, jobject /*obj*/, jlong ptr, jstring keywords) {
   auto kws = reinterpret_cast<edgevox_onnx::KeywordSpotter *>(ptr);
 
@@ -166,14 +166,14 @@ JNIEXPORT jlong JNICALL Java_com_k2fsa_edgevox_onnx_KeywordSpotter_createStream(
 
   // The user is responsible to free the returned pointer.
   //
-  // See Java_com_k2fsa_edgevox_onnx_OfflineStream_delete() from
+  // See Java_com_nexus_edgevox_onnx_OfflineStream_delete() from
   // ./offline-stream.cc
   edgevox_onnx::OnlineStream *ans = stream.release();
   return (jlong)ans;
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jboolean JNICALL Java_com_k2fsa_edgevox_onnx_KeywordSpotter_isReady(
+JNIEXPORT jboolean JNICALL Java_com_nexus_edgevox_onnx_KeywordSpotter_isReady(
     JNIEnv * /*env*/, jobject /*obj*/, jlong ptr, jlong stream_ptr) {
   auto kws = reinterpret_cast<edgevox_onnx::KeywordSpotter *>(ptr);
   auto stream = reinterpret_cast<edgevox_onnx::OnlineStream *>(stream_ptr);
@@ -182,7 +182,7 @@ JNIEXPORT jboolean JNICALL Java_com_k2fsa_edgevox_onnx_KeywordSpotter_isReady(
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jobject JNICALL Java_com_k2fsa_edgevox_onnx_KeywordSpotter_getResult(
+JNIEXPORT jobject JNICALL Java_com_nexus_edgevox_onnx_KeywordSpotter_getResult(
     JNIEnv *env, jobject /*obj*/, jlong ptr, jlong stream_ptr) {
   auto kws = reinterpret_cast<edgevox_onnx::KeywordSpotter *>(ptr);
   auto stream = reinterpret_cast<edgevox_onnx::OnlineStream *>(stream_ptr);
@@ -215,11 +215,11 @@ JNIEXPORT jobject JNICALL Java_com_k2fsa_edgevox_onnx_KeywordSpotter_getResult(
 
   // Find KeywordSpotterResult class
   jclass result_cls =
-      env->FindClass("com/k2fsa/sherpa/onnx/KeywordSpotterResult");
+      env->FindClass("com/nexus/edgevox/onnx/KeywordSpotterResult");
 
   if (result_cls == nullptr) {
     EDGEVOX_ONNX_LOGE(
-        "Failed to find class com/k2fsa/sherpa/onnx/KeywordSpotterResult");
+        "Failed to find class com/nexus/edgevox/onnx/KeywordSpotterResult");
     env->DeleteLocalRef(j_keyword);
     env->DeleteLocalRef(j_tokens);
     env->DeleteLocalRef(j_timestamps);

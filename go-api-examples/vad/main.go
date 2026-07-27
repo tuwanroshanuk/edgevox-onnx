@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/gen2brain/malgo"
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 	"log"
 	"os"
 )
@@ -14,9 +14,9 @@ func main() {
 	config := sherpa.VadModelConfig{}
 
 	// Please download silero_vad.onnx from
-	// https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+	// https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 	// or ten-vad.onnx from
-	// https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/ten-vad.onnx
+	// https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/ten-vad.onnx
 
 	if FileExists("./silero_vad.onnx") {
 		fmt.Println("Use silero-vad")

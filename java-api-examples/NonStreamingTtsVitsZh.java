@@ -5,12 +5,12 @@
 //
 // You can use https://github.com/Plachtaa/VITS-fast-fine-tuning
 // to train your model
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingTtsPiperEn {
   public static void main(String[] args) {
     // please visit
-    // https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+    // https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
     // to download model files
     String model = "./vits-zh-hf-fanchen-C/vits-zh-hf-fanchen-C.onnx";
     String tokens = "./vits-zh-hf-fanchen-C/tokens.txt";

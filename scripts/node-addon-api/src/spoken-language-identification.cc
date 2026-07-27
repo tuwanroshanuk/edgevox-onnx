@@ -1,1 +1,1 @@
-../../../harmony-os/SherpaOnnxHar/sherpa_onnx/src/main/cpp/spoken-language-identification.cc
+../../../harmony-os/EdgevoxOnnxHar/edgevox_onnx/src/main/cpp/spoken-language-identification.cc

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -ex
 if [ ! -f ./vits-zh-aishell3/vits-aishell3.onnx ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-icefall-zh-aishell3.tar.bz2
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-icefall-zh-aishell3.tar.bz2
   tar xvf vits-icefall-zh-aishell3.tar.bz2
   rm vits-icefall-zh-aishell3.tar.bz2
 fi

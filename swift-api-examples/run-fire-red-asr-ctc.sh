@@ -7,7 +7,7 @@ if [ ! -d ../build-swift-macos ]; then
   exit 1
 fi
 
-if [ ! -f ./edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/model.int8.onnx ]; then
+if [ ! -f ./sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/model.int8.onnx ]; then
   echo "Please download the pre-trained model for testing."
   echo "You can refer to"
   echo ""
@@ -15,11 +15,11 @@ if [ ! -f ./edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/model.int8.onnx
   echo ""
   echo "for help"
 
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
-  tar xvf edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
-  rm edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
+  tar xvf sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
+  rm sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
 
-  ls -lh edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25
+  ls -lh sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25
 fi
 
 if [ ! -e ./fire-red-asr-ctc ]; then

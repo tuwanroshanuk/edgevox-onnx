@@ -1,7 +1,7 @@
 # Introduction
 
 Please refer to
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 or
 https://k2-fsa.github.io/sherpa/onnx/pretrained_models/index.html
 to download a model.
@@ -12,17 +12,17 @@ to download a model.
 ```bash
 cd edgevox-onnx/wasm/asr/assets
 
-wget -q https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
-tar xvf edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
-rm edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+wget -q https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+tar xvf sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+rm sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
 
 # Note it is not an error that we rename encoder.int8.onnx to encoder.onnx
 
-mv edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.int8.onnx encoder.onnx
-mv edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx decoder.onnx
-mv edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.int8.onnx joiner.onnx
-mv edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt ./
-rm -rf edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/
+mv sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.int8.onnx encoder.onnx
+mv sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx decoder.onnx
+mv sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.int8.onnx joiner.onnx
+mv sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt ./
+rm -rf sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/
 
 cd ../../..
 
@@ -47,15 +47,15 @@ assets fangjun$ tree -L 1
 ## Paraformer
 
 ```
-wget -q https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
-tar xvf edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
-rm edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+wget -q https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+tar xvf sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+rm sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
 
-mv edgevox-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx encoder.onnx
-mv edgevox-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx decoder.onnx
-mv edgevox-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt ./
+mv sherpa-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx encoder.onnx
+mv sherpa-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx decoder.onnx
+mv sherpa-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt ./
 
-rm -rf edgevox-onnx-streaming-paraformer-bilingual-zh-en
+rm -rf sherpa-onnx-streaming-paraformer-bilingual-zh-en
 
 cd ../
 
@@ -83,7 +83,7 @@ assets fangjun$ tree -L 1
 
 You can find example build scripts at:
 
-  - Streaming Zipformer (English + Chinese): https://github.com/k2-fsa/edgevox-onnx/blob/master/.github/workflows/ wasm-simd-hf-space-zh-en-asr-zipformer.yaml
-  - Streaming Zipformer (English): https://github.com/k2-fsa/edgevox-onnx/blob/master/.github/workflows/wasm-simd-hf-space-en-asr-zipformer.yaml
-  - Streaming Paraformer (English + Chinese): https://github.com/k2-fsa/edgevox-onnx/blob/master/.github/workflows/wasm-simd-hf-space-zh-en-asr-paraformer.yaml
-  - Streaming Paraformer (English + Chinese + Cantonese): https://github.com/k2-fsa/edgevox-onnx/blob/master/.github/workflows/wasm-simd-hf-space-zh-cantonese-en-asr-paraformer.yaml
+  - Streaming Zipformer (English + Chinese): https://github.com/k2-fsa/sherpa-onnx/blob/master/.github/workflows/ wasm-simd-hf-space-zh-en-asr-zipformer.yaml
+  - Streaming Zipformer (English): https://github.com/k2-fsa/sherpa-onnx/blob/master/.github/workflows/wasm-simd-hf-space-en-asr-zipformer.yaml
+  - Streaming Paraformer (English + Chinese): https://github.com/k2-fsa/sherpa-onnx/blob/master/.github/workflows/wasm-simd-hf-space-zh-en-asr-paraformer.yaml
+  - Streaming Paraformer (English + Chinese + Cantonese): https://github.com/k2-fsa/sherpa-onnx/blob/master/.github/workflows/wasm-simd-hf-space-zh-cantonese-en-asr-paraformer.yaml

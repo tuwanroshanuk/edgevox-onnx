@@ -36,8 +36,8 @@ const destKotlinDir = path.join(
   'main',
   'java',
   'com',
-  'k2fsa',
-  'sherpa',
+  'nexus',
+  'edgevox',
   'onnx',
 );
 const stampPath = path.join(destJni, '.edgevox-onnx-version');

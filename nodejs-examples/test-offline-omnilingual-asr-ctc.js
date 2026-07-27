@@ -11,10 +11,10 @@ function createOfflineRecognizer() {
     modelConfig: {
       omnilingual: {
         model:
-            './edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/model.int8.onnx',
+            './sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/model.int8.onnx',
       },
       tokens:
-          './edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/tokens.txt',
+          './sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/tokens.txt',
     }
   };
 
@@ -25,7 +25,7 @@ const recognizer = createOfflineRecognizer();
 const stream = recognizer.createStream();
 
 const waveFilename =
-    './edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/test_wavs/en.wav';
+    './sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/test_wavs/en.wav';
 const wave = edgevox_onnx.readWave(waveFilename);
 stream.acceptWaveform(wave.sampleRate, wave.samples);
 

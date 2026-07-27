@@ -4,7 +4,7 @@ set -ex
 # see also
 # https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-transducer/zipformer-transducer-models.html#icefall-asr-multidataset-pruned-transducer-stateless7-2023-05-04-english
 if [ ! -f "./icefall-asr-multidataset-pruned_transducer_stateless7-2023-05-04/data/lang_bpe_500/tokens.txt" ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/icefall-asr-multidataset-pruned_transducer_stateless7-2023-05-04.tar.bz2
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/icefall-asr-multidataset-pruned_transducer_stateless7-2023-05-04.tar.bz2
 
   tar xvf icefall-asr-multidataset-pruned_transducer_stateless7-2023-05-04.tar.bz2
   rm icefall-asr-multidataset-pruned_transducer_stateless7-2023-05-04.tar.bz2

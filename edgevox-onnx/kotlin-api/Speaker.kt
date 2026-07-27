@@ -1,4 +1,4 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 import android.content.res.AssetManager
 import android.util.Log
@@ -114,7 +114,7 @@ class SpeakerEmbeddingManager(val dim: Int) {
 }
 
 // Please download the model file from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-recongition-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models
 // and put it inside the assets directory.
 //
 // Please don't put it in a subdirectory of assets

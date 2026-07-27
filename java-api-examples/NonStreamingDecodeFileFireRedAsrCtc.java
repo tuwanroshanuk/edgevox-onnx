@@ -3,18 +3,18 @@
 // This file shows how to use an offline FireRedASR CTC model,
 // i.e., non-streaming FireRedASR CTC model,
 // to decode files.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingDecodeFileFireRedAsrCtc {
   public static void main(String[] args) {
     // please refer to
     // https://k2-fsa.github.io/sherpa/onnx/FireRedAsr/index.html
     // to download model files
-    String model = "./edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/model.int8.onnx";
+    String model = "./sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/model.int8.onnx";
 
-    String tokens = "./edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/tokens.txt";
+    String tokens = "./sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/tokens.txt";
 
-    String waveFilename = "./edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/test_wavs/1.wav";
+    String waveFilename = "./sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/test_wavs/1.wav";
 
     WaveReader reader = new WaveReader(waveFilename);
 

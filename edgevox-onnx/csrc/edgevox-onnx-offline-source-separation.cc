@@ -16,29 +16,29 @@ int main(int32_t argc, char *argv[]) {
 Non-streaming source separation with edgevox-onnx.
 
 Please visit
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/source-separation-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/source-separation-models
 to download models.
 
 Usage:
 
 (1) Use spleeter models
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/edgevox-onnx-spleeter-2stems-fp16.tar.bz2
-tar xvf edgevox-onnx-spleeter-2stems-fp16.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/sherpa-onnx-spleeter-2stems-fp16.tar.bz2
+tar xvf sherpa-onnx-spleeter-2stems-fp16.tar.bz2
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/audio_example.wav
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/audio_example.wav
 
 ./bin/edgevox-onnx-offline-source-separation \
-  --spleeter-vocals=edgevox-onnx-spleeter-2stems-fp16/vocals.fp16.onnx \
-  --spleeter-accompaniment=edgevox-onnx-spleeter-2stems-fp16/accompaniment.fp16.onnx \
+  --spleeter-vocals=sherpa-onnx-spleeter-2stems-fp16/vocals.fp16.onnx \
+  --spleeter-accompaniment=sherpa-onnx-spleeter-2stems-fp16/accompaniment.fp16.onnx \
   --input-wav=audio_example.wav \
   --output-vocals-wav=output_vocals.wav \
   --output-accompaniment-wav=output_accompaniment.wav
 
 (2) Use UVR models
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/UVR_MDXNET_1_9703.onnx
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/audio_example.wav
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/UVR_MDXNET_1_9703.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/audio_example.wav
 
 ./bin/edgevox-onnx-offline-source-separation \
   --uvr-model=./UVR_MDXNET_1_9703.onnx \

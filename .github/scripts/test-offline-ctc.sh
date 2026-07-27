@@ -19,71 +19,71 @@ for type in base small; do
   log "------------------------------------------------------------"
   log "Run Dolphin CTC models ($type int8)"
   log "------------------------------------------------------------"
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-dolphin-$type-ctc-multi-lang-int8-2025-04-02.tar.bz2
-  tar xvf edgevox-onnx-dolphin-$type-ctc-multi-lang-int8-2025-04-02.tar.bz2
-  rm edgevox-onnx-dolphin-$type-ctc-multi-lang-int8-2025-04-02.tar.bz2
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-dolphin-$type-ctc-multi-lang-int8-2025-04-02.tar.bz2
+  tar xvf sherpa-onnx-dolphin-$type-ctc-multi-lang-int8-2025-04-02.tar.bz2
+  rm sherpa-onnx-dolphin-$type-ctc-multi-lang-int8-2025-04-02.tar.bz2
 
   $EXE \
-    --dolphin-model=./edgevox-onnx-dolphin-$type-ctc-multi-lang-int8-2025-04-02/model.int8.onnx \
-    --tokens=./edgevox-onnx-dolphin-$type-ctc-multi-lang-int8-2025-04-02/tokens.txt \
+    --dolphin-model=./sherpa-onnx-dolphin-$type-ctc-multi-lang-int8-2025-04-02/model.int8.onnx \
+    --tokens=./sherpa-onnx-dolphin-$type-ctc-multi-lang-int8-2025-04-02/tokens.txt \
     --debug=1 \
-    ./edgevox-onnx-dolphin-$type-ctc-multi-lang-int8-2025-04-02/test_wavs/0.wav
+    ./sherpa-onnx-dolphin-$type-ctc-multi-lang-int8-2025-04-02/test_wavs/0.wav
 
-  rm -rf edgevox-onnx-dolphin-$type-ctc-multi-lang-int8-2025-04-02
+  rm -rf sherpa-onnx-dolphin-$type-ctc-multi-lang-int8-2025-04-02
 
   log "------------------------------------------------------------"
   log "Run Dolphin CTC models ($type)"
   log "------------------------------------------------------------"
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-dolphin-$type-ctc-multi-lang-2025-04-02.tar.bz2
-  tar xvf edgevox-onnx-dolphin-$type-ctc-multi-lang-2025-04-02.tar.bz2
-  rm edgevox-onnx-dolphin-$type-ctc-multi-lang-2025-04-02.tar.bz2
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-dolphin-$type-ctc-multi-lang-2025-04-02.tar.bz2
+  tar xvf sherpa-onnx-dolphin-$type-ctc-multi-lang-2025-04-02.tar.bz2
+  rm sherpa-onnx-dolphin-$type-ctc-multi-lang-2025-04-02.tar.bz2
 
   $EXE \
-    --dolphin-model=./edgevox-onnx-dolphin-$type-ctc-multi-lang-2025-04-02/model.onnx \
-    --tokens=./edgevox-onnx-dolphin-$type-ctc-multi-lang-2025-04-02/tokens.txt \
+    --dolphin-model=./sherpa-onnx-dolphin-$type-ctc-multi-lang-2025-04-02/model.onnx \
+    --tokens=./sherpa-onnx-dolphin-$type-ctc-multi-lang-2025-04-02/tokens.txt \
     --debug=1 \
-    ./edgevox-onnx-dolphin-$type-ctc-multi-lang-2025-04-02/test_wavs/0.wav
+    ./sherpa-onnx-dolphin-$type-ctc-multi-lang-2025-04-02/test_wavs/0.wav
 
-  rm -rf edgevox-onnx-dolphin-$type-ctc-multi-lang-2025-04-02
+  rm -rf sherpa-onnx-dolphin-$type-ctc-multi-lang-2025-04-02
 done
 
 log "------------------------------------------------------------"
 log "Run NeMo GigaAM Russian models v2"
 log "------------------------------------------------------------"
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19.tar.bz2
-tar xvf edgevox-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19.tar.bz2
-rm edgevox-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19.tar.bz2
+tar xvf sherpa-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19.tar.bz2
+rm sherpa-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19.tar.bz2
 
 $EXE \
-  --nemo-ctc-model=./edgevox-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19/model.int8.onnx \
-  --tokens=./edgevox-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19/tokens.txt \
+  --nemo-ctc-model=./sherpa-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19/model.int8.onnx \
+  --tokens=./sherpa-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19/tokens.txt \
   --debug=1 \
-  ./edgevox-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19/test_wavs/example.wav
+  ./sherpa-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19/test_wavs/example.wav
 
-rm -rf edgevox-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19
+rm -rf sherpa-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19
 
 log "------------------------------------------------------------"
 log "Run NeMo GigaAM Russian models v1"
 log "------------------------------------------------------------"
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-ctc-giga-am-russian-2024-10-24.tar.bz2
-tar xvf edgevox-onnx-nemo-ctc-giga-am-russian-2024-10-24.tar.bz2
-rm edgevox-onnx-nemo-ctc-giga-am-russian-2024-10-24.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-ctc-giga-am-russian-2024-10-24.tar.bz2
+tar xvf sherpa-onnx-nemo-ctc-giga-am-russian-2024-10-24.tar.bz2
+rm sherpa-onnx-nemo-ctc-giga-am-russian-2024-10-24.tar.bz2
 
 $EXE \
-  --nemo-ctc-model=./edgevox-onnx-nemo-ctc-giga-am-russian-2024-10-24/model.int8.onnx \
-  --tokens=./edgevox-onnx-nemo-ctc-giga-am-russian-2024-10-24/tokens.txt \
+  --nemo-ctc-model=./sherpa-onnx-nemo-ctc-giga-am-russian-2024-10-24/model.int8.onnx \
+  --tokens=./sherpa-onnx-nemo-ctc-giga-am-russian-2024-10-24/tokens.txt \
   --debug=1 \
-  ./edgevox-onnx-nemo-ctc-giga-am-russian-2024-10-24/test_wavs/example.wav
+  ./sherpa-onnx-nemo-ctc-giga-am-russian-2024-10-24/test_wavs/example.wav
 
-rm -rf edgevox-onnx-nemo-ctc-giga-am-russian-2024-10-24
+rm -rf sherpa-onnx-nemo-ctc-giga-am-russian-2024-10-24
 
 log "------------------------------------------------------------"
 log "Run SenseVoice models"
 log "------------------------------------------------------------"
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
-tar xvf edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
-rm edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
-repo=edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
+tar xvf sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
+rm sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
+repo=sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17
 
 for m in model.int8.onnx; do
   for w in zh en yue ja ko; do
@@ -98,13 +98,13 @@ for m in model.int8.onnx; do
   done
 done
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/dict.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/dict.tar.bz2
 tar xf dict.tar.bz2
 rm dict.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/replace.fst
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/test-hr.wav
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/lexicon.txt
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/replace.fst
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/test-hr.wav
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/lexicon.txt
 
 for m in model.int8.onnx; do
   for use_itn in 0 1; do
@@ -136,7 +136,7 @@ waves=(
   float32-2-channel-zh.wav
 )
 for w in ${waves[@]}; do
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/$w
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/$w
 
   time $EXE \
     --tokens=$repo/tokens.txt \
@@ -161,7 +161,7 @@ if true; then
   # edgevox-onnx-en-wenet-gigaspeech
   )
   for name in ${wenet_models[@]}; do
-    repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/$name.tar.bz2
+    repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/$name.tar.bz2
     log "Start testing ${repo_url}"
     repo=$name
     log "Download pretrained model and test-data from $repo_url"
@@ -191,7 +191,7 @@ fi
 
 
 log "test offline TeleSpeech CTC"
-url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04.tar.bz2
+url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04.tar.bz2
 name=$(basename $url)
 repo=$(basename -s .tar.bz2 $name)
 
@@ -227,7 +227,7 @@ log "-----------------------------------------------------------------"
 log "Run Nemo fast conformer hybrid transducer ctc models (CTC branch)"
 log "-----------------------------------------------------------------"
 
-url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k.tar.bz2
+url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k.tar.bz2
 name=$(basename $url)
 curl -SL -O $url
 tar xvf $name
@@ -257,7 +257,7 @@ done
 
 rm -rf $repo
 
-url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-fast-conformer-ctc-en-24500.tar.bz2
+url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-fast-conformer-ctc-en-24500.tar.bz2
 name=$(basename $url)
 curl -SL -O $url
 tar xvf $name
@@ -275,7 +275,7 @@ time $EXE \
 
 rm -rf $repo
 
-url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-fast-conformer-ctc-es-1424.tar.bz2
+url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-fast-conformer-ctc-es-1424.tar.bz2
 name=$(basename $url)
 curl -SL -O $url
 tar xvf $name
@@ -293,7 +293,7 @@ time $EXE \
 
 rm -rf $repo
 
-url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-fast-conformer-ctc-en-de-es-fr-14288.tar.bz2
+url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-fast-conformer-ctc-en-de-es-fr-14288.tar.bz2
 name=$(basename $url)
 curl -SL -O $url
 tar xvf $name
@@ -325,7 +325,7 @@ rm -rf $repo
 log "------------------------------------------------------------"
 log "Run tdnn yesno (Hebrew)"
 log "------------------------------------------------------------"
-url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-tdnn-yesno.tar.bz2
+url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-tdnn-yesno.tar.bz2
 curl -SL -O $url
 tar xvf edgevox-onnx-tdnn-yesno.tar.bz2
 rm edgevox-onnx-tdnn-yesno.tar.bz2
@@ -367,12 +367,12 @@ log "------------------------------------------------------------"
 log "Run Citrinet (stt_en_citrinet_512, English)"
 log "------------------------------------------------------------"
 
-repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-ctc-en-citrinet-512.tar.bz2
+repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-ctc-en-citrinet-512.tar.bz2
 curl -SL -O $repo_url
-tar xvf edgevox-onnx-nemo-ctc-en-citrinet-512.tar.bz2
-rm edgevox-onnx-nemo-ctc-en-citrinet-512.tar.bz2
+tar xvf sherpa-onnx-nemo-ctc-en-citrinet-512.tar.bz2
+rm sherpa-onnx-nemo-ctc-en-citrinet-512.tar.bz2
 log "Start testing ${repo_url}"
-repo=edgevox-onnx-nemo-ctc-en-citrinet-512
+repo=sherpa-onnx-nemo-ctc-en-citrinet-512
 log "Download pretrained model and test-data from $repo_url"
 
 time $EXE \
@@ -396,12 +396,12 @@ rm -rf $repo
 log "------------------------------------------------------------"
 log "Run Librispeech zipformer CTC H/HL/HLG decoding (English)   "
 log "------------------------------------------------------------"
-repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-zipformer-ctc-en-2023-10-02.tar.bz2
+repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-zipformer-ctc-en-2023-10-02.tar.bz2
 curl -SL -O $repo_url
 log "Start testing ${repo_url}"
-tar xvf edgevox-onnx-zipformer-ctc-en-2023-10-02.tar.bz2
-rm edgevox-onnx-zipformer-ctc-en-2023-10-02.tar.bz2
-repo=edgevox-onnx-zipformer-ctc-en-2023-10-02
+tar xvf sherpa-onnx-zipformer-ctc-en-2023-10-02.tar.bz2
+rm sherpa-onnx-zipformer-ctc-en-2023-10-02.tar.bz2
+repo=sherpa-onnx-zipformer-ctc-en-2023-10-02
 log "Download pretrained model and test-data from $repo_url"
 
 graphs=(

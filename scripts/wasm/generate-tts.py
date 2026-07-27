@@ -35,8 +35,8 @@ def get_models():
     models = [
         Model(
             model_name="vits-piper-de_DE-thorsten_emotional-medium",
-            hf="k2-fsa/web-assembly-tts-edgevox-onnx-de",
-            ms="k2-fsa/web-assembly-tts-edgevox-onnx-de",
+            hf="k2-fsa/web-assembly-tts-sherpa-onnx-de",
+            ms="k2-fsa/web-assembly-tts-sherpa-onnx-de",
             cmd="""
             pushd $model_name
 
@@ -54,8 +54,8 @@ def get_models():
         ),
         Model(
             model_name="vits-piper-en_US-libritts_r-medium",
-            hf="k2-fsa/web-assembly-tts-edgevox-onnx-en",
-            ms="k2-fsa/web-assembly-tts-edgevox-onnx-en",
+            hf="k2-fsa/web-assembly-tts-sherpa-onnx-en",
+            ms="k2-fsa/web-assembly-tts-sherpa-onnx-en",
             cmd="""
             pushd $model_name
 
@@ -85,7 +85,7 @@ def get_models():
             mv -v espeak-ng-data ../
             popd
 
-            curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos-16khz-univ.onnx
+            curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos-16khz-univ.onnx
 
             git checkout .
             sed -i.bak 's/let modelType = 0/let modelType = 1/g' ../edgevox-onnx-tts.js
@@ -107,7 +107,7 @@ def get_models():
             mv -v lexicon.txt ../
             popd
 
-            curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
+            curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
 
 
             git checkout .
@@ -129,7 +129,7 @@ def get_models():
             mv -v espeak-ng-data ../
             popd
 
-            curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
+            curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
 
 
             git checkout .
@@ -140,7 +140,7 @@ def get_models():
              """,
         ),
         Model(
-            model_name="edgevox-onnx-zipvoice-distill-int8-zh-en-emilia",
+            model_name="sherpa-onnx-zipvoice-distill-int8-zh-en-emilia",
             hf="k2-fsa/web-assembly-zh-en-tts-zipvoice",
             ms="csukuangfj/web-assembly-zh-en-tts-zipvoice",
             cmd="""
@@ -153,7 +153,7 @@ def get_models():
             mv -v espeak-ng-data ../
             popd
 
-            curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos_24khz.onnx
+            curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos_24khz.onnx
 
             git checkout .
             sed -i.bak 's/let modelType = 0/let modelType = 4/g' ../edgevox-onnx-tts.js
@@ -162,7 +162,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-pocket-tts-int8-2026-01-26",
+            model_name="sherpa-onnx-pocket-tts-int8-2026-01-26",
             hf="k2-fsa/web-assembly-en-tts-pocket",
             ms="csukuangfj/web-assembly-en-tts-pocket",
             cmd="""

@@ -10,15 +10,15 @@ from a microphone.
 Usage:
 
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-paraformer-zh-int8-2025-10-07.tar.bz2
-tar xvf edgevox-onnx-paraformer-zh-int8-2025-10-07.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-paraformer-zh-int8-2025-10-07.tar.bz2
+tar xvf sherpa-onnx-paraformer-zh-int8-2025-10-07.tar.bz2
 
 ./python-api-examples/simulate-streaming-paraformer-microphone.py  \
   --silero-vad-model=./silero_vad.onnx \
-  --paraformer=./edgevox-onnx-paraformer-zh-int8-2025-10-07/model.int8.onnx \
-  --tokens=./edgevox-onnx-paraformer-zh-int8-2025-10-07/tokens.txt
+  --paraformer=./sherpa-onnx-paraformer-zh-int8-2025-10-07/model.int8.onnx \
+  --tokens=./sherpa-onnx-paraformer-zh-int8-2025-10-07/tokens.txt
 """
 import argparse
 import queue

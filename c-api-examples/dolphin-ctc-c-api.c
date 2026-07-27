@@ -6,9 +6,9 @@
 // This file demonstrates how to use Dolphin CTC model with edgevox-onnx's C API.
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
-// tar xvf edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
-// rm edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
+// tar xvf sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
+// rm sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
 //
 // clang-format on
 
@@ -20,9 +20,9 @@
 
 int32_t main() {
   // clang-format off
-  const char *wav_filename = "./edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/test_wavs/0.wav";
-  const char *model_filename = "./edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/model.int8.onnx";
-  const char *tokens_filename = "./edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/tokens.txt";
+  const char *wav_filename = "./sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/test_wavs/0.wav";
+  const char *model_filename = "./sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/model.int8.onnx";
+  const char *tokens_filename = "./sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/tokens.txt";
   // clang-format on
 
   const EdgevoxOnnxWave *wave = EdgevoxOnnxReadWave(wav_filename);

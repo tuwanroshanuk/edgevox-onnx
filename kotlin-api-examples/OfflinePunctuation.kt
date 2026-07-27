@@ -1,1 +1,1 @@
-../sherpa-onnx/kotlin-api/OfflinePunctuation.kt
+../edgevox-onnx/kotlin-api/OfflinePunctuation.kt

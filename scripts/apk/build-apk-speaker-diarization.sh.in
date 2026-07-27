@@ -43,13 +43,13 @@ segmentation_short_name={{ model.segmentation.short_name }}
 embedding_model_name={{ model.embedding.model_name }}
 embedding_short_name={{ model.embedding.short_name }}
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-segmentation-models/$segmentation_model_name.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-segmentation-models/$segmentation_model_name.tar.bz2
 tar xvf $segmentation_model_name.tar.bz2
 rm $segmentation_model_name.tar.bz2
 mv $segmentation_model_name/model.onnx segmentation.onnx
 rm -rf $segmentation_model_name
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-recongition-models/$embedding_model_name.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/$embedding_model_name.onnx
 mv $embedding_model_name.onnx embedding.onnx
 
 echo "pwd: $PWD"

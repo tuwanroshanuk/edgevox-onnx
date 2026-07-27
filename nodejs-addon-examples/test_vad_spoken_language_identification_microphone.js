@@ -7,7 +7,7 @@ const edgevox_onnx = require('edgevox-onnx-node');
 
 function createVad() {
   // please download silero_vad.onnx from
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
   const config = {
     sileroVad: {
       model: './silero_vad.onnx',
@@ -27,12 +27,12 @@ function createVad() {
 }
 
 // Please download test files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 function createSpokenLanguageID() {
   const config = {
     whisper: {
-      encoder: './edgevox-onnx-whisper-tiny/tiny-encoder.int8.onnx',
-      decoder: './edgevox-onnx-whisper-tiny/tiny-decoder.int8.onnx',
+      encoder: './sherpa-onnx-whisper-tiny/tiny-encoder.int8.onnx',
+      decoder: './sherpa-onnx-whisper-tiny/tiny-decoder.int8.onnx',
     },
     debug: true,
     numThreads: 1,

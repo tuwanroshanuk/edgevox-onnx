@@ -2,21 +2,21 @@
 
 // This file shows how to use an offline transducer, i.e., non-streaming transducer,
 // to decode files.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingDecodeFileTransducer {
   public static void main(String[] args) {
     // please refer to
-    // https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-transducer/zipformer-transducer-models.html#edgevox-onnx-zipformer-gigaspeech-2023-12-12-english
+    // https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-transducer/zipformer-transducer-models.html#sherpa-onnx-zipformer-gigaspeech-2023-12-12-english
     // to download model files
     String encoder =
-        "./edgevox-onnx-zipformer-gigaspeech-2023-12-12/encoder-epoch-30-avg-1.int8.onnx";
-    String decoder = "./edgevox-onnx-zipformer-gigaspeech-2023-12-12/decoder-epoch-30-avg-1.onnx";
-    String joiner = "./edgevox-onnx-zipformer-gigaspeech-2023-12-12/joiner-epoch-30-avg-1.onnx";
-    String tokens = "./edgevox-onnx-zipformer-gigaspeech-2023-12-12/tokens.txt";
+        "./sherpa-onnx-zipformer-gigaspeech-2023-12-12/encoder-epoch-30-avg-1.int8.onnx";
+    String decoder = "./sherpa-onnx-zipformer-gigaspeech-2023-12-12/decoder-epoch-30-avg-1.onnx";
+    String joiner = "./sherpa-onnx-zipformer-gigaspeech-2023-12-12/joiner-epoch-30-avg-1.onnx";
+    String tokens = "./sherpa-onnx-zipformer-gigaspeech-2023-12-12/tokens.txt";
 
     String waveFilename =
-        "./edgevox-onnx-zipformer-gigaspeech-2023-12-12/test_wavs/1089-134686-0001.wav";
+        "./sherpa-onnx-zipformer-gigaspeech-2023-12-12/test_wavs/1089-134686-0001.wav";
 
     WaveReader reader = new WaveReader(waveFilename);
 

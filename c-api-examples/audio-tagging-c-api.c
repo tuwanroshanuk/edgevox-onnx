@@ -3,15 +3,15 @@
 // Copyright (c)  2024  Xiaomi Corporation
 
 // We assume you have pre-downloaded the model files for testing
-// from https://github.com/k2-fsa/edgevox-onnx/releases/tag/audio-tagging-models
+// from https://github.com/k2-fsa/sherpa-onnx/releases/tag/audio-tagging-models
 //
 // An example is given below:
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/audio-tagging-models/edgevox-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
-// tar xvf edgevox-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
-// rm edgevox-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/audio-tagging-models/sherpa-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
+// tar xvf sherpa-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
+// rm sherpa-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
 //
 // clang-format on
 
@@ -26,12 +26,12 @@ int32_t main() {
   memset(&config, 0, sizeof(config));
 
   config.model.zipformer.model =
-      "./edgevox-onnx-zipformer-audio-tagging-2024-04-09/model.int8.onnx";
+      "./sherpa-onnx-zipformer-audio-tagging-2024-04-09/model.int8.onnx";
   config.model.num_threads = 1;
   config.model.debug = 1;
   config.model.provider = "cpu";
   // clang-format off
-  config.labels = "./edgevox-onnx-zipformer-audio-tagging-2024-04-09/class_labels_indices.csv";
+  config.labels = "./sherpa-onnx-zipformer-audio-tagging-2024-04-09/class_labels_indices.csv";
   // clang-format on
 
   const EdgevoxOnnxAudioTagging *tagger = EdgevoxOnnxCreateAudioTagging(&config);
@@ -41,9 +41,9 @@ int32_t main() {
   }
 
   // You can find more test waves from
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/audio-tagging-models/edgevox-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/audio-tagging-models/sherpa-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
   const char *wav_filename =
-      "./edgevox-onnx-zipformer-audio-tagging-2024-04-09/test_wavs/1.wav";
+      "./sherpa-onnx-zipformer-audio-tagging-2024-04-09/test_wavs/1.wav";
 
   const EdgevoxOnnxWave *wave = EdgevoxOnnxReadWave(wav_filename);
   if (wave == NULL) {

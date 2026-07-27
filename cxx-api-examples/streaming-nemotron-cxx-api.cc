@@ -7,9 +7,9 @@
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25.tar.bz2
-// tar xvf edgevox-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25.tar.bz2
-// rm edgevox-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25.tar.bz2
+// tar xvf sherpa-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25.tar.bz2
+// rm sherpa-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25.tar.bz2
 //
 // clang-format on
 
@@ -25,19 +25,19 @@ int32_t main() {
   OnlineRecognizerConfig config;
 
   config.model_config.transducer.encoder =
-      "./edgevox-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
+      "./sherpa-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
       "encoder.int8.onnx";
 
   config.model_config.transducer.decoder =
-      "./edgevox-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
+      "./sherpa-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
       "decoder.int8.onnx";
 
   config.model_config.transducer.joiner =
-      "./edgevox-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
+      "./sherpa-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
       "joiner.int8.onnx";
 
   config.model_config.tokens =
-      "./edgevox-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
+      "./sherpa-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
       "tokens.txt";
 
   config.model_config.num_threads = 1;
@@ -51,7 +51,7 @@ int32_t main() {
   std::cout << "Loading model done\n";
 
   std::string wave_filename =
-      "./edgevox-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
+      "./sherpa-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
       "test_wavs/0.wav";
   Wave wave = ReadWave(wave_filename);
   if (wave.samples.empty()) {

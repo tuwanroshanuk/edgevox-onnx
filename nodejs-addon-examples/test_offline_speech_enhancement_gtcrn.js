@@ -4,7 +4,7 @@ const edgevox_onnx = require('edgevox-onnx-node');
 
 function createOfflineSpeechDenoiser() {
   // please download models from
-  // https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
   const config = {
     model: {
       gtcrn: {model: './gtcrn_simple.onnx'},

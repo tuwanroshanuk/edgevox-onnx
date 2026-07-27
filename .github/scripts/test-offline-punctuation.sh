@@ -17,10 +17,10 @@ log "------------------------------------------------------------"
 log "Download the punctuation model                             "
 log "------------------------------------------------------------"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/punctuation-models/edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
-tar xvf edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
-rm edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
-repo=edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/punctuation-models/sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
+tar xvf sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
+rm sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
+repo=sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12
 ls -lh $repo
 
 $EXE \

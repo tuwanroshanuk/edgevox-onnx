@@ -94,8 +94,8 @@ class IsolateTts {
     String dataDir = '';
 
     // Example 7
-    // https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
-    // https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-melo-tts-zh_en.tar.bz2
+    // https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
+    // https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-melo-tts-zh_en.tar.bz2
     modelDir = 'vits-melo-tts-zh_en';
     modelName = 'model.onnx';
     lexicon = 'lexicon.txt';

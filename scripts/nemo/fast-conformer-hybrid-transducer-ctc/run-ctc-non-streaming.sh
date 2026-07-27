@@ -16,13 +16,13 @@ doc="parakeet-tdt_ctc-110m is an ASR model that transcribes speech with Punctuat
 
 log "Process $name at $url"
 ./export-onnx-ctc-non-streaming.py --model $name --doc "$doc"
-d=edgevox-onnx-nemo-parakeet_tdt_ctc_110m-en-36000
+d=sherpa-onnx-nemo-parakeet_tdt_ctc_110m-en-36000
 mkdir -p $d
 mv -v model.onnx $d/
 cp -v tokens.txt $d/
 ls -lh $d
 
-d=edgevox-onnx-nemo-parakeet_tdt_ctc_110m-en-36000-int8
+d=sherpa-onnx-nemo-parakeet_tdt_ctc_110m-en-36000-int8
 mkdir -p $d
 mv -v model.int8.onnx $d/
 mv -v tokens.txt $d/
@@ -36,13 +36,13 @@ doc="This collection contains the English FastConformer Hybrid (Transducer and C
 log "Process $name at $url"
 ./export-onnx-ctc-non-streaming.py --model $name --doc "$doc"
 
-d=edgevox-onnx-nemo-fast-conformer-ctc-en-24500
+d=sherpa-onnx-nemo-fast-conformer-ctc-en-24500
 mkdir -p $d
 mv -v model.onnx $d/
 cp -v tokens.txt $d/
 ls -lh $d
 
-d=edgevox-onnx-nemo-fast-conformer-ctc-en-24500-int8
+d=sherpa-onnx-nemo-fast-conformer-ctc-en-24500-int8
 mkdir -p $d
 mv -v model.int8.onnx $d/
 mv -v tokens.txt $d/
@@ -54,13 +54,13 @@ doc="This collection contains the Spanish FastConformer Hybrid (CTC and Transduc
 
 ./export-onnx-ctc-non-streaming.py --model $name --doc "$doc"
 
-d=edgevox-onnx-nemo-fast-conformer-ctc-es-1424
+d=sherpa-onnx-nemo-fast-conformer-ctc-es-1424
 mkdir -p $d
 mv -v model.onnx $d/
 cp -v tokens.txt $d/
 ls -lh $d
 
-d=edgevox-onnx-nemo-fast-conformer-ctc-es-1424-int8
+d=sherpa-onnx-nemo-fast-conformer-ctc-es-1424-int8
 mkdir -p $d
 mv -v model.int8.onnx $d/
 mv -v tokens.txt $d/
@@ -72,13 +72,13 @@ doc="This collection contains the Multilingual FastConformer Hybrid (Transducer 
 
 ./export-onnx-ctc-non-streaming.py --model $name --doc "$doc"
 
-d=edgevox-onnx-nemo-fast-conformer-ctc-en-de-es-fr-14288
+d=sherpa-onnx-nemo-fast-conformer-ctc-en-de-es-fr-14288
 mkdir -p $d
 mv -v model.onnx $d/
 cp -v tokens.txt $d/
 ls -lh $d
 
-d=edgevox-onnx-nemo-fast-conformer-ctc-en-de-es-fr-14288-int8
+d=sherpa-onnx-nemo-fast-conformer-ctc-en-de-es-fr-14288-int8
 mkdir -p $d
 mv -v model.int8.onnx $d/
 mv -v tokens.txt $d/
@@ -90,13 +90,13 @@ doc="This collection contains the Multilingual FastConformer Hybrid (Transducer 
 
 ./export-onnx-ctc-non-streaming.py --model $name --doc "$doc"
 
-d=edgevox-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k
+d=sherpa-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k
 mkdir -p $d
 mv -v model.onnx $d/
 cp -v tokens.txt $d/
 ls -lh $d
 
-d=edgevox-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k-int8
+d=sherpa-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k-int8
 mkdir -p $d
 mv -v model.int8.onnx $d/
 mv -v tokens.txt $d/
@@ -104,7 +104,7 @@ ls -lh $d
 
 # Now test the exported model
 log "Download test data"
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/spoken-language-identification-test-wavs.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/spoken-language-identification-test-wavs.tar.bz2
 tar xvf spoken-language-identification-test-wavs.tar.bz2
 rm spoken-language-identification-test-wavs.tar.bz2
 data=spoken-language-identification-test-wavs
@@ -112,7 +112,7 @@ data=spoken-language-identification-test-wavs
 curl -SL -O https://dldata-public.s3.us-east-2.amazonaws.com/2086-149220-0033.wav
 mv 2086-149220-0033.wav en.wav
 
-d=edgevox-onnx-nemo-parakeet_tdt_ctc_110m-en-36000
+d=sherpa-onnx-nemo-parakeet_tdt_ctc_110m-en-36000
 python3 ./test-onnx-ctc-non-streaming.py \
   --model $d/model.onnx \
   --tokens $d/tokens.txt \
@@ -122,7 +122,7 @@ mkdir -p $d/test_wavs
 cp en.wav $d/test_wavs/0.wav
 cp -v $data/en-english.wav $d/test_wavs/1.wav
 
-d=edgevox-onnx-nemo-parakeet_tdt_ctc_110m-en-36000-int8
+d=sherpa-onnx-nemo-parakeet_tdt_ctc_110m-en-36000-int8
 python3 ./test-onnx-ctc-non-streaming.py \
   --model $d/model.int8.onnx \
   --tokens $d/tokens.txt \
@@ -132,7 +132,7 @@ mkdir -p $d/test_wavs
 cp en.wav $d/test_wavs/0.wav
 cp -v $data/en-english.wav $d/test_wavs/1.wav
 
-d=edgevox-onnx-nemo-fast-conformer-ctc-en-24500
+d=sherpa-onnx-nemo-fast-conformer-ctc-en-24500
 python3 ./test-onnx-ctc-non-streaming.py \
   --model $d/model.onnx \
   --tokens $d/tokens.txt \
@@ -141,7 +141,7 @@ mkdir -p $d/test_wavs
 cp en.wav $d/test_wavs/0.wav
 cp -v $data/en-english.wav $d/test_wavs
 
-d=edgevox-onnx-nemo-fast-conformer-ctc-en-24500-int8
+d=sherpa-onnx-nemo-fast-conformer-ctc-en-24500-int8
 python3 ./test-onnx-ctc-non-streaming.py \
   --model $d/model.int8.onnx \
   --tokens $d/tokens.txt \
@@ -150,7 +150,7 @@ mkdir -p $d/test_wavs
 cp en.wav $d/test_wavs/0.wav
 cp -v $data/en-english.wav $d/test_wavs
 
-d=edgevox-onnx-nemo-fast-conformer-ctc-es-1424
+d=sherpa-onnx-nemo-fast-conformer-ctc-es-1424
 python3 ./test-onnx-ctc-non-streaming.py \
   --model $d/model.onnx \
   --tokens $d/tokens.txt \
@@ -158,7 +158,7 @@ python3 ./test-onnx-ctc-non-streaming.py \
 mkdir -p $d/test_wavs
 cp -v $data/es-spanish.wav $d/test_wavs
 
-d=edgevox-onnx-nemo-fast-conformer-ctc-es-1424-int8
+d=sherpa-onnx-nemo-fast-conformer-ctc-es-1424-int8
 python3 ./test-onnx-ctc-non-streaming.py \
   --model $d/model.int8.onnx \
   --tokens $d/tokens.txt \
@@ -166,7 +166,7 @@ python3 ./test-onnx-ctc-non-streaming.py \
 mkdir -p $d/test_wavs
 cp -v $data/es-spanish.wav $d/test_wavs
 
-d=edgevox-onnx-nemo-fast-conformer-ctc-en-de-es-fr-14288
+d=sherpa-onnx-nemo-fast-conformer-ctc-en-de-es-fr-14288
 mkdir -p $d/test_wavs
 for w in en-english.wav de-german.wav es-spanish.wav fr-french.wav; do
   python3 ./test-onnx-ctc-non-streaming.py \
@@ -176,7 +176,7 @@ for w in en-english.wav de-german.wav es-spanish.wav fr-french.wav; do
   cp -v $data/$w $d/test_wavs
 done
 
-d=edgevox-onnx-nemo-fast-conformer-ctc-en-de-es-fr-14288-int8
+d=sherpa-onnx-nemo-fast-conformer-ctc-en-de-es-fr-14288-int8
 mkdir -p $d/test_wavs
 for w in en-english.wav de-german.wav es-spanish.wav fr-french.wav; do
   python3 ./test-onnx-ctc-non-streaming.py \
@@ -186,7 +186,7 @@ for w in en-english.wav de-german.wav es-spanish.wav fr-french.wav; do
   cp -v $data/$w $d/test_wavs
 done
 
-d=edgevox-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k
+d=sherpa-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k
 mkdir -p $d/test_wavs
 for w in en-english.wav de-german.wav es-spanish.wav fr-french.wav hr-croatian.wav it-italian.wav po-polish.wav ru-russian.wav uk-ukrainian.wav; do
   python3 ./test-onnx-ctc-non-streaming.py \
@@ -196,7 +196,7 @@ for w in en-english.wav de-german.wav es-spanish.wav fr-french.wav hr-croatian.w
   cp -v $data/$w $d/test_wavs
 done
 
-d=edgevox-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k-int8
+d=sherpa-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k-int8
 mkdir -p $d/test_wavs
 for w in en-english.wav de-german.wav es-spanish.wav fr-french.wav hr-croatian.wav it-italian.wav po-polish.wav ru-russian.wav uk-ukrainian.wav; do
   python3 ./test-onnx-ctc-non-streaming.py \

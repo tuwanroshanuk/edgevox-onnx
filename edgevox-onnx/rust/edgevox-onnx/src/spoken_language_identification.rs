@@ -2,7 +2,7 @@
 //!
 //! This module identifies the language spoken in an audio clip using the
 //! Whisper-based language ID API. See
-//! [`rust-api-examples/examples/spoken_language_identification.rs`](https://github.com/k2-fsa/edgevox-onnx/blob/master/rust-api-examples/examples/spoken_language_identification.rs)
+//! [`rust-api-examples/examples/spoken_language_identification.rs`](https://github.com/k2-fsa/sherpa-onnx/blob/master/rust-api-examples/examples/spoken_language_identification.rs)
 //! for a complete example.
 //!
 //! # Example
@@ -16,8 +16,8 @@
 //! let wave = Wave::read("./test.wav").expect("read wave");
 //! let config = SpokenLanguageIdentificationConfig {
 //!     whisper: SpokenLanguageIdentificationWhisperConfig {
-//!         encoder: Some("./edgevox-onnx-whisper-tiny/encoder.int8.onnx".into()),
-//!         decoder: Some("./edgevox-onnx-whisper-tiny/decoder.int8.onnx".into()),
+//!         encoder: Some("./sherpa-onnx-whisper-tiny/encoder.int8.onnx".into()),
+//!         decoder: Some("./sherpa-onnx-whisper-tiny/decoder.int8.onnx".into()),
 //!         tail_paddings: 0,
 //!     },
 //!     ..Default::default()

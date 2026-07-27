@@ -11,10 +11,10 @@ function createOfflineRecognizer() {
     modelConfig: {
       dolphin: {
         model:
-            './edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/model.int8.onnx',
+            './sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/model.int8.onnx',
       },
       tokens:
-          './edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/tokens.txt',
+          './sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/tokens.txt',
     }
   };
 
@@ -25,7 +25,7 @@ const recognizer = createOfflineRecognizer();
 const stream = recognizer.createStream();
 
 const waveFilename =
-    './edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/test_wavs/0.wav';
+    './sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/test_wavs/0.wav';
 const wave = edgevox_onnx.readWave(waveFilename);
 stream.acceptWaveform(wave.sampleRate, wave.samples);
 

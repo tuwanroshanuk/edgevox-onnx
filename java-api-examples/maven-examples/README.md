@@ -1,6 +1,6 @@
 # edgevox-onnx Maven Example
 
-This directory demonstrates how to use [edgevox-onnx](https://github.com/k2-fsa/edgevox-onnx) via Maven.
+This directory demonstrates how to use [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx) via Maven.
 
 ## Prerequisites
 
@@ -46,14 +46,14 @@ so you only ship the platform you need, keeping the final jar lightweight:
 
 <!-- 1. JVM core API -->
 <dependency>
-    <groupId>com.github.k2-fsa.edgevox-onnx</groupId>
+    <groupId>com.github.k2-fsa.sherpa-onnx</groupId>
     <artifactId>edgevox-onnx-jvm</artifactId>
     <version>refactor-jar-SNAPSHOT</version>
 </dependency>
 
 <!-- 2. Platform native lib — pick ONE for your target platform -->
 <dependency>
-    <groupId>com.github.k2-fsa.edgevox-onnx</groupId>
+    <groupId>com.github.k2-fsa.sherpa-onnx</groupId>
     <artifactId>edgevox-onnx-native-lib-osx-aarch64</artifactId>
     <version>refactor-jar-SNAPSHOT</version>
 </dependency>
@@ -107,7 +107,7 @@ The two approaches produce **very different** fat jars:
 
 ### What is inside each jar?
 
-**Approach 1** (`com.github.k2-fsa:edgevox-onnx`) bundles native libs for every platform:
+**Approach 1** (`com.github.k2-fsa:sherpa-onnx`) bundles native libs for every platform:
 
 ```
 jni/arm64-v8a/libonnxruntime.so              21 MB   (Android ARM64)

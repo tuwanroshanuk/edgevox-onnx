@@ -11,16 +11,16 @@ while the model is still generating.
 
 Usage:
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
-tar xvf edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
-rm edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+tar xvf sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+rm sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos_24khz.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos_24khz.onnx
 
 python3 ./python-api-examples/zipvoice-tts-play.py
 
 You can find more models at
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
 
 Please see
 https://k2-fsa.github.io/sherpa/onnx/tts/zipvoice.html
@@ -54,11 +54,11 @@ def create_tts():
     tts_config = edgevox_onnx.OfflineTtsConfig(
         model=edgevox_onnx.OfflineTtsModelConfig(
             zipvoice=edgevox_onnx.OfflineTtsZipvoiceModelConfig(
-                tokens="./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt",
-                encoder="./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx",
-                decoder="./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx",
-                data_dir="./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data",
-                lexicon="./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt",
+                tokens="./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt",
+                encoder="./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx",
+                decoder="./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx",
+                data_dir="./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data",
+                lexicon="./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt",
                 vocoder="./vocos_24khz.onnx",
                 espeak_voice="en-us",
             ),
@@ -157,7 +157,7 @@ def play_audio():
 
 def main():
     reference_audio_file = (
-        "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav"
+        "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav"
     )
     if not Path(reference_audio_file).is_file():
         raise ValueError(f"Reference audio {reference_audio_file} does not exist")

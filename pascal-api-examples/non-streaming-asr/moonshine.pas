@@ -5,7 +5,7 @@ This file shows how to use a non-streaming Moonshine model
 to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program moonshine;
@@ -35,17 +35,17 @@ var
 begin
   Initialize(Config);
 
-  Config.ModelConfig.Moonshine.Preprocessor := './edgevox-onnx-moonshine-tiny-en-int8/preprocess.onnx';
-  Config.ModelConfig.Moonshine.Encoder := './edgevox-onnx-moonshine-tiny-en-int8/encode.int8.onnx';
-  Config.ModelConfig.Moonshine.UncachedDecoder := './edgevox-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx';
-  Config.ModelConfig.Moonshine.CachedDecoder := './edgevox-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx';
+  Config.ModelConfig.Moonshine.Preprocessor := './sherpa-onnx-moonshine-tiny-en-int8/preprocess.onnx';
+  Config.ModelConfig.Moonshine.Encoder := './sherpa-onnx-moonshine-tiny-en-int8/encode.int8.onnx';
+  Config.ModelConfig.Moonshine.UncachedDecoder := './sherpa-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx';
+  Config.ModelConfig.Moonshine.CachedDecoder := './sherpa-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx';
 
-  Config.ModelConfig.Tokens := './edgevox-onnx-moonshine-tiny-en-int8/tokens.txt';
+  Config.ModelConfig.Tokens := './sherpa-onnx-moonshine-tiny-en-int8/tokens.txt';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := False;
 
-  WaveFilename := './edgevox-onnx-moonshine-tiny-en-int8/test_wavs/0.wav';
+  WaveFilename := './sherpa-onnx-moonshine-tiny-en-int8/test_wavs/0.wav';
 
   Wave := EdgevoxOnnxReadWave(WaveFilename);
 

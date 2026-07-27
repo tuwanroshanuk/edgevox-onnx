@@ -17,9 +17,9 @@ namespace edgevox_onnx {
 /** This class implements the CTC model from WeNet.
  *
  * See
- * https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/wenet/export-onnx.py
- * https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/wenet/test-onnx.py
- * https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/wenet/run.sh
+ * https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/wenet/export-onnx.py
+ * https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/wenet/test-onnx.py
+ * https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/wenet/run.sh
  *
  */
 class OfflineWenetCtcModel : public OfflineCtcModel {

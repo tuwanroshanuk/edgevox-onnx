@@ -6,9 +6,9 @@
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
-// tar xvf edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
-// rm edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
+// tar xvf sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
+// rm sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
 //
 // clang-format on
 
@@ -24,15 +24,15 @@ int32_t main() {
   OfflineRecognizerConfig config;
 
   config.model_config.moonshine.preprocessor =
-      "./edgevox-onnx-moonshine-tiny-en-int8/preprocess.onnx";
+      "./sherpa-onnx-moonshine-tiny-en-int8/preprocess.onnx";
   config.model_config.moonshine.encoder =
-      "./edgevox-onnx-moonshine-tiny-en-int8/encode.int8.onnx";
+      "./sherpa-onnx-moonshine-tiny-en-int8/encode.int8.onnx";
   config.model_config.moonshine.uncached_decoder =
-      "./edgevox-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx";
+      "./sherpa-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx";
   config.model_config.moonshine.cached_decoder =
-      "./edgevox-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx";
+      "./sherpa-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx";
   config.model_config.tokens =
-      "./edgevox-onnx-moonshine-tiny-en-int8/tokens.txt";
+      "./sherpa-onnx-moonshine-tiny-en-int8/tokens.txt";
 
   config.model_config.num_threads = 1;
 
@@ -45,7 +45,7 @@ int32_t main() {
   std::cout << "Loading model done\n";
 
   std::string wave_filename =
-      "./edgevox-onnx-moonshine-tiny-en-int8/test_wavs/0.wav";
+      "./sherpa-onnx-moonshine-tiny-en-int8/test_wavs/0.wav";
   Wave wave = ReadWave(wave_filename);
   if (wave.samples.empty()) {
     std::cerr << "Failed to read: '" << wave_filename << "'\n";

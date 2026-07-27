@@ -51,16 +51,16 @@ class TestOfflineRecognizer(unittest.TestCase):
     def test_transducer_single_file(self):
         for use_int8 in [True, False]:
             if use_int8:
-                encoder = f"{d}/edgevox-onnx-zipformer-en-2023-04-01/encoder-epoch-99-avg-1.int8.onnx"
-                decoder = f"{d}/edgevox-onnx-zipformer-en-2023-04-01/decoder-epoch-99-avg-1.onnx"
-                joiner = f"{d}/edgevox-onnx-zipformer-en-2023-04-01/joiner-epoch-99-avg-1.int8.onnx"
+                encoder = f"{d}/sherpa-onnx-zipformer-en-2023-04-01/encoder-epoch-99-avg-1.int8.onnx"
+                decoder = f"{d}/sherpa-onnx-zipformer-en-2023-04-01/decoder-epoch-99-avg-1.onnx"
+                joiner = f"{d}/sherpa-onnx-zipformer-en-2023-04-01/joiner-epoch-99-avg-1.int8.onnx"
             else:
-                encoder = f"{d}/edgevox-onnx-zipformer-en-2023-04-01/encoder-epoch-99-avg-1.onnx"
-                decoder = f"{d}/edgevox-onnx-zipformer-en-2023-04-01/decoder-epoch-99-avg-1.onnx"
-                joiner = f"{d}/edgevox-onnx-zipformer-en-2023-04-01/joiner-epoch-99-avg-1.onnx"
+                encoder = f"{d}/sherpa-onnx-zipformer-en-2023-04-01/encoder-epoch-99-avg-1.onnx"
+                decoder = f"{d}/sherpa-onnx-zipformer-en-2023-04-01/decoder-epoch-99-avg-1.onnx"
+                joiner = f"{d}/sherpa-onnx-zipformer-en-2023-04-01/joiner-epoch-99-avg-1.onnx"
 
-            tokens = f"{d}/edgevox-onnx-zipformer-en-2023-04-01/tokens.txt"
-            wave0 = f"{d}/edgevox-onnx-zipformer-en-2023-04-01/test_wavs/0.wav"
+            tokens = f"{d}/sherpa-onnx-zipformer-en-2023-04-01/tokens.txt"
+            wave0 = f"{d}/sherpa-onnx-zipformer-en-2023-04-01/test_wavs/0.wav"
 
             if not Path(encoder).is_file():
                 print("skipping test_transducer_single_file()")
@@ -84,18 +84,18 @@ class TestOfflineRecognizer(unittest.TestCase):
     def test_transducer_multiple_files(self):
         for use_int8 in [True, False]:
             if use_int8:
-                encoder = f"{d}/edgevox-onnx-zipformer-en-2023-04-01/encoder-epoch-99-avg-1.int8.onnx"
-                decoder = f"{d}/edgevox-onnx-zipformer-en-2023-04-01/decoder-epoch-99-avg-1.onnx"
-                joiner = f"{d}/edgevox-onnx-zipformer-en-2023-04-01/joiner-epoch-99-avg-1.int8.onnx"
+                encoder = f"{d}/sherpa-onnx-zipformer-en-2023-04-01/encoder-epoch-99-avg-1.int8.onnx"
+                decoder = f"{d}/sherpa-onnx-zipformer-en-2023-04-01/decoder-epoch-99-avg-1.onnx"
+                joiner = f"{d}/sherpa-onnx-zipformer-en-2023-04-01/joiner-epoch-99-avg-1.int8.onnx"
             else:
-                encoder = f"{d}/edgevox-onnx-zipformer-en-2023-04-01/encoder-epoch-99-avg-1.onnx"
-                decoder = f"{d}/edgevox-onnx-zipformer-en-2023-04-01/decoder-epoch-99-avg-1.onnx"
-                joiner = f"{d}/edgevox-onnx-zipformer-en-2023-04-01/joiner-epoch-99-avg-1.onnx"
+                encoder = f"{d}/sherpa-onnx-zipformer-en-2023-04-01/encoder-epoch-99-avg-1.onnx"
+                decoder = f"{d}/sherpa-onnx-zipformer-en-2023-04-01/decoder-epoch-99-avg-1.onnx"
+                joiner = f"{d}/sherpa-onnx-zipformer-en-2023-04-01/joiner-epoch-99-avg-1.onnx"
 
-            tokens = f"{d}/edgevox-onnx-zipformer-en-2023-04-01/tokens.txt"
-            wave0 = f"{d}/edgevox-onnx-zipformer-en-2023-04-01/test_wavs/0.wav"
-            wave1 = f"{d}/edgevox-onnx-zipformer-en-2023-04-01/test_wavs/1.wav"
-            wave2 = f"{d}/edgevox-onnx-zipformer-en-2023-04-01/test_wavs/8k.wav"
+            tokens = f"{d}/sherpa-onnx-zipformer-en-2023-04-01/tokens.txt"
+            wave0 = f"{d}/sherpa-onnx-zipformer-en-2023-04-01/test_wavs/0.wav"
+            wave1 = f"{d}/sherpa-onnx-zipformer-en-2023-04-01/test_wavs/1.wav"
+            wave2 = f"{d}/sherpa-onnx-zipformer-en-2023-04-01/test_wavs/8k.wav"
 
             if not Path(encoder).is_file():
                 print("skipping test_transducer_multiple_files()")
@@ -128,10 +128,10 @@ class TestOfflineRecognizer(unittest.TestCase):
             print(s2.result.text)
 
     def test_paraformer_single_file(self):
-        model = f"{d}/edgevox-onnx-paraformer-zh-2023-09-14/model.int8.onnx"
+        model = f"{d}/sherpa-onnx-paraformer-zh-2023-09-14/model.int8.onnx"
 
-        tokens = f"{d}/edgevox-onnx-paraformer-zh-2023-09-14/tokens.txt"
-        wave0 = f"{d}/edgevox-onnx-paraformer-zh-2023-09-14/test_wavs/0.wav"
+        tokens = f"{d}/sherpa-onnx-paraformer-zh-2023-09-14/tokens.txt"
+        wave0 = f"{d}/sherpa-onnx-paraformer-zh-2023-09-14/test_wavs/0.wav"
 
         if not Path(model).is_file():
             print("skipping test_paraformer_single_file()")
@@ -151,13 +151,13 @@ class TestOfflineRecognizer(unittest.TestCase):
         print(s.result.text)
 
     def test_paraformer_multiple_files(self):
-        model = f"{d}/edgevox-onnx-paraformer-zh-2023-09-14/model.int8.onnx"
+        model = f"{d}/sherpa-onnx-paraformer-zh-2023-09-14/model.int8.onnx"
 
-        tokens = f"{d}/edgevox-onnx-paraformer-zh-2023-09-14/tokens.txt"
-        wave0 = f"{d}/edgevox-onnx-paraformer-zh-2023-09-14/test_wavs/0.wav"
-        wave1 = f"{d}/edgevox-onnx-paraformer-zh-2023-09-14/test_wavs/1.wav"
-        wave2 = f"{d}/edgevox-onnx-paraformer-zh-2023-09-14/test_wavs/2.wav"
-        wave3 = f"{d}/edgevox-onnx-paraformer-zh-2023-09-14/test_wavs/8k.wav"
+        tokens = f"{d}/sherpa-onnx-paraformer-zh-2023-09-14/tokens.txt"
+        wave0 = f"{d}/sherpa-onnx-paraformer-zh-2023-09-14/test_wavs/0.wav"
+        wave1 = f"{d}/sherpa-onnx-paraformer-zh-2023-09-14/test_wavs/1.wav"
+        wave2 = f"{d}/sherpa-onnx-paraformer-zh-2023-09-14/test_wavs/2.wav"
+        wave3 = f"{d}/sherpa-onnx-paraformer-zh-2023-09-14/test_wavs/8k.wav"
 
         if not Path(model).is_file():
             print("skipping test_paraformer_multiple_files()")
@@ -195,12 +195,12 @@ class TestOfflineRecognizer(unittest.TestCase):
     def test_nemo_ctc_single_file(self):
         for use_int8 in [True, False]:
             if use_int8:
-                model = f"{d}/edgevox-onnx-nemo-ctc-en-citrinet-512/model.int8.onnx"
+                model = f"{d}/sherpa-onnx-nemo-ctc-en-citrinet-512/model.int8.onnx"
             else:
-                model = f"{d}/edgevox-onnx-nemo-ctc-en-citrinet-512/model.onnx"
+                model = f"{d}/sherpa-onnx-nemo-ctc-en-citrinet-512/model.onnx"
 
-            tokens = f"{d}/edgevox-onnx-nemo-ctc-en-citrinet-512/tokens.txt"
-            wave0 = f"{d}/edgevox-onnx-nemo-ctc-en-citrinet-512/test_wavs/0.wav"
+            tokens = f"{d}/sherpa-onnx-nemo-ctc-en-citrinet-512/tokens.txt"
+            wave0 = f"{d}/sherpa-onnx-nemo-ctc-en-citrinet-512/test_wavs/0.wav"
 
             if not Path(model).is_file():
                 print("skipping test_nemo_ctc_single_file()")
@@ -222,14 +222,14 @@ class TestOfflineRecognizer(unittest.TestCase):
     def test_nemo_ctc_multiple_files(self):
         for use_int8 in [True, False]:
             if use_int8:
-                model = f"{d}/edgevox-onnx-nemo-ctc-en-citrinet-512/model.int8.onnx"
+                model = f"{d}/sherpa-onnx-nemo-ctc-en-citrinet-512/model.int8.onnx"
             else:
-                model = f"{d}/edgevox-onnx-nemo-ctc-en-citrinet-512/model.onnx"
+                model = f"{d}/sherpa-onnx-nemo-ctc-en-citrinet-512/model.onnx"
 
-            tokens = f"{d}/edgevox-onnx-nemo-ctc-en-citrinet-512/tokens.txt"
-            wave0 = f"{d}/edgevox-onnx-nemo-ctc-en-citrinet-512/test_wavs/0.wav"
-            wave1 = f"{d}/edgevox-onnx-nemo-ctc-en-citrinet-512/test_wavs/1.wav"
-            wave2 = f"{d}/edgevox-onnx-nemo-ctc-en-citrinet-512/test_wavs/8k.wav"
+            tokens = f"{d}/sherpa-onnx-nemo-ctc-en-citrinet-512/tokens.txt"
+            wave0 = f"{d}/sherpa-onnx-nemo-ctc-en-citrinet-512/test_wavs/0.wav"
+            wave1 = f"{d}/sherpa-onnx-nemo-ctc-en-citrinet-512/test_wavs/1.wav"
+            wave2 = f"{d}/sherpa-onnx-nemo-ctc-en-citrinet-512/test_wavs/8k.wav"
 
             if not Path(model).is_file():
                 print("skipping test_nemo_ctc_multiple_files()")

@@ -13,19 +13,19 @@ fn main() {
     let config = OfflineTtsConfig {
         model: edgevox_onnx::OfflineTtsModelConfig {
             zipvoice: OfflineTtsZipvoiceModelConfig {
-                tokens: Some("./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt".into()),
+                tokens: Some("./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt".into()),
                 encoder: Some(
-                    "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx".into(),
+                    "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx".into(),
                 ),
                 decoder: Some(
-                    "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx".into(),
+                    "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx".into(),
                 ),
                 vocoder: Some("./vocos_24khz.onnx".into()),
                 data_dir: Some(
-                    "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data".into(),
+                    "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data".into(),
                 ),
                 lexicon: Some(
-                    "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt".into(),
+                    "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt".into(),
                 ),
                 espeak_voice: Some("en-us".into()),
                 feat_scale: 0.1,
@@ -48,7 +48,7 @@ fn main() {
     let text = "小米的价值观是真诚, 热爱. 真诚，就是不欺人也不自欺. 热爱, 就是全心投入并享受其中.";
     let reference_text = "那还是三十六年前, 一九八七年. 我呢考上了武汉大学的计算机系.";
     let reference_audio_file =
-        "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav";
+        "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav";
 
     let wave = Wave::read(reference_audio_file).expect("Failed to read reference audio");
 

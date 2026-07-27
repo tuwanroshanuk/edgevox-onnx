@@ -15,7 +15,7 @@ The default Rust configuration uses **static** linking.
 
 If `EDGEVOX_ONNX_LIB_DIR` is not set, the build script automatically downloads a
 matching prebuilt native `-lib` archive from
-[GitHub releases](https://github.com/k2-fsa/edgevox-onnx/releases) and uses it
+[GitHub releases](https://github.com/k2-fsa/sherpa-onnx/releases) and uses it
 for the build.
 The downloader also honors standard proxy environment variables such as
 `HTTPS_PROXY`, `HTTP_PROXY`, and `NO_PROXY` (including lowercase variants).
@@ -55,5 +55,5 @@ script uses your directory instead of auto-downloading another archive.
 
 See:
 
-- [Rust examples README](https://github.com/k2-fsa/edgevox-onnx/blob/master/rust-api-examples/README.md)
-- [Rust examples advanced guide](https://github.com/k2-fsa/edgevox-onnx/blob/master/rust-api-examples/for-advanced-users.md)
+- [Rust examples README](https://github.com/k2-fsa/sherpa-onnx/blob/master/rust-api-examples/README.md)
+- [Rust examples advanced guide](https://github.com/k2-fsa/sherpa-onnx/blob/master/rust-api-examples/for-advanced-users.md)

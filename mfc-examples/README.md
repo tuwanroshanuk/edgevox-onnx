@@ -5,9 +5,9 @@ for speech recognition.
 
 |Directory| Pre-built exe (x64)|Pre-built exe (x86)| Description|
 |---------|--------------------|-------------------|------------|
-|[./NonStreamingSpeechRecognition](./NonStreamingSpeechRecognition)|[URL](https://github.com/k2-fsa/edgevox-onnx/releases/download/v1.13.4/edgevox-onnx-non-streaming-asr-x64-v1.13.4.exe)|[URL](https://github.com/k2-fsa/edgevox-onnx/releases/download/v1.13.4/edgevox-onnx-non-streaming-asr-x86-v1.13.4.exe)| Non-streaming speech recognition|
-|[./StreamingSpeechRecognition](./StreamingSpeechRecognition)|[URL](https://github.com/k2-fsa/edgevox-onnx/releases/download/v1.13.4/edgevox-onnx-streaming-asr-x64-v1.13.4.exe)|[URL](https://github.com/k2-fsa/edgevox-onnx/releases/download/v1.13.4/edgevox-onnx-streaming-asr-x86-v1.13.4.exe)| Streaming speech recognition|
-|[./NonStreamingTextToSpeech](./NonStreamingTextToSpeech)|[URL](https://github.com/k2-fsa/edgevox-onnx/releases/download/v1.13.4/edgevox-onnx-non-streaming-tts-x64-v1.13.4.exe)|[URL](https://github.com/k2-fsa/edgevox-onnx/releases/download/v1.13.4/edgevox-onnx-non-streaming-tts-x86-v1.13.4.exe)| Non-streaming text to speech|
+|[./NonStreamingSpeechRecognition](./NonStreamingSpeechRecognition)|[URL](https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.4/sherpa-onnx-non-streaming-asr-x64-v1.13.4.exe)|[URL](https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.4/sherpa-onnx-non-streaming-asr-x86-v1.13.4.exe)| Non-streaming speech recognition|
+|[./StreamingSpeechRecognition](./StreamingSpeechRecognition)|[URL](https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.4/sherpa-onnx-streaming-asr-x64-v1.13.4.exe)|[URL](https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.4/sherpa-onnx-streaming-asr-x86-v1.13.4.exe)| Streaming speech recognition|
+|[./NonStreamingTextToSpeech](./NonStreamingTextToSpeech)|[URL](https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.4/sherpa-onnx-non-streaming-tts-x64-v1.13.4.exe)|[URL](https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.4/sherpa-onnx-non-streaming-tts-x86-v1.13.4.exe)| Non-streaming text to speech|
 
 Caution: You need to use Windows and install Visual Studio 2022 in order to
 compile it.
@@ -27,7 +27,7 @@ First, we need to compile edgevox-onnx:
 mkdir -p $HOME/open-source
 cd $HOME/open-source
 
-git clone https://github.com/k2-fsa/edgevox-onnx
+git clone https://github.com/k2-fsa/sherpa-onnx
 cd edgevox-onnx
 mkdir build
 cd build
@@ -45,9 +45,9 @@ msbuild ./mfc-examples.sln /property:Configuration=Release /property:Platform=x6
 ```
 
 If you don't want to compile the project by yourself, you can download
-pre-compiled `exe` from https://github.com/k2-fsa/edgevox-onnx/releases
+pre-compiled `exe` from https://github.com/k2-fsa/sherpa-onnx/releases
 
 For instance, you can use the following addresses:
 
-  - https://github.com/k2-fsa/edgevox-onnx/releases/download/v1.5.1/edgevox-onnx-streaming-v1.5.1.exe
-  - https://github.com/k2-fsa/edgevox-onnx/releases/download/v1.5.1/edgevox-onnx-non-streaming-v1.5.1.exe
+  - https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.5.1/sherpa-onnx-streaming-v1.5.1.exe
+  - https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.5.1/sherpa-onnx-non-streaming-v1.5.1.exe

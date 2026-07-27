@@ -202,7 +202,7 @@ endif()
 
 if(ANDROID)
   # see https://github.com/microsoft/onnxruntime/pull/22076
-  # https://github.com/k2-fsa/edgevox-onnx/issues/2413
+  # https://github.com/k2-fsa/sherpa-onnx/issues/2413
   set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,-z,max-page-size=16384")
 endif()
 

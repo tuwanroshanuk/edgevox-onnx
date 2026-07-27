@@ -7,9 +7,9 @@
 // API.
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
-// tar xvf edgevox-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
-// rm edgevox-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
+// tar xvf sherpa-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
+// rm sherpa-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
 //
 // clang-format on
 
@@ -21,11 +21,11 @@
 
 int32_t main() {
   const char *wav_filename =
-      "edgevox-onnx-streaming-t-one-russian-2025-09-08/0.wav";
+      "sherpa-onnx-streaming-t-one-russian-2025-09-08/0.wav";
   const char *model =
-      "edgevox-onnx-streaming-t-one-russian-2025-09-08/model.onnx";
+      "sherpa-onnx-streaming-t-one-russian-2025-09-08/model.onnx";
   const char *tokens =
-      "edgevox-onnx-streaming-t-one-russian-2025-09-08/tokens.txt";
+      "sherpa-onnx-streaming-t-one-russian-2025-09-08/tokens.txt";
   const char *provider = "cpu";
 
   const EdgevoxOnnxWave *wave = EdgevoxOnnxReadWave(wav_filename);

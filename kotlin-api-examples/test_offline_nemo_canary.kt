@@ -1,8 +1,8 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 fun main() {
   val recognizer = createOfflineRecognizer()
-  val waveFilename = "./edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/en.wav"
+  val waveFilename = "./sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/en.wav"
 
   val waveData = WaveReader.readWaveFromFile(
       filename = waveFilename,

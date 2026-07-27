@@ -18,12 +18,12 @@ The input text can contain both Chinese and English words.
 
 Usage:
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/punctuation-models/edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
-tar xvf edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
-rm edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/punctuation-models/sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
+tar xvf sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
+rm sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
 
 ./bin/edgevox-onnx-offline-punctuation \
-  --ct-transformer=./edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx
+  --ct-transformer=./sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx
   "你好吗how are you Fantasitic 谢谢我很好你怎么样呢"
 
 The output text should look like below:

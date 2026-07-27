@@ -31,15 +31,15 @@ class AudioTaggingModel:
 
 
 def get_models():
-    # see https://github.com/k2-fsa/edgevox-onnx/releases/tag/audio-tagging-models
+    # see https://github.com/k2-fsa/sherpa-onnx/releases/tag/audio-tagging-models
     icefall_models = [
         AudioTaggingModel(
-            model_name="edgevox-onnx-zipformer-small-audio-tagging-2024-04-15",
+            model_name="sherpa-onnx-zipformer-small-audio-tagging-2024-04-15",
             idx=0,
             short_name="small_zipformer",
         ),
         AudioTaggingModel(
-            model_name="edgevox-onnx-zipformer-audio-tagging-2024-04-09",
+            model_name="sherpa-onnx-zipformer-audio-tagging-2024-04-09",
             idx=1,
             short_name="zipformer",
         ),
@@ -47,22 +47,22 @@ def get_models():
 
     ced_models = [
         AudioTaggingModel(
-            model_name="edgevox-onnx-ced-tiny-audio-tagging-2024-04-19",
+            model_name="sherpa-onnx-ced-tiny-audio-tagging-2024-04-19",
             idx=2,
             short_name="ced_tiny",
         ),
         AudioTaggingModel(
-            model_name="edgevox-onnx-ced-mini-audio-tagging-2024-04-19",
+            model_name="sherpa-onnx-ced-mini-audio-tagging-2024-04-19",
             idx=3,
             short_name="ced_mini",
         ),
         AudioTaggingModel(
-            model_name="edgevox-onnx-ced-small-audio-tagging-2024-04-19",
+            model_name="sherpa-onnx-ced-small-audio-tagging-2024-04-19",
             idx=4,
             short_name="ced_small",
         ),
         AudioTaggingModel(
-            model_name="edgevox-onnx-ced-base-audio-tagging-2024-04-19",
+            model_name="sherpa-onnx-ced-base-audio-tagging-2024-04-19",
             idx=5,
             short_name="ced_base",
         ),

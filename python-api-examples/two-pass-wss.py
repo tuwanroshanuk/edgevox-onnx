@@ -22,11 +22,11 @@ Example:
 (1) Without a certificate
 
 python3 ./python-api-examples/two-pass-wss.py \
-  --paraformer-encoder ./edgevox-onnx-paraformer-zh-2023-09-18/encoder.onnx \
-  --paraformer-decoder ./edgevox-onnx-paraformer-zh-2023-09-18/decoder.onnx \
-  --tokens ./edgevox-onnx-paraformer-zh-2023-09-18/tokens.txt \
-  --second-sense-voice ./edgevox-onnx-sense-voice-zh-2023-09-18/model.onnx \
-  --second-tokens ./edgevox-onnx-sense-voice-zh-2023-09-18/tokens.txt
+  --paraformer-encoder ./sherpa-onnx-paraformer-zh-2023-09-18/encoder.onnx \
+  --paraformer-decoder ./sherpa-onnx-paraformer-zh-2023-09-18/decoder.onnx \
+  --tokens ./sherpa-onnx-paraformer-zh-2023-09-18/tokens.txt \
+  --second-sense-voice ./sherpa-onnx-sense-voice-zh-2023-09-18/model.onnx \
+  --second-tokens ./sherpa-onnx-sense-voice-zh-2023-09-18/tokens.txt
 
 (2) With a certificate
 
@@ -39,16 +39,16 @@ python3 ./python-api-examples/two-pass-wss.py \
 (b) Start the server
 
 python3 ./python-api-examples/two-pass-wss.py \
-  --paraformer-encoder ./edgevox-onnx-streaming-paraformer-bilingual-zh-en/encoder.onnx \
-  --paraformer-decoder ./edgevox-onnx-streaming-paraformer-bilingual-zh-en/decoder.onnx \
-  --tokens ./edgevox-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt \
-  --second-sense-voice ./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx \
-  --second-tokens ./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/tokens.txt \
+  --paraformer-encoder ./sherpa-onnx-streaming-paraformer-bilingual-zh-en/encoder.onnx \
+  --paraformer-decoder ./sherpa-onnx-streaming-paraformer-bilingual-zh-en/decoder.onnx \
+  --tokens ./sherpa-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt \
+  --second-sense-voice ./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx \
+  --second-tokens ./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/tokens.txt \
   --certificate ./python-api-examples/web/cert.pem
 
 Please refer to
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
 to download pre-trained models.
 """
 

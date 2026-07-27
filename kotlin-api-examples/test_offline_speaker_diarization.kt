@@ -1,4 +1,4 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 fun main() {
   testOfflineSpeakerDiarization()
@@ -15,7 +15,7 @@ fun callback(numProcessedChunks: Int, numTotalChunks: Int, arg: Long): Int {
 fun testOfflineSpeakerDiarization() {
   var config = OfflineSpeakerDiarizationConfig(
     segmentation=OfflineSpeakerSegmentationModelConfig(
-      pyannote=OfflineSpeakerSegmentationPyannoteModelConfig("./edgevox-onnx-pyannote-segmentation-3-0/model.onnx"),
+      pyannote=OfflineSpeakerSegmentationPyannoteModelConfig("./sherpa-onnx-pyannote-segmentation-3-0/model.onnx"),
     ),
     embedding=SpeakerEmbeddingExtractorConfig(
       model="./3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",

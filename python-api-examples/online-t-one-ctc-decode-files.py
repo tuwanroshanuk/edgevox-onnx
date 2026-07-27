@@ -5,17 +5,17 @@ This file shows how to use a streaming CTC model from T-one
 to decode files.
 
 Please download model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 
 
 The example model is converted from
 https://github.com/voicekit-team/T-one
 using
-https://github.com/k2-fsa/edgevox-onnx/tree/master/scripts/t-one
+https://github.com/k2-fsa/sherpa-onnx/tree/master/scripts/t-one
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
-tar xvf edgevox-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
-rm edgevox-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
+tar xvf sherpa-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
+rm sherpa-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
 """
 
 from pathlib import Path
@@ -26,14 +26,14 @@ import soundfile as sf
 
 
 def create_recognizer():
-    model = "./edgevox-onnx-streaming-t-one-russian-2025-09-08/model.onnx"
-    tokens = "./edgevox-onnx-streaming-t-one-russian-2025-09-08/tokens.txt"
-    test_wav = "./edgevox-onnx-streaming-t-one-russian-2025-09-08/0.wav"
+    model = "./sherpa-onnx-streaming-t-one-russian-2025-09-08/model.onnx"
+    tokens = "./sherpa-onnx-streaming-t-one-russian-2025-09-08/tokens.txt"
+    test_wav = "./sherpa-onnx-streaming-t-one-russian-2025-09-08/0.wav"
 
     if not Path(model).is_file() or not Path(test_wav).is_file():
         raise ValueError(
             """Please download model files from
-            https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+            https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
             """
         )
     return (

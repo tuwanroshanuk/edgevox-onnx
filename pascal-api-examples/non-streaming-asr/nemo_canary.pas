@@ -5,7 +5,7 @@ This file shows how to use a non-streaming NeMo Canary model
 to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program nemo_canary;
@@ -35,17 +35,17 @@ var
 begin
   Initialize(Config);
 
-  Config.ModelConfig.Canary.Encoder := './edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/encoder.int8.onnx';
-  Config.ModelConfig.Canary.Decoder := './edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/decoder.int8.onnx';
+  Config.ModelConfig.Canary.Encoder := './sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/encoder.int8.onnx';
+  Config.ModelConfig.Canary.Decoder := './sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/decoder.int8.onnx';
   Config.ModelConfig.Canary.SrcLang := 'en';
   Config.ModelConfig.Canary.TgtLang := 'en';
   Config.ModelConfig.Canary.UsePnc := True;
-  Config.ModelConfig.Tokens := './edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/tokens.txt';
+  Config.ModelConfig.Tokens := './sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/tokens.txt';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := False;
 
-  WaveFilename := './edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/en.wav';
+  WaveFilename := './sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/en.wav';
 
   Wave := EdgevoxOnnxReadWave(WaveFilename);
 

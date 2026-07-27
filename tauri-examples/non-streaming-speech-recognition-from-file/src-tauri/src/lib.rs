@@ -18,7 +18,7 @@ use symphonia::core::probe::Hint;
 
 /// Which ASR model to bundle. Build scripts patch these via sed.
 const MODEL_TYPE: u32 = 15;
-const MODEL_NAME: &str = "edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17";
+const MODEL_NAME: &str = "sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17";
 
 #[derive(Serialize, Deserialize, Clone, PartialEq)]
 struct VadSettings {

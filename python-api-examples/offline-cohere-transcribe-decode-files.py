@@ -5,7 +5,7 @@ This file shows how to use a non-streaming Cohere Transcribe model
 to decode files.
 
 Please download model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 
 
 The example model supports 14 languages and it is converted from
@@ -30,16 +30,16 @@ import soundfile as sf
 
 def create_recognizer():
     encoder = (
-        "./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/encoder.int8.onnx"
+        "./sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/encoder.int8.onnx"
     )
     decoder = (
-        "./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/decoder.int8.onnx"
+        "./sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/decoder.int8.onnx"
     )
-    tokens = "./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/tokens.txt"
+    tokens = "./sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/tokens.txt"
 
-    en_wav = "./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/en.wav"
-    de_wav = "./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/de.wav"
-    zh_wav = "./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/zh.wav"
+    en_wav = "./sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/en.wav"
+    de_wav = "./sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/de.wav"
+    zh_wav = "./sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/zh.wav"
 
     if (
         not Path(encoder).is_file()
@@ -49,7 +49,7 @@ def create_recognizer():
     ):
         raise ValueError(
             """Please download model files from
-            https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+            https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
             """
         )
     return (

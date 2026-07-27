@@ -2,17 +2,17 @@
 
 // This file shows how to use an online paraformer, i.e., streaming paraformer,
 // to decode files.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class StreamingDecodeFileParaformer {
   public static void main(String[] args) {
     // please refer to
-    // https://k2-fsa.github.io/sherpa/onnx/pretrained_models/online-paraformer/paraformer-models.html#csukuangfj-edgevox-onnx-streaming-paraformer-bilingual-zh-en-chinese-english
+    // https://k2-fsa.github.io/sherpa/onnx/pretrained_models/online-paraformer/paraformer-models.html#csukuangfj-sherpa-onnx-streaming-paraformer-bilingual-zh-en-chinese-english
     // to download model files
-    String encoder = "./edgevox-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx";
-    String decoder = "./edgevox-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx";
-    String tokens = "./edgevox-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt";
-    String waveFilename = "./edgevox-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/2.wav";
+    String encoder = "./sherpa-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx";
+    String decoder = "./sherpa-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx";
+    String tokens = "./sherpa-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt";
+    String waveFilename = "./sherpa-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/2.wav";
 
     WaveReader reader = new WaveReader(waveFilename);
 

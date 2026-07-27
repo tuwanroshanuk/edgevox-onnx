@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
 A new Flutter FFI plugin project.
                        DESC
-  s.homepage         = 'https://github.com/k2-fsa/edgevox-onnx'
+  s.homepage         = 'https://github.com/k2-fsa/sherpa-onnx'
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Fangjun Kuang' => 'csukuangfj@gmail.com' }
 

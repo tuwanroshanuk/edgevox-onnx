@@ -197,10 +197,10 @@ begin
     begin
       Form1.ResultMemo.Lines.Add(Status);
       Form1.ResultMemo.Lines.Add('Please select a 16000Hz wave file to generate subtiles');
-      Form1.ResultMemo.Lines.Add('You can download some test wave files from https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models');
+      Form1.ResultMemo.Lines.Add('You can download some test wave files from https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models');
       Form1.ResultMemo.Lines.Add('For instance:');
-      Form1.ResultMemo.Lines.Add('  Chinese test wave: https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/lei-jun-test.wav');
-      Form1.ResultMemo.Lines.Add('  English test wave: https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/Obama.wav');
+      Form1.ResultMemo.Lines.Add('  Chinese test wave: https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/lei-jun-test.wav');
+      Form1.ResultMemo.Lines.Add('  English test wave: https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/Obama.wav');
       FileNameEdt.Enabled := True;
       SelectFileBtn.Enabled := True;
 

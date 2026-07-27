@@ -6,13 +6,13 @@ https://github.com/facebookresearch/omnilingual-asr
 to decode files.
 
 Please download model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 
 For instance,
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12.tar.bz2
-tar xvf edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12.tar.bz2
-rm edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12.tar.bz2
+tar xvf sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12.tar.bz2
+rm sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12.tar.bz2
 """
 
 from pathlib import Path
@@ -24,12 +24,12 @@ import soundfile as sf
 
 
 def create_recognizer():
-    model = "./edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/model.int8.onnx"
-    tokens = "./edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/tokens.txt"
-    test_wav_en = "./edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/test_wavs/en.wav"
-    test_wav_de = "./edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/test_wavs/de.wav"
-    test_wav_fr = "./edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/test_wavs/fr.wav"
-    test_wav_es = "./edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/test_wavs/es.wav"
+    model = "./sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/model.int8.onnx"
+    tokens = "./sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/tokens.txt"
+    test_wav_en = "./sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/test_wavs/en.wav"
+    test_wav_de = "./sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/test_wavs/de.wav"
+    test_wav_fr = "./sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/test_wavs/fr.wav"
+    test_wav_es = "./sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/test_wavs/es.wav"
 
     for f in [model, tokens, test_wav_en, test_wav_de, test_wav_fr, test_wav_es]:
         if not Path(f).is_file():
@@ -37,7 +37,7 @@ def create_recognizer():
 
             raise ValueError(
                 """Please download model files from
-                https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+                https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
                 """
             )
     return (

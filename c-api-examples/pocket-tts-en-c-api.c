@@ -9,9 +9,9 @@
 /*
 Usage
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
-tar xf edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
-rm edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+tar xf sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+rm sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
 
 ./pocket-tts-en-c-api
 
@@ -36,19 +36,19 @@ int32_t main(int32_t argc, char *argv[]) {
   EdgevoxOnnxOfflineTtsConfig config;
   memset(&config, 0, sizeof(config));
   config.model.pocket.lm_flow =
-      "./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx";
+      "./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx";
   config.model.pocket.lm_main =
-      "./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx";
+      "./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx";
   config.model.pocket.encoder =
-      "./edgevox-onnx-pocket-tts-int8-2026-01-26/encoder.onnx";
+      "./sherpa-onnx-pocket-tts-int8-2026-01-26/encoder.onnx";
   config.model.pocket.decoder =
-      "./edgevox-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx";
+      "./sherpa-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx";
   config.model.pocket.text_conditioner =
-      "./edgevox-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx";
+      "./sherpa-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx";
   config.model.pocket.vocab_json =
-      "./edgevox-onnx-pocket-tts-int8-2026-01-26/vocab.json";
+      "./sherpa-onnx-pocket-tts-int8-2026-01-26/vocab.json";
   config.model.pocket.token_scores_json =
-      "./edgevox-onnx-pocket-tts-int8-2026-01-26/token_scores.json";
+      "./sherpa-onnx-pocket-tts-int8-2026-01-26/token_scores.json";
   // Voice embedding cache capacity (default: 50)
   // Increase this if you have many different reference audios to avoid
   // recomputing voice embeddings
@@ -75,7 +75,7 @@ int32_t main(int32_t argc, char *argv[]) {
   float speed = 1.0;  // larger -> faster in speech speed
   EdgevoxOnnxGenerationConfig cfg = {0};
   const char *reference_audio_file =
-      "./edgevox-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav";
+      "./sherpa-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav";
   const EdgevoxOnnxWave *wave = NULL;
   wave = EdgevoxOnnxReadWave(reference_audio_file);
   if (!wave) {

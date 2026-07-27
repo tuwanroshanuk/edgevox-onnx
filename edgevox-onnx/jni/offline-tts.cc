@@ -123,12 +123,12 @@ static OfflineTtsConfig GetOfflineTtsConfig(JNIEnv *env, jobject config,
   jfieldID fid;
 
   fid = env->GetFieldID(cls, "model",
-                        "Lcom/k2fsa/sherpa/onnx/OfflineTtsModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OfflineTtsModelConfig;");
   jobject model = env->GetObjectField(config, fid);
   jclass model_config_cls = env->GetObjectClass(model);
 
   fid = env->GetFieldID(model_config_cls, "vits",
-                        "Lcom/k2fsa/sherpa/onnx/OfflineTtsVitsModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OfflineTtsVitsModelConfig;");
   jobject vits = env->GetObjectField(model, fid);
   jclass vits_cls = env->GetObjectClass(vits);
 
@@ -151,7 +151,7 @@ static OfflineTtsConfig GetOfflineTtsConfig(JNIEnv *env, jobject config,
 
   // matcha
   fid = env->GetFieldID(model_config_cls, "matcha",
-                        "Lcom/k2fsa/sherpa/onnx/OfflineTtsMatchaModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OfflineTtsMatchaModelConfig;");
   jobject matcha = env->GetObjectField(model, fid);
   jclass matcha_cls = env->GetObjectClass(matcha);
 
@@ -177,7 +177,7 @@ static OfflineTtsConfig GetOfflineTtsConfig(JNIEnv *env, jobject config,
                              matcha_cls, matcha);
 
   fid = env->GetFieldID(model_config_cls, "kokoro",
-                        "Lcom/k2fsa/sherpa/onnx/OfflineTtsKokoroModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OfflineTtsKokoroModelConfig;");
   jobject kokoro = env->GetObjectField(model, fid);
   jclass kokoro_cls = env->GetObjectClass(kokoro);
 
@@ -204,7 +204,7 @@ static OfflineTtsConfig GetOfflineTtsConfig(JNIEnv *env, jobject config,
   // zipvoice
   fid = env->GetFieldID(
       model_config_cls, "zipvoice",
-      "Lcom/k2fsa/sherpa/onnx/OfflineTtsZipVoiceModelConfig;");
+      "Lcom/nexus/edgevox/onnx/OfflineTtsZipVoiceModelConfig;");
   jobject zipvoice = env->GetObjectField(model, fid);
   jclass zipvoice_cls = env->GetObjectClass(zipvoice);
 
@@ -243,7 +243,7 @@ static OfflineTtsConfig GetOfflineTtsConfig(JNIEnv *env, jobject config,
 
   // kitten
   fid = env->GetFieldID(model_config_cls, "kitten",
-                        "Lcom/k2fsa/sherpa/onnx/OfflineTtsKittenModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OfflineTtsKittenModelConfig;");
   jobject kitten = env->GetObjectField(model, fid);
   jclass kitten_cls = env->GetObjectClass(kitten);
 
@@ -264,7 +264,7 @@ static OfflineTtsConfig GetOfflineTtsConfig(JNIEnv *env, jobject config,
 
   // pocket
   fid = env->GetFieldID(model_config_cls, "pocket",
-                        "Lcom/k2fsa/sherpa/onnx/OfflineTtsPocketModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OfflineTtsPocketModelConfig;");
   jobject pocket = env->GetObjectField(model, fid);
   jclass pocket_cls = env->GetObjectClass(pocket);
 
@@ -295,7 +295,7 @@ static OfflineTtsConfig GetOfflineTtsConfig(JNIEnv *env, jobject config,
   // supertonic
   fid = env->GetFieldID(
       model_config_cls, "supertonic",
-      "Lcom/k2fsa/sherpa/onnx/OfflineTtsSupertonicModelConfig;");
+      "Lcom/nexus/edgevox/onnx/OfflineTtsSupertonicModelConfig;");
   jobject supertonic = env->GetObjectField(model, fid);
   jclass supertonic_cls = env->GetObjectClass(supertonic);
 
@@ -368,7 +368,7 @@ static jobject CreateAudioObject(JNIEnv *env, const std::vector<float> &samples,
   env->SetFloatArrayRegion(samples_arr, 0, samples.size(), samples.data());
 
   // Step 2: Find the GeneratedAudio class
-  jclass gen_audio_cls = env->FindClass("com/k2fsa/sherpa/onnx/GeneratedAudio");
+  jclass gen_audio_cls = env->FindClass("com/nexus/edgevox/onnx/GeneratedAudio");
   if (!gen_audio_cls) {
     env->DeleteLocalRef(samples_arr);
     return nullptr;
@@ -429,7 +429,7 @@ static int32_t CallCallback(JNIEnv *env, jobject callback,
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jlong JNICALL Java_com_k2fsa_edgevox_onnx_OfflineTts_newFromAsset(
+JNIEXPORT jlong JNICALL Java_com_nexus_edgevox_onnx_OfflineTts_newFromAsset(
     JNIEnv *env, jobject /*obj*/, jobject asset_manager, jobject _config) {
 #if __ANDROID_API__ >= 9
   AAssetManager *mgr = AAssetManager_fromJava(env, asset_manager);
@@ -468,7 +468,7 @@ JNIEXPORT jlong JNICALL Java_com_k2fsa_edgevox_onnx_OfflineTts_newFromAsset(
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jlong JNICALL Java_com_k2fsa_edgevox_onnx_OfflineTts_newFromFile(
+JNIEXPORT jlong JNICALL Java_com_nexus_edgevox_onnx_OfflineTts_newFromFile(
     JNIEnv *env, jobject /*obj*/, jobject _config) {
   return SafeJNI(
       env, "OfflineTts_newFromFile",
@@ -495,25 +495,25 @@ JNIEXPORT jlong JNICALL Java_com_k2fsa_edgevox_onnx_OfflineTts_newFromFile(
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_OfflineTts_delete(
+JNIEXPORT void JNICALL Java_com_nexus_edgevox_onnx_OfflineTts_delete(
     JNIEnv * /*env*/, jobject /*obj*/, jlong ptr) {
   delete reinterpret_cast<edgevox_onnx::OfflineTts *>(ptr);
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jint JNICALL Java_com_k2fsa_edgevox_onnx_OfflineTts_getSampleRate(
+JNIEXPORT jint JNICALL Java_com_nexus_edgevox_onnx_OfflineTts_getSampleRate(
     JNIEnv * /*env*/, jobject /*obj*/, jlong ptr) {
   return reinterpret_cast<edgevox_onnx::OfflineTts *>(ptr)->SampleRate();
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jint JNICALL Java_com_k2fsa_edgevox_onnx_OfflineTts_getNumSpeakers(
+JNIEXPORT jint JNICALL Java_com_nexus_edgevox_onnx_OfflineTts_getNumSpeakers(
     JNIEnv * /*env*/, jobject /*obj*/, jlong ptr) {
   return reinterpret_cast<edgevox_onnx::OfflineTts *>(ptr)->NumSpeakers();
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jobject JNICALL Java_com_k2fsa_edgevox_onnx_OfflineTts_generateImpl(
+JNIEXPORT jobject JNICALL Java_com_nexus_edgevox_onnx_OfflineTts_generateImpl(
     JNIEnv *env, jobject /*obj*/, jlong ptr, jstring text, jint sid,
     jfloat speed) {
   const char *p_text = env->GetStringUTFChars(text, nullptr);
@@ -532,7 +532,7 @@ JNIEXPORT jobject JNICALL Java_com_k2fsa_edgevox_onnx_OfflineTts_generateImpl(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jobject JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineTts_generateWithCallbackImpl(
+Java_com_nexus_edgevox_onnx_OfflineTts_generateWithCallbackImpl(
     JNIEnv *env, jobject /*obj*/, jlong ptr, jstring text, jint sid,
     jfloat speed, jobject callback) {
   const char *p_text = env->GetStringUTFChars(text, nullptr);
@@ -567,7 +567,7 @@ Java_com_k2fsa_edgevox_onnx_OfflineTts_generateWithCallbackImpl(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jobject JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineTts_generateWithConfigImpl(
+Java_com_nexus_edgevox_onnx_OfflineTts_generateWithConfigImpl(
     JNIEnv *env, jobject /*obj*/, jlong ptr, jstring text, jobject _gen_config,
     jobject callback) {
   const char *p_text = env->GetStringUTFChars(text, nullptr);
@@ -597,7 +597,7 @@ Java_com_k2fsa_edgevox_onnx_OfflineTts_generateWithConfigImpl(
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jboolean JNICALL Java_com_k2fsa_edgevox_onnx_GeneratedAudio_saveImpl(
+JNIEXPORT jboolean JNICALL Java_com_nexus_edgevox_onnx_GeneratedAudio_saveImpl(
     JNIEnv *env, jobject /*obj*/, jstring filename, jfloatArray samples,
     jint sample_rate) {
   const char *p_filename = env->GetStringUTFChars(filename, nullptr);

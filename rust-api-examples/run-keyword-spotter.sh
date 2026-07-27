@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -ex
 
-repo=edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile
+repo=sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile
 if [ ! -f ./$repo/encoder-epoch-12-avg-2-chunk-16-left-64.int8.onnx ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/kws-models/$repo.tar.bz2
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/kws-models/$repo.tar.bz2
   tar xvf $repo.tar.bz2
   rm $repo.tar.bz2
 fi

@@ -5,7 +5,7 @@ This file shows how to use a non-streaming Dolphin model
 with silero VAD to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program vad_with_dolphin;
@@ -47,8 +47,8 @@ var
 begin
   Initialize(Config);
 
-  Config.ModelConfig.Dolphin.Model := './edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/model.int8.onnx';
-  Config.ModelConfig.Tokens := './edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/tokens.txt';
+  Config.ModelConfig.Dolphin.Model := './sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/model.int8.onnx';
+  Config.ModelConfig.Tokens := './sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/tokens.txt';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := False;

@@ -13,7 +13,7 @@
 // The callback saves the generated samples into a queue, which are played
 // by a separate thread.
 
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 import java.util.Queue;
 import java.util.concurrent.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -22,7 +22,7 @@ import javax.sound.sampled.*;
 public class NonStreamingTtsPiperEn {
   public static void main(String[] args) {
     // please visit
-    // https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+    // https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
     // to download model files
     String model = "./vits-piper-en_GB-cori-medium/en_GB-cori-medium.onnx";
     String tokens = "./vits-piper-en_GB-cori-medium/tokens.txt";

@@ -6,13 +6,13 @@ https://github.com/FireRedTeam/FireRedASR
 to decode files.
 
 Please download model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 
 For instance,
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
-tar xvf edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
-rm edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
+tar xvf sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
+rm sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
 """
 
 from pathlib import Path
@@ -22,17 +22,17 @@ import soundfile as sf
 
 
 def create_recognizer():
-    encoder = "./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/encoder.int8.onnx"
-    decoder = "./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/decoder.int8.onnx"
-    tokens = "./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/tokens.txt"
-    test_wav = "./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/0.wav"
-    #  test_wav = "./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/1.wav"
-    #  test_wav = "./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/2.wav"
-    #  test_wav = "./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/3.wav"
-    #  test_wav = "./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/8k.wav"
-    #  test_wav = "./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/3-sichuan.wav"
-    #  test_wav = "./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/4-tianjin.wav"
-    #  test_wav = "./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/5-henan.wav"
+    encoder = "./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/encoder.int8.onnx"
+    decoder = "./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/decoder.int8.onnx"
+    tokens = "./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/tokens.txt"
+    test_wav = "./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/0.wav"
+    #  test_wav = "./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/1.wav"
+    #  test_wav = "./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/2.wav"
+    #  test_wav = "./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/3.wav"
+    #  test_wav = "./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/8k.wav"
+    #  test_wav = "./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/3-sichuan.wav"
+    #  test_wav = "./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/4-tianjin.wav"
+    #  test_wav = "./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/5-henan.wav"
 
     if (
         not Path(encoder).is_file()
@@ -41,7 +41,7 @@ def create_recognizer():
     ):
         raise ValueError(
             """Please download model files from
-            https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+            https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
             """
         )
     return (

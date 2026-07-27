@@ -3,9 +3,9 @@
 // This file shows how to do speaker identification with edgevox-onnx.
 //
 // 1. Download a model from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-recongition-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
 //
 // 2. Download test data from
 //

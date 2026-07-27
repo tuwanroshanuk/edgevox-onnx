@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"log"
 
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 )
 
 func main() {
@@ -14,19 +14,19 @@ func main() {
 	var config sherpa.OfflineTtsConfig
 
 	config.Model.Supertonic.DurationPredictor =
-		"./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx"
+		"./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx"
 	config.Model.Supertonic.TextEncoder =
-		"./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx"
+		"./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx"
 	config.Model.Supertonic.VectorEstimator =
-		"./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx"
+		"./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx"
 	config.Model.Supertonic.Vocoder =
-		"./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx"
+		"./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx"
 	config.Model.Supertonic.TtsJson =
-		"./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/tts.json"
+		"./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json"
 	config.Model.Supertonic.UnicodeIndexer =
-		"./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin"
+		"./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin"
 	config.Model.Supertonic.VoiceStyle =
-		"./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+		"./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
 
 	config.Model.NumThreads = 2
 	config.Model.Debug = 1

@@ -38,7 +38,7 @@ PY
 fi
 
 if [ ! -d "${model_dir}/espeak-ng-data" ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/espeak-ng-data.tar.bz2
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/espeak-ng-data.tar.bz2
   tar xf espeak-ng-data.tar.bz2
   rm espeak-ng-data.tar.bz2
   mv espeak-ng-data "${model_dir}/"

@@ -50,16 +50,16 @@ class TestOnlineRecognizer(unittest.TestCase):
     def test_transducer_single_file(self):
         for use_int8 in [True, False]:
             if use_int8:
-                encoder = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.int8.onnx"
-                decoder = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx"
-                joiner = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.int8.onnx"
+                encoder = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.int8.onnx"
+                decoder = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx"
+                joiner = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.int8.onnx"
             else:
-                encoder = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.onnx"
-                decoder = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx"
-                joiner = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.onnx"
+                encoder = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.onnx"
+                decoder = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx"
+                joiner = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.onnx"
 
-            tokens = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt"
-            wave0 = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/0.wav"
+            tokens = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt"
+            wave0 = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/0.wav"
 
             if not Path(encoder).is_file():
                 print("skipping test_transducer_single_file()")
@@ -90,20 +90,20 @@ class TestOnlineRecognizer(unittest.TestCase):
     def test_transducer_multiple_files(self):
         for use_int8 in [True, False]:
             if use_int8:
-                encoder = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.int8.onnx"
-                decoder = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx"
-                joiner = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.int8.onnx"
+                encoder = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.int8.onnx"
+                decoder = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx"
+                joiner = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.int8.onnx"
             else:
-                encoder = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.onnx"
-                decoder = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx"
-                joiner = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.onnx"
+                encoder = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.onnx"
+                decoder = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx"
+                joiner = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.onnx"
 
-            tokens = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt"
-            wave0 = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/0.wav"
-            wave1 = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/1.wav"
-            wave2 = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/2.wav"
-            wave3 = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/3.wav"
-            wave4 = f"{d}/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/8k.wav"
+            tokens = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt"
+            wave0 = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/0.wav"
+            wave1 = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/1.wav"
+            wave2 = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/2.wav"
+            wave3 = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/3.wav"
+            wave4 = f"{d}/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/8k.wav"
 
             if not Path(encoder).is_file():
                 print("skipping test_transducer_multiple_files()")
@@ -145,7 +145,7 @@ class TestOnlineRecognizer(unittest.TestCase):
                     print("-" * 10)
 
     def test_nemotron_streaming_english(self):
-        m = "edgevox-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25"
+        m = "sherpa-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25"
         encoder = f"{d}/{m}/encoder.int8.onnx"
         decoder = f"{d}/{m}/decoder.int8.onnx"
         joiner = f"{d}/{m}/joiner.int8.onnx"
@@ -179,7 +179,7 @@ class TestOnlineRecognizer(unittest.TestCase):
         self.assertTrue(len(result) > 0)
 
     def test_nemotron_multilingual_streaming(self):
-        m = "edgevox-onnx-nemotron-3.5-asr-streaming-0.6b-560ms-int8-2026-06-11"
+        m = "sherpa-onnx-nemotron-3.5-asr-streaming-0.6b-560ms-int8-2026-06-11"
         encoder = f"{d}/{m}/encoder.int8.onnx"
         decoder = f"{d}/{m}/decoder.int8.onnx"
         joiner = f"{d}/{m}/joiner.int8.onnx"
@@ -236,7 +236,7 @@ class TestOnlineRecognizer(unittest.TestCase):
             self.assertIsNone(re.search(r"<[a-z]{2,3}(-[A-Z]{2})?>", result))
 
     def test_zipformer2_ctc(self):
-        m = "edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13"
+        m = "sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13"
         for use_int8 in [True, False]:
             name = (
                 "ctc-epoch-20-avg-1-chunk-16-left-128.int8.onnx"

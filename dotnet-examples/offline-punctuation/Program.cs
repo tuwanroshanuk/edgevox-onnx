@@ -3,9 +3,9 @@
 // This file shows how to add punctuations to text.
 //
 // 1. Download a model from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/punctuation-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/punctuation-models
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/punctuation-models/edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/punctuation-models/sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
 //
 // 3. Now run it
 //
@@ -18,7 +18,7 @@ class OfflinePunctuationDemo
   static void Main(string[] args)
   {
     var config = new OfflinePunctuationConfig();
-    config.Model.CtTransformer = "./edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx";
+    config.Model.CtTransformer = "./sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx";
     config.Model.Debug = 1;
     config.Model.NumThreads = 1;
     var punct = new OfflinePunctuation(config);

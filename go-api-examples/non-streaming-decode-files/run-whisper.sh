@@ -4,18 +4,18 @@ set -ex
 
 export CGO_ENABLED=1
 
-if [ ! -d edgevox-onnx-whisper-tiny.en ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-whisper-tiny.en.tar.bz2
-  tar xvf edgevox-onnx-whisper-tiny.en.tar.bz2
-  rm edgevox-onnx-whisper-tiny.en.tar.bz2
+if [ ! -d sherpa-onnx-whisper-tiny.en ]; then
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-tiny.en.tar.bz2
+  tar xvf sherpa-onnx-whisper-tiny.en.tar.bz2
+  rm sherpa-onnx-whisper-tiny.en.tar.bz2
 fi
 
 go mod tidy
 go build
 
 ./non-streaming-decode-files \
-  --whisper-encoder=./edgevox-onnx-whisper-tiny.en/tiny.en-encoder.onnx \
-  --whisper-decoder=./edgevox-onnx-whisper-tiny.en/tiny.en-decoder.onnx \
-  --tokens=./edgevox-onnx-whisper-tiny.en/tiny.en-tokens.txt \
-  ./edgevox-onnx-whisper-tiny.en/test_wavs/0.wav
+  --whisper-encoder=./sherpa-onnx-whisper-tiny.en/tiny.en-encoder.onnx \
+  --whisper-decoder=./sherpa-onnx-whisper-tiny.en/tiny.en-decoder.onnx \
+  --tokens=./sherpa-onnx-whisper-tiny.en/tiny.en-tokens.txt \
+  ./sherpa-onnx-whisper-tiny.en/test_wavs/0.wav
 

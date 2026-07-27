@@ -5,7 +5,7 @@ This file shows how to use a streaming Zipformer CTC model
 with HLG to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program zipformer_ctc_hlg;
@@ -35,16 +35,16 @@ var
 begin
   Initialize(Config);
 
-  {Please visit https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+  {Please visit https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
   to download model files used in this file.}
-  Config.ModelConfig.Zipformer2Ctc.Model := './edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx';
-  Config.ModelConfig.Tokens := './edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt';
+  Config.ModelConfig.Zipformer2Ctc.Model := './sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx';
+  Config.ModelConfig.Tokens := './sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := True;
-  Config.CtcFstDecoderConfig.Graph := './edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst';
+  Config.CtcFstDecoderConfig.Graph := './sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst';
 
-  WaveFilename := './edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/8k.wav';
+  WaveFilename := './sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/8k.wav';
 
   Wave := EdgevoxOnnxReadWave(WaveFilename);
 

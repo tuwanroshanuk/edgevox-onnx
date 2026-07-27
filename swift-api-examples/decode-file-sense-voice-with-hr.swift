@@ -14,8 +14,8 @@ extension AVAudioPCMBuffer {
 
 func run() {
   var recognizer: EdgevoxOnnxOfflineRecognizer
-  let model = "./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/model.int8.onnx"
-  let tokens = "./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/tokens.txt"
+  let model = "./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/model.int8.onnx"
+  let tokens = "./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/tokens.txt"
   let senseVoiceConfig = edgevoxOnnxOfflineSenseVoiceModelConfig(
     model: model,
     useInverseTextNormalization: true

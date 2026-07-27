@@ -57,26 +57,26 @@ file(s) with a non-streaming model.
 (3) For CTC models from NeMo
 
 python3 ./python-api-examples/offline-decode-files.py \
-  --tokens=./edgevox-onnx-nemo-ctc-en-citrinet-512/tokens.txt \
-  --nemo-ctc=./edgevox-onnx-nemo-ctc-en-citrinet-512/model.onnx \
+  --tokens=./sherpa-onnx-nemo-ctc-en-citrinet-512/tokens.txt \
+  --nemo-ctc=./sherpa-onnx-nemo-ctc-en-citrinet-512/model.onnx \
   --num-threads=2 \
   --decoding-method=greedy_search \
   --debug=false \
-  ./edgevox-onnx-nemo-ctc-en-citrinet-512/test_wavs/0.wav \
-  ./edgevox-onnx-nemo-ctc-en-citrinet-512/test_wavs/1.wav \
-  ./edgevox-onnx-nemo-ctc-en-citrinet-512/test_wavs/8k.wav
+  ./sherpa-onnx-nemo-ctc-en-citrinet-512/test_wavs/0.wav \
+  ./sherpa-onnx-nemo-ctc-en-citrinet-512/test_wavs/1.wav \
+  ./sherpa-onnx-nemo-ctc-en-citrinet-512/test_wavs/8k.wav
 
 (4) For Whisper models
 
 python3 ./python-api-examples/offline-decode-files.py \
-  --whisper-encoder=./edgevox-onnx-whisper-base.en/base.en-encoder.int8.onnx \
-  --whisper-decoder=./edgevox-onnx-whisper-base.en/base.en-decoder.int8.onnx \
-  --tokens=./edgevox-onnx-whisper-base.en/base.en-tokens.txt \
+  --whisper-encoder=./sherpa-onnx-whisper-base.en/base.en-encoder.int8.onnx \
+  --whisper-decoder=./sherpa-onnx-whisper-base.en/base.en-decoder.int8.onnx \
+  --tokens=./sherpa-onnx-whisper-base.en/base.en-tokens.txt \
   --whisper-task=transcribe \
   --num-threads=1 \
-  ./edgevox-onnx-whisper-base.en/test_wavs/0.wav \
-  ./edgevox-onnx-whisper-base.en/test_wavs/1.wav \
-  ./edgevox-onnx-whisper-base.en/test_wavs/8k.wav
+  ./sherpa-onnx-whisper-base.en/test_wavs/0.wav \
+  ./sherpa-onnx-whisper-base.en/test_wavs/1.wav \
+  ./sherpa-onnx-whisper-base.en/test_wavs/8k.wav
 
 (5) For CTC models from WeNet
 

@@ -3,23 +3,23 @@
 
 // This file shows how to use an online transducer, i.e., streaming transducer,
 // for real-time speech recognition with a microphone.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 import javax.sound.sampled.*;
 
 public class StreamingAsrFromMicTransducer {
   public static void main(String[] args) {
     // please refer to
-    // https://k2-fsa.github.io/sherpa/onnx/pretrained_models/online-transducer/zipformer-transducer-models.html#csukuangfj-edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20-bilingual-chinese-english
+    // https://k2-fsa.github.io/sherpa/onnx/pretrained_models/online-transducer/zipformer-transducer-models.html#csukuangfj-sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20-bilingual-chinese-english
     // to download model files
     String encoder =
-        "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.int8.onnx";
+        "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.int8.onnx";
     String decoder =
-        "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx";
+        "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx";
     String joiner =
-        "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.onnx";
-    String tokens = "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt";
+        "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.onnx";
+    String tokens = "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt";
 
-    // https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+    // https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
     String ruleFsts = "./itn_zh_number.fst";
 
     int sampleRate = 16000;

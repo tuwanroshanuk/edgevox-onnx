@@ -5,7 +5,7 @@ This file shows how to use a non-streaming Whisper model
 to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program whisper;
@@ -35,14 +35,14 @@ var
 begin
   Initialize(Config);
 
-  Config.ModelConfig.Whisper.Encoder := './edgevox-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx';
-  Config.ModelConfig.Whisper.Decoder := './edgevox-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx';
-  Config.ModelConfig.Tokens := './edgevox-onnx-whisper-tiny.en/tiny.en-tokens.txt';
+  Config.ModelConfig.Whisper.Encoder := './sherpa-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx';
+  Config.ModelConfig.Whisper.Decoder := './sherpa-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx';
+  Config.ModelConfig.Tokens := './sherpa-onnx-whisper-tiny.en/tiny.en-tokens.txt';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := False;
 
-  WaveFilename := './edgevox-onnx-whisper-tiny.en/test_wavs/0.wav';
+  WaveFilename := './sherpa-onnx-whisper-tiny.en/test_wavs/0.wav';
 
   Wave := EdgevoxOnnxReadWave(WaveFilename);
 

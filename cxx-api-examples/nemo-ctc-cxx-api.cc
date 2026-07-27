@@ -6,9 +6,9 @@
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-ctc-en-citrinet-512.tar.bz2
-// tar xvf edgevox-onnx-nemo-ctc-en-citrinet-512.tar.bz2
-// rm edgevox-onnx-nemo-ctc-en-citrinet-512.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-ctc-en-citrinet-512.tar.bz2
+// tar xvf sherpa-onnx-nemo-ctc-en-citrinet-512.tar.bz2
+// rm sherpa-onnx-nemo-ctc-en-citrinet-512.tar.bz2
 //
 // clang-format on
 
@@ -24,10 +24,10 @@ int32_t main() {
   OfflineRecognizerConfig config;
 
   // clang-format off
-  config.model_config.nemo_ctc.model = "./edgevox-onnx-nemo-ctc-en-citrinet-512/model.onnx"; // NOLINT
-  config.model_config.tokens = "./edgevox-onnx-nemo-ctc-en-citrinet-512/tokens.txt"; // NOLINT
+  config.model_config.nemo_ctc.model = "./sherpa-onnx-nemo-ctc-en-citrinet-512/model.onnx"; // NOLINT
+  config.model_config.tokens = "./sherpa-onnx-nemo-ctc-en-citrinet-512/tokens.txt"; // NOLINT
 
-  std::string wave_filename = "./edgevox-onnx-nemo-ctc-en-citrinet-512/test_wavs/0.wav"; // NOLINT
+  std::string wave_filename = "./sherpa-onnx-nemo-ctc-en-citrinet-512/test_wavs/0.wav"; // NOLINT
   // clang-format on
 
   config.model_config.num_threads = 1;

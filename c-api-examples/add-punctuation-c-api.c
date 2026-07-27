@@ -3,15 +3,15 @@
 // Copyright (c)  2024  Xiaomi Corporation
 
 // We assume you have pre-downloaded the model files for testing
-// from https://github.com/k2-fsa/edgevox-onnx/releases/tag/punctuation-models
+// from https://github.com/k2-fsa/sherpa-onnx/releases/tag/punctuation-models
 //
 // An example is given below:
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/punctuation-models/edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12-int8.tar.bz2
-// tar xvf edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12-int8.tar.bz2
-// rm edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12-int8.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/punctuation-models/sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12-int8.tar.bz2
+// tar xvf sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12-int8.tar.bz2
+// rm sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12-int8.tar.bz2
 //
 // clang-format on
 
@@ -26,7 +26,7 @@ int32_t main() {
   memset(&config, 0, sizeof(config));
 
   // clang-format off
-  config.model.ct_transformer = "./edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12-int8/model.int8.onnx";
+  config.model.ct_transformer = "./sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12-int8/model.int8.onnx";
   // clang-format on
   config.model.num_threads = 1;
   config.model.debug = 1;

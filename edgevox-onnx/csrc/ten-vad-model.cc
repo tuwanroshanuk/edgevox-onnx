@@ -285,7 +285,7 @@ class TenVadModel::Impl {
     if (model_type.empty()) {
       EDGEVOX_ONNX_LOGE(
           "Please download ten-vad.onnx or ten-vad.int8.onnx from\n"
-          "https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models"
+          "https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models"
           "\nWe have added meta data to the original ten-vad.onnx from\n"
           "https://github.com/TEN-framework/ten-vad");
       EDGEVOX_ONNX_EXIT(-1);

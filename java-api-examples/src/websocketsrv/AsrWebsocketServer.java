@@ -5,8 +5,8 @@
 // usage: AsrWebsocketServer soPath modelCfgPath
 package websocketsrv;
 
-import com.k2fsa.sherpa.onnx.OnlineRecognizer;
-import com.k2fsa.sherpa.onnx.OnlineStream;
+import com.nexus.edgevox.onnx.OnlineRecognizer;
+import com.nexus.edgevox.onnx.OnlineStream;
 import java.io.*;
 import java.io.IOException;
 import java.net.InetSocketAddress;

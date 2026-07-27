@@ -1,1 +1,1 @@
-../sherpa-onnx/kotlin-api/Speaker.kt
+../edgevox-onnx/kotlin-api/Speaker.kt

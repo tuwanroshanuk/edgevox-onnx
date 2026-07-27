@@ -6,11 +6,11 @@ dart pub get
 
 
 # Please visit
-# https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+# https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
 # to download more models
 
 if [[ ! -f ./vits-coqui-de-css10/tokens.txt ]]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-coqui-de-css10.tar.bz2
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-de-css10.tar.bz2
   tar xvf vits-coqui-de-css10.tar.bz2
   rm vits-coqui-de-css10.tar.bz2
 fi

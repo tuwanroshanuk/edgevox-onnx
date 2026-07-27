@@ -19,7 +19,7 @@ static SpokenLanguageIdentificationConfig GetSpokenLanguageIdentificationConfig(
   jclass cls = env->GetObjectClass(config);
   jfieldID fid = env->GetFieldID(
       cls, "whisper",
-      "Lcom/k2fsa/sherpa/onnx/SpokenLanguageIdentificationWhisperConfig;");
+      "Lcom/nexus/edgevox/onnx/SpokenLanguageIdentificationWhisperConfig;");
 
   jobject whisper = env->GetObjectField(config, fid);
   jclass whisper_cls = env->GetObjectClass(whisper);
@@ -47,7 +47,7 @@ static SpokenLanguageIdentificationConfig GetSpokenLanguageIdentificationConfig(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jlong JNICALL
-Java_com_k2fsa_edgevox_onnx_SpokenLanguageIdentification_newFromAsset(
+Java_com_nexus_edgevox_onnx_SpokenLanguageIdentification_newFromAsset(
     JNIEnv *env, jobject /*obj*/, jobject asset_manager, jobject _config) {
 #if __ANDROID_API__ >= 9
   AAssetManager *mgr = AAssetManager_fromJava(env, asset_manager);
@@ -81,7 +81,7 @@ Java_com_k2fsa_edgevox_onnx_SpokenLanguageIdentification_newFromAsset(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jlong JNICALL
-Java_com_k2fsa_edgevox_onnx_SpokenLanguageIdentification_newFromFile(
+Java_com_nexus_edgevox_onnx_SpokenLanguageIdentification_newFromFile(
     JNIEnv *env, jobject /*obj*/, jobject _config) {
   bool ok = false;
   auto config =
@@ -107,7 +107,7 @@ Java_com_k2fsa_edgevox_onnx_SpokenLanguageIdentification_newFromFile(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT void JNICALL
-Java_com_k2fsa_edgevox_onnx_SpokenLanguageIdentification_delete(JNIEnv * /*env*/,
+Java_com_nexus_edgevox_onnx_SpokenLanguageIdentification_delete(JNIEnv * /*env*/,
                                                                jobject /*obj*/,
                                                                jlong ptr) {
   delete reinterpret_cast<edgevox_onnx::SpokenLanguageIdentification *>(ptr);
@@ -115,7 +115,7 @@ Java_com_k2fsa_edgevox_onnx_SpokenLanguageIdentification_delete(JNIEnv * /*env*/
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jlong JNICALL
-Java_com_k2fsa_edgevox_onnx_SpokenLanguageIdentification_createStream(
+Java_com_nexus_edgevox_onnx_SpokenLanguageIdentification_createStream(
     JNIEnv * /*env*/, jobject /*obj*/, jlong ptr) {
   auto slid =
       reinterpret_cast<edgevox_onnx::SpokenLanguageIdentification *>(ptr);
@@ -123,7 +123,7 @@ Java_com_k2fsa_edgevox_onnx_SpokenLanguageIdentification_createStream(
 
   // The user is responsible to free the returned pointer.
   //
-  // See Java_com_k2fsa_edgevox_onnx_OfflineStream_delete() from
+  // See Java_com_nexus_edgevox_onnx_OfflineStream_delete() from
   // ./offline-stream.cc
   edgevox_onnx::OfflineStream *p = s.release();
   return (jlong)p;
@@ -131,7 +131,7 @@ Java_com_k2fsa_edgevox_onnx_SpokenLanguageIdentification_createStream(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jstring JNICALL
-Java_com_k2fsa_edgevox_onnx_SpokenLanguageIdentification_compute(JNIEnv *env,
+Java_com_nexus_edgevox_onnx_SpokenLanguageIdentification_compute(JNIEnv *env,
                                                                 jobject /*obj*/,
                                                                 jlong ptr,
                                                                 jlong s_ptr) {

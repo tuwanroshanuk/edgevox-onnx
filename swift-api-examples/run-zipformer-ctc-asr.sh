@@ -7,19 +7,19 @@ if [ ! -d ../build-swift-macos ]; then
   exit 1
 fi
 
-if [ ! -f ./edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03/model.int8.onnx ]; then
+if [ ! -f ./sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03/model.int8.onnx ]; then
   echo "Please download the pre-trained model for testing."
   echo "You can refer to"
   echo ""
-  echo "https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-ctc/icefall/zipformer.html#edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03-chinese"
+  echo "https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-ctc/icefall/zipformer.html#sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03-chinese"
   echo ""
   echo "for help"
 
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
 
-  tar xvf edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
-  rm edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
-  ls -lh edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03
+  tar xvf sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
+  rm sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
+  ls -lh sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03
 fi
 
 if [ ! -e ./zipformer-ctc-asr ]; then

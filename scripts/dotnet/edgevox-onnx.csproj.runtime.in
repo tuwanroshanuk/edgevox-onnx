@@ -8,8 +8,8 @@
     <AssemblyName>edgevox-onnx</AssemblyName>
     <Version>{{ version }}</Version>
 
-    <PackageProjectUrl>https://github.com/k2-fsa/edgevox-onnx</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/k2-fsa/edgevox-onnx</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/k2-fsa/sherpa-onnx</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/k2-fsa/sherpa-onnx</RepositoryUrl>
     <PackageTags>speech recognition voice audio stt asr speech-to-text AI offline
       privacy open-sourced next-gen-kaldi k2 kaldi2 edgevox-onnx</PackageTags>
 
@@ -18,13 +18,13 @@
 
     In general, you don't need to use this package directly.
 
-    Please use https://www.nuget.org/packages/org.k2fsa.sherpa.onnx instead
+    Please use https://www.nuget.org/packages/org.nexus.edgevox.onnx instead
     </Description>
     <IncludeBuildOutput>false</IncludeBuildOutput>
 
     <!-- Pack Option -->
     <Title>edgevox-onnx {{ dotnet_rid }} v{{ version }}</Title>
-    <PackageId>org.k2fsa.sherpa.onnx.runtime.{{ dotnet_rid }}</PackageId>
+    <PackageId>org.nexus.edgevox.onnx.runtime.{{ dotnet_rid }}</PackageId>
 
     <!-- Signing -->
     <SignAssembly>false</SignAssembly>

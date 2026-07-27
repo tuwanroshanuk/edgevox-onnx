@@ -1,7 +1,7 @@
 package main
 
 import (
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 	"log"
 )
 
@@ -11,7 +11,7 @@ func main() {
 	config := sherpa.OfflineSpeechDenoiserConfig{}
 
 	// Please download the models from
-	// https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+	// https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
 
 	config.Model.Gtcrn.Model = "./gtcrn_simple.onnx"
 	config.Model.NumThreads = 1

@@ -2,7 +2,7 @@
 
 // This file shows how to use a KittenTTS English model
 // to convert text to speech
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingTtsKittenEn {
   public static void main(String[] args) {

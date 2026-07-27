@@ -67,7 +67,7 @@ class SymbolTable {
   std::unordered_map<std::string, int32_t> sym2id_;
   std::unordered_map<int32_t, std::string> id2sym_;
 
-  // see https://github.com/k2-fsa/edgevox-onnx/issues/2524
+  // see https://github.com/k2-fsa/sherpa-onnx/issues/2524
   bool is_bpe_with_byte_fallback_ = false;
 
   // used only when is_bpe_with_byte_fallback_ is true. It is the ID

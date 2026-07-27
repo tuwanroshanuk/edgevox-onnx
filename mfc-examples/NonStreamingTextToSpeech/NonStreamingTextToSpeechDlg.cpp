@@ -37,7 +37,7 @@ Microphone::~Microphone() {
 }
 
 // NOTE(fangjun): Code is copied from
-// https://github.com/k2-fsa/edgevox-onnx/blob/master/edgevox-onnx/csrc/edgevox-onnx-offline-tts-play.cc#L22
+// https://github.com/k2-fsa/sherpa-onnx/blob/master/sherpa-onnx/csrc/sherpa-onnx-offline-tts-play.cc#L22
 static std::condition_variable g_cv;
 static std::mutex g_cv_m;
 
@@ -453,7 +453,7 @@ void CNonStreamingTextToSpeechDlg::Init() {
     generate_btn_.EnableWindow(FALSE);
     error_message +=
         "\r\nPlease refer to\r\n"
-        "https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models"
+        "https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models"
         "\r\nor\r\n"
         "https://k2-fsa.github.io/sherpa/onnx/tts/pretrained_models";
 
@@ -469,7 +469,7 @@ void CNonStreamingTextToSpeechDlg::Init() {
     error_message += 
         "----------1. Use a Kokoro TTS model (multi-lingual, eg., English + Chinese)----------\r\n"
         "(a) Download the model from \r\n"
-        "     https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/kokoro-multi-lang-v1_0.tar.bz2\r\n"
+        "     https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-multi-lang-v1_0.tar.bz2\r\n"
         "(b) Uncompress it and you will get a directory kokoro-multi-lang-v1_0\r\n"
         "(c) Switch to the directory kokoro-multi-lang-v1_0\r\n"
         "(d) Copy the current exe to the directory kokoro-multi-lang-v1_0\r\n"
@@ -480,7 +480,7 @@ void CNonStreamingTextToSpeechDlg::Init() {
     error_message += 
         "----------2. Use a Kokoro TTS model (English only)----------\r\n"
         "(a) Download the model from \r\n"
-        "     https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/kokoro-en-v0_19.tar.bz2\r\n"
+        "     https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-en-v0_19.tar.bz2\r\n"
         "(b) Uncompress it and you will get a directory kokoro-en-v0_19\r\n"
         "(c) Switch to the directory kokoro-en-v0_19\r\n"
         "(d) Copy the current exe to the directory kokoro-en-v0_19\r\n"
@@ -491,7 +491,7 @@ void CNonStreamingTextToSpeechDlg::Init() {
     error_message += 
         "----------3. Use a VITS Piper TTS model----------\r\n"
         "(a) Download the model from \r\n"
-        "     https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2\r\n"
+        "     https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2\r\n"
         "(b) Uncompress it and you will get a directory vits-piper-en_US-amy-low\r\n"
         "(c) Switch to the directory vits-piper-en_US-amy-low \r\n"
         "(d) Rename en_US-amy-low.onnx to model.onnx\r\n"
@@ -503,23 +503,23 @@ void CNonStreamingTextToSpeechDlg::Init() {
     error_message += 
         "----------4. Use a VITS Chinese TTS model----------\r\n"
         "(a) Download the model from \r\n"
-        "     https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-vits-zh-ll.tar.bz2\r\n"
-        "(b) Uncompress it and you will get a directory edgevox-onnx-vits-zh-ll\r\n"
-        "(c) Switch to the directory edgevox-onnx-vits-zh-ll\r\n"
-        "(d) Copy the current exe to the directory edgevox-onnx-vits-zh-ll\r\n"
-        "(e) Done! You can now run the exe in the directory edgevox-onnx-vits-zh-ll\r\n";
+        "     https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-vits-zh-ll.tar.bz2\r\n"
+        "(b) Uncompress it and you will get a directory sherpa-onnx-vits-zh-ll\r\n"
+        "(c) Switch to the directory sherpa-onnx-vits-zh-ll\r\n"
+        "(d) Copy the current exe to the directory sherpa-onnx-vits-zh-ll\r\n"
+        "(e) Done! You can now run the exe in the directory sherpa-onnx-vits-zh-ll\r\n";
 
     error_message +=  "\r\n";
 
     error_message += 
         "----------5. Use a Matcha TTS model----------\r\n"
         "(a) Download the model from \r\n"
-        "     https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/matcha-icefall-zh-baker.tar.bz2\r\n"
+        "     https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-icefall-zh-baker.tar.bz2\r\n"
         "(b) Uncompress it and you will get a directory matcha-icefall-zh-baker\r\n"
         "(c) Switch to the directory matcha-icefall-zh-baker\r\n"
         "(d) Rename model-steps-3.onnx to model.onnx\r\n"
         "(e) Download a vocoder model from \r\n"
-        "      https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx\r\n"
+        "      https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx\r\n"
         "(f) Rename vocos-22khz-univ.onnx to vocos.onnx\r\n"
         "(g) Remember to put vocos.onnx in the directory matcha-icefall-zh-baker\r\n"
         "(h) Copy the current exe to the directory matcha-icefall-zh-baker\r\n"

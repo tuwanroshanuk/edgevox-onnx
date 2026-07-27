@@ -6,9 +6,9 @@
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
-// tar xvf edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
-// rm edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
+// tar xvf sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
+// rm sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
 //
 // clang-format on
 
@@ -24,9 +24,9 @@ int32_t main() {
   OfflineRecognizerConfig config;
 
   // clang-format off
-  config.model_config.moonshine.encoder = "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/encoder_model.ort";
-  config.model_config.moonshine.merged_decoder = "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/decoder_model_merged.ort";
-  config.model_config.tokens = "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/tokens.txt";
+  config.model_config.moonshine.encoder = "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/encoder_model.ort";
+  config.model_config.moonshine.merged_decoder = "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/decoder_model_merged.ort";
+  config.model_config.tokens = "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/tokens.txt";
   // clang-format on
 
   config.model_config.num_threads = 2;
@@ -40,7 +40,7 @@ int32_t main() {
   std::cout << "Loading model done\n";
 
   std::string wave_filename =
-      "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/test_wavs/0.wav";
+      "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/test_wavs/0.wav";
   Wave wave = ReadWave(wave_filename);
   if (wave.samples.empty()) {
     std::cerr << "Failed to read: '" << wave_filename << "'\n";

@@ -2,31 +2,31 @@
 
 // This file shows how to use a CED audio tagging model to tag
 // input audio files.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class AudioTaggingCEDFromFile {
   public static void main(String[] args) {
     // please download the model from
-    // https://github.com/k2-fsa/edgevox-onnx/releases/tag/audio-tagging-models
-    String model = "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/model.int8.onnx";
-    String labels = "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/class_labels_indices.csv";
+    // https://github.com/k2-fsa/sherpa-onnx/releases/tag/audio-tagging-models
+    String model = "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/model.int8.onnx";
+    String labels = "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/class_labels_indices.csv";
     int topK = 5;
 
     String[] testWaves =
         new String[] {
-          "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/1.wav",
-          "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/2.wav",
-          "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/3.wav",
-          "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/4.wav",
-          "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/5.wav",
-          "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/6.wav",
-          "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/7.wav",
-          "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/8.wav",
-          "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/9.wav",
-          "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/10.wav",
-          "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/11.wav",
-          "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/12.wav",
-          "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/13.wav",
+          "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/1.wav",
+          "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/2.wav",
+          "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/3.wav",
+          "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/4.wav",
+          "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/5.wav",
+          "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/6.wav",
+          "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/7.wav",
+          "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/8.wav",
+          "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/9.wav",
+          "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/10.wav",
+          "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/11.wav",
+          "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/12.wav",
+          "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/13.wav",
         };
 
     AudioTaggingModelConfig modelConfig =

@@ -478,7 +478,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.k2fsa.sherpa.onnx.streamingAsr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nexus.edgevox.onnx.streamingAsr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -496,7 +496,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.k2fsa.sherpa.onnx.streamingAsr.RunnerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nexus.edgevox.onnx.streamingAsr.RunnerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -515,7 +515,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.k2fsa.sherpa.onnx.streamingAsr.RunnerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nexus.edgevox.onnx.streamingAsr.RunnerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				OTHER_LDFLAGS = "-lc++";
@@ -532,7 +532,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.k2fsa.sherpa.onnx.streamingAsr.RunnerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nexus.edgevox.onnx.streamingAsr.RunnerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				OTHER_LDFLAGS = "-lc++";
@@ -665,7 +665,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.k2fsa.sherpa.onnx.streamingAsr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nexus.edgevox.onnx.streamingAsr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -689,7 +689,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.k2fsa.sherpa.onnx.streamingAsr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nexus.edgevox.onnx.streamingAsr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

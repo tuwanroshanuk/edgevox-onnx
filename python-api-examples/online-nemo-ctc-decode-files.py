@@ -5,7 +5,7 @@ This file shows how to use a streaming CTC model from NeMo
 to decode files.
 
 Please download model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 
 
 The example model is converted from
@@ -20,15 +20,15 @@ import soundfile as sf
 
 
 def create_recognizer():
-    model = "./edgevox-onnx-nemo-streaming-fast-conformer-ctc-en-80ms/model.onnx"
-    tokens = "./edgevox-onnx-nemo-streaming-fast-conformer-ctc-en-80ms/tokens.txt"
+    model = "./sherpa-onnx-nemo-streaming-fast-conformer-ctc-en-80ms/model.onnx"
+    tokens = "./sherpa-onnx-nemo-streaming-fast-conformer-ctc-en-80ms/tokens.txt"
 
-    test_wav = "./edgevox-onnx-nemo-streaming-fast-conformer-ctc-en-80ms/test_wavs/0.wav"
+    test_wav = "./sherpa-onnx-nemo-streaming-fast-conformer-ctc-en-80ms/test_wavs/0.wav"
 
     if not Path(model).is_file() or not Path(test_wav).is_file():
         raise ValueError(
             """Please download model files from
-            https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+            https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
             """
         )
     return (

@@ -1,7 +1,7 @@
 package main
 
 import (
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 	"log"
 )
 

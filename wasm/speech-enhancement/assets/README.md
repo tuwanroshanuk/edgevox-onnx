@@ -11,14 +11,14 @@ https://modelscope.cn/studios/csukuangfj/wasm-speech-enhancement-gtcrn
 ## Usage
 
 Please refer to
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
 to download a model.
 
 The following is an example:
 
 ```bash
 cd edgevox-onnx/wasm/speech-enhancement/assets
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/gtcrn_simple.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/gtcrn_simple.onnx
 
 mv gtcrn_simple.onnx gtcrn.onnx
 ```

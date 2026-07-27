@@ -4,10 +4,10 @@ set -ex
 
 dart pub get
 
-if [ ! -f ./edgevox-onnx-whisper-tiny/tiny-encoder.int8.onnx ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-whisper-tiny.tar.bz2
-  tar xvf edgevox-onnx-whisper-tiny.tar.bz2
-  rm edgevox-onnx-whisper-tiny.tar.bz2
+if [ ! -f ./sherpa-onnx-whisper-tiny/tiny-encoder.int8.onnx ]; then
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-tiny.tar.bz2
+  tar xvf sherpa-onnx-whisper-tiny.tar.bz2
+  rm sherpa-onnx-whisper-tiny.tar.bz2
 fi
 
 # Download test WAV files
@@ -53,8 +53,8 @@ for wav in ${waves[@]}; do
   echo "Testing $wav"
   dart run \
     ./bin/spoken_language_identification.dart \
-    --encoder ./edgevox-onnx-whisper-tiny/tiny-encoder.int8.onnx \
-    --decoder ./edgevox-onnx-whisper-tiny/tiny-decoder.int8.onnx \
+    --encoder ./sherpa-onnx-whisper-tiny/tiny-encoder.int8.onnx \
+    --decoder ./sherpa-onnx-whisper-tiny/tiny-decoder.int8.onnx \
     --wav ./$wav
   
   echo "----------------------------------------"

@@ -36,7 +36,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
   EDGEVOX_ONNX_JNI_READ_FLOAT(ans.blank_penalty, blankPenalty, cls, config);
 
   fid = env->GetFieldID(cls, "featConfig",
-                        "Lcom/k2fsa/sherpa/onnx/FeatureConfig;");
+                        "Lcom/nexus/edgevox/onnx/FeatureConfig;");
   jobject feat_config = env->GetObjectField(config, fid);
   jclass feat_config_cls = env->GetObjectClass(feat_config);
 
@@ -50,7 +50,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
                              feat_config);
 
   fid = env->GetFieldID(cls, "modelConfig",
-                        "Lcom/k2fsa/sherpa/onnx/OfflineModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OfflineModelConfig;");
   jobject model_config = env->GetObjectField(config, fid);
   jclass model_config_cls = env->GetObjectClass(model_config);
 
@@ -76,7 +76,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
                               model_config_cls, model_config);
 
   fid = env->GetFieldID(model_config_cls, "transducer",
-                        "Lcom/k2fsa/sherpa/onnx/OfflineTransducerModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OfflineTransducerModelConfig;");
   jobject transducer_config = env->GetObjectField(model_config, fid);
   jclass transducer_config_cls = env->GetObjectClass(transducer_config);
 
@@ -92,7 +92,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
                               joiner, transducer_config_cls, transducer_config);
 
   fid = env->GetFieldID(transducer_config_cls, "qnnConfig",
-                        "Lcom/k2fsa/sherpa/onnx/QnnConfig;");
+                        "Lcom/nexus/edgevox/onnx/QnnConfig;");
   jobject transducer_qnn_config = env->GetObjectField(transducer_config, fid);
   jclass transducer_qnn_config_cls = env->GetObjectClass(transducer_qnn_config);
 
@@ -109,7 +109,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
       transducer_qnn_config_cls, transducer_qnn_config);
 
   fid = env->GetFieldID(model_config_cls, "paraformer",
-                        "Lcom/k2fsa/sherpa/onnx/OfflineParaformerModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OfflineParaformerModelConfig;");
   jobject paraformer_config = env->GetObjectField(model_config, fid);
   jclass paraformer_config_cls = env->GetObjectClass(paraformer_config);
 
@@ -117,7 +117,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
                               paraformer_config_cls, paraformer_config);
 
   fid = env->GetFieldID(paraformer_config_cls, "qnnConfig",
-                        "Lcom/k2fsa/sherpa/onnx/QnnConfig;");
+                        "Lcom/nexus/edgevox/onnx/QnnConfig;");
   jobject qnn_config = env->GetObjectField(paraformer_config, fid);
   jclass qnn_config_cls = env->GetObjectClass(qnn_config);
 
@@ -133,7 +133,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
                               systemLib, qnn_config_cls, qnn_config);
 
   fid = env->GetFieldID(model_config_cls, "whisper",
-                        "Lcom/k2fsa/sherpa/onnx/OfflineWhisperModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OfflineWhisperModelConfig;");
   jobject whisper_config = env->GetObjectField(model_config, fid);
   jclass whisper_config_cls = env->GetObjectClass(whisper_config);
 
@@ -161,7 +161,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
                             whisper_config);
 
   fid = env->GetFieldID(model_config_cls, "fireRedAsr",
-                        "Lcom/k2fsa/sherpa/onnx/OfflineFireRedAsrModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OfflineFireRedAsrModelConfig;");
   jobject fire_red_asr_config = env->GetObjectField(model_config, fid);
   jclass fire_red_asr_config_cls = env->GetObjectClass(fire_red_asr_config);
 
@@ -173,7 +173,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
 
   // moonshine
   fid = env->GetFieldID(model_config_cls, "moonshine",
-                        "Lcom/k2fsa/sherpa/onnx/OfflineMoonshineModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OfflineMoonshineModelConfig;");
   jobject moonshine_config = env->GetObjectField(model_config, fid);
   jclass moonshine_config_cls = env->GetObjectClass(moonshine_config);
 
@@ -197,7 +197,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
                               moonshine_config);
 
   fid = env->GetFieldID(model_config_cls, "senseVoice",
-                        "Lcom/k2fsa/sherpa/onnx/OfflineSenseVoiceModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OfflineSenseVoiceModelConfig;");
   jobject sense_voice_config = env->GetObjectField(model_config, fid);
   jclass sense_voice_config_cls = env->GetObjectClass(sense_voice_config);
 
@@ -212,7 +212,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
                             sense_voice_config);
 
   fid = env->GetFieldID(sense_voice_config_cls, "qnnConfig",
-                        "Lcom/k2fsa/sherpa/onnx/QnnConfig;");
+                        "Lcom/nexus/edgevox/onnx/QnnConfig;");
   qnn_config = env->GetObjectField(sense_voice_config, fid);
   qnn_config_cls = env->GetObjectClass(qnn_config);
 
@@ -231,7 +231,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
   // nemo
   fid = env->GetFieldID(
       model_config_cls, "nemo",
-      "Lcom/k2fsa/sherpa/onnx/OfflineNemoEncDecCtcModelConfig;");
+      "Lcom/nexus/edgevox/onnx/OfflineNemoEncDecCtcModelConfig;");
   jobject nemo_config = env->GetObjectField(model_config, fid);
   jclass nemo_config_cls = env->GetObjectClass(nemo_config);
 
@@ -241,7 +241,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
   // zipformer ctc
   fid =
       env->GetFieldID(model_config_cls, "zipformerCtc",
-                      "Lcom/k2fsa/sherpa/onnx/OfflineZipformerCtcModelConfig;");
+                      "Lcom/nexus/edgevox/onnx/OfflineZipformerCtcModelConfig;");
   jobject zipformer_ctc_config = env->GetObjectField(model_config, fid);
   jclass zipformer_ctc_config_cls = env->GetObjectClass(zipformer_ctc_config);
 
@@ -249,7 +249,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
                               zipformer_ctc_config_cls, zipformer_ctc_config);
 
   fid = env->GetFieldID(zipformer_ctc_config_cls, "qnnConfig",
-                        "Lcom/k2fsa/sherpa/onnx/QnnConfig;");
+                        "Lcom/nexus/edgevox/onnx/QnnConfig;");
 
   qnn_config = env->GetObjectField(zipformer_ctc_config, fid);
   qnn_config_cls = env->GetObjectClass(qnn_config);
@@ -268,7 +268,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
 
   // wenet ctc
   fid = env->GetFieldID(model_config_cls, "wenetCtc",
-                        "Lcom/k2fsa/sherpa/onnx/OfflineWenetCtcModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OfflineWenetCtcModelConfig;");
   jobject wenet_ctc_config = env->GetObjectField(model_config, fid);
   jclass wenet_ctc_config_cls = env->GetObjectClass(wenet_ctc_config);
 
@@ -278,7 +278,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
   // omnilingual asr ctc
   fid = env->GetFieldID(
       model_config_cls, "omnilingual",
-      "Lcom/k2fsa/sherpa/onnx/OfflineOmnilingualAsrCtcModelConfig;");
+      "Lcom/nexus/edgevox/onnx/OfflineOmnilingualAsrCtcModelConfig;");
   jobject omnilingual_ctc_config = env->GetObjectField(model_config, fid);
   jclass omnilingual_ctc_config_cls =
       env->GetObjectClass(omnilingual_ctc_config);
@@ -289,7 +289,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
 
   // medasr ctc
   fid = env->GetFieldID(model_config_cls, "medasr",
-                        "Lcom/k2fsa/sherpa/onnx/OfflineMedAsrCtcModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OfflineMedAsrCtcModelConfig;");
   jobject medasr_ctc_config = env->GetObjectField(model_config, fid);
   jclass medasr_ctc_config_cls = env->GetObjectClass(medasr_ctc_config);
 
@@ -298,7 +298,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
 
   // FunASR Nano
   fid = env->GetFieldID(model_config_cls, "funasrNano",
-                        "Lcom/k2fsa/sherpa/onnx/OfflineFunAsrNanoModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OfflineFunAsrNanoModelConfig;");
   jobject funasr_nano_config = env->GetObjectField(model_config, fid);
   jclass funasr_nano_config_cls = env->GetObjectClass(funasr_nano_config);
 
@@ -347,7 +347,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
                            funasr_nano_config_cls, funasr_nano_config);
 
   fid = env->GetFieldID(model_config_cls, "qwen3Asr",
-                        "Lcom/k2fsa/sherpa/onnx/OfflineQwen3AsrModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OfflineQwen3AsrModelConfig;");
   jobject qwen3_asr_config = env->GetObjectField(model_config, fid);
   jclass qwen3_asr_config_cls = env->GetObjectClass(qwen3_asr_config);
 
@@ -378,7 +378,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
   // fire red asr ctc
   fid = env->GetFieldID(
       model_config_cls, "fireRedAsrCtc",
-      "Lcom/k2fsa/sherpa/onnx/OfflineFireRedAsrCtcModelConfig;");
+      "Lcom/nexus/edgevox/onnx/OfflineFireRedAsrCtcModelConfig;");
   jobject fire_red_asr_ctc_config = env->GetObjectField(model_config, fid);
   jclass fire_red_asr_ctc_config_cls =
       env->GetObjectClass(fire_red_asr_ctc_config);
@@ -389,7 +389,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
 
   // canary
   fid = env->GetFieldID(model_config_cls, "canary",
-                        "Lcom/k2fsa/sherpa/onnx/OfflineCanaryModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OfflineCanaryModelConfig;");
   jobject canary_config = env->GetObjectField(model_config, fid);
   jclass canary_config_cls = env->GetObjectClass(canary_config);
 
@@ -410,7 +410,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
 
   fid = env->GetFieldID(
       model_config_cls, "cohereTranscribe",
-      "Lcom/k2fsa/sherpa/onnx/OfflineCohereTranscribeModelConfig;");
+      "Lcom/nexus/edgevox/onnx/OfflineCohereTranscribeModelConfig;");
   jobject cohere_transcribe_config = env->GetObjectField(model_config, fid);
   jclass cohere_transcribe_config_cls =
       env->GetObjectClass(cohere_transcribe_config);
@@ -436,7 +436,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
                             cohere_transcribe_config);
 
   fid = env->GetFieldID(model_config_cls, "dolphin",
-                        "Lcom/k2fsa/sherpa/onnx/OfflineDolphinModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OfflineDolphinModelConfig;");
   jobject dolphin_config = env->GetObjectField(model_config, fid);
   jclass dolphin_config_cls = env->GetObjectClass(dolphin_config);
 
@@ -448,7 +448,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
 
   // homophone replacer config
   fid = env->GetFieldID(cls, "hr",
-                        "Lcom/k2fsa/sherpa/onnx/HomophoneReplacerConfig;");
+                        "Lcom/nexus/edgevox/onnx/HomophoneReplacerConfig;");
   jobject hr_config = env->GetObjectField(config, fid);
   jclass hr_config_cls = env->GetObjectClass(hr_config);
 
@@ -466,7 +466,7 @@ static OfflineRecognizerConfig GetOfflineConfig(JNIEnv *env, jobject config,
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jlong JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineRecognizer_newFromAsset(JNIEnv *env,
+Java_com_nexus_edgevox_onnx_OfflineRecognizer_newFromAsset(JNIEnv *env,
                                                           jobject /*obj*/,
                                                           jobject asset_manager,
                                                           jobject _config) {
@@ -508,7 +508,7 @@ Java_com_k2fsa_edgevox_onnx_OfflineRecognizer_newFromAsset(JNIEnv *env,
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jlong JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineRecognizer_newFromFile(JNIEnv *env,
+Java_com_nexus_edgevox_onnx_OfflineRecognizer_newFromFile(JNIEnv *env,
                                                          jobject /*obj*/,
                                                          jobject _config) {
   bool ok = false;
@@ -541,7 +541,7 @@ Java_com_k2fsa_edgevox_onnx_OfflineRecognizer_newFromFile(JNIEnv *env,
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_OfflineRecognizer_setConfig(
+JNIEXPORT void JNICALL Java_com_nexus_edgevox_onnx_OfflineRecognizer_setConfig(
     JNIEnv *env, jobject /*obj*/, jlong ptr, jobject _config) {
   bool ok = false;
   auto config = edgevox_onnx::GetOfflineConfig(env, _config, &ok);
@@ -560,14 +560,14 @@ JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_OfflineRecognizer_setConfig(
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_OfflineRecognizer_delete(
+JNIEXPORT void JNICALL Java_com_nexus_edgevox_onnx_OfflineRecognizer_delete(
     JNIEnv * /*env*/, jobject /*obj*/, jlong ptr) {
   delete reinterpret_cast<edgevox_onnx::OfflineRecognizer *>(ptr);
 }
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jlong JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineRecognizer_createStream(JNIEnv * /*env*/,
+Java_com_nexus_edgevox_onnx_OfflineRecognizer_createStream(JNIEnv * /*env*/,
                                                           jobject /*obj*/,
                                                           jlong ptr) {
   auto recognizer = reinterpret_cast<edgevox_onnx::OfflineRecognizer *>(ptr);
@@ -575,7 +575,7 @@ Java_com_k2fsa_edgevox_onnx_OfflineRecognizer_createStream(JNIEnv * /*env*/,
 
   // The user is responsible to free the returned pointer.
   //
-  // See Java_com_k2fsa_edgevox_onnx_OfflineStream_delete() from
+  // See Java_com_nexus_edgevox_onnx_OfflineStream_delete() from
   // ./offline-stream.cc
   edgevox_onnx::OfflineStream *p = s.release();
   return (jlong)p;
@@ -583,7 +583,7 @@ Java_com_k2fsa_edgevox_onnx_OfflineRecognizer_createStream(JNIEnv * /*env*/,
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jlong JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineRecognizer_createStreamWithHotwords(
+Java_com_nexus_edgevox_onnx_OfflineRecognizer_createStreamWithHotwords(
     JNIEnv *env, jobject /*obj*/, jlong ptr, jstring j_hotwords) {
   auto recognizer = reinterpret_cast<edgevox_onnx::OfflineRecognizer *>(ptr);
   if (!j_hotwords) {
@@ -606,7 +606,7 @@ Java_com_k2fsa_edgevox_onnx_OfflineRecognizer_createStreamWithHotwords(
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_OfflineRecognizer_decode(
+JNIEXPORT void JNICALL Java_com_nexus_edgevox_onnx_OfflineRecognizer_decode(
     JNIEnv *env, jobject /*obj*/, jlong ptr, jlong stream_ptr) {
   SafeJNI(env, "OfflineRecognizer_decode", [&] {
     if (!ValidatePointer(env, ptr, "OfflineRecognizer_decode",
@@ -624,7 +624,7 @@ JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_OfflineRecognizer_decode(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT void JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineRecognizer_decodeStreams(
+Java_com_nexus_edgevox_onnx_OfflineRecognizer_decodeStreams(
     JNIEnv *env, jobject /*obj*/, jlong ptr, jlongArray stream_ptrs) {
   SafeJNI(env, "OfflineRecognizer_decode_streams", [&] {
     if (!ValidatePointer(env, ptr, "OfflineRecognizer_decode_streams",
@@ -646,14 +646,14 @@ Java_com_k2fsa_edgevox_onnx_OfflineRecognizer_decodeStreams(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jobject JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineRecognizer_getResult(JNIEnv *env,
+Java_com_nexus_edgevox_onnx_OfflineRecognizer_getResult(JNIEnv *env,
                                                        jobject /*obj*/,
                                                        jlong streamPtr) {
   auto stream = reinterpret_cast<edgevox_onnx::OfflineStream *>(streamPtr);
   edgevox_onnx::OfflineRecognitionResult result = stream->GetResult();
 
   // 2. Find the Java class and constructor
-  jclass cls = env->FindClass("com/k2fsa/sherpa/onnx/OfflineRecognizerResult");
+  jclass cls = env->FindClass("com/nexus/edgevox/onnx/OfflineRecognizerResult");
   if (cls == nullptr) {
     EDGEVOX_ONNX_LOGE("Failed to find class OfflineRecognizerResult");
     return nullptr;
@@ -704,7 +704,7 @@ Java_com_k2fsa_edgevox_onnx_OfflineRecognizer_getResult(JNIEnv *env,
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT void JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineRecognizer_prependAdspLibraryPath(
+Java_com_nexus_edgevox_onnx_OfflineRecognizer_prependAdspLibraryPath(
     JNIEnv *env, jclass /*cls*/, jstring new_path) {
   const char *p = env->GetStringUTFChars(new_path, nullptr);
   edgevox_onnx::PrependAdspLibraryPath(p);

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	iso639 "github.com/barbashov/iso639-3"
 	portaudio "github.com/csukuangfj/portaudio-go"
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 	"log"
 )
 
@@ -15,7 +15,7 @@ func main() {
 	config := sherpa.VadModelConfig{}
 
 	// Please download silero_vad.onnx from
-	// https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+	// https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 	config.SileroVad.Model = "./silero_vad.onnx"
 	config.SileroVad.Threshold = 0.5
@@ -35,8 +35,8 @@ func main() {
 	// 2. Create spoken language identifier
 
 	c := sherpa.SpokenLanguageIdentificationConfig{}
-	c.Whisper.Encoder = "./edgevox-onnx-whisper-tiny/tiny-encoder.int8.onnx"
-	c.Whisper.Decoder = "./edgevox-onnx-whisper-tiny/tiny-decoder.int8.onnx"
+	c.Whisper.Encoder = "./sherpa-onnx-whisper-tiny/tiny-encoder.int8.onnx"
+	c.Whisper.Decoder = "./sherpa-onnx-whisper-tiny/tiny-decoder.int8.onnx"
 	c.NumThreads = 2
 	c.Debug = 1
 	c.Provider = "cpu"

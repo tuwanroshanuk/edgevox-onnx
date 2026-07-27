@@ -11,7 +11,7 @@
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jlong JNICALL
-Java_com_k2fsa_edgevox_onnx_SpeakerEmbeddingManager_create(JNIEnv *env,
+Java_com_nexus_edgevox_onnx_SpeakerEmbeddingManager_create(JNIEnv *env,
                                                           jobject /*obj*/,
                                                           jint dim) {
   auto p = new edgevox_onnx::SpeakerEmbeddingManager(dim);
@@ -20,7 +20,7 @@ Java_com_k2fsa_edgevox_onnx_SpeakerEmbeddingManager_create(JNIEnv *env,
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT void JNICALL
-Java_com_k2fsa_edgevox_onnx_SpeakerEmbeddingManager_delete(JNIEnv * /*env*/,
+Java_com_nexus_edgevox_onnx_SpeakerEmbeddingManager_delete(JNIEnv * /*env*/,
                                                           jobject /*obj*/,
                                                           jlong ptr) {
   auto manager = reinterpret_cast<edgevox_onnx::SpeakerEmbeddingManager *>(ptr);
@@ -29,7 +29,7 @@ Java_com_k2fsa_edgevox_onnx_SpeakerEmbeddingManager_delete(JNIEnv * /*env*/,
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jboolean JNICALL
-Java_com_k2fsa_edgevox_onnx_SpeakerEmbeddingManager_add(JNIEnv *env,
+Java_com_nexus_edgevox_onnx_SpeakerEmbeddingManager_add(JNIEnv *env,
                                                        jobject /*obj*/,
                                                        jlong ptr, jstring name,
                                                        jfloatArray embedding) {
@@ -59,7 +59,7 @@ Java_com_k2fsa_edgevox_onnx_SpeakerEmbeddingManager_add(JNIEnv *env,
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jboolean JNICALL
-Java_com_k2fsa_edgevox_onnx_SpeakerEmbeddingManager_addList(
+Java_com_nexus_edgevox_onnx_SpeakerEmbeddingManager_addList(
     JNIEnv *env, jobject /*obj*/, jlong ptr, jstring name,
     jobjectArray embedding_arr) {
   auto manager = reinterpret_cast<edgevox_onnx::SpeakerEmbeddingManager *>(ptr);
@@ -105,7 +105,7 @@ Java_com_k2fsa_edgevox_onnx_SpeakerEmbeddingManager_addList(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jboolean JNICALL
-Java_com_k2fsa_edgevox_onnx_SpeakerEmbeddingManager_remove(JNIEnv *env,
+Java_com_nexus_edgevox_onnx_SpeakerEmbeddingManager_remove(JNIEnv *env,
                                                           jobject /*obj*/,
                                                           jlong ptr,
                                                           jstring name) {
@@ -122,7 +122,7 @@ Java_com_k2fsa_edgevox_onnx_SpeakerEmbeddingManager_remove(JNIEnv *env,
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jstring JNICALL
-Java_com_k2fsa_edgevox_onnx_SpeakerEmbeddingManager_search(JNIEnv *env,
+Java_com_nexus_edgevox_onnx_SpeakerEmbeddingManager_search(JNIEnv *env,
                                                           jobject /*obj*/,
                                                           jlong ptr,
                                                           jfloatArray embedding,
@@ -151,7 +151,7 @@ Java_com_k2fsa_edgevox_onnx_SpeakerEmbeddingManager_search(JNIEnv *env,
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jboolean JNICALL
-Java_com_k2fsa_edgevox_onnx_SpeakerEmbeddingManager_verify(
+Java_com_nexus_edgevox_onnx_SpeakerEmbeddingManager_verify(
     JNIEnv *env, jobject /*obj*/, jlong ptr, jstring name,
     jfloatArray embedding, jfloat threshold) {
   auto manager = reinterpret_cast<edgevox_onnx::SpeakerEmbeddingManager *>(ptr);
@@ -182,7 +182,7 @@ Java_com_k2fsa_edgevox_onnx_SpeakerEmbeddingManager_verify(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jboolean JNICALL
-Java_com_k2fsa_edgevox_onnx_SpeakerEmbeddingManager_contains(JNIEnv *env,
+Java_com_nexus_edgevox_onnx_SpeakerEmbeddingManager_contains(JNIEnv *env,
                                                             jobject /*obj*/,
                                                             jlong ptr,
                                                             jstring name) {
@@ -199,7 +199,7 @@ Java_com_k2fsa_edgevox_onnx_SpeakerEmbeddingManager_contains(JNIEnv *env,
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jint JNICALL
-Java_com_k2fsa_edgevox_onnx_SpeakerEmbeddingManager_numSpeakers(JNIEnv * /*env*/,
+Java_com_nexus_edgevox_onnx_SpeakerEmbeddingManager_numSpeakers(JNIEnv * /*env*/,
                                                                jobject /*obj*/,
                                                                jlong ptr) {
   auto manager = reinterpret_cast<edgevox_onnx::SpeakerEmbeddingManager *>(ptr);
@@ -208,7 +208,7 @@ Java_com_k2fsa_edgevox_onnx_SpeakerEmbeddingManager_numSpeakers(JNIEnv * /*env*/
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jobjectArray JNICALL
-Java_com_k2fsa_edgevox_onnx_SpeakerEmbeddingManager_allSpeakerNames(
+Java_com_nexus_edgevox_onnx_SpeakerEmbeddingManager_allSpeakerNames(
     JNIEnv *env, jobject /*obj*/, jlong ptr) {
   auto manager = reinterpret_cast<edgevox_onnx::SpeakerEmbeddingManager *>(ptr);
   std::vector<std::string> all_speakers = manager->GetAllSpeakers();

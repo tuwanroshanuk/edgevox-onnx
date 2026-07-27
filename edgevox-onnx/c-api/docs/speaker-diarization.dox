@@ -13,7 +13,7 @@ algorithm.
 EdgevoxOnnxOfflineSpeakerDiarizationConfig config;
 memset(&config, 0, sizeof(config));
 config.segmentation.pyannote.model =
-    "./edgevox-onnx-pyannote-segmentation-3-0/model.onnx";
+    "./sherpa-onnx-pyannote-segmentation-3-0/model.onnx";
 config.embedding.model =
     "./3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx";
 config.clustering.num_clusters = 4;
@@ -40,9 +40,9 @@ EdgevoxOnnxFreeWave(wave);
 EdgevoxOnnxDestroyOfflineSpeakerDiarization(sd);
 @endcode
 
-Segmentation model: `edgevox-onnx-pyannote-segmentation-3-0/model.onnx`
+Segmentation model: `sherpa-onnx-pyannote-segmentation-3-0/model.onnx`
 
 Embedding model: `3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx`
 
-Example source: [offline-speaker-diarization-c-api.c](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/offline-speaker-diarization-c-api.c)
+Example source: [offline-speaker-diarization-c-api.c](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/offline-speaker-diarization-c-api.c)
 */

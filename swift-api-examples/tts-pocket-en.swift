@@ -8,13 +8,13 @@ class PocketTtsProgressHandler {
 
 func runPocketTtsDemo() {
   let pocket = edgevoxOnnxOfflineTtsPocketModelConfig(
-    lmFlow: "./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx",
-    lmMain: "./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx",
-    encoder: "./edgevox-onnx-pocket-tts-int8-2026-01-26/encoder.onnx",
-    decoder: "./edgevox-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx",
-    textConditioner: "./edgevox-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx",
-    vocabJson: "./edgevox-onnx-pocket-tts-int8-2026-01-26/vocab.json",
-    tokenScoresJson: "./edgevox-onnx-pocket-tts-int8-2026-01-26/token_scores.json"
+    lmFlow: "./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx",
+    lmMain: "./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx",
+    encoder: "./sherpa-onnx-pocket-tts-int8-2026-01-26/encoder.onnx",
+    decoder: "./sherpa-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx",
+    textConditioner: "./sherpa-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx",
+    vocabJson: "./sherpa-onnx-pocket-tts-int8-2026-01-26/vocab.json",
+    tokenScoresJson: "./sherpa-onnx-pocket-tts-int8-2026-01-26/token_scores.json"
   )
 
   let modelConfig = edgevoxOnnxOfflineTtsModelConfig(numThreads: 2, pocket: pocket)
@@ -23,7 +23,7 @@ func runPocketTtsDemo() {
 
   let tts = EdgevoxOnnxOfflineTtsWrapper(config: &ttsConfig)
 
-  let referenceAudioFile = "./edgevox-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav"
+  let referenceAudioFile = "./sherpa-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav"
   let referenceWave = EdgevoxOnnxWaveWrapper.readWave(filename: referenceAudioFile)
 
   var genConfig = EdgevoxOnnxGenerationConfigSwift()

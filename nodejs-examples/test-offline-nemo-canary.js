@@ -11,16 +11,16 @@ function createOfflineRecognizer() {
     modelConfig: {
       canary: {
         encoder:
-            './edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/encoder.int8.onnx',
+            './sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/encoder.int8.onnx',
         decoder:
-            './edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/decoder.int8.onnx',
+            './sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/decoder.int8.onnx',
         srcLang: 'en',
         tgtLang: 'en',
         usePnc: 1,
       },
       debug: 0,
       tokens:
-          './edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/tokens.txt',
+          './sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/tokens.txt',
     }
   };
 
@@ -31,7 +31,7 @@ const recognizer = createOfflineRecognizer();
 let stream = recognizer.createStream();
 
 const waveFilename =
-    './edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/en.wav';
+    './sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/en.wav';
 const wave = edgevox_onnx.readWave(waveFilename);
 stream.acceptWaveform(wave.sampleRate, wave.samples);
 

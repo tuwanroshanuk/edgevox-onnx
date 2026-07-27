@@ -4,14 +4,14 @@ import (
 	"encoding/json"
 	"log"
 
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 	flag "github.com/spf13/pflag"
 )
 
 func main() {
 	log.SetFlags(log.LstdFlags | log.Lmicroseconds)
 
-	var referenceAudio string = "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav"
+	var referenceAudio string = "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav"
 	var referenceText string = "那还是三十六年前, 一九八七年. 我呢考上了武汉大学的计算机系."
 	var outputFilename string = "./generated.wav"
 	var numSteps int = 4
@@ -29,15 +29,15 @@ func main() {
 
 	var config sherpa.OfflineTtsConfig
 	config.Model.Zipvoice.Encoder =
-		"./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx"
+		"./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx"
 	config.Model.Zipvoice.Decoder =
-		"./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx"
+		"./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx"
 	config.Model.Zipvoice.DataDir =
-		"./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data"
+		"./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data"
 	config.Model.Zipvoice.Lexicon =
-		"./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt"
+		"./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt"
 	config.Model.Zipvoice.Tokens =
-		"./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt"
+		"./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt"
 	config.Model.Zipvoice.Vocoder = "./vocos_24khz.onnx"
 	config.Model.Zipvoice.EspeakVoice = "en-us"
 

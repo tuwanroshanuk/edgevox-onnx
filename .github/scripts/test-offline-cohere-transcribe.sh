@@ -15,11 +15,11 @@ echo "PATH: $PATH"
 
 which $EXE
 
-repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
 curl -SL -O $repo_url
-tar xvf edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
-rm edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
-repo=edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01
+tar xvf sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+rm sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+repo=sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01
 
 log "Start testing ${repo_url}"
 

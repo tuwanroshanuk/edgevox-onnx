@@ -7,19 +7,19 @@ cd rust-api-examples
 trap 'bash ../.github/scripts/show-rust-binary-info.sh --all || true' EXIT
 
 ./run-cohere-transcribe.sh
-rm -rf edgevox-onnx-cohere-transcribe-*
+rm -rf sherpa-onnx-cohere-transcribe-*
 
 ./run-qwen3-asr.sh
 rm -rf edgevox-onnx-qwen3-*
 
 ./run-funasr-nano.sh
-rm -rf edgevox-onnx-funasr-nano-*
+rm -rf sherpa-onnx-funasr-nano-*
 
 ./run-audio-tagging-zipformer.sh
-rm -rf edgevox-onnx-zipformer-small-audio-tagging-2024-04-15
+rm -rf sherpa-onnx-zipformer-small-audio-tagging-2024-04-15
 
 ./run-audio-tagging-ced.sh
-rm -rf edgevox-onnx-ced-mini-audio-tagging-2024-04-19
+rm -rf sherpa-onnx-ced-mini-audio-tagging-2024-04-19
 
 ./run-speaker-embedding-extractor.sh
 ./run-speaker-embedding-manager.sh
@@ -30,7 +30,7 @@ rm -rf sr-data
 rm -f wespeaker_zh_cnceleb_resnet34.onnx fangjun-sr-1.wav fangjun-sr-2.wav leijun-sr-1.wav
 
 ./run-offline-speaker-diarization.sh
-rm -rf edgevox-onnx-pyannote-segmentation-3-0
+rm -rf sherpa-onnx-pyannote-segmentation-3-0
 rm -f 3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx 0-four-speakers-zh.wav
 
 ./run-vits-en.sh
@@ -57,24 +57,24 @@ rm -rf kitten-nano-en-v0_1-fp16
 rm -rf edgevox-onnx-pocket-*
 
 ./run-supertonic-tts.sh
-rm -rf edgevox-onnx-supertonic-*
+rm -rf sherpa-onnx-supertonic-*
 
 ./run-zipvoice-tts.sh
-rm -rf edgevox-onnx-zipvoice-*
+rm -rf sherpa-onnx-zipvoice-*
 rm -f vocos_24khz.onnx
 
 ./run-online-punctuation.sh
-rm -rf edgevox-onnx-online-punct-*
+rm -rf sherpa-onnx-online-punct-*
 
 ./run-keyword-spotter.sh
-rm -rf edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile
+rm -rf sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile
 
 ./run-spoken-language-identification.sh
 ./run-whisper.sh
-rm -rf edgevox-onnx-whisper-tiny spoken-language-identification-test-wavs
+rm -rf sherpa-onnx-whisper-tiny spoken-language-identification-test-wavs
 
 ./run-offline-punctuation.sh
-rm -rf edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12-int8
+rm -rf sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12-int8
 
 ./run-version.sh
 

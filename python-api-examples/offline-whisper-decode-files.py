@@ -6,13 +6,13 @@ https://github.com/openai/whisper
 to decode files.
 
 Please download model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 
 For instance,
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-whisper-tiny.en.tar.bz2
-tar xvf edgevox-onnx-whisper-tiny.en.tar.bz2
-rm edgevox-onnx-whisper-tiny.en.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-tiny.en.tar.bz2
+tar xvf sherpa-onnx-whisper-tiny.en.tar.bz2
+rm sherpa-onnx-whisper-tiny.en.tar.bz2
 """
 
 import datetime as dt
@@ -23,15 +23,15 @@ import soundfile as sf
 
 
 def create_recognizer():
-    encoder = "./edgevox-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx"
-    decoder = "./edgevox-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx"
-    tokens = "./edgevox-onnx-whisper-tiny.en/tiny.en-tokens.txt"
-    test_wav = "./edgevox-onnx-whisper-tiny.en/test_wavs/0.wav"
+    encoder = "./sherpa-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx"
+    decoder = "./sherpa-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx"
+    tokens = "./sherpa-onnx-whisper-tiny.en/tiny.en-tokens.txt"
+    test_wav = "./sherpa-onnx-whisper-tiny.en/test_wavs/0.wav"
 
     if not Path(encoder).is_file() or not Path(test_wav).is_file():
         raise ValueError(
             """Please download model files from
-            https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+            https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
             """
         )
     return (

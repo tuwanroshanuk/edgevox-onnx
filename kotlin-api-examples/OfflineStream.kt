@@ -1,1 +1,1 @@
-../sherpa-onnx/kotlin-api/OfflineStream.kt
+../edgevox-onnx/kotlin-api/OfflineStream.kt

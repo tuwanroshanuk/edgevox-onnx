@@ -8,12 +8,12 @@ class ZipVoiceTtsProgressHandler {
 
 func runZipVoiceTtsDemo() {
   let zipvoice = edgevoxOnnxOfflineTtsZipvoiceModelConfig(
-    tokens: "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt",
-    encoder: "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx",
-    decoder: "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx",
+    tokens: "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt",
+    encoder: "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx",
+    decoder: "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx",
     vocoder: "./vocos_24khz.onnx",
-    dataDir: "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data",
-    lexicon: "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt",
+    dataDir: "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data",
+    lexicon: "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt",
     espeakVoice: "en-us"
   )
 
@@ -23,7 +23,7 @@ func runZipVoiceTtsDemo() {
 
   let tts = EdgevoxOnnxOfflineTtsWrapper(config: &ttsConfig)
 
-  let referenceAudioFile = "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav"
+  let referenceAudioFile = "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav"
   let referenceWave = EdgevoxOnnxWaveWrapper.readWave(filename: referenceAudioFile)
 
   var genConfig = EdgevoxOnnxGenerationConfigSwift()

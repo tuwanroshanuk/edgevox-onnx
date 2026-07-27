@@ -1,10 +1,10 @@
 # Usage of this project
 
 ```
-git clone https://github.com/k2-fsa/edgevox-onnx
+git clone https://github.com/k2-fsa/sherpa-onnx
 cd edgevox-onnx
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/v1.13.4/edgevox-onnx-v1.13.4-android.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.4/sherpa-onnx-v1.13.4-android.tar.bz2
 tar xvf edgevox-onnx-v1.13.4-android.tar.bz2
 
 cp -v jniLibs/arm64-v8a/* android/EdgevoxOnnxAar/edgevox_onnx/src/main/jniLibs/arm64-v8a/

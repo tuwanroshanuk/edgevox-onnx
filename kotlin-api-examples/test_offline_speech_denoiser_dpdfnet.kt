@@ -1,6 +1,6 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 // Please download test files in this script from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
 
 fun main() {
   val denoiser = createOfflineSpeechDenoiserDpdfNet()

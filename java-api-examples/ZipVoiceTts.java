@@ -2,7 +2,7 @@
 
 // This file shows how to use a ZipVoice Chinese/English model
 // for zero-shot text to speech.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +12,7 @@ public class ZipVoiceTts {
     // please visit
     // https://k2-fsa.github.io/sherpa/onnx/tts/zipvoice.html
     // to download model files
-    String modelDir = "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia";
+    String modelDir = "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia";
     String referenceAudioFilename = modelDir + "/test_wavs/leijun-1.wav";
     String text = "小米的价值观是真诚, 热爱. 真诚，就是不欺人也不自欺. 热爱, 就是全心投入并享受其中.";
     String referenceText = "那还是三十六年前, 一九八七年. 我呢考上了武汉大学的计算机系.";

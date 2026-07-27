@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.k2fsa.sherpa.onnx.tts.engine"
+    namespace = "com.nexus.edgevox.onnx.tts.engine"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.k2fsa.sherpa.onnx.tts.engine"
+        applicationId = "com.nexus.edgevox.onnx.tts.engine"
         minSdk = 21
         targetSdk = 34
         versionCode = 20260707

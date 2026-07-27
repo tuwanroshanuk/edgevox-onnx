@@ -7,12 +7,12 @@ if [ ! -d ../build-swift-macos ]; then
   exit 1
 fi
 
-if [ ! -d ./edgevox-onnx-whisper-tiny ]; then
+if [ ! -d ./sherpa-onnx-whisper-tiny ]; then
   echo "Download a pre-trained model for testing."
 
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-whisper-tiny.tar.bz2
-  tar xvf edgevox-onnx-whisper-tiny.tar.bz2
-  rm edgevox-onnx-whisper-tiny.tar.bz2
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-tiny.tar.bz2
+  tar xvf sherpa-onnx-whisper-tiny.tar.bz2
+  rm sherpa-onnx-whisper-tiny.tar.bz2
 fi
 
 if [ ! -e ./spoken-language-identification ]; then

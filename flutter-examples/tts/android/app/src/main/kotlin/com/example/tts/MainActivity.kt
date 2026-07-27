@@ -1,4 +1,4 @@
-package com.k2fsa.sherpa.onnx.tts
+package com.nexus.edgevox.onnx.tts
 
 import io.flutter.embedding.android.FlutterActivity
 

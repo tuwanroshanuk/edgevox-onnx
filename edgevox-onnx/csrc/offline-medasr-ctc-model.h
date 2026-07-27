@@ -17,9 +17,9 @@ namespace edgevox_onnx {
 /** This class implements the CTC model from MedASR.
  *
  * See
- * https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/medasr/export_onnx.py
- * https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/medasr/test_onnx.py
- * https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/medasr/run.sh
+ * https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/medasr/export_onnx.py
+ * https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/medasr/test_onnx.py
+ * https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/medasr/run.sh
  *
  */
 class OfflineMedAsrCtcModel : public OfflineCtcModel {

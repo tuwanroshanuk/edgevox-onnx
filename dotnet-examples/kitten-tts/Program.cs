@@ -5,7 +5,7 @@
 // Please refer to
 // https://k2-fsa.github.io/sherpa/onnx/tts/pretrained_models/index.html
 // and
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
 // to download pre-trained models
 using EdgevoxOnnx;
 using System.Runtime.InteropServices;

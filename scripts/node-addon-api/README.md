@@ -7,7 +7,7 @@ Caution: This folder is for developer only.
 ## Usage
 
 ```bash
-git clone https://github.com/k2-fsa/edgevox-onnx
+git clone https://github.com/k2-fsa/sherpa-onnx
 cd edgevox-onnx
 mkdir build
 cd build

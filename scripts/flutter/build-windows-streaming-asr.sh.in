@@ -29,7 +29,7 @@ mkdir assets
 
 pushd assets
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/${model_name}.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/${model_name}.tar.bz2
 tar xvf ${model_name}.tar.bz2
 
 {{ model.cmd }}

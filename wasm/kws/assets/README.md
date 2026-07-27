@@ -1,7 +1,7 @@
 # Introduction
 
 Please refer to
-https://www.modelscope.cn/models/pkufool/edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/summary
+https://www.modelscope.cn/models/pkufool/sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/summary
 to download a model.
 
 # Kws
@@ -9,15 +9,15 @@ to download a model.
 The following is an example:
 ```bash
 cd edgevox-onnx/wasm/kws/assets
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/kws-models/edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
-tar xvf edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
-rm edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/kws-models/sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
+tar xvf sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
+rm sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
 
-mv edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/encoder-epoch-12-avg-2-chunk-16-left-64.onnx ./
-mv edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/decoder-epoch-12-avg-2-chunk-16-left-64.onnx ./
-mv edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/joiner-epoch-12-avg-2-chunk-16-left-64.onnx ./
-mv edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/tokens.txt ./
-rm -rf edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01
+mv sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/encoder-epoch-12-avg-2-chunk-16-left-64.onnx ./
+mv sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/decoder-epoch-12-avg-2-chunk-16-left-64.onnx ./
+mv sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/joiner-epoch-12-avg-2-chunk-16-left-64.onnx ./
+mv sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/tokens.txt ./
+rm -rf sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01
 ```
 
 You should have the following files in `assets` before you can run
@@ -37,4 +37,4 @@ total 25616
 ```
 
 **Hint**: Remember to remove extra files from ``assets``. For instance, please remember to remove
-the file `edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2`.
+the file `sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2`.

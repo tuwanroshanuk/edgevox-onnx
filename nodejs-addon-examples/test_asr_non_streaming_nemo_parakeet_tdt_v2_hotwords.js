@@ -11,9 +11,9 @@ const edgevox_onnx = require('edgevox-onnx-node');
 // createStream() biases this stream towards the expected spelling.
 //
 // Please download test files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 
-const modelDir = './edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8';
+const modelDir = './sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8';
 
 // To pass hotwords as normal words, the model config needs a bpe vocab.
 // This model's release does not ship bpe.vocab, but an equivalent one for
@@ -37,12 +37,12 @@ const config = {
   'modelConfig': {
     'transducer': {
       'encoder':
-          './edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/encoder.int8.onnx',
+          './sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/encoder.int8.onnx',
       'decoder':
-          './edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/decoder.int8.onnx',
-      'joiner': './edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/joiner.int8.onnx',
+          './sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/decoder.int8.onnx',
+      'joiner': './sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/joiner.int8.onnx',
     },
-    'tokens': './edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/tokens.txt',
+    'tokens': './sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/tokens.txt',
     'numThreads': 2,
     'provider': 'cpu',
     'debug': 1,
@@ -55,7 +55,7 @@ const config = {
 };
 
 const waveFilename =
-    './edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/test_wavs/0.wav';
+    './sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/test_wavs/0.wav';
 
 const recognizer = new edgevox_onnx.OfflineRecognizer(config);
 console.log('Started');

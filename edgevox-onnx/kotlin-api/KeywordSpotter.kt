@@ -1,5 +1,5 @@
 // Copyright (c)  2024  Xiaomi Corporation
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 import android.content.res.AssetManager
 
@@ -95,17 +95,17 @@ to add your own. (It should be straightforward to add a new model
 by following the code)
 
 @param type
-0 - edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01 (Chinese)
-    https://www.modelscope.cn/models/pkufool/edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/summary
+0 - sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01 (Chinese)
+    https://www.modelscope.cn/models/pkufool/sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/summary
 
-1 - edgevox-onnx-kws-zipformer-gigaspeech-3.3M-2024-01-01 (English)
-    https://www.modelscope.cn/models/pkufool/edgevox-onnx-kws-zipformer-gigaspeech-3.3M-2024-01-01/summary
+1 - sherpa-onnx-kws-zipformer-gigaspeech-3.3M-2024-01-01 (English)
+    https://www.modelscope.cn/models/pkufool/sherpa-onnx-kws-zipformer-gigaspeech-3.3M-2024-01-01/summary
 
  */
 fun getKwsModelConfig(type: Int): OnlineModelConfig? {
     when (type) {
         0 -> {
-            val modelDir = "edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01"
+            val modelDir = "sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder-epoch-12-avg-2-chunk-16-left-64.onnx",
@@ -118,7 +118,7 @@ fun getKwsModelConfig(type: Int): OnlineModelConfig? {
         }
 
         1 -> {
-            val modelDir = "edgevox-onnx-kws-zipformer-gigaspeech-3.3M-2024-01-01"
+            val modelDir = "sherpa-onnx-kws-zipformer-gigaspeech-3.3M-2024-01-01"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder-epoch-12-avg-2-chunk-16-left-64.onnx",
@@ -142,12 +142,12 @@ fun getKwsModelConfig(type: Int): OnlineModelConfig? {
 fun getKeywordsFile(type: Int): String {
     when (type) {
         0 -> {
-            val modelDir = "edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01"
+            val modelDir = "sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01"
             return "$modelDir/keywords.txt"
         }
 
         1 -> {
-            val modelDir = "edgevox-onnx-kws-zipformer-gigaspeech-3.3M-2024-01-01"
+            val modelDir = "sherpa-onnx-kws-zipformer-gigaspeech-3.3M-2024-01-01"
             return "$modelDir/keywords.txt"
         }
 

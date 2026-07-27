@@ -1,8 +1,8 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 fun main() {
   val recognizer = createOfflineRecognizer()
-  val waveFilename = "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/test_wavs/0.wav"
+  val waveFilename = "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/test_wavs/0.wav"
 
   val waveData = WaveReader.readWaveFromFile(
       filename = waveFilename,

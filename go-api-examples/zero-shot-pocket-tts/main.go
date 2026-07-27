@@ -4,14 +4,14 @@ import (
 	"log"
 
 	"encoding/json"
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 	flag "github.com/spf13/pflag"
 )
 
 func main() {
 	log.SetFlags(log.LstdFlags | log.Lmicroseconds)
 
-	var referenceAudio string = "./edgevox-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav"
+	var referenceAudio string = "./sherpa-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav"
 	var outputFilename string = "./generated.wav"
 	var voiceEmbeddingCacheCapacity int = 50
 	var seed int = -1
@@ -31,19 +31,19 @@ whatever he may be: a statesman, a businessman, an official, or a scholar.`
 	var config sherpa.OfflineTtsConfig
 
 	config.Model.Pocket.LmFlow =
-		"./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx"
+		"./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx"
 	config.Model.Pocket.LmMain =
-		"./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx"
+		"./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx"
 	config.Model.Pocket.Encoder =
-		"./edgevox-onnx-pocket-tts-int8-2026-01-26/encoder.onnx"
+		"./sherpa-onnx-pocket-tts-int8-2026-01-26/encoder.onnx"
 	config.Model.Pocket.Decoder =
-		"./edgevox-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx"
+		"./sherpa-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx"
 	config.Model.Pocket.TextConditioner =
-		"./edgevox-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx"
+		"./sherpa-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx"
 	config.Model.Pocket.VocabJson =
-		"./edgevox-onnx-pocket-tts-int8-2026-01-26/vocab.json"
+		"./sherpa-onnx-pocket-tts-int8-2026-01-26/vocab.json"
 	config.Model.Pocket.TokenScoresJson =
-		"./edgevox-onnx-pocket-tts-int8-2026-01-26/token_scores.json"
+		"./sherpa-onnx-pocket-tts-int8-2026-01-26/token_scores.json"
 	config.Model.Pocket.VoiceEmbeddingCacheCapacity = voiceEmbeddingCacheCapacity
 
 	config.Model.NumThreads = 2

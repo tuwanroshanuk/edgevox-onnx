@@ -8,7 +8,7 @@
 PRODUCT_NAME = tts
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.k2fsa.sherpa.onnx.tts
+PRODUCT_BUNDLE_IDENTIFIER = com.nexus.edgevox.onnx.tts
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2024 Next-gen Kaldi. All rights reserved.

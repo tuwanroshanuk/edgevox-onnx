@@ -18,8 +18,8 @@ import './utils.dart';
 /// final sli = SpokenLanguageIdentification(
 ///   SpokenLanguageIdentificationConfig(
 ///     whisper: const SpokenLanguageIdentificationWhisperConfig(
-///       encoder: './edgevox-onnx-whisper-tiny/encoder.int8.onnx',
-///       decoder: './edgevox-onnx-whisper-tiny/decoder.int8.onnx',
+///       encoder: './sherpa-onnx-whisper-tiny/encoder.int8.onnx',
+///       decoder: './sherpa-onnx-whisper-tiny/decoder.int8.onnx',
 ///     ),
 ///   ),
 /// );

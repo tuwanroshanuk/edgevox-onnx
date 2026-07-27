@@ -11,8 +11,8 @@ log() {
   echo -e "$(date '+%Y-%m-%d %H:%M:%S') (${fname}:${BASH_LINENO[0]}:${FUNCNAME[1]}) $*"
 }
 
-wget -qq https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/espeak-ng-data.tar.bz2
-wget -qq https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/lexicon-zh-g2pw.txt
+wget -qq https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/espeak-ng-data.tar.bz2
+wget -qq https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/lexicon-zh-g2pw.txt
 
 wget -qq https://huggingface.co/csukuangfj/icefall-tts-aishell3-vits-low-2024-04-06/resolve/main/data/date.fst
 wget -qq https://huggingface.co/csukuangfj/icefall-tts-aishell3-vits-low-2024-04-06/resolve/main/data/number.fst

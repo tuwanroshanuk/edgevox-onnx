@@ -7,12 +7,12 @@
 // clang-format off
 //
 // To use silero-vad:
-//  wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+//  wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 //
 // To use ten-vad:
-//  wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/ten-vad.onnx
+//  wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/ten-vad.onnx
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/lei-jun-test.wav
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/lei-jun-test.wav
 //
 // clang-format on
 #include <cstdio>

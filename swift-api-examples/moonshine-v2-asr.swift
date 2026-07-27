@@ -1,10 +1,10 @@
 func run() {
   let encoder =
-    "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/encoder_model.ort"
+    "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/encoder_model.ort"
   let decoder =
-    "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/decoder_model_merged.ort"
+    "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/decoder_model_merged.ort"
   let tokens =
-    "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/tokens.txt"
+    "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/tokens.txt"
 
   let moonshine = edgevoxOnnxOfflineMoonshineModelConfig(
     encoder: encoder,
@@ -25,7 +25,7 @@ func run() {
 
   let recognizer = EdgevoxOnnxOfflineRecognizer(config: &config)
 
-  let filePath = "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/test_wavs/0.wav"
+  let filePath = "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/test_wavs/0.wav"
   let audio = EdgevoxOnnxWaveWrapper.readWave(filename: filePath)
 
   let result = recognizer.decode(samples: audio.samples, sampleRate: audio.sampleRate)

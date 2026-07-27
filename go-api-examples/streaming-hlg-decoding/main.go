@@ -4,7 +4,7 @@ import (
 	"log"
 	"strings"
 
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 )
 
 func main() {
@@ -14,16 +14,16 @@ func main() {
 	config.FeatConfig = sherpa.FeatureConfig{SampleRate: 16000, FeatureDim: 80}
 
 	// please download model files from
-	// https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
-	config.ModelConfig.Zipformer2Ctc.Model = "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx"
-	config.ModelConfig.Tokens = "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt"
+	// https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+	config.ModelConfig.Zipformer2Ctc.Model = "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx"
+	config.ModelConfig.Tokens = "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt"
 
 	config.ModelConfig.NumThreads = 1
 	config.ModelConfig.Debug = 0
 	config.ModelConfig.Provider = "cpu"
-	config.CtcFstDecoderConfig.Graph = "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst"
+	config.CtcFstDecoderConfig.Graph = "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst"
 
-	waveFilename := "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/8k.wav"
+	waveFilename := "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/8k.wav"
 
 	wave := sherpa.ReadWave(waveFilename)
 	if wave == nil {

@@ -13,7 +13,7 @@ extension AVAudioPCMBuffer {
 }
 
 func run() {
-  let segmentationModel = "./edgevox-onnx-pyannote-segmentation-3-0/model.onnx"
+  let segmentationModel = "./sherpa-onnx-pyannote-segmentation-3-0/model.onnx"
   let embeddingExtractorModel = "./3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx"
   let waveFilename = "./0-four-speakers-zh.wav"
 

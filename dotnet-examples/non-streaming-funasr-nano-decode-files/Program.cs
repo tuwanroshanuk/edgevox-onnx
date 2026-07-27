@@ -11,17 +11,17 @@ class NonStreamingFunAsrNano
   static void Main(string[] args)
   {
     // please download model files from
-    // https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+    // https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
     var config = new OfflineRecognizerConfig();
-    config.ModelConfig.FunAsrNano.EncoderAdaptor = "./edgevox-onnx-funasr-nano-int8-2025-12-30/encoder_adaptor.int8.onnx";
-    config.ModelConfig.FunAsrNano.LLM = "./edgevox-onnx-funasr-nano-int8-2025-12-30/llm.int8.onnx";
-    config.ModelConfig.FunAsrNano.Embedding = "./edgevox-onnx-funasr-nano-int8-2025-12-30/embedding.int8.onnx";
-    config.ModelConfig.FunAsrNano.Tokenizer = "./edgevox-onnx-funasr-nano-int8-2025-12-30/Qwen3-0.6B";
+    config.ModelConfig.FunAsrNano.EncoderAdaptor = "./sherpa-onnx-funasr-nano-int8-2025-12-30/encoder_adaptor.int8.onnx";
+    config.ModelConfig.FunAsrNano.LLM = "./sherpa-onnx-funasr-nano-int8-2025-12-30/llm.int8.onnx";
+    config.ModelConfig.FunAsrNano.Embedding = "./sherpa-onnx-funasr-nano-int8-2025-12-30/embedding.int8.onnx";
+    config.ModelConfig.FunAsrNano.Tokenizer = "./sherpa-onnx-funasr-nano-int8-2025-12-30/Qwen3-0.6B";
     config.ModelConfig.Tokens = "";
     config.ModelConfig.Debug = 1;
     var recognizer = new OfflineRecognizer(config);
 
-    var testWaveFilename = "./edgevox-onnx-funasr-nano-int8-2025-12-30/test_wavs/lyrics.wav";
+    var testWaveFilename = "./sherpa-onnx-funasr-nano-int8-2025-12-30/test_wavs/lyrics.wav";
     var reader = new WaveReader(testWaveFilename);
     var stream = recognizer.CreateStream();
     stream.AcceptWaveform(reader.SampleRate, reader.Samples);

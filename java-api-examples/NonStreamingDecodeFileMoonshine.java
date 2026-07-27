@@ -3,7 +3,7 @@
 // This file shows how to use an offline Moonshine,
 // i.e., non-streaming Moonshine model,
 // to decode files.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingDecodeFileMoonshine {
   public static void main(String[] args) {
@@ -11,14 +11,14 @@ public class NonStreamingDecodeFileMoonshine {
     // https://k2-fsa.github.io/sherpa/onnx/moonshine/index.html
     // to download model files
 
-    String preprocessor = "./edgevox-onnx-moonshine-tiny-en-int8/preprocess.onnx";
-    String encoder = "./edgevox-onnx-moonshine-tiny-en-int8/encode.int8.onnx";
-    String uncachedDecoder = "./edgevox-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx";
-    String cachedDecoder = "./edgevox-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx";
+    String preprocessor = "./sherpa-onnx-moonshine-tiny-en-int8/preprocess.onnx";
+    String encoder = "./sherpa-onnx-moonshine-tiny-en-int8/encode.int8.onnx";
+    String uncachedDecoder = "./sherpa-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx";
+    String cachedDecoder = "./sherpa-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx";
 
-    String tokens = "./edgevox-onnx-moonshine-tiny-en-int8/tokens.txt";
+    String tokens = "./sherpa-onnx-moonshine-tiny-en-int8/tokens.txt";
 
-    String waveFilename = "./edgevox-onnx-moonshine-tiny-en-int8/test_wavs/0.wav";
+    String waveFilename = "./sherpa-onnx-moonshine-tiny-en-int8/test_wavs/0.wav";
 
     WaveReader reader = new WaveReader(waveFilename);
 

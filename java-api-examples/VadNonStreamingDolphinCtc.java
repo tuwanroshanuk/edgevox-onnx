@@ -3,13 +3,13 @@
 // This file shows how to use a silero_vad model with a non-streaming Dolphin
 // CTC model for speech recognition.
 
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 import java.util.Arrays;
 
 public class VadNonStreamingSenseVoice {
   public static Vad createVad() {
     // please download ./silero_vad.onnx from
-    // https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+    // https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
     String model = "./silero_vad.onnx";
     SileroVadModelConfig sileroVad =
         SileroVadModelConfig.builder()
@@ -37,8 +37,8 @@ public class VadNonStreamingSenseVoice {
     // please refer to
     // https://k2-fsa.github.io/sherpa/onnx/dolphin/index.html
     // to download model files
-    String model = "./edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/model.int8.onnx";
-    String tokens = "./edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/tokens.txt";
+    String model = "./sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/model.int8.onnx";
+    String tokens = "./sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/tokens.txt";
 
     OfflineDolphinModelConfig dolphin = OfflineDolphinModelConfig.builder().setModel(model).build();
 
@@ -65,7 +65,7 @@ public class VadNonStreamingSenseVoice {
     OfflineRecognizer recognizer = createOfflineRecognizer();
 
     // You can download the test file from
-    // https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+    // https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
     String testWaveFilename = "./lei-jun-test.wav";
     WaveReader reader = new WaveReader(testWaveFilename);
 

@@ -4,11 +4,11 @@ set -ex
 
 source ./setup.sh
 
-if [ ! -f ./edgevox-onnx-paraformer-zh-2023-09-14/tokens.txt ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-paraformer-zh-2023-09-14.tar.bz2
+if [ ! -f ./sherpa-onnx-paraformer-zh-2023-09-14/tokens.txt ]; then
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-paraformer-zh-2023-09-14.tar.bz2
 
-  tar xvf edgevox-onnx-paraformer-zh-2023-09-14.tar.bz2
-  rm edgevox-onnx-paraformer-zh-2023-09-14.tar.bz2
+  tar xvf sherpa-onnx-paraformer-zh-2023-09-14.tar.bz2
+  rm sherpa-onnx-paraformer-zh-2023-09-14.tar.bz2
 fi
 
 java \

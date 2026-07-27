@@ -7,9 +7,9 @@
 // C API.
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-paraformer-zh-small-2024-03-09.tar.bz2
-// tar xvf edgevox-onnx-paraformer-zh-small-2024-03-09.tar.bz2
-// rm edgevox-onnx-paraformer-zh-small-2024-03-09.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-paraformer-zh-small-2024-03-09.tar.bz2
+// tar xvf sherpa-onnx-paraformer-zh-small-2024-03-09.tar.bz2
+// rm sherpa-onnx-paraformer-zh-small-2024-03-09.tar.bz2
 //
 // clang-format on
 
@@ -21,11 +21,11 @@
 
 int32_t main() {
   const char *wav_filename =
-      "edgevox-onnx-paraformer-zh-small-2024-03-09/test_wavs/0.wav";
+      "sherpa-onnx-paraformer-zh-small-2024-03-09/test_wavs/0.wav";
   const char *model_filename =
-      "edgevox-onnx-paraformer-zh-small-2024-03-09/model.int8.onnx";
+      "sherpa-onnx-paraformer-zh-small-2024-03-09/model.int8.onnx";
   const char *tokens_filename =
-      "edgevox-onnx-paraformer-zh-small-2024-03-09/tokens.txt";
+      "sherpa-onnx-paraformer-zh-small-2024-03-09/tokens.txt";
   const char *provider = "cpu";
 
   const EdgevoxOnnxWave *wave = EdgevoxOnnxReadWave(wav_filename);

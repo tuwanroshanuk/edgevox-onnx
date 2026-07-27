@@ -1,1 +1,1 @@
-../../../harmony-os/SherpaOnnxHar/sherpa_onnx/src/main/cpp/version.cc
+../../../harmony-os/EdgevoxOnnxHar/edgevox_onnx/src/main/cpp/version.cc

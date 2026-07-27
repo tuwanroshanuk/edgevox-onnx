@@ -14,20 +14,20 @@ function createKeywordSpotter() {
     'modelConfig': {
       'transducer': {
         'encoder':
-            './edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/encoder-epoch-12-avg-2-chunk-16-left-64.onnx',
+            './sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/encoder-epoch-12-avg-2-chunk-16-left-64.onnx',
         'decoder':
-            './edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/decoder-epoch-12-avg-2-chunk-16-left-64.onnx',
+            './sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/decoder-epoch-12-avg-2-chunk-16-left-64.onnx',
         'joiner':
-            './edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/joiner-epoch-12-avg-2-chunk-16-left-64.onnx',
+            './sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/joiner-epoch-12-avg-2-chunk-16-left-64.onnx',
       },
       'tokens':
-          './edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/tokens.txt',
+          './sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/tokens.txt',
       'numThreads': 2,
       'provider': 'cpu',
       'debug': 1,
     },
     'keywordsFile':
-        './edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/keywords.txt',
+        './sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/keywords.txt',
   };
 
   return new edgevox_onnx.KeywordSpotter(config);

@@ -1,6 +1,6 @@
 // The Android Gradle Plugin builds the native code with the Android NDK.
 
-group = "com.k2fsa.sherpa.onnx.edgevox_onnx_android_x86"
+group = "com.nexus.edgevox.onnx.edgevox_onnx_android_x86"
 version = "1.0"
 
 buildscript {
@@ -25,7 +25,7 @@ rootProject.allprojects {
 apply plugin: "com.android.library"
 
 android {
-    namespace 'com.k2fsa.sherpa.onnx.x86'
+    namespace 'com.nexus.edgevox.onnx.x86'
 
     // Bumping the plugin compileSdk version requires all clients of this plugin
     // to bump the version in their app.

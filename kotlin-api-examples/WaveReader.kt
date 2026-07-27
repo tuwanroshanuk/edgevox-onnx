@@ -1,1 +1,1 @@
-../sherpa-onnx/kotlin-api/WaveReader.kt
+../edgevox-onnx/kotlin-api/WaveReader.kt

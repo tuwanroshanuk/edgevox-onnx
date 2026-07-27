@@ -5,7 +5,7 @@
 // Please refer to
 // https://k2-fsa.github.io/sherpa/onnx/audio-tagging/index.html
 // and
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/audio-tagging-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/audio-tagging-models
 // to download pre-trained models
 
 using EdgevoxOnnx;
@@ -23,11 +23,11 @@ class AudioTaggingDemo
   {
     var config = new AudioTaggingConfig();
 
-    config.Model.Zipformer.Model = "./edgevox-onnx-zipformer-small-audio-tagging-2024-04-15/model.onnx";
+    config.Model.Zipformer.Model = "./sherpa-onnx-zipformer-small-audio-tagging-2024-04-15/model.onnx";
 
     config.Model.NumThreads = 1;
     config.Model.Debug = 1;
-    config.Labels = "./edgevox-onnx-zipformer-small-audio-tagging-2024-04-15/class_labels_indices.csv";
+    config.Labels = "./sherpa-onnx-zipformer-small-audio-tagging-2024-04-15/class_labels_indices.csv";
 
     config.TopK = 5;
 
@@ -35,7 +35,7 @@ class AudioTaggingDemo
 
     var s = tagger.CreateStream();
 
-    var waveFilename = "./edgevox-onnx-zipformer-small-audio-tagging-2024-04-15/test_wavs/1.wav";
+    var waveFilename = "./sherpa-onnx-zipformer-small-audio-tagging-2024-04-15/test_wavs/1.wav";
     WaveReader waveReader = new WaveReader(waveFilename);
     s.AcceptWaveform(waveReader.SampleRate, waveReader.Samples);
 
@@ -50,11 +50,11 @@ class AudioTaggingDemo
   {
     var config = new AudioTaggingConfig();
 
-    config.Model.CED ="./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/model.int8.onnx";
+    config.Model.CED ="./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/model.int8.onnx";
 
     config.Model.NumThreads = 1;
     config.Model.Debug = 1;
-    config.Labels = "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/class_labels_indices.csv";
+    config.Labels = "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/class_labels_indices.csv";
 
     config.TopK = 5;
 
@@ -62,7 +62,7 @@ class AudioTaggingDemo
 
     var s = tagger.CreateStream();
 
-    var waveFilename = "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/1.wav";
+    var waveFilename = "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/1.wav";
     WaveReader waveReader = new WaveReader(waveFilename);
     s.AcceptWaveform(waveReader.SampleRate, waveReader.Samples);
 

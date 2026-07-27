@@ -35,7 +35,7 @@ class Model:
 def get_models():
     models = [
         Model(
-            model_name="edgevox-onnx-whisper-tiny.en",
+            model_name="sherpa-onnx-whisper-tiny.en",
             lang="en",
             short_name="whisper_tiny.en",
             cmd="""
@@ -51,7 +51,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-tiny-en-int8",
+            model_name="sherpa-onnx-moonshine-tiny-en-int8",
             lang="en",
             short_name="moonshine_tiny",
             cmd="""
@@ -65,7 +65,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
+            model_name="sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
             lang="zh_en_ko_ja_yue",
             short_name="sense_voice",
             cmd="""
@@ -76,7 +76,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-paraformer-zh-2023-09-14",
+            model_name="sherpa-onnx-paraformer-zh-2023-09-14",
             lang="zh_en",
             short_name="paraformer_2023_09_14",
             cmd="""
@@ -87,7 +87,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-paraformer-zh-small-2024-03-09",
+            model_name="sherpa-onnx-paraformer-zh-small-2024-03-09",
             lang="zh_en",
             short_name="paraformer_small_2024_03_09",
             cmd="""
@@ -98,7 +98,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-zipformer-gigaspeech-2023-12-12",
+            model_name="sherpa-onnx-zipformer-gigaspeech-2023-12-12",
             lang="en",
             short_name="zipformer_gigaspeech_2023_12_12",
             cmd="""
@@ -141,7 +141,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-zipformer-ja-reazonspeech-2024-08-01",
+            model_name="sherpa-onnx-zipformer-ja-reazonspeech-2024-08-01",
             lang="ja",
             short_name="zipformer_reazonspeech_2024_08_01",
             cmd="""
@@ -158,7 +158,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-zipformer-thai-2024-06-20",
+            model_name="sherpa-onnx-zipformer-thai-2024-06-20",
             lang="th",
             short_name="zipformer_gigaspeech2",
             cmd="""
@@ -182,7 +182,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04",
+            model_name="sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04",
             lang="zh",
             short_name="telespeech_ctc",
             cmd="""
@@ -197,7 +197,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8",
+            model_name="sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8",
             lang="en",
             short_name="parakeet_tdt_0.6b_v2",
             cmd="""

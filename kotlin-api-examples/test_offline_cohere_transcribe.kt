@@ -1,8 +1,8 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 fun main() {
   val recognizer = createOfflineRecognizer()
-  val waveFilename = "./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/en.wav"
+  val waveFilename = "./sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/en.wav"
 
   val waveData = WaveReader.readWaveFromFile(
       filename = waveFilename,
@@ -33,7 +33,7 @@ fun main() {
 
 
 fun createOfflineRecognizer(): OfflineRecognizer {
-  val modelDir = "./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01"
+  val modelDir = "./sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01"
   val modelConfig = OfflineModelConfig(
       cohereTranscribe = OfflineCohereTranscribeModelConfig(
           encoder = "$modelDir/encoder.int8.onnx",

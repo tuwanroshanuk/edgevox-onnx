@@ -5,7 +5,7 @@ This file shows how to use a non-streaming Zipformer transducer
 to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program zipformer_transducer;
@@ -35,15 +35,15 @@ var
 begin
   Initialize(Config);
 
-  Config.ModelConfig.Transducer.Encoder := './edgevox-onnx-zipformer-gigaspeech-2023-12-12/encoder-epoch-30-avg-1.int8.onnx';
-  Config.ModelConfig.Transducer.Decoder := './edgevox-onnx-zipformer-gigaspeech-2023-12-12/decoder-epoch-30-avg-1.onnx';
-  Config.ModelConfig.Transducer.Joiner := './edgevox-onnx-zipformer-gigaspeech-2023-12-12/joiner-epoch-30-avg-1.onnx';
-  Config.ModelConfig.Tokens := './edgevox-onnx-zipformer-gigaspeech-2023-12-12/tokens.txt';
+  Config.ModelConfig.Transducer.Encoder := './sherpa-onnx-zipformer-gigaspeech-2023-12-12/encoder-epoch-30-avg-1.int8.onnx';
+  Config.ModelConfig.Transducer.Decoder := './sherpa-onnx-zipformer-gigaspeech-2023-12-12/decoder-epoch-30-avg-1.onnx';
+  Config.ModelConfig.Transducer.Joiner := './sherpa-onnx-zipformer-gigaspeech-2023-12-12/joiner-epoch-30-avg-1.onnx';
+  Config.ModelConfig.Tokens := './sherpa-onnx-zipformer-gigaspeech-2023-12-12/tokens.txt';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := False;
 
-  WaveFilename := './edgevox-onnx-zipformer-gigaspeech-2023-12-12/test_wavs/1089-134686-0001.wav';
+  WaveFilename := './sherpa-onnx-zipformer-gigaspeech-2023-12-12/test_wavs/1089-134686-0001.wav';
 
   Wave := EdgevoxOnnxReadWave(WaveFilename);
 

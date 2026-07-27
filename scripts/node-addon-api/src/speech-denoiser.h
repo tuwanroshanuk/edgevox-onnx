@@ -1,1 +1,1 @@
-../../../harmony-os/SherpaOnnxHar/sherpa_onnx/src/main/cpp/speech-denoiser.h
+../../../harmony-os/EdgevoxOnnxHar/edgevox_onnx/src/main/cpp/speech-denoiser.h

@@ -2,7 +2,7 @@
 const edgevox_onnx = require('edgevox-onnx-node');
 
 // Please download test files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 const config = {
   'featConfig': {
     'sampleRate': 16000,
@@ -11,11 +11,11 @@ const config = {
   'modelConfig': {
     'funasrNano': {
       'encoderAdaptor':
-          './edgevox-onnx-funasr-nano-int8-2025-12-30/encoder_adaptor.int8.onnx',
-      'llm': './edgevox-onnx-funasr-nano-int8-2025-12-30/llm.int8.onnx',
+          './sherpa-onnx-funasr-nano-int8-2025-12-30/encoder_adaptor.int8.onnx',
+      'llm': './sherpa-onnx-funasr-nano-int8-2025-12-30/llm.int8.onnx',
       'embedding':
-          './edgevox-onnx-funasr-nano-int8-2025-12-30/embedding.int8.onnx',
-      'tokenizer': './edgevox-onnx-funasr-nano-int8-2025-12-30/Qwen3-0.6B',
+          './sherpa-onnx-funasr-nano-int8-2025-12-30/embedding.int8.onnx',
+      'tokenizer': './sherpa-onnx-funasr-nano-int8-2025-12-30/Qwen3-0.6B',
     },
     'tokens': '',
     'numThreads': 2,
@@ -25,7 +25,7 @@ const config = {
 };
 
 const waveFilename =
-    './edgevox-onnx-funasr-nano-int8-2025-12-30/test_wavs/lyrics.wav';
+    './sherpa-onnx-funasr-nano-int8-2025-12-30/test_wavs/lyrics.wav';
 
 const recognizer = new edgevox_onnx.OfflineRecognizer(config);
 console.log('Started');

@@ -55,14 +55,14 @@ function initNonStreamingAsr(context: Context): OfflineRecognizer {
   // Note that you can switch to a new model by changing type
   //
   // If you use type = 2, which means you will use
-  // edgevox-onnx-whisper-tiny.en
+  // sherpa-onnx-whisper-tiny.en
   // we assume you have the following folder structure in you resources/rawfile
   /*
   (py38) fangjuns-MacBook-Pro:main fangjun$ pwd
   /Users/fangjun/open-source/edgevox-onnx/harmony-os/EdgevoxOnnxVadAsr/entry/src/main
   (py38) fangjuns-MacBook-Pro:main fangjun$ tree resources/rawfile/
   resources/rawfile/
-  ├── edgevox-onnx-whisper-tiny.en
+  ├── sherpa-onnx-whisper-tiny.en
   │   ├── README.md
   │   ├── tiny.en-decoder.int8.onnx
   │   ├── tiny.en-encoder.int8.onnx

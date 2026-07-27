@@ -1,7 +1,7 @@
 # Introduction
 
 This directory contains examples for how to use the [Object Pascal](https://en.wikipedia.org/wiki/Object_Pascal)
-APIs of [edgevox-onnx](https://github.com/k2-fsa/edgevox-onnx).
+APIs of [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx).
 
 **Documentation for this directory**:
 https://k2-fsa.github.io/sherpa/onnx/pascal-api/index.html

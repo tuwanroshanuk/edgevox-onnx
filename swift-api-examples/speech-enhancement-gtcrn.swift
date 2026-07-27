@@ -15,7 +15,7 @@ extension AVAudioPCMBuffer {
 func run() {
   let model = "./gtcrn_simple.onnx"
   // Please refer to
-  // https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
   // to download files used in this script
   var config = edgevoxOnnxOfflineSpeechDenoiserConfig(
     model: edgevoxOnnxOfflineSpeechDenoiserModelConfig(

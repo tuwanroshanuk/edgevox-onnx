@@ -3,15 +3,15 @@
 // This file shows how to use an offline SenseVoice model,
 // i.e., non-streaming SenseVoice model
 // to decode files with homophone replacer.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingDecodeFileSenseVoiceWithHr {
   public static void main(String[] args) {
     // please refer to
     // https://k2-fsa.github.io/sherpa/onnx/sense-voice/index.html
     // to download model files
-    String model = "./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/model.int8.onnx";
-    String tokens = "./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/tokens.txt";
+    String model = "./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/model.int8.onnx";
+    String tokens = "./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/tokens.txt";
 
     String waveFilename = "./test-hr.wav";
 

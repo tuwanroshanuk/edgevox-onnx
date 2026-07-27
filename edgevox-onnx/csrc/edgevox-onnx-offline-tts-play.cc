@@ -198,7 +198,7 @@ It plays the generated audio as the model is processing.
 
 Usage examples:
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2
 tar xf vits-piper-en_US-amy-low.tar.bz2
 
 ./bin/edgevox-onnx-offline-tts-play \
@@ -210,51 +210,51 @@ tar xf vits-piper-en_US-amy-low.tar.bz2
 
 Pocket TTS:
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
-tar xf edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+tar xf sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
 
 ./bin/edgevox-onnx-offline-tts-play \
- --pocket-lm-flow=./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx \
- --pocket-lm-main=./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx \
- --pocket-encoder=./edgevox-onnx-pocket-tts-int8-2026-01-26/encoder.onnx \
- --pocket-decoder=./edgevox-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx \
- --pocket-text-conditioner=./edgevox-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx \
- --pocket-vocab-json=./edgevox-onnx-pocket-tts-int8-2026-01-26/vocab.json \
- --pocket-token-scores-json=./edgevox-onnx-pocket-tts-int8-2026-01-26/token_scores.json \
- --reference-audio=./edgevox-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav \
+ --pocket-lm-flow=./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx \
+ --pocket-lm-main=./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx \
+ --pocket-encoder=./sherpa-onnx-pocket-tts-int8-2026-01-26/encoder.onnx \
+ --pocket-decoder=./sherpa-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx \
+ --pocket-text-conditioner=./sherpa-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx \
+ --pocket-vocab-json=./sherpa-onnx-pocket-tts-int8-2026-01-26/vocab.json \
+ --pocket-token-scores-json=./sherpa-onnx-pocket-tts-int8-2026-01-26/token_scores.json \
+ --reference-audio=./sherpa-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav \
  "Hello from Pocket TTS"
 
 Supertonic TTS:
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
-tar xf edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+tar xf sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
 
 ./bin/edgevox-onnx-offline-tts-play \
- --supertonic-duration-predictor=./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx \
- --supertonic-text-encoder=./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx \
- --supertonic-vector-estimator=./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx \
- --supertonic-vocoder=./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx \
- --supertonic-tts-json=./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/tts.json \
- --supertonic-unicode-indexer=./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin \
- --supertonic-voice-style=./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin \
+ --supertonic-duration-predictor=./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx \
+ --supertonic-text-encoder=./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx \
+ --supertonic-vector-estimator=./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx \
+ --supertonic-vocoder=./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx \
+ --supertonic-tts-json=./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json \
+ --supertonic-unicode-indexer=./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin \
+ --supertonic-voice-style=./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin \
  --lang=en \
  --num-steps=8 \
  "Hello from Supertonic TTS"
 
 ZipVoice TTS:
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
-tar xf edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos_24khz.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+tar xf sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos_24khz.onnx
 
 ./bin/edgevox-onnx-offline-tts-play \
- --zipvoice-encoder=./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx \
- --zipvoice-decoder=./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx \
- --zipvoice-data-dir=./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data \
- --zipvoice-lexicon=./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt \
- --zipvoice-tokens=./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt \
+ --zipvoice-encoder=./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx \
+ --zipvoice-decoder=./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx \
+ --zipvoice-data-dir=./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data \
+ --zipvoice-lexicon=./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt \
+ --zipvoice-tokens=./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt \
  --zipvoice-vocoder=./vocos_24khz.onnx \
- --reference-audio=./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav \
+ --reference-audio=./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav \
  --reference-text="那还是三十六年前, 一九八七年. 我呢考上了武汉大学的计算机系." \
  --num-steps=4 \
  "小米的价值观是真诚, 热爱. 真诚，就是不欺人也不自欺. 热爱, 就是全心投入并享受其中."
@@ -262,7 +262,7 @@ wget https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/voc
 It will optionally save audio to --output-filename and play it while generating.
 
 You can find more models at
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
 
 Please see
 https://k2-fsa.github.io/sherpa/onnx/tts/index.html

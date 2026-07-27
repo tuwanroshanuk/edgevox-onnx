@@ -33,9 +33,9 @@ def assert_file_exists(filename: str):
 
 
 def create_recognizer():
-    encoder = "./edgevox-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx"
-    decoder = "./edgevox-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx"
-    tokens = "./edgevox-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt"
+    encoder = "./sherpa-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx"
+    decoder = "./sherpa-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx"
+    tokens = "./sherpa-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt"
     assert_file_exists(encoder)
     assert_file_exists(decoder)
     assert_file_exists(tokens)

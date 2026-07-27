@@ -6,9 +6,9 @@
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-whisper-tiny.en.tar.bz2
-// tar xvf edgevox-onnx-whisper-tiny.en.tar.bz2
-// rm edgevox-onnx-whisper-tiny.en.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-tiny.en.tar.bz2
+// tar xvf sherpa-onnx-whisper-tiny.en.tar.bz2
+// rm sherpa-onnx-whisper-tiny.en.tar.bz2
 //
 // clang-format on
 
@@ -24,11 +24,11 @@ int32_t main() {
   OfflineRecognizerConfig config;
 
   config.model_config.whisper.encoder =
-      "./edgevox-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx";
+      "./sherpa-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx";
   config.model_config.whisper.decoder =
-      "./edgevox-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx";
+      "./sherpa-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx";
   config.model_config.tokens =
-      "./edgevox-onnx-whisper-tiny.en/tiny.en-tokens.txt";
+      "./sherpa-onnx-whisper-tiny.en/tiny.en-tokens.txt";
 
   config.model_config.num_threads = 1;
 
@@ -40,7 +40,7 @@ int32_t main() {
   }
   std::cout << "Loading model done\n";
 
-  std::string wave_filename = "./edgevox-onnx-whisper-tiny.en/test_wavs/0.wav";
+  std::string wave_filename = "./sherpa-onnx-whisper-tiny.en/test_wavs/0.wav";
   Wave wave = ReadWave(wave_filename);
   if (wave.samples.empty()) {
     std::cerr << "Failed to read: '" << wave_filename << "'\n";

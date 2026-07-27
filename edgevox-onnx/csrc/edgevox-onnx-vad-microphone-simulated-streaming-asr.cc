@@ -62,31 +62,31 @@ edgevox-onnx for real-time speech recognition.
 
 cd /path/to/edgevox-onnx/build
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
-tar xvf edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
+tar xvf sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 ./bin/edgevox-onnx-vad-microphone-simulated-streaming-asr \
   --silero-vad-model=./silero_vad.onnx \
-  --sense-voice-model=./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx \
-  --tokens=./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/tokens.txt
+  --sense-voice-model=./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx \
+  --tokens=./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/tokens.txt
 
 (2) Parakeet TDT 0.6b v2
 
 cd /path/to/edgevox-onnx/build
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
-tar xvf edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
+tar xvf sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 ./bin/edgevox-onnx-vad-microphone-simulated-streaming-asr \
   --silero-vad-model=./silero_vad.onnx \
-  --encoder=./edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/encoder.int8.onnx \
-  --decoder=./edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/decoder.int8.onnx \
-  --joiner=./edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/joiner.int8.onnx \
-  --tokens=./edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/tokens.txt
+  --encoder=./sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/encoder.int8.onnx \
+  --decoder=./sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/decoder.int8.onnx \
+  --joiner=./sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/joiner.int8.onnx \
+  --tokens=./sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/tokens.txt
 
 (3) Please refer to our doc for more non-streaming ASR models,
 e.g., zipformer, paraformer, whisper, etc.

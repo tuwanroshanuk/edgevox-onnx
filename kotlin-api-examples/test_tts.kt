@@ -1,4 +1,4 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 fun main() {
   testVits()
@@ -9,7 +9,7 @@ fun main() {
 }
 
 fun testKokoroZhEn() {
-  // see https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+  // see https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
   var config = OfflineTtsConfig(
     model=OfflineTtsModelConfig(
       kokoro=OfflineTtsKokoroModelConfig(
@@ -34,7 +34,7 @@ fun testKokoroZhEn() {
 }
 
 fun testKokoroEn() {
-  // see https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+  // see https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
   var config = OfflineTtsConfig(
     model=OfflineTtsModelConfig(
       kokoro=OfflineTtsKokoroModelConfig(
@@ -58,8 +58,8 @@ fun testKokoroEn() {
 }
 
 fun testMatcha() {
-  // see https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/matcha-icefall-zh-baker.tar.bz2
+  // see https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-icefall-zh-baker.tar.bz2
   var config = OfflineTtsConfig(
     model=OfflineTtsModelConfig(
       matcha=OfflineTtsMatchaModelConfig(
@@ -84,8 +84,8 @@ fun testMatcha() {
 }
 
 fun testVits() {
-  // see https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2
+  // see https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2
   var config = OfflineTtsConfig(
     model=OfflineTtsModelConfig(
       vits=OfflineTtsVitsModelConfig(
@@ -108,7 +108,7 @@ fun testVits() {
 }
 
 fun testKittenEn() {
-  // see https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+  // see https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
   var config = OfflineTtsConfig(
     model=OfflineTtsModelConfig(
       kitten=OfflineTtsKittenModelConfig(
@@ -135,27 +135,27 @@ fun testKittenEn() {
 /*
 1. Unzip test_tts.jar
 2.
-javap ./com/k2fsa/sherpa/onnx/Test_ttsKt\$testTts\$audio\$1.class
+javap ./com/nexus/edgevox/onnx/Test_ttsKt\$testTts\$audio\$1.class
 
 3. It prints:
 Compiled from "test_tts.kt"
-final class com.k2fsa.sherpa.onnx.Test_ttsKt$testTts$audio$1 extends kotlin.jvm.internal.FunctionReferenceImpl implements kotlin.jvm.functions.Function1<float[], java.lang.Integer> {
-  public static final com.k2fsa.sherpa.onnx.Test_ttsKt$testTts$audio$1 INSTANCE;
-  com.k2fsa.sherpa.onnx.Test_ttsKt$testTts$audio$1();
+final class com.nexus.edgevox.onnx.Test_ttsKt$testTts$audio$1 extends kotlin.jvm.internal.FunctionReferenceImpl implements kotlin.jvm.functions.Function1<float[], java.lang.Integer> {
+  public static final com.nexus.edgevox.onnx.Test_ttsKt$testTts$audio$1 INSTANCE;
+  com.nexus.edgevox.onnx.Test_ttsKt$testTts$audio$1();
   public final java.lang.Integer invoke(float[]);
   public java.lang.Object invoke(java.lang.Object);
   static {};
 }
 
 4.
-javap -s ./com/k2fsa/sherpa/onnx/Test_ttsKt\$testTts\$audio\$1.class
+javap -s ./com/nexus/edgevox/onnx/Test_ttsKt\$testTts\$audio\$1.class
 
 5. It prints
 Compiled from "test_tts.kt"
-final class com.k2fsa.sherpa.onnx.Test_ttsKt$testTts$audio$1 extends kotlin.jvm.internal.FunctionReferenceImpl implements kotlin.jvm.functions.Function1<float[], java.lang.Integer> {
-  public static final com.k2fsa.sherpa.onnx.Test_ttsKt$testTts$audio$1 INSTANCE;
-    descriptor: Lcom/k2fsa/sherpa/onnx/Test_ttsKt$testTts$audio$1;
-  com.k2fsa.sherpa.onnx.Test_ttsKt$testTts$audio$1();
+final class com.nexus.edgevox.onnx.Test_ttsKt$testTts$audio$1 extends kotlin.jvm.internal.FunctionReferenceImpl implements kotlin.jvm.functions.Function1<float[], java.lang.Integer> {
+  public static final com.nexus.edgevox.onnx.Test_ttsKt$testTts$audio$1 INSTANCE;
+    descriptor: Lcom/nexus/edgevox/onnx/Test_ttsKt$testTts$audio$1;
+  com.nexus.edgevox.onnx.Test_ttsKt$testTts$audio$1();
     descriptor: ()V
 
   public final java.lang.Integer invoke(float[]);

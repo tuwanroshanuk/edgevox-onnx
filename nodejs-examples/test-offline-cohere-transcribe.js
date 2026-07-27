@@ -7,14 +7,14 @@ function createOfflineRecognizer() {
     modelConfig: {
       cohereTranscribe: {
         encoder:
-            './edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/encoder.int8.onnx',
+            './sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/encoder.int8.onnx',
         decoder:
-            './edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/decoder.int8.onnx',
+            './sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/decoder.int8.onnx',
         usePunct: 1,
         useItn: 1,
       },
       tokens:
-          './edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/tokens.txt',
+          './sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/tokens.txt',
     }
   };
 
@@ -26,7 +26,7 @@ const stream = recognizer.createStream();
 stream.setOption('language', 'en');
 
 const waveFilename =
-    './edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/en.wav';
+    './sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/en.wav';
 const wave = edgevox_onnx.readWave(waveFilename);
 stream.acceptWaveform(wave.sampleRate, wave.samples);
 

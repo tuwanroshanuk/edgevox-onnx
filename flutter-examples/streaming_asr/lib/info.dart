@@ -15,7 +15,7 @@ class InfoScreen extends StatelessWidget {
             Text('Everything is open-sourced.'),
             SizedBox(height: height),
             InkWell(
-              child: Text('Code: https://github.com/k2-fsa/edgevox-onnx'),
+              child: Text('Code: https://github.com/k2-fsa/sherpa-onnx'),
               onTap: () => launch('https://k2-fsa.github.io/sherpa/onnx/'),
             ),
             SizedBox(height: height),

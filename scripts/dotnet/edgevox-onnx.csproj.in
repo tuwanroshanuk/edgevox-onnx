@@ -10,8 +10,8 @@
     <AssemblyName>edgevox-onnx</AssemblyName>
     <Version>{{ version }}</Version>
 
-    <PackageProjectUrl>https://github.com/k2-fsa/edgevox-onnx</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/k2-fsa/edgevox-onnx</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/k2-fsa/sherpa-onnx</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/k2-fsa/sherpa-onnx</RepositoryUrl>
     <PackageTags>speech recognition voice audio stt asr speech-to-text AI offline
       privacy open-sourced next-gen-kaldi k2 kaldi2 edgevox-onnx</PackageTags>
 
@@ -31,7 +31,7 @@
 
     <!-- Pack Option -->
     <Title>edgevox-onnx v{{ version }}</Title>
-    <PackageId>org.k2fsa.sherpa.onnx</PackageId>
+    <PackageId>org.nexus.edgevox.onnx</PackageId>
 
     <!-- Signing -->
     <SignAssembly>false</SignAssembly>
@@ -48,14 +48,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="org.k2fsa.sherpa.onnx.runtime.linux-x64" Version="{{ version }}" />
-    <PackageReference Include="org.k2fsa.sherpa.onnx.runtime.linux-arm64" Version="{{ version }}" />
-    <PackageReference Include="org.k2fsa.sherpa.onnx.runtime.android-arm64" Version="{{ version }}" />
-    <PackageReference Include="org.k2fsa.sherpa.onnx.runtime.osx-x64"   Version="{{ version }}" />
-    <PackageReference Include="org.k2fsa.sherpa.onnx.runtime.osx-arm64" Version="{{ version }}" />
-    <PackageReference Include="org.k2fsa.sherpa.onnx.runtime.win-x64"   Version="{{ version }}" />
-    <PackageReference Include="org.k2fsa.sherpa.onnx.runtime.win-x86"   Version="{{ version }}" />
-    <PackageReference Include="org.k2fsa.sherpa.onnx.runtime.win-arm64" Version="{{ version }}" />
+    <PackageReference Include="org.nexus.edgevox.onnx.runtime.linux-x64" Version="{{ version }}" />
+    <PackageReference Include="org.nexus.edgevox.onnx.runtime.linux-arm64" Version="{{ version }}" />
+    <PackageReference Include="org.nexus.edgevox.onnx.runtime.android-arm64" Version="{{ version }}" />
+    <PackageReference Include="org.nexus.edgevox.onnx.runtime.osx-x64"   Version="{{ version }}" />
+    <PackageReference Include="org.nexus.edgevox.onnx.runtime.osx-arm64" Version="{{ version }}" />
+    <PackageReference Include="org.nexus.edgevox.onnx.runtime.win-x64"   Version="{{ version }}" />
+    <PackageReference Include="org.nexus.edgevox.onnx.runtime.win-x86"   Version="{{ version }}" />
+    <PackageReference Include="org.nexus.edgevox.onnx.runtime.win-arm64" Version="{{ version }}" />
   </ItemGroup>
 
 </Project>

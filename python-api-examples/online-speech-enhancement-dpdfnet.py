@@ -4,7 +4,7 @@
 This file shows how to use the online speech enhancement API with DPDFNet.
 
 Please download files used in this script from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
 """
 
 from pathlib import Path
@@ -19,7 +19,7 @@ def create_speech_denoiser():
     if not Path(model_filename).is_file():
         raise ValueError(
             "Please first download a model from "
-            "https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models"
+            "https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models"
             " or https://huggingface.co/csukuangfj/speech-enhancement-models"
         )
 
@@ -53,7 +53,7 @@ def main():
     if not Path(test_wave).is_file():
         raise ValueError(
             f"{test_wave} does not exist. You can download it from "
-            "https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models"
+            "https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models"
         )
 
     samples, sample_rate = load_audio(test_wave)

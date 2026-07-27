@@ -19,33 +19,33 @@ which $EXE
 mkdir ./tts
 
 log "------------------------------------------------------------"
-log "edgevox-onnx-pocket-tts-int8-2026-01-26"
+log "sherpa-onnx-pocket-tts-int8-2026-01-26"
 log "------------------------------------------------------------"
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
-tar xvf edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
-rm edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+tar xvf sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+rm sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
 
 $EXE \
-  --pocket-lm-flow=./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx \
-  --pocket-lm-main=./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx \
-  --pocket-encoder=./edgevox-onnx-pocket-tts-int8-2026-01-26/encoder.onnx \
-  --pocket-decoder=./edgevox-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx \
-  --pocket-text-conditioner=./edgevox-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx \
-  --pocket-vocab-json=./edgevox-onnx-pocket-tts-int8-2026-01-26/vocab.json \
-  --pocket-token-scores-json=./edgevox-onnx-pocket-tts-int8-2026-01-26/token_scores.json \
-  --reference-audio=./edgevox-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav \
+  --pocket-lm-flow=./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx \
+  --pocket-lm-main=./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx \
+  --pocket-encoder=./sherpa-onnx-pocket-tts-int8-2026-01-26/encoder.onnx \
+  --pocket-decoder=./sherpa-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx \
+  --pocket-text-conditioner=./sherpa-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx \
+  --pocket-vocab-json=./sherpa-onnx-pocket-tts-int8-2026-01-26/vocab.json \
+  --pocket-token-scores-json=./sherpa-onnx-pocket-tts-int8-2026-01-26/token_scores.json \
+  --reference-audio=./sherpa-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav \
   --num-threads=2 \
   --debug=1 \
   --num-steps=5 \
   --output-filename="./tts/pocket-tts-out-bria.wav" \
     "I am happy to join with you today in what will go down in history as the greatest demonstration for freedom in the history of our nation. Five score years ago, a great American, in whose symbolic shadow we stand today, signed the Emancipation Proclamation. This momentous decree came as a great beacon light of hope to millions of Negro slaves who had been seared in the flames of withering injustice. It came as a joyous daybreak to end the long night of their captivity. But one hundred years later, the Negro still is not free. One hundred years later, the life of the Negro is still sadly crippled by the manacles of segregation and the chains of discrimination. One hundred years later, the Negro lives on a lonely island of poverty in the midst of a vast ocean of material prosperity. One hundred years later, the Negro is still languished in the corners of American society and finds himself an exile in his own land. And so we've come here today to dramatize a shameful condition. In a sense we've come to our nation's capital to cash a check. When the architects of our republic wrote the magnificent words of the Constitution and the Declaration of Independence, they were signing a promissory note to which every American was to fall heir. This note was a promise that all men, yes, black men as well as white men, would be guaranteed the unalienable Rights of Life, Liberty and the pursuit of Happiness. It is obvious today that America has defaulted on this promissory note, insofar as her citizens of color are concerned. Instead of honoring this sacred obligation, America has given the Negro people a bad check, a check which has come back marked insufficient funds."
 
-rm -rf edgevox-onnx-pocket-tts-int8-2026-01-26
+rm -rf sherpa-onnx-pocket-tts-int8-2026-01-26
 
 log "------------------------------------------------------------"
 log "kokoro-en-v0_19"
 log "------------------------------------------------------------"
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/kokoro-en-v0_19.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-en-v0_19.tar.bz2
 tar xf kokoro-en-v0_19.tar.bz2
 rm kokoro-en-v0_19.tar.bz2
 
@@ -70,11 +70,11 @@ rm -rf kokoro-en-v0_19
 log "------------------------------------------------------------"
 log "matcha-tts-fa_en-musa"
 log "------------------------------------------------------------"
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/matcha-tts-fa_en-musa.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-tts-fa_en-musa.tar.bz2
 tar xvf matcha-tts-fa_en-musa.tar.bz2
 rm matcha-tts-fa_en-musa.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
 
 
 $EXE \
@@ -93,11 +93,11 @@ ls -lh tts/*.wav
 log "------------------------------------------------------------"
 log "matcha-icefall-en_US-ljspeech"
 log "------------------------------------------------------------"
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/matcha-icefall-en_US-ljspeech.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-icefall-en_US-ljspeech.tar.bz2
 tar xvf matcha-icefall-en_US-ljspeech.tar.bz2
 rm matcha-icefall-en_US-ljspeech.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
 
 
 $EXE \
@@ -117,11 +117,11 @@ ls -lh tts/*.wav
 log "------------------------------------------------------------"
 log "matcha-icefall-zh-baker"
 log "------------------------------------------------------------"
-curl -O -SL https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/matcha-icefall-zh-baker.tar.bz2
+curl -O -SL https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-icefall-zh-baker.tar.bz2
 tar xvf matcha-icefall-zh-baker.tar.bz2
 rm matcha-icefall-zh-baker.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
 
 $EXE \
   --matcha-acoustic-model=./matcha-icefall-zh-baker/model-steps-3.onnx \
@@ -149,7 +149,7 @@ rm -rf matcha-icefall-zh-baker
 log "------------------------------------------------------------"
 log "vits-piper-en_US-amy-low"
 log "------------------------------------------------------------"
-curl -O -SL https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2
+curl -O -SL https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2
 tar xf vits-piper-en_US-amy-low.tar.bz2
 rm vits-piper-en_US-amy-low.tar.bz2
 
@@ -168,7 +168,7 @@ log "------------------------------------------------------------"
 log "vits-ljs test"
 log "------------------------------------------------------------"
 
-repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-ljs.tar.bz2
+repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-ljs.tar.bz2
 curl -SL -O $repo_url
 tar xvf vits-ljs.tar.bz2
 rm vits-ljs.tar.bz2
@@ -191,7 +191,7 @@ log "------------------------------------------------------------"
 log "vits-vctk test"
 log "------------------------------------------------------------"
 
-repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-vctk.tar.bz2
+repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-vctk.tar.bz2
 curl -SL -O $repo_url
 tar xvf vits-vctk.tar.bz2
 rm vits-vctk.tar.bz2
@@ -217,7 +217,7 @@ log "------------------------------------------------------------"
 log "vits-zh-aishell3"
 log "------------------------------------------------------------"
 
-repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-zh-aishell3.tar.bz2
+repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-zh-aishell3.tar.bz2
 curl -SL -O $repo_url
 tar xvf vits-zh-aishell3.tar.bz2
 rm vits-zh-aishell3.tar.bz2

@@ -13,7 +13,7 @@ func getResource(_ forResource: String, _ ofType: String) -> String {
 /// https://k2-fsa.github.io/sherpa/onnx/pretrained_models/index.html
 /// to download pre-trained models
 
-/// edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20 (Bilingual, Chinese + English)
+/// sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20 (Bilingual, Chinese + English)
 /// https://k2-fsa.github.io/sherpa/onnx/pretrained_models/zipformer-transducer-models.html
 func getBilingualStreamZhEnZipformer20230220() -> EdgevoxOnnxOnlineModelConfig {
   let encoder = getResource("encoder-epoch-99-avg-1", "onnx")

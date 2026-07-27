@@ -7,12 +7,12 @@ It detects the language spoken in the given wave file.
 Usage:
 
 1. Download a whisper multilingual model. We use a tiny model below.
-Please refer to https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+Please refer to https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 to download more models.
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-whisper-tiny.tar.bz2
-tar xvf edgevox-onnx-whisper-tiny.tar.bz2
-rm edgevox-onnx-whisper-tiny.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-tiny.tar.bz2
+tar xvf sherpa-onnx-whisper-tiny.tar.bz2
+rm sherpa-onnx-whisper-tiny.tar.bz2
 
 We only use the int8.onnx models below.
 
@@ -24,8 +24,8 @@ https://hf-mirror.com/spaces/k2-fsa/spoken-language-identification/tree/main/tes
 wget https://hf-mirror.com/spaces/k2-fsa/spoken-language-identification/resolve/main/test_wavs/de-german.wav
 
 python3 ./python-api-examples/spoken-language-identification.py
-  --whisper-encoder=edgevox-onnx-whisper-tiny/tiny-encoder.int8.onnx \
-  --whisper-decoder=edgevox-onnx-whisper-tiny/tiny-decoder.int8.onnx \
+  --whisper-encoder=sherpa-onnx-whisper-tiny/tiny-encoder.int8.onnx \
+  --whisper-decoder=sherpa-onnx-whisper-tiny/tiny-decoder.int8.onnx \
   --num-threads=1 \
   ./de-german.wav
 """

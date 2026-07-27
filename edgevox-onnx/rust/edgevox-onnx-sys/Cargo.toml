@@ -4,7 +4,7 @@ version = "1.13.4"
 edition = "2021"
 description = "Raw FFI bindings to the edgevox-onnx C API"
 license = "Apache-2.0"
-repository = "https://github.com/k2-fsa/edgevox-onnx"
+repository = "https://github.com/tuwanroshanuk/edgevox-onnx"
 readme = "README.md"
 links = "edgevox-onnx"
 

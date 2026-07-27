@@ -103,9 +103,9 @@ func run() {
 
   if modelType == "whisper" {
     // for English
-    let encoder = "./edgevox-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx"
-    let decoder = "./edgevox-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx"
-    let tokens = "./edgevox-onnx-whisper-tiny.en/tiny.en-tokens.txt"
+    let encoder = "./sherpa-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx"
+    let decoder = "./sherpa-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx"
+    let tokens = "./sherpa-onnx-whisper-tiny.en/tiny.en-tokens.txt"
 
     let whisperConfig = edgevoxOnnxOfflineWhisperModelConfig(
       encoder: encoder,
@@ -120,8 +120,8 @@ func run() {
     )
   } else if modelType == "paraformer" {
     // for Chinese
-    let model = "./edgevox-onnx-paraformer-zh-2023-09-14/model.int8.onnx"
-    let tokens = "./edgevox-onnx-paraformer-zh-2023-09-14/tokens.txt"
+    let model = "./sherpa-onnx-paraformer-zh-2023-09-14/model.int8.onnx"
+    let tokens = "./sherpa-onnx-paraformer-zh-2023-09-14/tokens.txt"
     let paraformerConfig = edgevoxOnnxOfflineParaformerModelConfig(
       model: model
     )

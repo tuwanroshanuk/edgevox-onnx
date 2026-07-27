@@ -8,9 +8,9 @@
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
-// tar xvf edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
-// rm edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+// tar xvf sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+// rm sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
 //
 // clang-format on
 
@@ -26,11 +26,11 @@ int32_t main() {
   OnlineRecognizerConfig config;
 
   config.model_config.paraformer.encoder =
-      "./edgevox-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx";
+      "./sherpa-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx";
   config.model_config.paraformer.decoder =
-      "./edgevox-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx";
+      "./sherpa-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx";
   config.model_config.tokens =
-      "./edgevox-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt";
+      "./sherpa-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt";
 
   config.model_config.num_threads = 1;
   config.model_config.debug = true;
@@ -45,7 +45,7 @@ int32_t main() {
   std::cout << "Loading model done\n";
 
   std::string wave_filename =
-      "./edgevox-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/0.wav";
+      "./sherpa-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/0.wav";
   Wave wave = ReadWave(wave_filename);
   if (wave.samples.empty()) {
     std::cerr << "Failed to read: '" << wave_filename << "'\n";

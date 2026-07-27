@@ -5,7 +5,7 @@ set -ex
 export CGO_ENABLED=1
 
 if [ ! -d icefall-asr-zipformer-streaming-wenetspeech-20230615 ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/icefall-asr-zipformer-streaming-wenetspeech-20230615.tar.bz2
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/icefall-asr-zipformer-streaming-wenetspeech-20230615.tar.bz2
   tar xvf icefall-asr-zipformer-streaming-wenetspeech-20230615.tar.bz2
   rm icefall-asr-zipformer-streaming-wenetspeech-20230615.tar.bz2
 fi

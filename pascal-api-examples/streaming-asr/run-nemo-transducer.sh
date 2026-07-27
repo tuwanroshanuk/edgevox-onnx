@@ -24,10 +24,10 @@ if [[ ! -f ../../build/install/lib/libedgevox-onnx-c-api.dylib  && ! -f ../../bu
   popd
 fi
 
-if [ ! -f ./edgevox-onnx-nemo-streaming-fast-conformer-transducer-en-80ms/tokens.txt ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-streaming-fast-conformer-transducer-en-80ms.tar.bz2
-  tar xvf edgevox-onnx-nemo-streaming-fast-conformer-transducer-en-80ms.tar.bz2
-  rm edgevox-onnx-nemo-streaming-fast-conformer-transducer-en-80ms.tar.bz2
+if [ ! -f ./sherpa-onnx-nemo-streaming-fast-conformer-transducer-en-80ms/tokens.txt ]; then
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-streaming-fast-conformer-transducer-en-80ms.tar.bz2
+  tar xvf sherpa-onnx-nemo-streaming-fast-conformer-transducer-en-80ms.tar.bz2
+  rm sherpa-onnx-nemo-streaming-fast-conformer-transducer-en-80ms.tar.bz2
 fi
 
 fpc \

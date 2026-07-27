@@ -109,38 +109,38 @@ larger than this value. Used only when --enable-endpoint is true.")]
 (1) Streaming transducer models
 
 dotnet run \
-  --tokens=./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt \
-  --encoder=./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.onnx \
-  --decoder=./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx \
-  --joiner=./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.onnx \
+  --tokens=./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt \
+  --encoder=./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.onnx \
+  --decoder=./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx \
+  --joiner=./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.onnx \
   --num-threads=2 \
   --decoding-method=modified_beam_search \
   --debug=false \
-  --files ./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/0.wav \
-  ./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/1.wav
+  --files ./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/0.wav \
+  ./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/1.wav
 
 (2) Streaming Zipformer2 Ctc models
 
 dotnet run -c Release \
-  --tokens ./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/tokens.txt \
-  --zipformer2-ctc ./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/ctc-epoch-20-avg-1-chunk-16-left-128.onnx \
-  --files ./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000000.wav \
-  ./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000001.wav \
-  ./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000002.wav \
-  ./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/TEST_MEETING_T0000000113.wav \
-  ./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/TEST_MEETING_T0000000219.wav \
-  ./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/TEST_MEETING_T0000000351.wav
+  --tokens ./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/tokens.txt \
+  --zipformer2-ctc ./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/ctc-epoch-20-avg-1-chunk-16-left-128.onnx \
+  --files ./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000000.wav \
+  ./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000001.wav \
+  ./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000002.wav \
+  ./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/TEST_MEETING_T0000000113.wav \
+  ./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/TEST_MEETING_T0000000219.wav \
+  ./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/TEST_MEETING_T0000000351.wav
 
 (3) Streaming Paraformer models
 dotnet run \
-  --tokens=./edgevox-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt \
-  --paraformer-encoder=./edgevox-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx \
-  --paraformer-decoder=./edgevox-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx \
+  --tokens=./sherpa-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt \
+  --paraformer-encoder=./sherpa-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx \
+  --paraformer-decoder=./sherpa-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx \
   --num-threads=2 \
   --decoding-method=greedy_search \
   --debug=false \
-  --files ./edgevox-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/0.wav \
-  ./edgevox-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/1.wav
+  --files ./sherpa-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/0.wav \
+  ./sherpa-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/1.wav
 
 Please refer to
 https://k2-fsa.github.io/sherpa/onnx/pretrained_models/online-transducer/index.html

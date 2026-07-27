@@ -5,17 +5,17 @@ This file shows how to use the speech enhancement API with DPDFNet.
 
 Please download DPDFNet models from the edgevox-onnx GitHub release
 or the official Hugging Face hub:
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
 https://huggingface.co/Ceva-IP/DPDFNet
 
 Example:
 
- wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/dpdfnet_baseline.onnx
- wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/dpdfnet2.onnx
- wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/dpdfnet4.onnx
- wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/dpdfnet8.onnx
- wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/dpdfnet2_48khz_hr.onnx
- wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/speech_with_noise.wav
+ wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/dpdfnet_baseline.onnx
+ wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/dpdfnet2.onnx
+ wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/dpdfnet4.onnx
+ wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/dpdfnet8.onnx
+ wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/dpdfnet2_48khz_hr.onnx
+ wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/speech_with_noise.wav
 
 Use 16 kHz DPDFNet models such as `dpdfnet_baseline.onnx`, `dpdfnet2.onnx`,
 `dpdfnet4.onnx`, or `dpdfnet8.onnx` for downstream ASR or speech recognition.
@@ -38,7 +38,7 @@ def create_speech_denoiser():
         raise ValueError(
             "Please first download a DPDFNet model from "
             "the edgevox-onnx GitHub release or the official Hugging Face hub: "
-            "https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models or "
+            "https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models or "
             "https://huggingface.co/Ceva-IP/DPDFNet"
         )
 
@@ -75,7 +75,7 @@ def main():
     if not Path(test_wave).is_file():
         raise ValueError(
             f"{test_wave} does not exist. You can download it from "
-            "https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models"
+            "https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models"
         )
 
     samples, sample_rate = load_audio(test_wave)

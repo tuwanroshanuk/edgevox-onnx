@@ -4,7 +4,7 @@ version = "1.13.4"
 edition = "2021"
 description = "Safe Rust wrapper for edgevox-onnx speech recognition toolkit"
 license = "Apache-2.0"
-repository = "https://github.com/k2-fsa/edgevox-onnx"
+repository = "https://github.com/tuwanroshanuk/edgevox-onnx"
 documentation = "https://docs.rs/edgevox-onnx"
 readme = "README.md"  # make sure this is inside the crate folder
 

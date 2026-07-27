@@ -30,10 +30,10 @@ flutter create --template plugin_ffi --platforms linux edgevox_onnx_windows
 5. Create `edgevox_onnx_android_arm64`, `edgevox_onnx_android_armeabi`, `edgevox_onnx_android_x86`, `edgevox_onnx_android_x86_64`
 
 ```bash
-flutter create --template plugin_ffi --platforms android --org com.k2fsa.sherpa.onnx.arm64 edgevox_onnx_android_arm64
-flutter create --template plugin_ffi --platforms android --org com.k2fsa.sherpa.onnx.armeabi edgevox_onnx_android_armeabi
-flutter create --template plugin_ffi --platforms android --org com.k2fsa.sherpa.onnx.x86 edgevox_onnx_android_x86
-flutter create --template plugin_ffi --platforms android --org com.k2fsa.sherpa.onnx.x86_64 edgevox_onnx_android_x86_64
+flutter create --template plugin_ffi --platforms android --org com.nexus.edgevox.onnx.arm64 edgevox_onnx_android_arm64
+flutter create --template plugin_ffi --platforms android --org com.nexus.edgevox.onnx.armeabi edgevox_onnx_android_armeabi
+flutter create --template plugin_ffi --platforms android --org com.nexus.edgevox.onnx.x86 edgevox_onnx_android_x86
+flutter create --template plugin_ffi --platforms android --org com.nexus.edgevox.onnx.x86_64 edgevox_onnx_android_x86_64
 ```
 
 6. Create `edgevox_onnx_ios`

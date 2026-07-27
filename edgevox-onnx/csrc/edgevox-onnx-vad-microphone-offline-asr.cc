@@ -49,10 +49,10 @@ This program shows how to use a streaming VAD with non-streaming ASR in
 edgevox-onnx.
 
 Please download silero_vad.onnx from
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 For instance, use
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 Please refer to ./edgevox-onnx-microphone-offline.cc
 to download models for offline ASR.
@@ -78,9 +78,9 @@ to download models for offline ASR.
 
   ./bin/edgevox-onnx-vad-microphone-offline-asr \
     --silero-vad-model=/path/to/silero_vad.onnx \
-    --whisper-encoder=./edgevox-onnx-whisper-base.en/base.en-encoder.int8.onnx \
-    --whisper-decoder=./edgevox-onnx-whisper-base.en/base.en-decoder.int8.onnx \
-    --tokens=./edgevox-onnx-whisper-base.en/base.en-tokens.txt \
+    --whisper-encoder=./sherpa-onnx-whisper-base.en/base.en-encoder.int8.onnx \
+    --whisper-decoder=./sherpa-onnx-whisper-base.en/base.en-decoder.int8.onnx \
+    --tokens=./sherpa-onnx-whisper-base.en/base.en-tokens.txt \
     --num-threads=1
 )usage";
 

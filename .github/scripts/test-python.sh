@@ -10,38 +10,38 @@ log() {
 
 log "test Cohere Transcribe"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
-tar xvf edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
-rm edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+tar xvf sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+rm sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
 python3 ./python-api-examples/offline-cohere-transcribe-decode-files.py
-rm -rf edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01
+rm -rf sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01
 
 log "test Qwen3 ASR"
 
-wget -q https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
-tar xvf edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
-rm edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
+wget -q https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
+tar xvf sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
+rm sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
 
 python3 ./python-api-examples/offline-qwen3-asr-decode-files.py \
-  --conv-frontend=./edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/conv_frontend.onnx \
-  --encoder=./edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/encoder.int8.onnx \
-  --decoder=./edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/decoder.int8.onnx \
-  --tokenizer=./edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/tokenizer \
+  --conv-frontend=./sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/conv_frontend.onnx \
+  --encoder=./sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/encoder.int8.onnx \
+  --decoder=./sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/decoder.int8.onnx \
+  --tokenizer=./sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/tokenizer \
   --max-new-tokens=128 \
   --num-threads=2 \
-  ./edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/test_wavs/raokouling.wav
+  ./sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/test_wavs/raokouling.wav
 
-rm -rf edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25
+rm -rf sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25
 
 log "test Supertonic TTS"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
-tar xvf edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
-rm edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+tar xvf sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+rm sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
 
 python3 python-api-examples/supertonic-tts.py
 
-rm -rf edgevox-onnx-supertonic-3-tts-int8-2026-05-11
+rm -rf sherpa-onnx-supertonic-3-tts-int8-2026-05-11
 
 mkdir -p tts
 cp supertonic-en.wav tts/
@@ -49,113 +49,113 @@ ls -lh tts
 
 log "test Moonshine v2"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
-tar xvf edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
-rm edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
+tar xvf sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
+rm sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
 
-ls -lh edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27
+ls -lh sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27
 
 python3 ./python-api-examples/offline-moonshine-decode-files-v2.py
 
-rm -rf  edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27
+rm -rf  sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27
 
 log "test FireRedASR CTC"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
-tar xvf edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
-rm edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
+tar xvf sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
+rm sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
 
 python3 ./python-api-examples/offline-fire-red-asr-ctc-decode-files.py
 
-rm -rf edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25
+rm -rf sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25
 
 log "test FireRedASR AED"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
-tar xvf edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
-rm edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
+tar xvf sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
+rm sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
 
 python3 ./python-api-examples/offline-fire-red-asr-decode-files.py
 
-rm -rf edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16
+rm -rf sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16
 
 log "test PocketTTS"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
-tar xvf edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
-rm edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+tar xvf sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+rm sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
 
 python3 ./python-api-examples/pocket-tts.py
 
-rm -rf edgevox-onnx-pocket-tts-int8-2026-01-26
+rm -rf sherpa-onnx-pocket-tts-int8-2026-01-26
 
 log "test ZipVoice TTS"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
-tar xvf edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
-rm edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+tar xvf sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+rm sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos_24khz.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos_24khz.onnx
 
 python3 ./python-api-examples/zipvoice-tts.py
 
 cp generated-zipvoice-zh-en-python.wav tts/
 
-rm -rf edgevox-onnx-zipvoice-distill-int8-zh-en-emilia
+rm -rf sherpa-onnx-zipvoice-distill-int8-zh-en-emilia
 rm -f vocos_24khz.onnx
 
 log "test Google MedASR"
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
-tar xvf edgevox-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
-rm edgevox-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
-ls -lh edgevox-onnx-medasr-ctc-en-int8-2025-12-25
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
+tar xvf sherpa-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
+rm sherpa-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
+ls -lh sherpa-onnx-medasr-ctc-en-int8-2025-12-25
 
-ls -lh edgevox-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs
+ls -lh sherpa-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs
 
 python3 ./python-api-examples/offline-medasr-ctc-decode-files.py
-rm -rf edgevox-onnx-medasr-ctc-en-int8-2025-12-25
+rm -rf sherpa-onnx-medasr-ctc-en-int8-2025-12-25
 
 log "test omnilingual ASR"
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12.tar.bz2
-tar xvf edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12.tar.bz2
-rm edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12.tar.bz2
-ls -lh edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12.tar.bz2
+tar xvf sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12.tar.bz2
+rm sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12.tar.bz2
+ls -lh sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12
 
 python3 ./python-api-examples/offline-omnilingual-asr-ctc-decode-files.py
 
-rm -rf edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12
+rm -rf sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12
 
 log "test T-one"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
-tar xvf edgevox-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
-rm edgevox-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
+tar xvf sherpa-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
+rm sherpa-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
 
 python3 ./python-api-examples/online-t-one-ctc-decode-files.py
 
-rm -rf edgevox-onnx-streaming-t-one-russian-2025-09-08
+rm -rf sherpa-onnx-streaming-t-one-russian-2025-09-08
 
 log "test nemo canary"
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
-tar xvf edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
-rm edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
+tar xvf sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
+rm sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
 python3 ./python-api-examples/offline-nemo-canary-decode-files.py
-rm -rf edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8
+rm -rf sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8
 
 log "test spleeter"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/edgevox-onnx-spleeter-2stems-fp16.tar.bz2
-tar xvf edgevox-onnx-spleeter-2stems-fp16.tar.bz2
-rm edgevox-onnx-spleeter-2stems-fp16.tar.bz2
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/qi-feng-le-zh.wav
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/sherpa-onnx-spleeter-2stems-fp16.tar.bz2
+tar xvf sherpa-onnx-spleeter-2stems-fp16.tar.bz2
+rm sherpa-onnx-spleeter-2stems-fp16.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/qi-feng-le-zh.wav
 ./python-api-examples/offline-source-separation-spleeter.py
-rm -rf edgevox-onnx-spleeter-2stems-fp16
+rm -rf sherpa-onnx-spleeter-2stems-fp16
 rm qi-feng-le-zh.wav
 
 log "test UVR"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/UVR_MDXNET_9482.onnx
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/qi-feng-le-zh.wav
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/UVR_MDXNET_9482.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/qi-feng-le-zh.wav
 ./python-api-examples/offline-source-separation-uvr.py
 rm UVR_MDXNET_9482.onnx
 rm qi-feng-le-zh.wav
@@ -169,19 +169,19 @@ ls -lh source-separation
 
 
 log "test offline dolphin ctc"
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
-tar xvf edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
-rm edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
+tar xvf sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
+rm sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
 
 python3 ./python-api-examples/offline-dolphin-ctc-decode-files.py
 
-rm -rf edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02
+rm -rf sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02
 
 log "test offline speech enhancement (GTCRN)"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/gtcrn_simple.onnx
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/dpdfnet_baseline.onnx
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/speech_with_noise.wav
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/gtcrn_simple.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/dpdfnet_baseline.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/speech_with_noise.wav
 python3 ./python-api-examples/offline-speech-enhancement-gtcrn.py
 python3 ./python-api-examples/offline-speech-enhancement-dpdfnet.py
 python3 ./python-api-examples/online-speech-enhancement-gtcrn.py
@@ -189,11 +189,11 @@ python3 ./python-api-examples/online-speech-enhancement-dpdfnet.py
 ls -lh *.wav
 
 log "test offline zipformer (byte-level bpe, Chinese+English)"
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-zipformer-zh-en-2023-11-22.tar.bz2
-tar xvf edgevox-onnx-zipformer-zh-en-2023-11-22.tar.bz2
-rm edgevox-onnx-zipformer-zh-en-2023-11-22.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-zipformer-zh-en-2023-11-22.tar.bz2
+tar xvf sherpa-onnx-zipformer-zh-en-2023-11-22.tar.bz2
+rm sherpa-onnx-zipformer-zh-en-2023-11-22.tar.bz2
 
-repo=edgevox-onnx-zipformer-zh-en-2023-11-22
+repo=sherpa-onnx-zipformer-zh-en-2023-11-22
 
 ./python-api-examples/offline-decode-files.py  \
   --tokens=$repo/tokens.txt \
@@ -207,38 +207,38 @@ repo=edgevox-onnx-zipformer-zh-en-2023-11-22
   $repo/test_wavs/1.wav \
   $repo/test_wavs/2.wav
 
-rm -rf edgevox-onnx-zipformer-zh-en-2023-11-22
+rm -rf sherpa-onnx-zipformer-zh-en-2023-11-22
 
 log "test offline Moonshine"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
-tar xvf edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
-rm edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
+tar xvf sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
+rm sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
 
 python3 ./python-api-examples/offline-moonshine-decode-files.py
 
-rm -rf edgevox-onnx-moonshine-tiny-en-int8
+rm -rf sherpa-onnx-moonshine-tiny-en-int8
 
 log "test offline speaker diarization"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-segmentation-models/edgevox-onnx-pyannote-segmentation-3-0.tar.bz2
-tar xvf edgevox-onnx-pyannote-segmentation-3-0.tar.bz2
-rm edgevox-onnx-pyannote-segmentation-3-0.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-segmentation-models/sherpa-onnx-pyannote-segmentation-3-0.tar.bz2
+tar xvf sherpa-onnx-pyannote-segmentation-3-0.tar.bz2
+rm sherpa-onnx-pyannote-segmentation-3-0.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-segmentation-models/0-four-speakers-zh.wav
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-segmentation-models/0-four-speakers-zh.wav
 
 python3 ./python-api-examples/offline-speaker-diarization.py
 
-rm -rf *.wav *.onnx ./edgevox-onnx-pyannote-segmentation-3-0
+rm -rf *.wav *.onnx ./sherpa-onnx-pyannote-segmentation-3-0
 
 
 log "test_clustering"
 pushd /tmp/
 mkdir test-cluster
 cd test-cluster
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
 git clone https://github.com/csukuangfj/sr-data
 popd
 
@@ -249,7 +249,7 @@ rm -rf /tmp/test-cluster
 export GIT_CLONE_PROTECTION_ACTIVE=false
 
 log "test offline SenseVoice CTC"
-url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
+url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
 name=$(basename $url)
 repo=$(basename -s .tar.bz2 $name)
 
@@ -259,13 +259,13 @@ rm $name
 ls -lh $repo
 python3 ./python-api-examples/offline-sense-voice-ctc-decode-files.py
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/dict.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/dict.tar.bz2
 tar xf dict.tar.bz2
 rm dict.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/replace.fst
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/test-hr.wav
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/lexicon.txt
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/replace.fst
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/test-hr.wav
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/lexicon.txt
 
 python3 ./python-api-examples/offline-sense-voice-ctc-decode-files-with-hr.py
 
@@ -274,8 +274,8 @@ rm -rf dict replace.fst test-hr.wav lexicon.txt
 if [[ $(uname) == Linux ]]; then
   # It needs ffmpeg
   log  "generate subtitles (Chinese)"
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/lei-jun-test.wav
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/lei-jun-test.wav
 
   python3 ./python-api-examples/generate-subtitles.py \
     --silero-vad-model=./silero_vad.onnx \
@@ -289,7 +289,7 @@ if [[ $(uname) == Linux ]]; then
   rm lei-jun-test.wav
 
   log  "generate subtitles (English)"
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/Obama.wav
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/Obama.wav
 
   python3 ./python-api-examples/generate-subtitles.py \
     --silero-vad-model=./silero_vad.onnx \
@@ -305,7 +305,7 @@ fi
 rm -rf $repo
 
 log "test offline TeleSpeech CTC"
-url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04.tar.bz2
+url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04.tar.bz2
 name=$(basename $url)
 repo=$(basename -s .tar.bz2 $name)
 
@@ -318,7 +318,7 @@ rm -rf $repo
 
 log "test online NeMo CTC"
 
-url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-streaming-fast-conformer-ctc-en-80ms.tar.bz2
+url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-streaming-fast-conformer-ctc-en-80ms.tar.bz2
 name=$(basename $url)
 repo=$(basename -s .tar.bz2 $name)
 
@@ -331,10 +331,10 @@ rm -rf $repo
 
 log "test offline punctuation"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/punctuation-models/edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
-tar xvf edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
-rm edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
-repo=edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/punctuation-models/sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
+tar xvf sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
+rm sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
+repo=sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12
 ls -lh $repo
 
 python3 ./python-api-examples/add-punctuation.py
@@ -353,10 +353,10 @@ rm -rf catt_eo_model_onnx
 
 log "test online punctuation"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/punctuation-models/edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
-tar xvf edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
-rm edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
-repo=edgevox-onnx-online-punct-en-2024-08-06
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/punctuation-models/sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
+tar xvf sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
+rm sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
+repo=sherpa-onnx-online-punct-en-2024-08-06
 ls -lh $repo
 
 python3 ./python-api-examples/add-punctuation-online.py
@@ -365,28 +365,28 @@ rm -rf $repo
 
 log "test audio tagging"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/audio-tagging-models/edgevox-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
-tar xvf edgevox-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
-rm edgevox-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/audio-tagging-models/sherpa-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
+tar xvf sherpa-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
+rm sherpa-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
  python3 ./python-api-examples/audio-tagging-from-a-file.py
-rm -rf edgevox-onnx-zipformer-audio-tagging-2024-04-09
+rm -rf sherpa-onnx-zipformer-audio-tagging-2024-04-09
 
 
 log "test streaming zipformer2 ctc HLG decoding"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
-tar xvf edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
-rm edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
-repo=edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+tar xvf sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+rm sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+repo=sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18
 
 python3 ./python-api-examples/online-zipformer-ctc-hlg-decode-file.py \
   --debug 1 \
-  --tokens ./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt \
-  --graph ./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst \
-  --model ./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx \
-  ./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/0.wav
+  --tokens ./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt \
+  --graph ./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst \
+  --model ./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx \
+  ./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/0.wav
 
-rm -rf edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18
+rm -rf sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18
 
 
 mkdir -p /tmp/icefall-models
@@ -434,7 +434,7 @@ edgevox-onnx-en-wenet-librispeech
 )
 
 for name in ${wenet_models[@]}; do
-  repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/$name.tar.bz2
+  repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/$name.tar.bz2
   curl -SL -O $repo_url
   tar xvf $name.tar.bz2
   rm $name.tar.bz2
@@ -471,7 +471,7 @@ mkdir -p ./tts
 
 log "test kitten tts"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/kitten-nano-en-v0_1-fp16.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kitten-nano-en-v0_1-fp16.tar.bz2
 tar xf kitten-nano-en-v0_1-fp16.tar.bz2
 rm kitten-nano-en-v0_1-fp16.tar.bz2
 
@@ -490,7 +490,7 @@ rm -rf kitten-nano-en-v0_1-fp16
 
 log "kokoro-multi-lang-v1_0 test"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/kokoro-multi-lang-v1_0.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-multi-lang-v1_0.tar.bz2
 tar xf kokoro-multi-lang-v1_0.tar.bz2
 rm kokoro-multi-lang-v1_0.tar.bz2
 
@@ -510,7 +510,7 @@ rm -rf kokoro-multi-lang-v1_0
 
 log "kokoro-en-v0_19 test"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/kokoro-en-v0_19.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-en-v0_19.tar.bz2
 tar xf kokoro-en-v0_19.tar.bz2
 rm kokoro-en-v0_19.tar.bz2
 
@@ -529,11 +529,11 @@ rm -rf kokoro-en-v0_19
 
 log "matcha-ljspeech-en test"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/matcha-icefall-en_US-ljspeech.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-icefall-en_US-ljspeech.tar.bz2
 tar xvf matcha-icefall-en_US-ljspeech.tar.bz2
 rm matcha-icefall-en_US-ljspeech.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
 
 python3 ./python-api-examples/offline-tts.py \
   --matcha-acoustic-model=./matcha-icefall-en_US-ljspeech/model-steps-3.onnx \
@@ -549,11 +549,11 @@ rm -rf matcha-icefall-en_US-ljspeech
 
 log "matcha-baker-zh test"
 
-curl -O -SL https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/matcha-icefall-zh-baker.tar.bz2
+curl -O -SL https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-icefall-zh-baker.tar.bz2
 tar xvf matcha-icefall-zh-baker.tar.bz2
 rm matcha-icefall-zh-baker.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
 
 python3 ./python-api-examples/offline-tts.py \
  --matcha-acoustic-model=./matcha-icefall-zh-baker/model-steps-3.onnx \
@@ -631,11 +631,11 @@ log "Test streaming transducer models"
 if [[ x$OS != x'windows-latest' ]]; then
   echo "OS: $OS"
   pushd $dir
-  repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+  repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
   curl -SL -O $repo_url
-  tar xvf edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
-  rm edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
-  repo=edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
+  tar xvf sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+  rm sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+  repo=sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
 
   log "Start testing ${repo_url}"
   repo=$dir/$repo
@@ -675,14 +675,14 @@ if [[ x$OS != x'windows-latest' ]]; then
 
   ln -s $repo $PWD/
 
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn-zh-number.wav
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn-zh-number.wav
 
   python3 ./python-api-examples/inverse-text-normalization-online-asr.py
 
   python3 edgevox-onnx/python/tests/test_online_recognizer.py --verbose
 
-  rm -rfv edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
+  rm -rfv sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
 
   rm -rf $repo
 fi
@@ -690,13 +690,13 @@ fi
 log "Test non-streaming transducer models"
 
 pushd $dir
-repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-zipformer-en-2023-04-01.tar.bz2
+repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-zipformer-en-2023-04-01.tar.bz2
 log "Download pretrained model and test-data from $repo_url"
 
 curl -SL -O $repo_url
-tar xvf edgevox-onnx-zipformer-en-2023-04-01.tar.bz2
-rm edgevox-onnx-zipformer-en-2023-04-01.tar.bz2
-repo=$dir/edgevox-onnx-zipformer-en-2023-04-01
+tar xvf sherpa-onnx-zipformer-en-2023-04-01.tar.bz2
+rm sherpa-onnx-zipformer-en-2023-04-01.tar.bz2
+repo=$dir/sherpa-onnx-zipformer-en-2023-04-01
 
 popd
 
@@ -728,7 +728,7 @@ pushd $lm_repo
 git lfs pull --include "exp/no-state-epoch-99-avg-1.onnx"
 popd
 
-bigram_repo_url=https://huggingface.co/vsd-vector/librispeech_bigram_edgevox-onnx-zipformer-large-en-2023-06-26
+bigram_repo_url=https://huggingface.co/vsd-vector/librispeech_bigram_sherpa-onnx-zipformer-large-en-2023-06-26
 log "Download bi-gram LM from ${bigram_repo_url}"
 GIT_LFS_SKIP_SMUDGE=1 git clone $bigram_repo_url
 bigramlm_repo=$(basename $bigram_repo_url)
@@ -759,13 +759,13 @@ log "Test non-streaming paraformer models"
 if [[ x$OS != x'windows-latest' ]]; then
   echo "OS: $OS"
   pushd $dir
-  repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-paraformer-zh-2023-09-14.tar.bz2
+  repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-paraformer-zh-2023-09-14.tar.bz2
   curl -SL -O $repo_url
-  tar xvf edgevox-onnx-paraformer-zh-2023-09-14.tar.bz2
-  rm edgevox-onnx-paraformer-zh-2023-09-14.tar.bz2
+  tar xvf sherpa-onnx-paraformer-zh-2023-09-14.tar.bz2
+  rm sherpa-onnx-paraformer-zh-2023-09-14.tar.bz2
 
   log "Start testing ${repo_url}"
-  repo=$dir/edgevox-onnx-paraformer-zh-2023-09-14
+  repo=$dir/sherpa-onnx-paraformer-zh-2023-09-14
 
   ls -lh $repo
   popd
@@ -782,12 +782,12 @@ if [[ x$OS != x'windows-latest' ]]; then
 
   ln -s $repo $PWD/
 
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn-zh-number.wav
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn-zh-number.wav
 
   python3 ./python-api-examples/inverse-text-normalization-offline-asr.py
 
-  rm -rfv edgevox-onnx-paraformer-zh-2023-09-14
+  rm -rfv sherpa-onnx-paraformer-zh-2023-09-14
 
   rm -rf $repo
 fi
@@ -795,13 +795,13 @@ fi
 log "Test non-streaming NeMo CTC models"
 
 pushd $dir
-repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-ctc-en-citrinet-512.tar.bz2
+repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-ctc-en-citrinet-512.tar.bz2
 curl -SL -O $repo_url
-tar xvf edgevox-onnx-nemo-ctc-en-citrinet-512.tar.bz2
-rm edgevox-onnx-nemo-ctc-en-citrinet-512.tar.bz2
+tar xvf sherpa-onnx-nemo-ctc-en-citrinet-512.tar.bz2
+rm sherpa-onnx-nemo-ctc-en-citrinet-512.tar.bz2
 
 log "Start testing ${repo_url}"
-repo=$dir/edgevox-onnx-nemo-ctc-en-citrinet-512
+repo=$dir/sherpa-onnx-nemo-ctc-en-citrinet-512
 
 ls -lh $repo
 popd
@@ -847,12 +847,12 @@ ls -lh
 if [[ x$OS != x'windows-latest' ]]; then
   echo "OS: $OS"
 
-  repo=edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01
+  repo=sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01
   log "Start testing ${repo}"
 
-  curl -LS -O https://github.com/pkufool/keyword-spotting-models/releases/download/v0.1/edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz
-  tar xf edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz
-  rm edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz
+  curl -LS -O https://github.com/pkufool/keyword-spotting-models/releases/download/v0.1/sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz
+  tar xf sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz
+  rm sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz
 
   ls -lh $repo
 

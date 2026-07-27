@@ -35,8 +35,8 @@ class Model:
 def get_models():
     models = [
         Model(
-            model_name="edgevox-onnx-whisper-tiny.en",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-en-whisper-tiny",
+            model_name="sherpa-onnx-whisper-tiny.en",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-en-whisper-tiny",
             ms="csukuangfj/web-assembly-vad-asr-edgevox-onnx-en-whisper-tiny",
             short_name="vad-asr-en-whisper_tiny",
             cmd="""
@@ -51,8 +51,8 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-tiny-en-int8",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-en-moonshine-tiny",
+            model_name="sherpa-onnx-moonshine-tiny-en-int8",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-en-moonshine-tiny",
             ms="csukuangfj/web-assembly-vad-asr-edgevox-onnx-en-moonshine-tiny",
             short_name="vad-asr-en-moonshine_tiny",
             cmd="""
@@ -69,9 +69,9 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-tiny-en",
-            ms="csukuangfj/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-tiny-en",
+            model_name="sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-tiny-en",
+            ms="csukuangfj/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-tiny-en",
             short_name="vad-asr-moonshine-v2-tiny-en",
             cmd="""
             pushd $model_name
@@ -86,9 +86,9 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-tiny-ja-quantized-2026-02-27",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-tiny-ja",
-            ms="csukuangfj/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-tiny-ja",
+            model_name="sherpa-onnx-moonshine-tiny-ja-quantized-2026-02-27",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-tiny-ja",
+            ms="csukuangfj/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-tiny-ja",
             short_name="vad-asr-moonshine-v2-tiny-ja",
             cmd="""
             pushd $model_name
@@ -103,9 +103,9 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-tiny-ko-quantized-2026-02-27",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-tiny-ko",
-            ms="csukuangfj/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-tiny-ko",
+            model_name="sherpa-onnx-moonshine-tiny-ko-quantized-2026-02-27",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-tiny-ko",
+            ms="csukuangfj/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-tiny-ko",
             short_name="vad-asr-moonshine-v2-tiny-ko",
             cmd="""
             pushd $model_name
@@ -120,9 +120,9 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-base-en-quantized-2026-02-27",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-base-en",
-            ms="csukuangfj/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-base-en",
+            model_name="sherpa-onnx-moonshine-base-en-quantized-2026-02-27",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-base-en",
+            ms="csukuangfj/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-base-en",
             short_name="vad-asr-moonshine-v2-base-en",
             cmd="""
             pushd $model_name
@@ -137,9 +137,9 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-base-zh-quantized-2026-02-27",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-base-zh",
-            ms="csukuangfj/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-base-zh",
+            model_name="sherpa-onnx-moonshine-base-zh-quantized-2026-02-27",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-base-zh",
+            ms="csukuangfj/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-base-zh",
             short_name="vad-asr-moonshine-v2-base-zh",
             cmd="""
             pushd $model_name
@@ -154,9 +154,9 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-base-ja-quantized-2026-02-27",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-base-ja",
-            ms="csukuangfj/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-base-ja",
+            model_name="sherpa-onnx-moonshine-base-ja-quantized-2026-02-27",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-base-ja",
+            ms="csukuangfj/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-base-ja",
             short_name="vad-asr-moonshine-v2-base-ja",
             cmd="""
             pushd $model_name
@@ -171,9 +171,9 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-base-vi-quantized-2026-02-27",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-base-vi",
-            ms="csukuangfj/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-base-vi",
+            model_name="sherpa-onnx-moonshine-base-vi-quantized-2026-02-27",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-base-vi",
+            ms="csukuangfj/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-base-vi",
             short_name="vad-asr-moonshine-v2-base-vi",
             cmd="""
             pushd $model_name
@@ -188,9 +188,9 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-base-es-quantized-2026-02-27",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-base-es",
-            ms="csukuangfj/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-base-es",
+            model_name="sherpa-onnx-moonshine-base-es-quantized-2026-02-27",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-base-es",
+            ms="csukuangfj/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-base-es",
             short_name="vad-asr-moonshine-v2-base-es",
             cmd="""
             pushd $model_name
@@ -205,9 +205,9 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-base-ar-quantized-2026-02-27",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-base-ar",
-            ms="csukuangfj/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-base-ar",
+            model_name="sherpa-onnx-moonshine-base-ar-quantized-2026-02-27",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-base-ar",
+            ms="csukuangfj/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-base-ar",
             short_name="vad-asr-moonshine-v2-base-ar",
             cmd="""
             pushd $model_name
@@ -222,9 +222,9 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-base-uk-quantized-2026-02-27",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-base-uk",
-            ms="csukuangfj/web-assembly-vad-asr-edgevox-onnx-moonshine-v2-base-uk",
+            model_name="sherpa-onnx-moonshine-base-uk-quantized-2026-02-27",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-base-uk",
+            ms="csukuangfj/web-assembly-vad-asr-sherpa-onnx-moonshine-v2-base-uk",
             short_name="vad-asr-moonshine-v2-base-uk",
             cmd="""
             pushd $model_name
@@ -239,8 +239,8 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-zh-en-ja-ko-cantonese-sense-voice",
+            model_name="sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-zh-en-ja-ko-cantonese-sense-voice",
             ms="csukuangfj/web-assembly-vad-asr-edgevox-onnx-zh-en-jp-ko-cantonese-sense-voice",
             short_name="vad-asr-zh_en_ja_ko_cantonese-sense_voice_small",
             cmd="""
@@ -254,9 +254,9 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-paraformer-zh-2023-09-14",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-zh-en-paraformer",
-            ms="k2-fsa/web-assembly-vad-asr-edgevox-onnx-zh-en-paraformer",
+            model_name="sherpa-onnx-paraformer-zh-2023-09-14",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-zh-en-paraformer",
+            ms="k2-fsa/web-assembly-vad-asr-sherpa-onnx-zh-en-paraformer",
             short_name="vad-asr-zh_en-paraformer_large",
             cmd="""
             pushd $model_name
@@ -269,9 +269,9 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-paraformer-zh-small-2024-03-09",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-zh-en-paraformer-small",
-            ms="k2-fsa/web-assembly-vad-asr-edgevox-onnx-zh-en-paraformer-small",
+            model_name="sherpa-onnx-paraformer-zh-small-2024-03-09",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-zh-en-paraformer-small",
+            ms="k2-fsa/web-assembly-vad-asr-sherpa-onnx-zh-en-paraformer-small",
             short_name="vad-asr-zh_en-paraformer_small",
             cmd="""
             pushd $model_name
@@ -284,9 +284,9 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-zipformer-gigaspeech-2023-12-12",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-en-zipformer-gigaspeech",
-            ms="k2-fsa/web-assembly-vad-asr-edgevox-onnx-en-zipformer-gigaspeech",
+            model_name="sherpa-onnx-zipformer-gigaspeech-2023-12-12",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-en-zipformer-gigaspeech",
+            ms="k2-fsa/web-assembly-vad-asr-sherpa-onnx-en-zipformer-gigaspeech",
             short_name="vad-asr-en-zipformer_gigaspeech",
             cmd="""
             pushd $model_name
@@ -302,8 +302,8 @@ def get_models():
         ),
         Model(
             model_name="icefall-asr-zipformer-wenetspeech-20230615",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-zh-zipformer-wenetspeech",
-            ms="k2-fsa/web-assembly-vad-asr-edgevox-onnx-zh-zipformer-wenetspeech",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-zh-zipformer-wenetspeech",
+            ms="k2-fsa/web-assembly-vad-asr-sherpa-onnx-zh-zipformer-wenetspeech",
             short_name="vad-asr-zh-zipformer_wenetspeech",
             cmd="""
             pushd $model_name
@@ -318,8 +318,8 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-zipformer-ja-reazonspeech-2024-08-01",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-ja-zipformer",
+            model_name="sherpa-onnx-zipformer-ja-reazonspeech-2024-08-01",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-ja-zipformer",
             ms="csukuangfj/web-assembly-vad-asr-edgevox-onnx-ja-zipformer",
             short_name="vad-asr-ja-zipformer_reazonspeech",
             cmd="""
@@ -335,8 +335,8 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-zipformer-thai-2024-06-20",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-th-zipformer",
+            model_name="sherpa-onnx-zipformer-thai-2024-06-20",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-th-zipformer",
             ms="csukuangfj/web-assembly-vad-asr-edgevox-onnx-th-zipformer",
             short_name="vad-asr-th-zipformer_gigaspeech2",
             cmd="""
@@ -352,9 +352,9 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-zh-telespeech",
-            ms="k2-fsa/web-assembly-vad-asr-edgevox-onnx-zh-telespeech",
+            model_name="sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-zh-telespeech",
+            ms="k2-fsa/web-assembly-vad-asr-sherpa-onnx-zh-telespeech",
             short_name="vad-asr-zh-telespeech",
             cmd="""
             pushd $model_name
@@ -367,8 +367,8 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-multi-lang-dophin-ctc",
+            model_name="sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-multi-lang-dophin-ctc",
             ms="csukuangfj/web-assembly-vad-asr-edgevox-onnx-multi-lang-dophin-ctc",
             short_name="vad-asr-multi_lang-dolphin_ctc",
             cmd="""
@@ -382,8 +382,8 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03",
-            hf="k2-fsa/web-assembly-vad-asr-edgevox-onnx-zh-zipformer-ctc",
+            model_name="sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03",
+            hf="k2-fsa/web-assembly-vad-asr-sherpa-onnx-zh-zipformer-ctc",
             ms="csukuangfj/web-assembly-vad-asr-edgevox-onnx-zh-zipformer-ctc",
             short_name="vad-asr-zh-zipformer-ctc",
             cmd="""

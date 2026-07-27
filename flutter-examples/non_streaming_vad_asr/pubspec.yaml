@@ -10,9 +10,9 @@ version: 1.13.4
 topics:
   - speech-recognition
 
-issue_tracker: https://github.com/k2-fsa/edgevox-onnx/issues
+issue_tracker: https://github.com/k2-fsa/sherpa-onnx/issues
 
-repository: https://github.com/k2-fsa/edgevox-onnx/tree/master/edgevox-onnx/flutter
+repository: https://github.com/k2-fsa/sherpa-onnx/tree/master/sherpa-onnx/flutter
 
 environment:
   sdk: ">=2.17.0 <4.0.0"
@@ -49,4 +49,4 @@ flutter:
     #- assets/whisper/
     #- assets/senseVoice/
     - assets/nemo_transducer/
-    # - assets/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/
+    # - assets/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/

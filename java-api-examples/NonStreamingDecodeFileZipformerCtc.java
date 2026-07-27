@@ -3,17 +3,17 @@
 // This file shows how to use an offline Zipformer CTC model,
 // i.e., non-streaming Zipformer CTC model,
 // to decode files.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingDecodeFileZipformerCtc {
   public static void main(String[] args) {
     // please refer to
-    // https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
+    // https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
     // to download model files
-    String model = "./edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03/model.int8.onnx";
-    String tokens = "./edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03/tokens.txt";
+    String model = "./sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03/model.int8.onnx";
+    String tokens = "./sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03/tokens.txt";
 
-    String waveFilename = "./edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03/test_wavs/0.wav";
+    String waveFilename = "./sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03/test_wavs/0.wav";
 
     WaveReader reader = new WaveReader(waveFilename);
 

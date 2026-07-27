@@ -69,7 +69,7 @@ run_go_mod_tidy() {
 
 function linux() {
   echo "Process linux"
-  git clone git@github.com:k2-fsa/edgevox-onnx-go-linux.git
+  git clone git@github.com:k2-fsa/sherpa-onnx-go-linux.git
 
   rm -v ./edgevox-onnx-go-linux/*.go
 
@@ -125,13 +125,13 @@ function linux() {
   git tag v$EDGEVOX_ONNX_VERSION && \
   git push origin v$EDGEVOX_ONNX_VERSION || true
   cd ..
-  kick_go_proxy "github.com/k2-fsa/edgevox-onnx-go-linux" "v$EDGEVOX_ONNX_VERSION"
+  kick_go_proxy "github.com/k2-fsa/sherpa-onnx-go-linux" "v$SHERPA_ONNX_VERSION"
   rm -rf edgevox-onnx-go-linux
 }
 
 function osx() {
   echo "Process osx-x64"
-  git clone git@github.com:k2-fsa/edgevox-onnx-go-macos.git
+  git clone git@github.com:k2-fsa/sherpa-onnx-go-macos.git
   rm -v ./edgevox-onnx-go-macos/*.go
   cp -v ./edgevox_onnx.go ./edgevox-onnx-go-macos/
   cp -v ./_internal/c-api.h ./edgevox-onnx-go-macos/
@@ -180,13 +180,13 @@ function osx() {
   git tag v$EDGEVOX_ONNX_VERSION && \
   git push origin v$EDGEVOX_ONNX_VERSION || true
   cd ..
-  kick_go_proxy "github.com/k2-fsa/edgevox-onnx-go-macos" "v$EDGEVOX_ONNX_VERSION"
+  kick_go_proxy "github.com/k2-fsa/sherpa-onnx-go-macos" "v$SHERPA_ONNX_VERSION"
   rm -rf edgevox-onnx-go-macos
 }
 
 function windows() {
   echo "Process windows"
-  git clone git@github.com:k2-fsa/edgevox-onnx-go-windows.git
+  git clone git@github.com:k2-fsa/sherpa-onnx-go-windows.git
   rm -v ./edgevox-onnx-go-windows/*.go
   cp -v ./edgevox_onnx.go ./edgevox-onnx-go-windows/
   cp -v ./_internal/c-api.h ./edgevox-onnx-go-windows/
@@ -224,13 +224,13 @@ function windows() {
   git tag v$EDGEVOX_ONNX_VERSION && \
   git push origin v$EDGEVOX_ONNX_VERSION || true
   cd ..
-  kick_go_proxy "github.com/k2-fsa/edgevox-onnx-go-windows" "v$EDGEVOX_ONNX_VERSION"
+  kick_go_proxy "github.com/k2-fsa/sherpa-onnx-go-windows" "v$SHERPA_ONNX_VERSION"
   rm -rf edgevox-onnx-go-windows
 }
 
 function basic() {
   echo "Process edgevox-onnx-go"
-  git clone git@github.com:k2-fsa/edgevox-onnx-go.git
+  git clone git@github.com:k2-fsa/sherpa-onnx-go.git
 
   python3 ./generate.py -s ./edgevox_onnx.go -o ./edgevox-onnx-go
 
@@ -241,9 +241,9 @@ function basic() {
   # and tagged with v$EDGEVOX_ONNX_VERSION.
   local ver="v$EDGEVOX_ONNX_VERSION"
   sed -i.bak \
-    -e "s|github.com/k2-fsa/edgevox-onnx-go-linux .*|github.com/k2-fsa/edgevox-onnx-go-linux $ver|" \
-    -e "s|github.com/k2-fsa/edgevox-onnx-go-macos .*|github.com/k2-fsa/edgevox-onnx-go-macos $ver|" \
-    -e "s|github.com/k2-fsa/edgevox-onnx-go-windows .*|github.com/k2-fsa/edgevox-onnx-go-windows $ver|" \
+    -e "s|github.com/k2-fsa/sherpa-onnx-go-linux .*|github.com/k2-fsa/sherpa-onnx-go-linux $ver|" \
+    -e "s|github.com/k2-fsa/sherpa-onnx-go-macos .*|github.com/k2-fsa/sherpa-onnx-go-macos $ver|" \
+    -e "s|github.com/k2-fsa/sherpa-onnx-go-windows .*|github.com/k2-fsa/sherpa-onnx-go-windows $ver|" \
     go.mod
   rm -f go.mod.bak
 

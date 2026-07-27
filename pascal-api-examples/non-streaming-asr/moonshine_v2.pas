@@ -5,7 +5,7 @@ This file shows how to use a non-streaming Moonshine v2 model
 to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program moonshine_v2;
@@ -35,15 +35,15 @@ var
 begin
   Initialize(Config);
 
-  Config.ModelConfig.Moonshine.Encoder := './edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/encoder_model.ort';
-  Config.ModelConfig.Moonshine.MergedDecoder := './edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/decoder_model_merged.ort';
+  Config.ModelConfig.Moonshine.Encoder := './sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/encoder_model.ort';
+  Config.ModelConfig.Moonshine.MergedDecoder := './sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/decoder_model_merged.ort';
 
-  Config.ModelConfig.Tokens := './edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/tokens.txt';
+  Config.ModelConfig.Tokens := './sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/tokens.txt';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := False;
 
-  WaveFilename := './edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/test_wavs/0.wav';
+  WaveFilename := './sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/test_wavs/0.wav';
 
   Wave := EdgevoxOnnxReadWave(WaveFilename);
 

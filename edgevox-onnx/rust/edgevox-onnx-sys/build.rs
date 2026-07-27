@@ -10,7 +10,7 @@ use std::{collections::HashSet, ffi::OsString};
 use bzip2::read::BzDecoder;
 use tar::Archive;
 
-const RELEASE_BASE_URL: &str = "https://github.com/k2-fsa/edgevox-onnx/releases/download";
+const RELEASE_BASE_URL: &str = "https://github.com/k2-fsa/sherpa-onnx/releases/download";
 const EDGEVOX_ONNX_STATIC_LIBS: &[&str] = &[
     "edgevox-onnx-c-api",
     "edgevox-onnx-core",

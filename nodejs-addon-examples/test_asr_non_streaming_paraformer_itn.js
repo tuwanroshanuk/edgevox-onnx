@@ -2,7 +2,7 @@
 const edgevox_onnx = require('edgevox-onnx-node');
 
 // Please download test files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 const config = {
   'featConfig': {
     'sampleRate': 16000,
@@ -10,18 +10,18 @@ const config = {
   },
   'modelConfig': {
     'paraformer': {
-      'model': './edgevox-onnx-paraformer-zh-2023-09-14/model.int8.onnx',
+      'model': './sherpa-onnx-paraformer-zh-2023-09-14/model.int8.onnx',
     },
-    'tokens': './edgevox-onnx-paraformer-zh-2023-09-14/tokens.txt',
+    'tokens': './sherpa-onnx-paraformer-zh-2023-09-14/tokens.txt',
     'numThreads': 2,
     'provider': 'cpu',
     'debug': 1,
   },
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
   ruleFsts: './itn_zh_number.fst',
 };
 
-// https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn-zh-number.wav
+// https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn-zh-number.wav
 const waveFilename = './itn-zh-number.wav';
 
 const recognizer = new edgevox_onnx.OfflineRecognizer(config);

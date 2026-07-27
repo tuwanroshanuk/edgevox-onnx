@@ -26,7 +26,7 @@ export EDGEVOX_ONNX_ENABLE_QNN=ON
 
 log "Download qnn header files"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models-qnn/qnn-include-2.40.0.251030.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models-qnn/qnn-include-2.40.0.251030.tar.bz2
 tar xf qnn-include-2.40.0.251030.tar.bz2
 rm qnn-include-2.40.0.251030.tar.bz2
 ls -lh qnn-include-2.40.0.251030
@@ -39,7 +39,7 @@ log "====================arm64-v8a================="
 cp -v ./build-android-arm64-v8a/install/lib/*.so ./android/EdgevoxOnnxSimulateStreamingAsr/app/src/main/jniLibs/arm64-v8a/
 
 log "=======Download qnn libs============"
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models-qnn/qnn-libs-2.40.0.251030.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models-qnn/qnn-libs-2.40.0.251030.tar.bz2
 tar xvf qnn-libs-2.40.0.251030.tar.bz2
 rm qnn-libs-2.40.0.251030.tar.bz2
 cp -v qnn-libs-2.40.0.251030/*.so ./android/EdgevoxOnnxSimulateStreamingAsr/app/src/main/jniLibs/arm64-v8a/
@@ -57,16 +57,16 @@ type={{ model.idx }}
 lang={{ model.lang }}
 short_name={{ model.short_name }}
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/{{ model.release_tag }}/${model_name}.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/{{ model.release_tag }}/${model_name}.tar.bz2
 tar xvf ${model_name}.tar.bz2
 
 {% if model.use_hr %}
   if [ ! -f lexicon.txt ]; then
-    curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/lexicon.txt
+    curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/lexicon.txt
   fi
 
   if [ ! -f replace.fst ]; then
-    curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/replace.fst
+    curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/replace.fst
   fi
 {% endif %}
 
@@ -75,14 +75,14 @@ tar xvf ${model_name}.tar.bz2
 rm -rf  *.tar.bz2
 ls -lh $model_name
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 popd
 # Now we are at the project root directory
 
 git checkout .
 
-pushd android/EdgevoxOnnxSimulateStreamingAsr/app/src/main/java/com/k2fsa/sherpa/onnx/simulate/streaming/asr/screens
+pushd android/EdgevoxOnnxSimulateStreamingAsr/app/src/main/java/com/nexus/edgevox/onnx/simulate/streaming/asr/screens
 sed -i.bak s/"asrModelType = [0-9]*/asrModelType = $type/" ./Home.kt
 popd
 
@@ -90,7 +90,7 @@ popd
 sed -i.bak 's/{{ model.sed_old }}/{{ model.sed_new }}/g' ./edgevox-onnx/kotlin-api/OfflineRecognizer.kt
 {% endif %}
 
-pushd android/EdgevoxOnnxSimulateStreamingAsr/app/src/main/java/com/k2fsa/sherpa/onnx/simulate/streaming/asr
+pushd android/EdgevoxOnnxSimulateStreamingAsr/app/src/main/java/com/nexus/edgevox/onnx/simulate/streaming/asr
 
 {% if model.use_hr %}
   sed -i.bak s/"useHr = false/useHr = true/" ./SimulateStreamingAsr.kt

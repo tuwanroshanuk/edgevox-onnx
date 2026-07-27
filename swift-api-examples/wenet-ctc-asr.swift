@@ -14,9 +14,9 @@ extension AVAudioPCMBuffer {
 
 func run() {
   let model =
-    "./edgevox-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/model.int8.onnx"
+    "./sherpa-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/model.int8.onnx"
   let tokens =
-    "./edgevox-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/tokens.txt"
+    "./sherpa-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/tokens.txt"
 
   let wenetCtc = edgevoxOnnxOfflineWenetCtcModelConfig(
     model: model
@@ -40,7 +40,7 @@ func run() {
   let recognizer = EdgevoxOnnxOfflineRecognizer(config: &config)
 
   let filePath =
-    "./edgevox-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/test_wavs/yue-0.wav"
+    "./sherpa-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/test_wavs/yue-0.wav"
   let fileURL: NSURL = NSURL(fileURLWithPath: filePath)
   let audioFile = try! AVAudioFile(forReading: fileURL as URL)
 

@@ -24,19 +24,19 @@ if [[ ! -f ../../build/install/lib/libedgevox-onnx-c-api.dylib  && ! -f ../../bu
   popd
 fi
 
-if [ ! -f ./edgevox-onnx-paraformer-zh-2023-09-14/tokens.txt ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-paraformer-zh-2023-09-14.tar.bz2
+if [ ! -f ./sherpa-onnx-paraformer-zh-2023-09-14/tokens.txt ]; then
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-paraformer-zh-2023-09-14.tar.bz2
 
-  tar xvf edgevox-onnx-paraformer-zh-2023-09-14.tar.bz2
-  rm edgevox-onnx-paraformer-zh-2023-09-14.tar.bz2
+  tar xvf sherpa-onnx-paraformer-zh-2023-09-14.tar.bz2
+  rm sherpa-onnx-paraformer-zh-2023-09-14.tar.bz2
 fi
 
 if [ ! -f ./itn-zh-number.wav ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn-zh-number.wav
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn-zh-number.wav
 fi
 
 if [ ! -f ./itn_zh_number.fst ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
 fi
 
 fpc \

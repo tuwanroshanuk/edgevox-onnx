@@ -21,13 +21,13 @@ function GetOfflineTts: TEdgevoxOnnxOfflineTts;
 var
   Config: TEdgevoxOnnxOfflineTtsConfig;
 begin
-  Config.Model.Supertonic.DurationPredictor := './edgevox-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx';
-  Config.Model.Supertonic.TextEncoder := './edgevox-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx';
-  Config.Model.Supertonic.VectorEstimator := './edgevox-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx';
-  Config.Model.Supertonic.Vocoder := './edgevox-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx';
-  Config.Model.Supertonic.TtsJson := './edgevox-onnx-supertonic-3-tts-int8-2026-05-11/tts.json';
-  Config.Model.Supertonic.UnicodeIndexer := './edgevox-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin';
-  Config.Model.Supertonic.VoiceStyle := './edgevox-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin';
+  Config.Model.Supertonic.DurationPredictor := './sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx';
+  Config.Model.Supertonic.TextEncoder := './sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx';
+  Config.Model.Supertonic.VectorEstimator := './sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx';
+  Config.Model.Supertonic.Vocoder := './sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx';
+  Config.Model.Supertonic.TtsJson := './sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json';
+  Config.Model.Supertonic.UnicodeIndexer := './sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin';
+  Config.Model.Supertonic.VoiceStyle := './sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin';
   Config.Model.NumThreads := 2;
   Config.Model.Debug := True;
   Config.MaxNumSentences := 1;

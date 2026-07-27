@@ -1,4 +1,4 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 import android.content.res.AssetManager
 
@@ -82,7 +82,7 @@ class AudioTagging(
 }
 
 // please refer to
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/audio-tagging-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/audio-tagging-models
 // to download more models
 //
 // See also
@@ -90,7 +90,7 @@ class AudioTagging(
 fun getAudioTaggingConfig(type: Int, numThreads: Int = 1): AudioTaggingConfig? {
     when (type) {
         0 -> {
-            val modelDir = "edgevox-onnx-zipformer-small-audio-tagging-2024-04-15"
+            val modelDir = "sherpa-onnx-zipformer-small-audio-tagging-2024-04-15"
             return AudioTaggingConfig(
                 model = AudioTaggingModelConfig(
                     zipformer = OfflineZipformerAudioTaggingModelConfig(model = "$modelDir/model.int8.onnx"),
@@ -103,7 +103,7 @@ fun getAudioTaggingConfig(type: Int, numThreads: Int = 1): AudioTaggingConfig? {
         }
 
         1 -> {
-            val modelDir = "edgevox-onnx-zipformer-audio-tagging-2024-04-09"
+            val modelDir = "sherpa-onnx-zipformer-audio-tagging-2024-04-09"
             return AudioTaggingConfig(
                 model = AudioTaggingModelConfig(
                     zipformer = OfflineZipformerAudioTaggingModelConfig(model = "$modelDir/model.int8.onnx"),
@@ -116,7 +116,7 @@ fun getAudioTaggingConfig(type: Int, numThreads: Int = 1): AudioTaggingConfig? {
         }
 
         2 -> {
-            val modelDir = "edgevox-onnx-ced-tiny-audio-tagging-2024-04-19"
+            val modelDir = "sherpa-onnx-ced-tiny-audio-tagging-2024-04-19"
             return AudioTaggingConfig(
                 model = AudioTaggingModelConfig(
                     ced = "$modelDir/model.int8.onnx",
@@ -129,7 +129,7 @@ fun getAudioTaggingConfig(type: Int, numThreads: Int = 1): AudioTaggingConfig? {
         }
 
         3 -> {
-            val modelDir = "edgevox-onnx-ced-mini-audio-tagging-2024-04-19"
+            val modelDir = "sherpa-onnx-ced-mini-audio-tagging-2024-04-19"
             return AudioTaggingConfig(
                 model = AudioTaggingModelConfig(
                     ced = "$modelDir/model.int8.onnx",
@@ -142,7 +142,7 @@ fun getAudioTaggingConfig(type: Int, numThreads: Int = 1): AudioTaggingConfig? {
         }
 
         4 -> {
-            val modelDir = "edgevox-onnx-ced-small-audio-tagging-2024-04-19"
+            val modelDir = "sherpa-onnx-ced-small-audio-tagging-2024-04-19"
             return AudioTaggingConfig(
                 model = AudioTaggingModelConfig(
                     ced = "$modelDir/model.int8.onnx",
@@ -155,7 +155,7 @@ fun getAudioTaggingConfig(type: Int, numThreads: Int = 1): AudioTaggingConfig? {
         }
 
         5 -> {
-            val modelDir = "edgevox-onnx-ced-base-audio-tagging-2024-04-19"
+            val modelDir = "sherpa-onnx-ced-base-audio-tagging-2024-04-19"
             return AudioTaggingConfig(
                 model = AudioTaggingModelConfig(
                     ced = "$modelDir/model.int8.onnx",

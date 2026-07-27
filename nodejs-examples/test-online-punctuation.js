@@ -5,8 +5,8 @@ const edgevox_onnx = require('edgevox-onnx');
 function createOnlinePunctuation() {
   const config = {
     model: {
-      cnnBilstm: './edgevox-onnx-online-punct-en-2024-08-06/model.onnx',
-      bpeVocab: './edgevox-onnx-online-punct-en-2024-08-06/bpe.vocab',
+      cnnBilstm: './sherpa-onnx-online-punct-en-2024-08-06/model.onnx',
+      bpeVocab: './sherpa-onnx-online-punct-en-2024-08-06/bpe.vocab',
       debug: 1,
       numThreads: 1,
       provider: 'cpu',

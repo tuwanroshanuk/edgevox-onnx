@@ -13,17 +13,17 @@ extension AVAudioPCMBuffer {
 }
 
 func run() {
-  let filePath = "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/3.wav"
+  let filePath = "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/3.wav"
   let encoder =
-    "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/encoder-epoch-12-avg-2-chunk-16-left-64.onnx"
+    "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/encoder-epoch-12-avg-2-chunk-16-left-64.onnx"
   let decoder =
-    "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/decoder-epoch-12-avg-2-chunk-16-left-64.onnx"
+    "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/decoder-epoch-12-avg-2-chunk-16-left-64.onnx"
   let joiner =
-    "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/joiner-epoch-12-avg-2-chunk-16-left-64.onnx"
+    "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/joiner-epoch-12-avg-2-chunk-16-left-64.onnx"
   let tokens =
-    "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/tokens.txt"
+    "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/tokens.txt"
   let keywordsFile =
-    "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/test_keywords.txt"
+    "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/test_keywords.txt"
   let transducerConfig = edgevoxOnnxOnlineTransducerModelConfig(
     encoder: encoder,
     decoder: decoder,

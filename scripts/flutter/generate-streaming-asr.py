@@ -26,7 +26,7 @@ def get_args():
 @dataclass
 class Model:
     # We will download
-    # https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/{model_name}.tar.bz2
+    # https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/{model_name}.tar.bz2
     model_name: str
 
     # The type of the model, e..g, 0, 1, 2. It is hardcoded in the flutter code
@@ -48,14 +48,14 @@ class Model:
 def get_models():
     models = [
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20",
+            model_name="sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20",
             idx=0,
             lang="bilingual_zh_en",
             short_name="zipformer_2023_02_20",
             rule_fsts="itn_zh_number.fst",
             cmd="""
             if [ ! -f itn_zh_number.fst ]; then
-              curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+              curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
             fi
             pushd $model_name
             rm -fv encoder-epoch-99-avg-1.onnx
@@ -75,7 +75,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-en-2023-06-26",
+            model_name="sherpa-onnx-streaming-zipformer-en-2023-06-26",
             idx=1,
             lang="en",
             short_name="zipformer2_2023_06_26",
@@ -102,7 +102,7 @@ def get_models():
             rule_fsts="itn_zh_number.fst",
             cmd="""
             if [ ! -f itn_zh_number.fst ]; then
-              curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+              curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
             fi
             pushd $model_name
             rm -fv exp/encoder-epoch-12-avg-4-chunk-16-left-128.onnx
@@ -121,7 +121,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-fr-2023-04-14",
+            model_name="sherpa-onnx-streaming-zipformer-fr-2023-04-14",
             idx=3,
             lang="fr",
             short_name="zipformer_2023_04_14",

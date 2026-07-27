@@ -3,14 +3,14 @@
 // Copyright (c)  2026  Xiaomi Corporation
 
 // We assume you have pre-downloaded the Cohere Transcribe model
-// from https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// from https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 // An example is given below:
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
-// tar xvf edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
-// rm edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+// tar xvf sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+// rm sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
 //
 // clang-format on
 
@@ -23,14 +23,14 @@
 
 int32_t main() {
   const char *wav_filename =
-      "./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/"
+      "./sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/"
       "en.wav";
   const char *encoder_filename =
-      "edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/encoder.int8.onnx";
+      "sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/encoder.int8.onnx";
   const char *decoder_filename =
-      "edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/decoder.int8.onnx";
+      "sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/decoder.int8.onnx";
   const char *tokens_filename =
-      "edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/tokens.txt";
+      "sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/tokens.txt";
   const char *provider = "cpu";
 
   const EdgevoxOnnxWave *wave = EdgevoxOnnxReadWave(wav_filename);

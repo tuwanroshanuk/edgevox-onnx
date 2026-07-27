@@ -26,16 +26,16 @@ Usage:
 
 Note you can download silero_vad.onnx using
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 (0) FireRedAsr
 
 See https://k2-fsa.github.io/sherpa/onnx/FireRedAsr/pretrained.html
 
   ./bin/edgevox-onnx-vad-with-offline-asr \
-    --tokens=./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/tokens.txt \
-    --fire-red-asr-encoder=./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/encoder.int8.onnx \
-    --fire-red-asr-decoder=./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/decoder.int8.onnx \
+    --tokens=./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/tokens.txt \
+    --fire-red-asr-encoder=./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/encoder.int8.onnx \
+    --fire-red-asr-decoder=./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/decoder.int8.onnx \
     --num-threads=1 \
     --silero-vad-model=/path/to/silero_vad.onnx \
     /path/to/foo.wav
@@ -87,9 +87,9 @@ See https://k2-fsa.github.io/sherpa/onnx/pretrained_models/whisper/tiny.en.html
 
   ./bin/edgevox-onnx-vad-with-offline-asr \
     --silero-vad-model=/path/to/silero_vad.onnx \
-    --whisper-encoder=./edgevox-onnx-whisper-base.en/base.en-encoder.int8.onnx \
-    --whisper-decoder=./edgevox-onnx-whisper-base.en/base.en-decoder.int8.onnx \
-    --tokens=./edgevox-onnx-whisper-base.en/base.en-tokens.txt \
+    --whisper-encoder=./sherpa-onnx-whisper-base.en/base.en-encoder.int8.onnx \
+    --whisper-decoder=./sherpa-onnx-whisper-base.en/base.en-decoder.int8.onnx \
+    --tokens=./sherpa-onnx-whisper-base.en/base.en-tokens.txt \
     --num-threads=1 \
     /path/to/foo.wav
 
@@ -99,12 +99,12 @@ See https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-ctc/index.htm
 
   ./bin/edgevox-onnx-vad-with-offline-asr \
     --silero-vad-model=/path/to/silero_vad.onnx \
-    --tokens=./edgevox-onnx-nemo-ctc-en-conformer-medium/tokens.txt \
-    --nemo-ctc-model=./edgevox-onnx-nemo-ctc-en-conformer-medium/model.onnx \
+    --tokens=./sherpa-onnx-nemo-ctc-en-conformer-medium/tokens.txt \
+    --nemo-ctc-model=./sherpa-onnx-nemo-ctc-en-conformer-medium/model.onnx \
     --num-threads=2 \
     --decoding-method=greedy_search \
     --debug=false \
-    ./edgevox-onnx-nemo-ctc-en-conformer-medium/test_wavs/0.wav
+    ./sherpa-onnx-nemo-ctc-en-conformer-medium/test_wavs/0.wav
 
 (6) TDNN CTC model for the yesno recipe from icefall
 

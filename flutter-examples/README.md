@@ -16,7 +16,7 @@ flutter pub get
 # to support a new platform, e.g., android, use
 
 cd streaming_asr
-flutter create --platforms --org com.k2fsa.sherpa.onnx android ./
+flutter create --platforms --org com.nexus.edgevox.onnx android ./
 
 # To add linux
 flutter config --enable-linux-desktop
@@ -74,7 +74,7 @@ Please use the following changes:
 --- a/flutter-examples/streaming_asr/android/app/build.gradle
 +++ b/flutter-examples/streaming_asr/android/app/build.gradle
 @@ -38,7 +38,7 @@ android {
-         applicationId = "com.k2fsa.sherpa.onnx.streaming_asr"
+         applicationId = "com.nexus.edgevox.onnx.streaming_asr"
          // You can update the following values to match your application needs.
          // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
 -        minSdk = flutter.minSdkVersion
@@ -248,7 +248,7 @@ index b208c7e9..466b0afb 100644
  			};
  			name = Debug;
 @@ -516,6 +518,7 @@
- 				PRODUCT_BUNDLE_IDENTIFIER = com.k2fsa.sherpa.onnx.streamingAsr.RunnerTests;
+ 				PRODUCT_BUNDLE_IDENTIFIER = com.nexus.edgevox.onnx.streamingAsr.RunnerTests;
  				PRODUCT_NAME = "$(TARGET_NAME)";
  				SWIFT_VERSION = 5.0;
 +				OTHER_LDFLAGS = "-lc++";
@@ -256,7 +256,7 @@ index b208c7e9..466b0afb 100644
  			};
  			name = Release;
 @@ -532,6 +535,7 @@
- 				PRODUCT_BUNDLE_IDENTIFIER = com.k2fsa.sherpa.onnx.streamingAsr.RunnerTests;
+ 				PRODUCT_BUNDLE_IDENTIFIER = com.nexus.edgevox.onnx.streamingAsr.RunnerTests;
  				PRODUCT_NAME = "$(TARGET_NAME)";
  				SWIFT_VERSION = 5.0;
 +				OTHER_LDFLAGS = "-lc++";

@@ -35,10 +35,10 @@ static jobject ReadWaveImpl(JNIEnv *env, std::istream &is,
   env->SetFloatArrayRegion(samples_arr, 0, samples.size(), samples.data());
 
   // Find WaveData class
-  jclass cls = env->FindClass("com/k2fsa/sherpa/onnx/WaveData");
+  jclass cls = env->FindClass("com/nexus/edgevox/onnx/WaveData");
   if (cls == nullptr) {
     env->DeleteLocalRef(samples_arr);
-    EDGEVOX_ONNX_LOGE("Failed to find class com/k2fsa/sherpa/onnx/WaveData");
+    EDGEVOX_ONNX_LOGE("Failed to find class com/nexus/edgevox/onnx/WaveData");
     return nullptr;
   }
 
@@ -69,7 +69,7 @@ static jobject ReadWaveImpl(JNIEnv *env, std::istream &is,
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jobject JNICALL
-Java_com_k2fsa_edgevox_onnx_WaveReader_00024Companion_readWaveFromFile(
+Java_com_nexus_edgevox_onnx_WaveReader_00024Companion_readWaveFromFile(
     JNIEnv *env, jclass /*cls*/, jstring filename) {
   const char *p_filename = env->GetStringUTFChars(filename, nullptr);
   std::ifstream is(p_filename, std::ios::binary);
@@ -83,16 +83,16 @@ Java_com_k2fsa_edgevox_onnx_WaveReader_00024Companion_readWaveFromFile(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jobject JNICALL
-Java_com_k2fsa_edgevox_onnx_WaveReader_readWaveFromFile(JNIEnv *env,
+Java_com_nexus_edgevox_onnx_WaveReader_readWaveFromFile(JNIEnv *env,
                                                        jclass /*obj*/,
                                                        jstring filename) {
-  return Java_com_k2fsa_edgevox_onnx_WaveReader_00024Companion_readWaveFromFile(
+  return Java_com_nexus_edgevox_onnx_WaveReader_00024Companion_readWaveFromFile(
       env, nullptr, filename);
 }
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jobject JNICALL
-Java_com_k2fsa_edgevox_onnx_WaveReader_00024Companion_readWaveFromAsset(
+Java_com_nexus_edgevox_onnx_WaveReader_00024Companion_readWaveFromAsset(
     JNIEnv *env, jclass /*cls*/, jobject asset_manager, jstring filename) {
   const char *p_filename = env->GetStringUTFChars(filename, nullptr);
 #if __ANDROID_API__ >= 9

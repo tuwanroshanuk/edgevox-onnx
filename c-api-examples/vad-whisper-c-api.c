@@ -9,16 +9,16 @@
 // clang-format off
 //
 // To use silero-vad:
-//  wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+//  wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 //
 // To use ten-vad:
-//  wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/ten-vad.onnx
+//  wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/ten-vad.onnx
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/Obama.wav
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/Obama.wav
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-whisper-tiny.en.tar.bz2
-// tar xvf edgevox-onnx-whisper-tiny.en.tar.bz2
-// rm edgevox-onnx-whisper-tiny.en.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-tiny.en.tar.bz2
+// tar xvf sherpa-onnx-whisper-tiny.en.tar.bz2
+// rm sherpa-onnx-whisper-tiny.en.tar.bz2
 //
 // clang-format on
 
@@ -53,9 +53,9 @@ int32_t main() {
     return -1;
   }
 
-  const char *encoder = "edgevox-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx";
-  const char *decoder = "edgevox-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx";
-  const char *tokens = "edgevox-onnx-whisper-tiny.en/tiny.en-tokens.txt";
+  const char *encoder = "sherpa-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx";
+  const char *decoder = "sherpa-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx";
+  const char *tokens = "sherpa-onnx-whisper-tiny.en/tiny.en-tokens.txt";
 
   const EdgevoxOnnxWave *wave = EdgevoxOnnxReadWave(wav_filename);
   if (wave == NULL) {

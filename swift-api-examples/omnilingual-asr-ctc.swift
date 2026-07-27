@@ -1,8 +1,8 @@
 func run() {
   let model =
-    "./edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/model.int8.onnx"
+    "./sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/model.int8.onnx"
   let tokens =
-    "./edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/tokens.txt"
+    "./sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/tokens.txt"
 
   let omnilingual = edgevoxOnnxOfflineOmnilingualAsrCtcModelConfig(
     model: model
@@ -22,7 +22,7 @@ func run() {
 
   let recognizer = EdgevoxOnnxOfflineRecognizer(config: &config)
 
-  let filePath = "./edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/test_wavs/en.wav"
+  let filePath = "./sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/test_wavs/en.wav"
   let audio = EdgevoxOnnxWaveWrapper.readWave(filename: filePath)
 
   let result = recognizer.decode(samples: audio.samples, sampleRate: audio.sampleRate)

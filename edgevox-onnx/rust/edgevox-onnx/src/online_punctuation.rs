@@ -8,8 +8,8 @@
 //!
 //! let config = OnlinePunctuationConfig {
 //!     model: OnlinePunctuationModelConfig {
-//!         cnn_bilstm: Some("./edgevox-onnx-online-punct-en/cnn_bilstm.onnx".into()),
-//!         bpe_vocab: Some("./edgevox-onnx-online-punct-en/bpe.vocab".into()),
+//!         cnn_bilstm: Some("./sherpa-onnx-online-punct-en/cnn_bilstm.onnx".into()),
+//!         bpe_vocab: Some("./sherpa-onnx-online-punct-en/bpe.vocab".into()),
 //!         ..Default::default()
 //!     },
 //! };

@@ -31,11 +31,11 @@ class KeywordSpotter(object):
         import soundfile as sf
 
         kws = edgevox_onnx.KeywordSpotter(
-            tokens="./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/tokens.txt",
-            encoder="./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/encoder-epoch-12-avg-2-chunk-16-left-64.int8.onnx",
-            decoder="./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/decoder-epoch-12-avg-2-chunk-16-left-64.onnx",
-            joiner="./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/joiner-epoch-12-avg-2-chunk-16-left-64.int8.onnx",
-            keywords_file="./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/test_wavs/test_keywords.txt",
+            tokens="./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/tokens.txt",
+            encoder="./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/encoder-epoch-12-avg-2-chunk-16-left-64.int8.onnx",
+            decoder="./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/decoder-epoch-12-avg-2-chunk-16-left-64.onnx",
+            joiner="./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/joiner-epoch-12-avg-2-chunk-16-left-64.int8.onnx",
+            keywords_file="./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/test_wavs/test_keywords.txt",
             num_threads=2,
             provider="cpu",
         )
@@ -74,8 +74,8 @@ class KeywordSpotter(object):
 
     Please refer to the following files for more usages:
 
-    - `<https://github.com/k2-fsa/edgevox-onnx/blob/master/python-api-examples/keyword-spotter.py>`_
-    - `<https://github.com/k2-fsa/edgevox-onnx/blob/master/python-api-examples/keyword-spotter-from-microphone.py>`_
+    - `<https://github.com/k2-fsa/sherpa-onnx/blob/master/python-api-examples/keyword-spotter.py>`_
+    - `<https://github.com/k2-fsa/sherpa-onnx/blob/master/python-api-examples/keyword-spotter-from-microphone.py>`_
     """
 
     def __init__(

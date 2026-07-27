@@ -9,8 +9,8 @@ log() {
   echo -e "$(date '+%Y-%m-%d %H:%M:%S') (${fname}:${BASH_LINENO[0]}:${FUNCNAME[1]}) $*"
 }
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/de.wav
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/en.wav
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/de.wav
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/en.wav
 
 pip install \
   nemo_toolkit['asr'] \

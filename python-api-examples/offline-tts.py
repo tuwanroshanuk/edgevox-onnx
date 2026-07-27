@@ -14,7 +14,7 @@ Usage:
 
 Example (1/8)
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2
 tar xf vits-piper-en_US-amy-low.tar.bz2
 
 python3 ./python-api-examples/offline-tts.py \
@@ -26,7 +26,7 @@ python3 ./python-api-examples/offline-tts.py \
 
 Example (2/8)
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-icefall-zh-aishell3.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-icefall-zh-aishell3.tar.bz2
 tar xvf vits-icefall-zh-aishell3.tar.bz2
 
 python3 ./python-api-examples/offline-tts.py \
@@ -40,26 +40,26 @@ python3 ./python-api-examples/offline-tts.py \
 
 Example (3/8)
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-vits-zh-ll.tar.bz2
-tar xvf edgevox-onnx-vits-zh-ll.tar.bz2
-rm edgevox-onnx-vits-zh-ll.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-vits-zh-ll.tar.bz2
+tar xvf sherpa-onnx-vits-zh-ll.tar.bz2
+rm sherpa-onnx-vits-zh-ll.tar.bz2
 
 python3 ./python-api-examples/offline-tts.py \
- --vits-model=./edgevox-onnx-vits-zh-ll/model.onnx \
- --vits-lexicon=./edgevox-onnx-vits-zh-ll/lexicon.txt \
- --vits-tokens=./edgevox-onnx-vits-zh-ll/tokens.txt \
- --tts-rule-fsts=./edgevox-onnx-vits-zh-ll/phone.fst,./edgevox-onnx-vits-zh-ll/date.fst,./edgevox-onnx-vits-zh-ll/number.fst \
+ --vits-model=./sherpa-onnx-vits-zh-ll/model.onnx \
+ --vits-lexicon=./sherpa-onnx-vits-zh-ll/lexicon.txt \
+ --vits-tokens=./sherpa-onnx-vits-zh-ll/tokens.txt \
+ --tts-rule-fsts=./sherpa-onnx-vits-zh-ll/phone.fst,./sherpa-onnx-vits-zh-ll/date.fst,./sherpa-onnx-vits-zh-ll/number.fst \
  --sid=2 \
  --output-filename=./test-2.wav \
  "当夜幕降临，星光点点，伴随着微风拂面，我在静谧中感受着时光的流转，思念如涟漪荡漾，梦境如画卷展开，我与自然融为一体，沉静在这片宁静的美丽之中，感受着生命的奇迹与温柔。2024年5月11号，拨打110或者18920240511。123456块钱。"
 
 Example (4/8)
 
-curl -O -SL https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/matcha-icefall-zh-baker.tar.bz2
+curl -O -SL https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-icefall-zh-baker.tar.bz2
 tar xvf matcha-icefall-zh-baker.tar.bz2
 rm matcha-icefall-zh-baker.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
 
 python3 ./python-api-examples/offline-tts.py \
  --matcha-acoustic-model=./matcha-icefall-zh-baker/model-steps-3.onnx \
@@ -72,11 +72,11 @@ python3 ./python-api-examples/offline-tts.py \
 
 Example (5/8)
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/matcha-icefall-en_US-ljspeech.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-icefall-en_US-ljspeech.tar.bz2
 tar xvf matcha-icefall-en_US-ljspeech.tar.bz2
 rm matcha-icefall-en_US-ljspeech.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
 
 python3 ./python-api-examples/offline-tts.py \
   --matcha-acoustic-model=./matcha-icefall-en_US-ljspeech/model-steps-3.onnx \
@@ -91,7 +91,7 @@ Example (6/8)
 
 (This version of kokoro supports only English)
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/kokoro-en-v0_19.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-en-v0_19.tar.bz2
 tar xf kokoro-en-v0_19.tar.bz2
 rm kokoro-en-v0_19.tar.bz2
 
@@ -110,7 +110,7 @@ Example (7/8)
 
 (This version of kokoro supports English, Chinese, etc.)
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/kokoro-multi-lang-v1_0.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-multi-lang-v1_0.tar.bz2
 tar xf kokoro-multi-lang-v1_0.tar.bz2
 rm kokoro-multi-lang-v1_0.tar.bz2
 
@@ -128,7 +128,7 @@ python3 ./python-api-examples/offline-tts.py \
 
 Example (8/8)
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/kitten-nano-en-v0_1-fp16.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kitten-nano-en-v0_1-fp16.tar.bz2
 tar xf kitten-nano-en-v0_1-fp16.tar.bz2
 rm kitten-nano-en-v0_1-fp16.tar.bz2
 
@@ -144,7 +144,7 @@ python3 ./python-api-examples/offline-tts.py \
   "Today as always, men fall into two groups: slaves and free men. Whoever does not have two-thirds of his day for himself, is a slave, whatever he may be: a statesman, a businessman, an official, or a scholar."
 
 You can find more models at
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
 
 Please see
 https://k2-fsa.github.io/sherpa/onnx/tts/index.html

@@ -2,7 +2,7 @@
 
 // This file shows how to use a speaker embedding extractor model for speaker
 // identification.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class SpeakerIdentification {
   public static float[] computeEmbedding(SpeakerEmbeddingExtractor extractor, String filename) {
@@ -20,7 +20,7 @@ public class SpeakerIdentification {
 
   public static void main(String[] args) {
     // Please download the model from
-    // https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-recongition-models
+    // https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models
     String model = "./3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx";
     SpeakerEmbeddingExtractorConfig config =
         SpeakerEmbeddingExtractorConfig.builder()

@@ -5,7 +5,7 @@
 // This is a WebSocketClient client for ../python-api-examples/non_streaming_server.py
 //
 // Please see ./run-non-streaming-websocket-client.sh
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.WebSocket;

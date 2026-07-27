@@ -11,7 +11,7 @@
 namespace edgevox_onnx {
 
 // See also
-// https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/spleeter/separate_onnx.py
+// https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/spleeter/separate_onnx.py
 struct OfflineSourceSeparationSpleeterModelMetaData {
   int32_t sample_rate = 44100;
   int32_t num_stems = 2;

@@ -4,7 +4,7 @@
 // Please refer to
 // https://k2-fsa.github.io/sherpa/onnx/pretrained_models/index.html
 // and
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
 // to download pre-trained models
 using CommandLine;
 using CommandLine.Text;
@@ -78,11 +78,11 @@ class OfflineTtsDemo
     var usage = @"
 # matcha-icefall-zh-baker
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/matcha-icefall-zh-baker.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-icefall-zh-baker.tar.bz2
 tar xvf matcha-icefall-zh-baker.tar.bz2
 rm matcha-icefall-zh-baker.tar.bz2
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
 
 dotnet run \
   --matcha-acoustic-model=./matcha-icefall-zh-baker/model-steps-3.onnx \
@@ -96,11 +96,11 @@ dotnet run \
 
 # matcha-icefall-en_US-ljspeech
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/matcha-icefall-en_US-ljspeech.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-icefall-en_US-ljspeech.tar.bz2
 tar xvf matcha-icefall-en_US-ljspeech.tar.bz2
 rm matcha-icefall-en_US-ljspeech.tar.bz2
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
 
 dotnet run \
   --matcha-acoustic-model=./matcha-icefall-en_US-ljspeech/model-steps-3.onnx \
@@ -113,7 +113,7 @@ dotnet run \
 
 # vits-aishell3
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-icefall-zh-aishell3.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-icefall-zh-aishell3.tar.bz2
 tar xvf vits-icefall-zh-aishell3.tar.bz2
 
 dotnet run \
@@ -129,7 +129,7 @@ dotnet run \
 
 # Piper models
 
-wget -qq https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2
+wget -qq https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2
 tar xf vits-piper-en_US-amy-low.tar.bz2
 
 dotnet run \

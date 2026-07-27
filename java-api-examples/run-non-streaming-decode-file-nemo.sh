@@ -4,10 +4,10 @@ set -ex
 
 source ./setup.sh
 
-if [ ! -f ./edgevox-onnx-nemo-ctc-en-citrinet-512/tokens.txt ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-ctc-en-citrinet-512.tar.bz2
-  tar xvf edgevox-onnx-nemo-ctc-en-citrinet-512.tar.bz2
-  rm edgevox-onnx-nemo-ctc-en-citrinet-512.tar.bz2
+if [ ! -f ./sherpa-onnx-nemo-ctc-en-citrinet-512/tokens.txt ]; then
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-ctc-en-citrinet-512.tar.bz2
+  tar xvf sherpa-onnx-nemo-ctc-en-citrinet-512.tar.bz2
+  rm sherpa-onnx-nemo-ctc-en-citrinet-512.tar.bz2
 fi
 
 java \

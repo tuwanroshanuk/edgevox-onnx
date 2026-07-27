@@ -14,24 +14,24 @@ fn main() {
         model: edgevox_onnx::OfflineTtsModelConfig {
             supertonic: OfflineTtsSupertonicModelConfig {
                 duration_predictor: Some(
-                    "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx"
+                    "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx"
                         .into(),
                 ),
                 text_encoder: Some(
-                    "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx".into(),
+                    "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx".into(),
                 ),
                 vector_estimator: Some(
-                    "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx"
+                    "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx"
                         .into(),
                 ),
                 vocoder: Some(
-                    "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx".into(),
+                    "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx".into(),
                 ),
-                tts_json: Some("./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/tts.json".into()),
+                tts_json: Some("./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json".into()),
                 unicode_indexer: Some(
-                    "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin".into(),
+                    "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin".into(),
                 ),
-                voice_style: Some("./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin".into()),
+                voice_style: Some("./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin".into()),
             },
             num_threads: 2,
             debug: false, // set to true to see verbose logs

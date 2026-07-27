@@ -3,7 +3,7 @@
 // This file shows how to use a silero_vad model with a non-streaming
 // Moonshine tiny for speech recognition.
 
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 import javax.sound.sampled.*;
 
 public class VadFromMicNonStreamingMoonshine {
@@ -12,7 +12,7 @@ public class VadFromMicNonStreamingMoonshine {
 
   public static Vad createVad() {
     // please download ./silero_vad.onnx from
-    // https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+    // https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
     String model = "./silero_vad.onnx";
     SileroVadModelConfig sileroVad =
         SileroVadModelConfig.builder()
@@ -40,12 +40,12 @@ public class VadFromMicNonStreamingMoonshine {
     // https://k2-fsa.github.io/sherpa/onnx/moonshine/index.html
     // to download model files
 
-    String preprocessor = "./edgevox-onnx-moonshine-tiny-en-int8/preprocess.onnx";
-    String encoder = "./edgevox-onnx-moonshine-tiny-en-int8/encode.int8.onnx";
-    String uncachedDecoder = "./edgevox-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx";
-    String cachedDecoder = "./edgevox-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx";
+    String preprocessor = "./sherpa-onnx-moonshine-tiny-en-int8/preprocess.onnx";
+    String encoder = "./sherpa-onnx-moonshine-tiny-en-int8/encode.int8.onnx";
+    String uncachedDecoder = "./sherpa-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx";
+    String cachedDecoder = "./sherpa-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx";
 
-    String tokens = "./edgevox-onnx-moonshine-tiny-en-int8/tokens.txt";
+    String tokens = "./sherpa-onnx-moonshine-tiny-en-int8/tokens.txt";
 
     OfflineMoonshineModelConfig moonshine =
         OfflineMoonshineModelConfig.builder()

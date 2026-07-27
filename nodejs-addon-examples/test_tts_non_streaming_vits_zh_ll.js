@@ -2,14 +2,14 @@
 const edgevox_onnx = require('edgevox-onnx-node');
 
 // please download model files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
 function createOfflineTts() {
   const config = {
     model: {
       vits: {
-        model: './edgevox-onnx-vits-zh-ll/model.onnx',
-        tokens: './edgevox-onnx-vits-zh-ll/tokens.txt',
-        lexicon: './edgevox-onnx-vits-zh-ll/lexicon.txt',
+        model: './sherpa-onnx-vits-zh-ll/model.onnx',
+        tokens: './sherpa-onnx-vits-zh-ll/tokens.txt',
+        lexicon: './sherpa-onnx-vits-zh-ll/lexicon.txt',
       },
       debug: true,
       numThreads: 1,
@@ -17,7 +17,7 @@ function createOfflineTts() {
     },
     maxNumSentences: 1,
     ruleFsts:
-        './edgevox-onnx-vits-zh-ll/date.fst,./edgevox-onnx-vits-zh-ll/phone.fst,./edgevox-onnx-vits-zh-ll/number.fst',
+        './sherpa-onnx-vits-zh-ll/date.fst,./sherpa-onnx-vits-zh-ll/phone.fst,./sherpa-onnx-vits-zh-ll/number.fst',
   };
   return new edgevox_onnx.OfflineTts(config);
 }

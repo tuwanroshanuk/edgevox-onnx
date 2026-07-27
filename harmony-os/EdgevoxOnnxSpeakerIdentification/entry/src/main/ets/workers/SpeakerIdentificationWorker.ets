@@ -31,7 +31,7 @@ total 77336
 -rw-r--r--  1 fangjun  staff    38M Dec  9 19:34 3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
  */
   // You can find more models at
-  // https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-recongition-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models
   config.model = '3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx';
   config.numThreads = 2;
   config.debug = true;

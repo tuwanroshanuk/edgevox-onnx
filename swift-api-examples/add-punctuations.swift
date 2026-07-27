@@ -1,5 +1,5 @@
 func run() {
-  let model = "./edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx"
+  let model = "./sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx"
   let modelConfig = edgevoxOnnxOfflinePunctuationModelConfig(
     ctTransformer: model,
     numThreads: 1,

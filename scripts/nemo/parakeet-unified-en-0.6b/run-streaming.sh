@@ -62,7 +62,7 @@ for latency in ${latency_list[@]}; do
     --tokens ./tokens.txt \
     --wav 2086-149220-0033.wav
 
-  d=edgevox-onnx-nemo-parakeet-unified-en-0.6b-streaming-$latency
+  d=sherpa-onnx-nemo-parakeet-unified-en-0.6b-streaming-$latency
   mkdir -p $d
   mkdir -p $d/test_wavs
   mv -v encoder.onnx $d
@@ -79,7 +79,7 @@ for latency in ${latency_list[@]}; do
   ls -lh $d
   echo "----"
 
-  d=edgevox-onnx-nemo-parakeet-unified-en-0.6b-int8-streaming-$latency
+  d=sherpa-onnx-nemo-parakeet-unified-en-0.6b-int8-streaming-$latency
   mkdir -p $d
   mkdir -p $d/test_wavs
   mv -v encoder.int8.onnx $d

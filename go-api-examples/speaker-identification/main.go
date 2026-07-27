@@ -1,7 +1,7 @@
 package main
 
 import (
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 	"log"
 )
 
@@ -9,10 +9,10 @@ func createSpeakerEmbeddingExtractor() *sherpa.SpeakerEmbeddingExtractor {
 	config := sherpa.SpeakerEmbeddingExtractorConfig{}
 
 	// Please download the model from
-	// https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_campplus_sv_zh-cn_16k-common.onnx
+	// https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_campplus_sv_zh-cn_16k-common.onnx
 	//
 	// You can find more models at
-	// https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-recongition-models
+	// https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models
 
 	config.Model = "./3dspeaker_speech_campplus_sv_zh-cn_16k-common.onnx"
 	config.NumThreads = 1

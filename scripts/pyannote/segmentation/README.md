@@ -1,7 +1,7 @@
 # File description
 
 Please download test wave files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-segmentation-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-segmentation-models
 
 ## 0-four-speakers-zh.wav
 

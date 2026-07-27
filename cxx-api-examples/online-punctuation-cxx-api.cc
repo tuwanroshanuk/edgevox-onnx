@@ -3,9 +3,9 @@
 
 // To use punctuation model:
 // clang-format off
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/punctuation-models/edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
-// tar xvf edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
-// rm edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/punctuation-models/sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
+// tar xvf sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
+// rm sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
 // clang-format on
 
 #include <iostream>
@@ -18,9 +18,9 @@ int32_t main() {
 
   OnlinePunctuationConfig punctuation_config;
   punctuation_config.model.cnn_bilstm =
-      "edgevox-onnx-online-punct-en-2024-08-06/model.int8.onnx";
+      "sherpa-onnx-online-punct-en-2024-08-06/model.int8.onnx";
   punctuation_config.model.bpe_vocab =
-      "edgevox-onnx-online-punct-en-2024-08-06/bpe.vocab";
+      "sherpa-onnx-online-punct-en-2024-08-06/bpe.vocab";
   punctuation_config.model.num_threads = 1;
   punctuation_config.model.debug = false;
   punctuation_config.model.provider = "cpu";

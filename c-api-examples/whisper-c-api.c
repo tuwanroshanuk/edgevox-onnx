@@ -3,14 +3,14 @@
 // Copyright (c)  2024  Xiaomi Corporation
 
 // We assume you have pre-downloaded the whisper multi-lingual models
-// from https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// from https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 // An example command to download the "tiny" whisper model is given below:
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-whisper-tiny.tar.bz2
-// tar xvf edgevox-onnx-whisper-tiny.tar.bz2
-// rm edgevox-onnx-whisper-tiny.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-tiny.tar.bz2
+// tar xvf sherpa-onnx-whisper-tiny.tar.bz2
+// rm sherpa-onnx-whisper-tiny.tar.bz2
 //
 // clang-format on
 
@@ -21,10 +21,10 @@
 #include "edgevox-onnx/c-api/c-api.h"
 
 int32_t main() {
-  const char *wav_filename = "./edgevox-onnx-whisper-tiny/test_wavs/0.wav";
-  const char *encoder_filename = "edgevox-onnx-whisper-tiny/tiny-encoder.onnx";
-  const char *decoder_filename = "edgevox-onnx-whisper-tiny/tiny-decoder.onnx";
-  const char *tokens_filename = "edgevox-onnx-whisper-tiny/tiny-tokens.txt";
+  const char *wav_filename = "./sherpa-onnx-whisper-tiny/test_wavs/0.wav";
+  const char *encoder_filename = "sherpa-onnx-whisper-tiny/tiny-encoder.onnx";
+  const char *decoder_filename = "sherpa-onnx-whisper-tiny/tiny-decoder.onnx";
+  const char *tokens_filename = "sherpa-onnx-whisper-tiny/tiny-tokens.txt";
   const char *language = "en";
   const char *provider = "cpu";
 

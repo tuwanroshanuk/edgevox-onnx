@@ -8,13 +8,13 @@ class SupertonicTtsProgressHandler {
 
 func runSupertonicTtsDemo() {
   let supertonic = edgevoxOnnxOfflineTtsSupertonicModelConfig(
-    durationPredictor: "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
-    textEncoder: "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
-    vectorEstimator: "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
-    vocoder: "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
-    ttsJson: "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
-    unicodeIndexer: "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
-    voiceStyle: "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+    durationPredictor: "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+    textEncoder: "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+    vectorEstimator: "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+    vocoder: "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+    ttsJson: "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+    unicodeIndexer: "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+    voiceStyle: "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
   )
 
   let modelConfig = edgevoxOnnxOfflineTtsModelConfig(numThreads: 2, supertonic: supertonic)

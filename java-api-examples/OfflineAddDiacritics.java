@@ -1,7 +1,7 @@
 // Copyright 2026 Matias Lin
 
 // This file shows how to use a CATT diacritization model to add diacritics to Arabic text.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class OfflineAddDiacritics {
   public static void main(String[] args) {

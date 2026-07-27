@@ -25,7 +25,7 @@ def get_args():
 @dataclass
 class Model:
     # We will download
-    # https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/{model_name}.tar.bz2
+    # https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/{model_name}.tar.bz2
     model_name: str
 
     cmd: str
@@ -34,7 +34,7 @@ class Model:
 def get_kws_models():
     models = [
         Model(
-            model_name="edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01",
+            model_name="sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01",
             cmd="""
             ./run-impl.sh \
               --input $src/encoder-epoch-12-avg-2-chunk-16-left-64.onnx \
@@ -50,13 +50,13 @@ def get_kws_models():
             cat > $dst/notes.md <<EOF
 # Introduction
 This model is converted from
-https://github.com/k2-fsa/edgevox-onnx/releases/download/kws-models/$src.tar.bz2
+https://github.com/k2-fsa/sherpa-onnx/releases/download/kws-models/$src.tar.bz2
 and it supports only batch size equal to 1.
 EOF
                   """,
         ),
         Model(
-            model_name="edgevox-onnx-kws-zipformer-gigaspeech-3.3M-2024-01-01",
+            model_name="sherpa-onnx-kws-zipformer-gigaspeech-3.3M-2024-01-01",
             cmd="""
             ./run-impl.sh \
               --input $src/encoder-epoch-12-avg-2-chunk-16-left-64.onnx \
@@ -73,7 +73,7 @@ EOF
             cat > $dst/notes.md <<EOF
 # Introduction
 This model is converted from
-https://github.com/k2-fsa/edgevox-onnx/releases/download/kws-models/$src.tar.bz2
+https://github.com/k2-fsa/sherpa-onnx/releases/download/kws-models/$src.tar.bz2
 and it supports only batch size equal to 1.
 EOF
                   """,

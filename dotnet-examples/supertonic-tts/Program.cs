@@ -5,7 +5,7 @@
 // Please refer to
 // https://k2-fsa.github.io/sherpa/onnx/tts/supertonic.html
 // and
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
 // to download pre-trained models
 using EdgevoxOnnx;
 using System.Runtime.InteropServices;
@@ -20,13 +20,13 @@ class SupertonicTtsDemo
   static void TestEn()
   {
     var config = new OfflineTtsConfig();
-    config.Model.Supertonic.DurationPredictor = "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx";
-    config.Model.Supertonic.TextEncoder = "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx";
-    config.Model.Supertonic.VectorEstimator = "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx";
-    config.Model.Supertonic.Vocoder = "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx";
-    config.Model.Supertonic.TtsJson = "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/tts.json";
-    config.Model.Supertonic.UnicodeIndexer = "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin";
-    config.Model.Supertonic.VoiceStyle = "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin";
+    config.Model.Supertonic.DurationPredictor = "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx";
+    config.Model.Supertonic.TextEncoder = "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx";
+    config.Model.Supertonic.VectorEstimator = "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx";
+    config.Model.Supertonic.Vocoder = "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx";
+    config.Model.Supertonic.TtsJson = "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json";
+    config.Model.Supertonic.UnicodeIndexer = "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin";
+    config.Model.Supertonic.VoiceStyle = "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin";
 
     config.Model.NumThreads = 2;
     config.Model.Debug = 1;

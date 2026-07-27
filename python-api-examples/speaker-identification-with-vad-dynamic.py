@@ -9,21 +9,21 @@ Usage:
 (1) Download a model for computing speaker embeddings
 
 Please visit
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-recongition-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models
 to download a model. An example is given below:
 
-    wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_large_sv_zh-cn_3dspeaker_16k.onnx
+    wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_large_sv_zh-cn_3dspeaker_16k.onnx
 
 Note that `zh` means Chinese, while `en` means English.
 
 (2) Download the VAD model
 Please visit
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 to download silero_vad.onnx
 
 For instance,
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 (3) Run this script
 

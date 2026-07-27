@@ -7,7 +7,7 @@ cd dotnet-examples/
 cd ./non-streaming-cohere-transcribe-decode-files
 ./run.sh
 ls -lh
-rm -rf edgevox-onnx-cohere-transcribe-*
+rm -rf sherpa-onnx-cohere-transcribe-*
 
 cd ..
 
@@ -28,7 +28,7 @@ cd ..
 cd ./source-separation-spleeter
 ./run.sh
 ls -lh
-rm -rf edgevox-onnx-spleeter-*
+rm -rf sherpa-onnx-spleeter-*
 
 cd ../source-separation-uvr
 ./run.sh
@@ -38,11 +38,11 @@ rm -f UVR-MDX-NET-Voc_FT.onnx
 cd ../supertonic-tts
 ./run.sh
 ls -lh
-rm -rf edgevox-onnx-supertonic-*
+rm -rf sherpa-onnx-supertonic-*
 
 cd ../non-streaming-moonshine-v2-decode-files
 ./run.sh
-rm -rf edgevox-onnx-moonshine-*
+rm -rf sherpa-onnx-moonshine-*
 
 cd ../offline-decode-files
 
@@ -62,10 +62,10 @@ rm -rf edgevox-onnx-*
 rm -rf edgevox-onnx-*
 
 ./run-dolphin-ctc.sh
-rm -rf edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02
+rm -rf sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02
 
 ./run-fire-red-asr.sh
-rm -rf edgevox-onnx-fire-red-asr-*
+rm -rf sherpa-onnx-fire-red-asr-*
 
 ./run-moonshine.sh
 rm -rf edgevox-onnx-*
@@ -108,7 +108,7 @@ rm -rf edgevox-onnx-pocket-*
 cd ../zipvoice-tts
 ./run.sh
 ls -lh
-rm -rf edgevox-onnx-zipvoice-*
+rm -rf sherpa-onnx-zipvoice-*
 rm -f vocos_24khz.onnx
 
 cd ../vad-non-streaming-funasr-nano
@@ -148,7 +148,7 @@ cd ../non-streaming-canary-decode-files
 
 ./run.sh
 ls -lh
-rm -rf edgevox-onnx-nemo-*
+rm -rf sherpa-onnx-nemo-*
 
 
 
@@ -199,7 +199,7 @@ cd ../offline-speaker-diarization
 ./run.sh
 rm -rfv *.onnx
 rm -fv *.wav
-rm -rfv edgevox-onnx-pyannote-*
+rm -rfv sherpa-onnx-pyannote-*
 
 cd ../keyword-spotting-from-files
 ./run.sh
@@ -226,7 +226,7 @@ rm -rf edgevox-onnx-*
 
 cd ../online-punctuation
 ./run.sh
-rm -rf edgevox-onnx-online-punct-en-2024-08-06
+rm -rf sherpa-onnx-online-punct-en-2024-08-06
 
 cd ../speaker-identification
 ./run.sh

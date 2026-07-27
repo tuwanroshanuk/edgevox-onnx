@@ -14,7 +14,7 @@ namespace edgevox_onnx {
 void OnlineNeMoCtcModelConfig::Register(ParseOptions *po) {
   po->Register("nemo-ctc-model", &model,
                "Path to CTC model.onnx from NeMo. Please see "
-               "https://github.com/k2-fsa/edgevox-onnx/pull/843");
+               "https://github.com/k2-fsa/sherpa-onnx/pull/843");
 }
 
 bool OnlineNeMoCtcModelConfig::Validate() const {

@@ -1,0 +1,1 @@
+../../../../../../../../../../../../edgevox-onnx/kotlin-api/SpeakerEmbeddingExtractorConfig.kt

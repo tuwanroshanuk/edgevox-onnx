@@ -73,9 +73,9 @@ func getTtsForAishell3() -> EdgevoxOnnxOfflineTtsWrapper {
   return EdgevoxOnnxOfflineTtsWrapper(config: &config)
 }
 
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
 func getTtsFor_en_US_amy_low() -> EdgevoxOnnxOfflineTtsWrapper {
-  // please see  https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2
+  // please see  https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2
 
   let model = getResource("en_US-amy-low", "onnx")
 
@@ -95,7 +95,7 @@ func getTtsFor_en_US_amy_low() -> EdgevoxOnnxOfflineTtsWrapper {
 
 // https://k2-fsa.github.io/sherpa/onnx/tts/pretrained_models/vits.html#vits-melo-tts-zh-en-chinese-english-1-speaker
 func getTtsFor_zh_en_melo_tts() -> EdgevoxOnnxOfflineTtsWrapper {
-  // please see https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-melo-tts-zh_en.tar.bz2
+  // please see https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-melo-tts-zh_en.tar.bz2
 
   let model = getResource("model", "onnx")
 
@@ -206,7 +206,7 @@ func getTtsFor_kokoro_multi_lang_v1_0() -> EdgevoxOnnxOfflineTtsWrapper {
 
 func getTtsForSupertonic() -> EdgevoxOnnxOfflineTtsWrapper {
   // please see https://k2-fsa.github.io/sherpa/onnx/tts/supertonic.html
-  // Download: https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+  // Download: https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
 
   let durationPredictor = getResource("duration_predictor", "int8.onnx")
   let textEncoder = getResource("text_encoder", "int8.onnx")

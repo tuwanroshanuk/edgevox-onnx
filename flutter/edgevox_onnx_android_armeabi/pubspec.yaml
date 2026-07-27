@@ -6,12 +6,12 @@ description: >
 
 version: 1.13.4
 
-repository: https://github.com/k2-fsa/edgevox-onnx/tree/master/flutter
+repository: https://github.com/k2-fsa/sherpa-onnx/tree/master/flutter
 
-issue_tracker: https://github.com/k2-fsa/edgevox-onnx/issues
+issue_tracker: https://github.com/k2-fsa/sherpa-onnx/issues
 documentation: https://k2-fsa.github.io/sherpa/onnx/
 
-homepage: https://github.com/k2-fsa/edgevox-onnx
+homepage: https://github.com/k2-fsa/sherpa-onnx
 
 topics:
   - speech-recognition

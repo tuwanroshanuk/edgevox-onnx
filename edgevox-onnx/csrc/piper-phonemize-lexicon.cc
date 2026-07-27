@@ -166,7 +166,7 @@ static std::vector<std::vector<int64_t>> PiperPhonemesToIdsMatcha(
     const std::vector<piper::Phoneme> &phonemes, bool use_eos_bos,
     int32_t max_token_len = 400) {
   // We set max_token_len to 400 here to fix
-  // https://github.com/k2-fsa/edgevox-onnx/issues/2666
+  // https://github.com/k2-fsa/sherpa-onnx/issues/2666
   std::vector<std::vector<int64_t>> ans;
   std::vector<int64_t> current;
 
@@ -363,8 +363,8 @@ void InitEspeak(const std::string &data_dir) {
 
       EDGEVOX_ONNX_LOGE(
           "Hint: Please see\n"
-          "https://github.com/k2-fsa/edgevox-onnx/blob/master/android/"
-          "EdgevoxOnnxTtsEngine/app/src/main/java/com/k2fsa/sherpa/onnx/tts/"
+          "https://github.com/k2-fsa/sherpa-onnx/blob/master/android/"
+          "EdgevoxOnnxTtsEngine/app/src/main/java/com/nexus/edgevox/onnx/tts/"
           "engine/TtsEngine.kt#L188\n"
           "The function copyDataDir()\n");
     }

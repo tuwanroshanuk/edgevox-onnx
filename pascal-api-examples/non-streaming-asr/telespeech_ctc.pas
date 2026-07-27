@@ -5,7 +5,7 @@ This file shows how to use a non-streaming TeleSpeech CTC model
 to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program telespeech_ctc;
@@ -35,13 +35,13 @@ var
 begin
   Initialize(Config);
 
-  Config.ModelConfig.TeleSpeechCtc := './edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04/model.int8.onnx';
-  Config.ModelConfig.Tokens := './edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04/tokens.txt';
+  Config.ModelConfig.TeleSpeechCtc := './sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04/model.int8.onnx';
+  Config.ModelConfig.Tokens := './sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04/tokens.txt';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := False;
 
-  WaveFilename := './edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04/test_wavs/3-sichuan.wav';
+  WaveFilename := './sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04/test_wavs/3-sichuan.wav';
 
   Wave := EdgevoxOnnxReadWave(WaveFilename);
 

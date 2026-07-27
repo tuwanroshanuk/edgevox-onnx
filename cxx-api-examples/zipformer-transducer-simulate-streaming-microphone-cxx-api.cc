@@ -6,11 +6,11 @@
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-zipformer-ja-reazonspeech-2024-08-01.tar.bz2
-// tar xvf edgevox-onnx-zipformer-ja-reazonspeech-2024-08-01.tar.bz2
-// rm edgevox-onnx-zipformer-ja-reazonspeech-2024-08-01.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-zipformer-ja-reazonspeech-2024-08-01.tar.bz2
+// tar xvf sherpa-onnx-zipformer-ja-reazonspeech-2024-08-01.tar.bz2
+// rm sherpa-onnx-zipformer-ja-reazonspeech-2024-08-01.tar.bz2
 //
 // clang-format on
 
@@ -82,18 +82,18 @@ static edgevox_onnx::cxx::OfflineRecognizer CreateOfflineRecognizer() {
   OfflineRecognizerConfig config;
 
   config.model_config.transducer.encoder =
-      "./edgevox-onnx-zipformer-ja-reazonspeech-2024-08-01/"
+      "./sherpa-onnx-zipformer-ja-reazonspeech-2024-08-01/"
       "encoder-epoch-99-avg-1.int8.onnx";
 
   config.model_config.transducer.decoder =
-      "./edgevox-onnx-zipformer-ja-reazonspeech-2024-08-01/"
+      "./sherpa-onnx-zipformer-ja-reazonspeech-2024-08-01/"
       "decoder-epoch-99-avg-1.onnx";
 
   config.model_config.transducer.joiner =
-      "./edgevox-onnx-zipformer-ja-reazonspeech-2024-08-01/"
+      "./sherpa-onnx-zipformer-ja-reazonspeech-2024-08-01/"
       "joiner-epoch-99-avg-1.int8.onnx";
   config.model_config.tokens =
-      "./edgevox-onnx-zipformer-ja-reazonspeech-2024-08-01/tokens.txt";
+      "./sherpa-onnx-zipformer-ja-reazonspeech-2024-08-01/tokens.txt";
 
   config.model_config.num_threads = 2;
   config.model_config.debug = false;

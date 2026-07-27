@@ -2,19 +2,19 @@
 
 // This file shows how to use an offline whisper, i.e., non-streaming whisper,
 // to decode files.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingDecodeFileWhisperMultiple {
   public static void main(String[] args) {
     // please refer to
     // https://k2-fsa.github.io/sherpa/onnx/pretrained_models/whisper/tiny.en.html
     // to download model files
-    String encoder = "./edgevox-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx";
-    String decoder = "./edgevox-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx";
-    String tokens = "./edgevox-onnx-whisper-tiny.en/tiny.en-tokens.txt";
+    String encoder = "./sherpa-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx";
+    String decoder = "./sherpa-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx";
+    String tokens = "./sherpa-onnx-whisper-tiny.en/tiny.en-tokens.txt";
 
-    String waveFilename0 = "./edgevox-onnx-whisper-tiny.en/test_wavs/0.wav";
-    String waveFilename1 = "./edgevox-onnx-whisper-tiny.en/test_wavs/1.wav";
+    String waveFilename0 = "./sherpa-onnx-whisper-tiny.en/test_wavs/0.wav";
+    String waveFilename1 = "./sherpa-onnx-whisper-tiny.en/test_wavs/1.wav";
 
     WaveReader reader0 = new WaveReader(waveFilename0);
     WaveReader reader1 = new WaveReader(waveFilename1);

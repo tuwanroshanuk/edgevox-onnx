@@ -17,14 +17,14 @@ int main(int32_t argc, char *argv[]) {
 Non-streaming speech denoising with edgevox-onnx.
 
 Please visit
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
 to download models.
 
 Usage:
 
 (1) Use gtcrn models
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/gtcrn_simple.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/gtcrn_simple.onnx
 ./bin/edgevox-onnx-offline-denoiser \
   --speech-denoiser-gtcrn-model=gtcrn_simple.onnx \
   --input-wav=input.wav \
@@ -33,7 +33,7 @@ wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement
 (2) Use DPDFNet models at 16 kHz or 48 kHz
 
 # Download DPDFNet models from either:
-#   https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+#   https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
 #   https://huggingface.co/Ceva-IP/DPDFNet
 
 ./bin/edgevox-onnx-offline-denoiser \

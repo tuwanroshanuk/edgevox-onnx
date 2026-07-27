@@ -13,8 +13,8 @@ extension AVAudioPCMBuffer {
 }
 
 func run() {
-  let encoder = "./edgevox-onnx-whisper-tiny/tiny-encoder.int8.onnx"
-  let decoder = "./edgevox-onnx-whisper-tiny/tiny-decoder.int8.onnx"
+  let encoder = "./sherpa-onnx-whisper-tiny/tiny-encoder.int8.onnx"
+  let decoder = "./sherpa-onnx-whisper-tiny/tiny-decoder.int8.onnx"
 
   let whisperConfig = edgevoxOnnxSpokenLanguageIdentificationWhisperConfig(
     encoder: encoder,
@@ -27,7 +27,7 @@ func run() {
     debug: 1,
     provider: "cpu"
   )
-  let filePath = "./edgevox-onnx-whisper-tiny/test_wavs/0.wav"
+  let filePath = "./sherpa-onnx-whisper-tiny/test_wavs/0.wav"
 
   let slid = EdgevoxOnnxSpokenLanguageIdentificationWrapper(config: &config)
 

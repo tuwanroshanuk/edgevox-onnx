@@ -5,7 +5,7 @@ This file shows how to use a streaming Zipformer transducer
 to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program zipformer_transducer;
@@ -35,17 +35,17 @@ var
 begin
   Initialize(Config);
 
-  {Please visit https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+  {Please visit https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
   to download model files used in this file.}
-  Config.ModelConfig.Transducer.Encoder := './edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.int8.onnx';
-  Config.ModelConfig.Transducer.Decoder := './edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx';
-  Config.ModelConfig.Transducer.Joiner := './edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.int8.onnx';
-  Config.ModelConfig.Tokens := './edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt';
+  Config.ModelConfig.Transducer.Encoder := './sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.int8.onnx';
+  Config.ModelConfig.Transducer.Decoder := './sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx';
+  Config.ModelConfig.Transducer.Joiner := './sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.int8.onnx';
+  Config.ModelConfig.Tokens := './sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := False;
 
-  WaveFilename := './edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/0.wav';
+  WaveFilename := './sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/0.wav';
 
   Wave := EdgevoxOnnxReadWave(WaveFilename);
 

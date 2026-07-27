@@ -3,14 +3,14 @@
 const edgevox_onnx = require('edgevox-onnx-node');
 
 // Please download test files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/punctuation-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/punctuation-models
 function createPunctuation() {
   const config = {
     model: {
       cnnBilstm:
-          './edgevox-onnx-online-punct-en-2024-08-06/model.onnx',
+          './sherpa-onnx-online-punct-en-2024-08-06/model.onnx',
       bpeVocab:
-          './edgevox-onnx-online-punct-en-2024-08-06/bpe.vocab',
+          './sherpa-onnx-online-punct-en-2024-08-06/bpe.vocab',
       debug: true,
       numThreads: 1,
       provider: 'cpu',

@@ -20,7 +20,7 @@ static OnlinePunctuationConfig GetOnlinePunctuationConfig(JNIEnv *env,
   jfieldID fid;
 
   fid = env->GetFieldID(cls, "model",
-                        "Lcom/k2fsa/sherpa/onnx/OnlinePunctuationModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/OnlinePunctuationModelConfig;");
   jobject model_config = env->GetObjectField(config, fid);
   jclass model_config_cls = env->GetObjectClass(model_config);
 
@@ -47,7 +47,7 @@ static OnlinePunctuationConfig GetOnlinePunctuationConfig(JNIEnv *env,
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jlong JNICALL
-Java_com_k2fsa_edgevox_onnx_OnlinePunctuation_newFromAsset(JNIEnv *env,
+Java_com_nexus_edgevox_onnx_OnlinePunctuation_newFromAsset(JNIEnv *env,
                                                           jobject /*obj*/,
                                                           jobject asset_manager,
                                                           jobject _config) {
@@ -79,7 +79,7 @@ Java_com_k2fsa_edgevox_onnx_OnlinePunctuation_newFromAsset(JNIEnv *env,
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jlong JNICALL
-Java_com_k2fsa_edgevox_onnx_OnlinePunctuation_newFromFile(JNIEnv *env,
+Java_com_nexus_edgevox_onnx_OnlinePunctuation_newFromFile(JNIEnv *env,
                                                          jobject /*obj*/,
                                                          jobject _config) {
   bool ok = false;
@@ -103,14 +103,14 @@ Java_com_k2fsa_edgevox_onnx_OnlinePunctuation_newFromFile(JNIEnv *env,
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_OnlinePunctuation_delete(
+JNIEXPORT void JNICALL Java_com_nexus_edgevox_onnx_OnlinePunctuation_delete(
     JNIEnv * /*env*/, jobject /*obj*/, jlong ptr) {
   delete reinterpret_cast<edgevox_onnx::OnlinePunctuation *>(ptr);
 }
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jstring JNICALL
-Java_com_k2fsa_edgevox_onnx_OnlinePunctuation_addPunctuation(JNIEnv *env,
+Java_com_nexus_edgevox_onnx_OnlinePunctuation_addPunctuation(JNIEnv *env,
                                                             jobject /*obj*/,
                                                             jlong ptr,
                                                             jstring text) {

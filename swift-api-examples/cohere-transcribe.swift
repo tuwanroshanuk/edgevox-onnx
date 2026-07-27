@@ -1,10 +1,10 @@
 func run() {
   let encoder =
-    "./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/encoder.int8.onnx"
+    "./sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/encoder.int8.onnx"
   let decoder =
-    "./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/decoder.int8.onnx"
+    "./sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/decoder.int8.onnx"
   let tokens =
-    "./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/tokens.txt"
+    "./sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/tokens.txt"
 
   let cohereTranscribe = edgevoxOnnxOfflineCohereTranscribeModelConfig(
     encoder: encoder,
@@ -30,7 +30,7 @@ func run() {
   let recognizer = EdgevoxOnnxOfflineRecognizer(config: &config)
 
   let filePath =
-    "./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/en.wav"
+    "./sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/en.wav"
   let audio = EdgevoxOnnxWaveWrapper.readWave(filename: filePath)
 
   let stream = recognizer.createStream()

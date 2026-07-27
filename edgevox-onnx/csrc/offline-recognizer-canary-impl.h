@@ -188,7 +188,7 @@ class OfflineRecognizerCanaryImpl : public OfflineRecognizerImpl {
   }
 
   // see
-  // https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/nemo/canary/test_180m_flash.py#L242
+  // https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/nemo/canary/test_180m_flash.py#L242
   std::vector<int32_t> GetInitialDecoderInput() const {
     auto canary_config = config_.model_config.canary;
     const auto &meta = model_->GetModelMetadata();

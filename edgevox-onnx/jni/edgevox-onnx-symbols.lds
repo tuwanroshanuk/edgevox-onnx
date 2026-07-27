@@ -1,6 +1,6 @@
 {
   global:
-    Java_com_k2fsa_edgevox_onnx*;
+    Java_com_nexus_edgevox_onnx*;
   local:
     *;
 };

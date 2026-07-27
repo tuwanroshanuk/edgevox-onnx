@@ -234,7 +234,7 @@ begin
       In the code, we use the normalized filename whisper-encoder.onnx, whisper-decoder.onnx, and tokens.txt
       You need to rename the existing model files.
 
-      For instance, if you use edgevox-onnx-whisper-tiny.en, you have to do
+      For instance, if you use sherpa-onnx-whisper-tiny.en, you have to do
         mv tiny.en-tokens.txt tokens.txt
 
         mv tiny.en-encoder.onnx whisper-encoder.onnx
@@ -314,7 +314,7 @@ begin
 
     {
       Please visit
-      https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+      https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
       to download a NeMo transducer model.
     }
     NeMoTransducerEncoder := ModelDir + 'nemo-transducer-encoder.onnx';
@@ -342,7 +342,7 @@ begin
     if not FileExists(VadFilename) then
       begin
         Status := VadFilename + ' does not exist! Please download it from' +
-          sLineBreak + 'https://github.com/k2-fsa/edgevox-onnx/tree/asr-models';
+          sLineBreak + 'https://github.com/k2-fsa/sherpa-onnx/tree/asr-models';
         Synchronize(@ShowStatus);
         Exit;
       end;

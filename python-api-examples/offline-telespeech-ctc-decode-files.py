@@ -6,7 +6,7 @@ https://github.com/Tele-AI/TeleSpeech-ASR
 to decode files.
 
 Please download model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 
 
 """
@@ -18,16 +18,16 @@ import soundfile as sf
 
 
 def create_recognizer():
-    model = "./edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04/model.int8.onnx"
-    tokens = "./edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04/tokens.txt"
-    test_wav = "./edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04/test_wavs/3-sichuan.wav"
-    #  test_wav = "./edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04/test_wavs/4-tianjin.wav"
-    #  test_wav = "./edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04/test_wavs/5-henan.wav"
+    model = "./sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04/model.int8.onnx"
+    tokens = "./sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04/tokens.txt"
+    test_wav = "./sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04/test_wavs/3-sichuan.wav"
+    #  test_wav = "./sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04/test_wavs/4-tianjin.wav"
+    #  test_wav = "./sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04/test_wavs/5-henan.wav"
 
     if not Path(model).is_file() or not Path(test_wav).is_file():
         raise ValueError(
             """Please download model files from
-            https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+            https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
             """
         )
     return (

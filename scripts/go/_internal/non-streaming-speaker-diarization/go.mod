@@ -2,4 +2,4 @@ module non-streaming-speaker-diarization
 
 go 1.17
 
-replace github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx => ../
+replace github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx => ../

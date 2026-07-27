@@ -24,13 +24,13 @@ import './utils.dart';
 ///
 /// ```dart
 /// final whisper = OfflineWhisperModelConfig(
-///   encoder: './edgevox-onnx-whisper-tiny/encoder.int8.onnx',
-///   decoder: './edgevox-onnx-whisper-tiny/decoder.int8.onnx',
+///   encoder: './sherpa-onnx-whisper-tiny/encoder.int8.onnx',
+///   decoder: './sherpa-onnx-whisper-tiny/decoder.int8.onnx',
 /// );
 ///
 /// final model = OfflineModelConfig(
 ///   whisper: whisper,
-///   tokens: './edgevox-onnx-whisper-tiny/tokens.txt',
+///   tokens: './sherpa-onnx-whisper-tiny/tokens.txt',
 ///   modelType: 'whisper',
 ///   numThreads: 1,
 /// );
@@ -583,7 +583,7 @@ class OfflineTdnnModelConfig {
 /// Model files and options for SenseVoice.
 ///
 /// In the examples, this is typically paired with the
-/// `edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8` package.
+/// `sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8` package.
 class OfflineSenseVoiceModelConfig {
   const OfflineSenseVoiceModelConfig({
     this.model = '',

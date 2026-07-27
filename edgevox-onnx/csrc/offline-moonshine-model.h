@@ -15,7 +15,7 @@
 namespace edgevox_onnx {
 
 // please see
-// https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/moonshine/test.py
+// https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/moonshine/test.py
 class OfflineMoonshineModel {
  public:
   explicit OfflineMoonshineModel(const OfflineModelConfig &config);

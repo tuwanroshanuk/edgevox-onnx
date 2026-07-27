@@ -11,9 +11,9 @@
 namespace edgevox_onnx {
 
 // please refer to
-// https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/kokoro/v0.19/add_meta_data.py
-// https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/kokoro/v1.0/add_meta_data.py
-// https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/kokoro/v1.1-zh/add_meta_data.py
+// https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/kokoro/v0.19/add_meta_data.py
+// https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/kokoro/v1.0/add_meta_data.py
+// https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/kokoro/v1.1-zh/add_meta_data.py
 struct OfflineTtsKokoroModelMetaData {
   int32_t sample_rate = 0;
   int32_t num_speakers = 0;

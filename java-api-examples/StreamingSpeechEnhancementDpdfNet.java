@@ -4,10 +4,10 @@
 // edgevox-onnx.
 //
 // Download DPDFNet models from either:
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
 // https://huggingface.co/Ceva-IP/DPDFNet
 
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class StreamingSpeechEnhancementDpdfNet {
   private static void appendSamples(java.util.ArrayList<Float> dst, float[] src) {

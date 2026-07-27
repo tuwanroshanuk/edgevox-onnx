@@ -13,11 +13,11 @@ python3 ./vad-remove-non-speech-segments-from-file.py \
         output.wav
 
 Please visit
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 to download silero_vad.onnx
 
 For instance,
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 """
 
 import argparse

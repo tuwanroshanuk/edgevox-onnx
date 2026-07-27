@@ -2,7 +2,7 @@
 const edgevox_onnx = require('edgevox-onnx-node');
 
 // Please download test files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 const config = {
   'featConfig': {
     'sampleRate': 16000,
@@ -11,12 +11,12 @@ const config = {
   'modelConfig': {
     'transducer': {
       'encoder':
-          './edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/encoder.int8.onnx',
+          './sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/encoder.int8.onnx',
       'decoder':
-          './edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/decoder.int8.onnx',
-      'joiner': './edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/joiner.int8.onnx',
+          './sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/decoder.int8.onnx',
+      'joiner': './sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/joiner.int8.onnx',
     },
-    'tokens': './edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/tokens.txt',
+    'tokens': './sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/tokens.txt',
     'numThreads': 2,
     'provider': 'cpu',
     'debug': 1,
@@ -25,7 +25,7 @@ const config = {
 };
 
 const waveFilename =
-    './edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/test_wavs/0.wav';
+    './sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/test_wavs/0.wav';
 
 const recognizer = new edgevox_onnx.OfflineRecognizer(config);
 console.log('Started');

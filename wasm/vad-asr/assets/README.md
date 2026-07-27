@@ -3,7 +3,7 @@
 ## Download VAD models
 
 Please download
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 and put `silero_vad.onnx` into the current directory, i.e., `wasm/vad/assets`.
 
 ## Download non-streaming ASR models
@@ -34,4 +34,4 @@ tree ~/work/github/edgevox-onnx/wasm/vad-asr/assets
 
 You can find example build scripts at the following address:
 
-  https://github.com/k2-fsa/edgevox-onnx/blob/master/.github/workflows/wasm-simd-hf-space-vad-asr.yaml
+  https://github.com/k2-fsa/sherpa-onnx/blob/master/.github/workflows/wasm-simd-hf-space-vad-asr.yaml

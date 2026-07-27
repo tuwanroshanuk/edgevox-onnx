@@ -2,18 +2,18 @@
 
 // This file shows how to use an offline NeMo Canary model, i.e.,
 // non-streaming NeMo Canary model, to decode files.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingDecodeFileNemoCanary {
   public static void main(String[] args) {
     // please refer to
     // https://k2-fsa.github.io/sherpa/onnx/nemo/canary.html
     // to download model files
-    String encoder = "./edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/encoder.int8.onnx";
-    String decoder = "./edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/decoder.int8.onnx";
-    String tokens = "./edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/tokens.txt";
+    String encoder = "./sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/encoder.int8.onnx";
+    String decoder = "./sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/decoder.int8.onnx";
+    String tokens = "./sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/tokens.txt";
 
-    String waveFilename = "./edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/en.wav";
+    String waveFilename = "./sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/en.wav";
 
     WaveReader reader = new WaveReader(waveFilename);
 

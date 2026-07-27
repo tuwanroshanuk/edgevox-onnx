@@ -41,7 +41,7 @@ type={{ model.idx }}
 lang={{ model.lang }}
 short_name={{ model.short_name }}
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/${model_name}.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/${model_name}.tar.bz2
 tar xvf ${model_name}.tar.bz2
 
 {{ model.cmd }}
@@ -53,7 +53,7 @@ popd
 # Now we are at the project root directory
 
 git checkout .
-pushd android/EdgevoxOnnx/app/src/main/java/com/k2fsa/sherpa/onnx
+pushd android/EdgevoxOnnx/app/src/main/java/com/nexus/edgevox/onnx
 sed -i.bak s/"type = 0/type = $type/" ./MainActivity.kt
 
 {% if model.rule_fsts %}

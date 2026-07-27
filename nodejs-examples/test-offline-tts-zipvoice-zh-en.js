@@ -4,11 +4,11 @@ const edgevox_onnx = require('edgevox-onnx');
 
 function createOfflineTts() {
   const zipvoice = {
-    encoder: './edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx',
-    decoder: './edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx',
-    tokens: './edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt',
-    lexicon: './edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt',
-    dataDir: './edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data',
+    encoder: './sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx',
+    decoder: './sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx',
+    tokens: './sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt',
+    lexicon: './sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt',
+    dataDir: './sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data',
     vocoder: './vocos_24khz.onnx',
     espeakVoice: 'en-us',
   };
@@ -29,7 +29,7 @@ function createOfflineTts() {
 }
 
 const referenceWaveFilename =
-    './edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav';
+    './sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav';
 const wave = edgevox_onnx.readWave(referenceWaveFilename);
 
 const referenceText =

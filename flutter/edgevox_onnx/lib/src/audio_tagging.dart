@@ -15,7 +15,7 @@ import './edgevox_onnx_bindings.dart';
 /// ```dart
 /// final modelConfig = AudioTaggingModelConfig(
 ///   zipformer: const OfflineZipformerAudioTaggingModelConfig(
-///     model: './edgevox-onnx-zipformer-audio-tagging/model.int8.onnx',
+///     model: './sherpa-onnx-zipformer-audio-tagging/model.int8.onnx',
 ///   ),
 ///   numThreads: 1,
 ///   debug: true,
@@ -23,7 +23,7 @@ import './edgevox_onnx_bindings.dart';
 ///
 /// final config = AudioTaggingConfig(
 ///   model: modelConfig,
-///   labels: './edgevox-onnx-zipformer-audio-tagging/class_labels_indices.csv',
+///   labels: './sherpa-onnx-zipformer-audio-tagging/class_labels_indices.csv',
 /// );
 ///
 /// final tagger = AudioTagging(config: config);

@@ -2,7 +2,7 @@
 const edgevox_onnx = require('edgevox-onnx-node');
 
 // Please download test files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 const config = {
   'featConfig': {
     'sampleRate': 16000,
@@ -11,10 +11,10 @@ const config = {
   'modelConfig': {
     'zipformer2Ctc': {
       'model':
-          './edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx',
+          './sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx',
     },
     'tokens':
-        './edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt',
+        './sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt',
     'numThreads': 2,
     'provider': 'cpu',
     'debug': 1,
@@ -22,7 +22,7 @@ const config = {
 };
 
 const waveFilename =
-    './edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/0.wav';
+    './sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/0.wav';
 
 const recognizer = new edgevox_onnx.OnlineRecognizer(config);
 console.log('Started');

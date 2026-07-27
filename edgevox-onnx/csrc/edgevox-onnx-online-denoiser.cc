@@ -21,11 +21,11 @@ Streaming speech denoising with edgevox-onnx.
 
 Please download GTCRN and sample files from:
 
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
 
 DPDFNet models are available from either:
 
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
 https://huggingface.co/Ceva-IP/DPDFNet
 
 Currently this binary supports:

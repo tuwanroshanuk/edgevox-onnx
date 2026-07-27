@@ -4,13 +4,13 @@
 This script shows how to add punctuations to text using edgevox-onnx Python API.
 
 Please download the model from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/punctuation-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/punctuation-models
 
 The following is an example
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/punctuation-models/edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
-tar xvf edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
-rm edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/punctuation-models/sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
+tar xvf sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
+rm sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
 """
 
 from pathlib import Path
@@ -19,8 +19,8 @@ import edgevox_onnx
 
 
 def main():
-    model = "./edgevox-onnx-online-punct-en-2024-08-06/model.onnx"
-    bpe = "./edgevox-onnx-online-punct-en-2024-08-06/bpe.vocab"
+    model = "./sherpa-onnx-online-punct-en-2024-08-06/model.onnx"
+    bpe = "./sherpa-onnx-online-punct-en-2024-08-06/bpe.vocab"
     if not Path(model).is_file():
         raise ValueError(f"{model} does not exist")
     if not Path(bpe).is_file():

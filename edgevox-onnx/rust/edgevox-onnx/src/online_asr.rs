@@ -14,16 +14,16 @@
 //! let wave = Wave::read("./test.wav").expect("read wave");
 //! let mut config = OnlineRecognizerConfig::default();
 //! config.model_config.transducer.encoder = Some(
-//!     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.int8.onnx".into(),
+//!     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.int8.onnx".into(),
 //! );
 //! config.model_config.transducer.decoder = Some(
-//!     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx".into(),
+//!     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx".into(),
 //! );
 //! config.model_config.transducer.joiner = Some(
-//!     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.int8.onnx".into(),
+//!     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.int8.onnx".into(),
 //! );
 //! config.model_config.tokens = Some(
-//!     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt".into(),
+//!     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt".into(),
 //! );
 //! config.enable_endpoint = true;
 //! config.decoding_method = Some("greedy_search".into());

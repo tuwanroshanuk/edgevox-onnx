@@ -1,1 +1,1 @@
-../../sherpa-onnx/csrc/alsa.h
+../../edgevox-onnx/csrc/alsa.h

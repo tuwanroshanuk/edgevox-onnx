@@ -18,19 +18,19 @@ The Zipformer audio tagging model uses a CSV file for class labels.
 EdgevoxOnnxAudioTaggingConfig config;
 memset(&config, 0, sizeof(config));
 config.model.zipformer.model =
-    "./edgevox-onnx-zipformer-audio-tagging-2024-04-09/model.int8.onnx";
+    "./sherpa-onnx-zipformer-audio-tagging-2024-04-09/model.int8.onnx";
 config.model.num_threads = 1;
 config.model.provider = "cpu";
 config.labels =
-    "./edgevox-onnx-zipformer-audio-tagging-2024-04-09/class_labels_indices.csv";
+    "./sherpa-onnx-zipformer-audio-tagging-2024-04-09/class_labels_indices.csv";
 config.top_k = 5;
 
 const EdgevoxOnnxAudioTagging *tagger = EdgevoxOnnxCreateAudioTagging(&config);
 @endcode
 
-Model package: `edgevox-onnx-zipformer-audio-tagging-2024-04-09`
+Model package: `sherpa-onnx-zipformer-audio-tagging-2024-04-09`
 
-Example source: [audio-tagging-c-api.c](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/audio-tagging-c-api.c)
+Example source: [audio-tagging-c-api.c](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/audio-tagging-c-api.c)
 
 @section audio_tagging_ced CED
 

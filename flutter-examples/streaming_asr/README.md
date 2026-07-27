@@ -19,7 +19,7 @@ get errors after you start and run the app.
 
 ###  1. Select a streaming model
 
-Please visit <https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models>
+Please visit <https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models>
 to download a streaming ASR model.
 
 You can find introductions about each streaming model at
@@ -32,14 +32,14 @@ Note: `Streaming` is the same as `Online` in this context.
 
 We have pre-configured some streaming models in the following file
 
-<https://github.com/k2-fsa/edgevox-onnx/blob/master/flutter-examples/streaming_asr/lib/online_model.dart>
+<https://github.com/k2-fsa/sherpa-onnx/blob/master/flutter-examples/streaming_asr/lib/online_model.dart>
 
 If you select a model that is not in the above file, please add it to the above file
 by yourself by following how existing models are added.
 
 Then you need to update
 
-<https://github.com/k2-fsa/edgevox-onnx/blob/master/flutter-examples/streaming_asr/lib/streaming_asr.dart#L16>
+<https://github.com/k2-fsa/sherpa-onnx/blob/master/flutter-examples/streaming_asr/lib/streaming_asr.dart#L16>
 
 ```
 final type = 0;
@@ -61,7 +61,7 @@ unnecessary files in your APP and it will significantly increase the size of you
 
 Suppose you have selected the following model
 
-<https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2>
+<https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2>
 
 Please use the following steps to make it available in your APP.
 
@@ -80,30 +80,30 @@ Please use the following steps to make it available in your APP.
 ```
   assets:
     - assets/
-    - assets/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/
+    - assets/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/
 ```
 
   - 4. Download the model to the [./assets](./assets) directory.
 
 ```
 cd assets
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
-tar xvf edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+tar xvf sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
 
 # Remeber to remove unused files.
-rm -rf edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs
-rm edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/README.md
-rm edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/bpe*
-rm edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.onnx
-rm edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.int8.onnx
-rm edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.int8.onnx
+rm -rf sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs
+rm sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/README.md
+rm sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/bpe*
+rm sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.onnx
+rm sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.int8.onnx
+rm sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.int8.onnx
 ```
 
 Your [assets](./assets) directory should look like below at the end.
 
 ```
 assets/
-└── edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
+└── sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
     ├── decoder-epoch-99-avg-1.onnx
     ├── encoder-epoch-99-avg-1.int8.onnx
     ├── joiner-epoch-99-avg-1.onnx

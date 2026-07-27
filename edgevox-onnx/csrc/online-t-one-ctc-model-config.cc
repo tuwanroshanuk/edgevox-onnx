@@ -14,7 +14,7 @@ namespace edgevox_onnx {
 void OnlineToneCtcModelConfig::Register(ParseOptions *po) {
   po->Register("t-one-ctc-model", &model,
                "Path to CTC model.onnx from T-one. Please see "
-               "https://github.com/k2-fsa/edgevox-onnx/pull/2571");
+               "https://github.com/k2-fsa/sherpa-onnx/pull/2571");
 }
 
 bool OnlineToneCtcModelConfig::Validate() const {

@@ -105,9 +105,9 @@ Usage:
 (3) Whisper models
 
   ./bin/edgevox-onnx-microphone-offline \
-    --whisper-encoder=./edgevox-onnx-whisper-base.en/base.en-encoder.int8.onnx \
-    --whisper-decoder=./edgevox-onnx-whisper-base.en/base.en-decoder.int8.onnx \
-    --tokens=./edgevox-onnx-whisper-base.en/base.en-tokens.txt \
+    --whisper-encoder=./sherpa-onnx-whisper-base.en/base.en-encoder.int8.onnx \
+    --whisper-decoder=./sherpa-onnx-whisper-base.en/base.en-decoder.int8.onnx \
+    --tokens=./sherpa-onnx-whisper-base.en/base.en-tokens.txt \
     --num-threads=1
 
 Please refer to

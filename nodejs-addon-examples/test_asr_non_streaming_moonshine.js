@@ -2,7 +2,7 @@
 const edgevox_onnx = require('edgevox-onnx-node');
 
 // Please download test files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 const config = {
   'featConfig': {
     'sampleRate': 16000,
@@ -10,21 +10,21 @@ const config = {
   },
   'modelConfig': {
     'moonshine': {
-      'preprocessor': './edgevox-onnx-moonshine-tiny-en-int8/preprocess.onnx',
-      'encoder': './edgevox-onnx-moonshine-tiny-en-int8/encode.int8.onnx',
+      'preprocessor': './sherpa-onnx-moonshine-tiny-en-int8/preprocess.onnx',
+      'encoder': './sherpa-onnx-moonshine-tiny-en-int8/encode.int8.onnx',
       'uncachedDecoder':
-          './edgevox-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx',
+          './sherpa-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx',
       'cachedDecoder':
-          './edgevox-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx',
+          './sherpa-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx',
     },
-    'tokens': './edgevox-onnx-moonshine-tiny-en-int8/tokens.txt',
+    'tokens': './sherpa-onnx-moonshine-tiny-en-int8/tokens.txt',
     'numThreads': 2,
     'provider': 'cpu',
     'debug': 1,
   }
 };
 
-const waveFilename = './edgevox-onnx-moonshine-tiny-en-int8/test_wavs/0.wav';
+const waveFilename = './sherpa-onnx-moonshine-tiny-en-int8/test_wavs/0.wav';
 
 const recognizer = new edgevox_onnx.OfflineRecognizer(config);
 console.log('Started');

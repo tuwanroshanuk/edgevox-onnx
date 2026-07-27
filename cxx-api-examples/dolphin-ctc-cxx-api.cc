@@ -7,9 +7,9 @@
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
-// tar xvf edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
-// rm edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
+// tar xvf sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
+// rm sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
 //
 // clang-format on
 
@@ -25,10 +25,10 @@ int32_t main() {
   OfflineRecognizerConfig config;
 
   // clang-format off
-  config.model_config.dolphin.model = "./edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/model.int8.onnx"; // NOLINT
-  config.model_config.tokens = "./edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/tokens.txt"; // NOLINT
+  config.model_config.dolphin.model = "./sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/model.int8.onnx"; // NOLINT
+  config.model_config.tokens = "./sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/tokens.txt"; // NOLINT
 
-  std::string wave_filename = "./edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/test_wavs/0.wav"; // NOLINT
+  std::string wave_filename = "./sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/test_wavs/0.wav"; // NOLINT
   // clang-format on
 
   config.model_config.num_threads = 1;

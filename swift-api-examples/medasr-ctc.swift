@@ -1,8 +1,8 @@
 func run() {
   let model =
-    "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/model.int8.onnx"
+    "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/model.int8.onnx"
   let tokens =
-    "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/tokens.txt"
+    "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/tokens.txt"
 
   let medasr = edgevoxOnnxOfflineMedAsrCtcModelConfig(
     model: model
@@ -22,7 +22,7 @@ func run() {
 
   let recognizer = EdgevoxOnnxOfflineRecognizer(config: &config)
 
-  let filePath = "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/0.wav"
+  let filePath = "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/0.wav"
   let audio = EdgevoxOnnxWaveWrapper.readWave(filename: filePath)
 
   let result = recognizer.decode(samples: audio.samples, sampleRate: audio.sampleRate)

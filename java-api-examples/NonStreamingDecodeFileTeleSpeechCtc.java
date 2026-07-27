@@ -2,17 +2,17 @@
 
 // This file shows how to use an offline TeleSpeech CTC model
 // to decode files.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingDecodeFileTeleSpeechCtc {
   public static void main(String[] args) {
     // please refer to
-    // https://k2-fsa.github.io/sherpa/onnx/pretrained_models/telespeech/models.html#edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04
+    // https://k2-fsa.github.io/sherpa/onnx/pretrained_models/telespeech/models.html#sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04
     // to download model files
-    String model = "./edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04/model.int8.onnx";
-    String tokens = "./edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04/tokens.txt";
+    String model = "./sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04/model.int8.onnx";
+    String tokens = "./sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04/tokens.txt";
 
-    String waveFilename = "./edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04/test_wavs/3-sichuan.wav";
+    String waveFilename = "./sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04/test_wavs/3-sichuan.wav";
 
     WaveReader reader = new WaveReader(waveFilename);
 

@@ -1,1 +1,1 @@
-../sherpa_onnx.go
+../edgevox_onnx.go

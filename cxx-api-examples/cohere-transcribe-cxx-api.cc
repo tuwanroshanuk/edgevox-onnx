@@ -7,9 +7,9 @@
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
-// tar xvf edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
-// rm edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+// tar xvf sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+// rm sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
 //
 // clang-format on
 
@@ -25,13 +25,13 @@ int32_t main() {
   OfflineRecognizerConfig config;
 
   config.model_config.cohere_transcribe.encoder =
-      "./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/encoder.int8.onnx";
+      "./sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/encoder.int8.onnx";
   config.model_config.cohere_transcribe.decoder =
-      "./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/decoder.int8.onnx";
+      "./sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/decoder.int8.onnx";
   config.model_config.cohere_transcribe.use_punct = true;
   config.model_config.cohere_transcribe.use_itn = true;
   config.model_config.tokens =
-      "./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/tokens.txt";
+      "./sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/tokens.txt";
 
   config.model_config.num_threads = 1;
   config.model_config.provider = "cpu";
@@ -45,7 +45,7 @@ int32_t main() {
   std::cout << "Loading model done\n";
 
   std::string wave_filename =
-      "./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/en.wav";
+      "./sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/en.wav";
   Wave wave = ReadWave(wave_filename);
   if (wave.samples.empty()) {
     std::cerr << "Failed to read: '" << wave_filename << "'\n";

@@ -28,7 +28,7 @@ def main():
 
     pipeline.instantiate(initial_params)
 
-    # wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/lei-jun-test.wav
+    # wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/lei-jun-test.wav
     t = pipeline("./lei-jun-test.wav")
     print(type(t))
     print(t)

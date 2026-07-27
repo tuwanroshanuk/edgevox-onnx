@@ -22,16 +22,16 @@
 //! let config = OfflineTtsConfig {
 //!     model: OfflineTtsModelConfig {
 //!         pocket: OfflineTtsPocketModelConfig {
-//!             lm_flow: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx".into()),
-//!             lm_main: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx".into()),
-//!             encoder: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/encoder.onnx".into()),
-//!             decoder: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx".into()),
+//!             lm_flow: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx".into()),
+//!             lm_main: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx".into()),
+//!             encoder: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/encoder.onnx".into()),
+//!             decoder: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx".into()),
 //!             text_conditioner: Some(
-//!                 "./edgevox-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx".into(),
+//!                 "./sherpa-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx".into(),
 //!             ),
-//!             vocab_json: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/vocab.json".into()),
+//!             vocab_json: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/vocab.json".into()),
 //!             token_scores_json: Some(
-//!                 "./edgevox-onnx-pocket-tts-int8-2026-01-26/token_scores.json".into(),
+//!                 "./sherpa-onnx-pocket-tts-int8-2026-01-26/token_scores.json".into(),
 //!             ),
 //!             ..Default::default()
 //!         },
@@ -41,7 +41,7 @@
 //! };
 //!
 //! let tts = OfflineTts::create(&config).expect("create tts");
-//! let reference = Wave::read("./edgevox-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav")
+//! let reference = Wave::read("./sherpa-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav")
 //!     .expect("read reference");
 //! let generation_config = GenerationConfig {
 //!     reference_audio: Some(reference.samples().to_vec()),
@@ -499,16 +499,16 @@ impl Drop for GeneratedAudio {
 /// let config = OfflineTtsConfig {
 ///     model: OfflineTtsModelConfig {
 ///         pocket: OfflineTtsPocketModelConfig {
-///             lm_flow: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx".into()),
-///             lm_main: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx".into()),
-///             encoder: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/encoder.onnx".into()),
-///             decoder: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx".into()),
+///             lm_flow: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx".into()),
+///             lm_main: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx".into()),
+///             encoder: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/encoder.onnx".into()),
+///             decoder: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx".into()),
 ///             text_conditioner: Some(
-///                 "./edgevox-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx".into(),
+///                 "./sherpa-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx".into(),
 ///             ),
-///             vocab_json: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/vocab.json".into()),
+///             vocab_json: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/vocab.json".into()),
 ///             token_scores_json: Some(
-///                 "./edgevox-onnx-pocket-tts-int8-2026-01-26/token_scores.json".into(),
+///                 "./sherpa-onnx-pocket-tts-int8-2026-01-26/token_scores.json".into(),
 ///             ),
 ///             ..Default::default()
 ///         },

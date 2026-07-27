@@ -7,13 +7,13 @@ Decode audio files using Qwen3-ASR with edgevox-onnx Python API.
 
 Usage:
     python offline-qwen3-asr-decode-files.py \\
-        --conv-frontend=./edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/conv_frontend.onnx \\
-        --encoder=./edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/encoder.int8.onnx \\
-        --decoder=./edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/decoder.int8.onnx \\
-        --tokenizer=./edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/tokenizer \\
+        --conv-frontend=./sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/conv_frontend.onnx \\
+        --encoder=./sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/encoder.int8.onnx \\
+        --decoder=./sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/decoder.int8.onnx \\
+        --tokenizer=./sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/tokenizer \\
         --max-new-tokens=128 \\
         --num-threads=2 \\
-        ./edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/test_wavs/raokouling.wav
+        ./sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/test_wavs/raokouling.wav
 
 Note: If the input audio is too long, you can increase --max-new-tokens (e.g., 256).
 You can also change it per-stream after creating the recognizer:

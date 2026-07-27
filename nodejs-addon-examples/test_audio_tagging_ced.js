@@ -2,16 +2,16 @@
 const edgevox_onnx = require('edgevox-onnx-node');
 
 // Please download models files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/audio-tagging-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/audio-tagging-models
 function createAudioTagging() {
   const config = {
     model: {
-      ced: './edgevox-onnx-ced-mini-audio-tagging-2024-04-19/model.int8.onnx',
+      ced: './sherpa-onnx-ced-mini-audio-tagging-2024-04-19/model.int8.onnx',
       numThreads: 1,
       debug: true,
     },
     labels:
-        './edgevox-onnx-ced-mini-audio-tagging-2024-04-19/class_labels_indices.csv',
+        './sherpa-onnx-ced-mini-audio-tagging-2024-04-19/class_labels_indices.csv',
     topK: 5,
   };
   return new edgevox_onnx.AudioTagging(config);
@@ -20,19 +20,19 @@ function createAudioTagging() {
 const at = createAudioTagging();
 
 const testWaves = [
-  './edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/1.wav',
-  './edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/2.wav',
-  './edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/3.wav',
-  './edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/4.wav',
-  './edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/5.wav',
-  './edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/6.wav',
-  './edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/7.wav',
-  './edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/8.wav',
-  './edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/9.wav',
-  './edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/10.wav',
-  './edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/11.wav',
-  './edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/12.wav',
-  './edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/13.wav',
+  './sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/1.wav',
+  './sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/2.wav',
+  './sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/3.wav',
+  './sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/4.wav',
+  './sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/5.wav',
+  './sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/6.wav',
+  './sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/7.wav',
+  './sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/8.wav',
+  './sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/9.wav',
+  './sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/10.wav',
+  './sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/11.wav',
+  './sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/12.wav',
+  './sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/13.wav',
 ];
 
 console.log('------');

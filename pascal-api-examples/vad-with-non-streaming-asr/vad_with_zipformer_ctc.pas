@@ -5,7 +5,7 @@ This file shows how to use a non-streaming Zipformer CTC model
 with silero VAD to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program vad_with_zipformer_ctc;
@@ -47,8 +47,8 @@ var
 begin
   Initialize(Config);
 
-  Config.ModelConfig.ZipformerCtc.Model := './edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03/model.int8.onnx';
-  Config.ModelConfig.Tokens := './edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03/tokens.txt';
+  Config.ModelConfig.ZipformerCtc.Model := './sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03/model.int8.onnx';
+  Config.ModelConfig.Tokens := './sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03/tokens.txt';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := False;

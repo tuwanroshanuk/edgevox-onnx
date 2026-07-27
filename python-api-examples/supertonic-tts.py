@@ -9,14 +9,14 @@ for SupertonicTTS.
 
 Usage:
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
-tar xvf edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
-rm edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+tar xvf sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+rm sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
 
 python3 ./supertonic-tts.py
 
 You can find more models at
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
 
 Please see
 https://k2-fsa.github.io/sherpa/onnx/tts/supertonic.html
@@ -34,13 +34,13 @@ def create_tts():
     tts_config = edgevox_onnx.OfflineTtsConfig(
         model=edgevox_onnx.OfflineTtsModelConfig(
             supertonic=edgevox_onnx.OfflineTtsSupertonicModelConfig(
-                duration_predictor="./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
-                text_encoder="./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
-                vector_estimator="./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
-                vocoder="./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
-                tts_json="./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
-                unicode_indexer="./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
-                voice_style="./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin",
+                duration_predictor="./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+                text_encoder="./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+                vector_estimator="./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+                vocoder="./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+                tts_json="./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+                unicode_indexer="./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+                voice_style="./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin",
             ),
             debug=False,
             num_threads=2,

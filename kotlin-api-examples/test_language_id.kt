@@ -1,4 +1,4 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 fun main() {
   testSpokenLanguageIdentifcation()
@@ -7,8 +7,8 @@ fun main() {
 fun testSpokenLanguageIdentifcation() {
   val config = SpokenLanguageIdentificationConfig(
     whisper = SpokenLanguageIdentificationWhisperConfig(
-      encoder = "./edgevox-onnx-whisper-tiny/tiny-encoder.int8.onnx",
-      decoder = "./edgevox-onnx-whisper-tiny/tiny-decoder.int8.onnx",
+      encoder = "./sherpa-onnx-whisper-tiny/tiny-encoder.int8.onnx",
+      decoder = "./sherpa-onnx-whisper-tiny/tiny-decoder.int8.onnx",
       tailPaddings = 33,
     ),
     numThreads=1,

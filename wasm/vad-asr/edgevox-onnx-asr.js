@@ -1,1 +1,1 @@
-../asr/sherpa-onnx-asr.js
+../asr/edgevox-onnx-asr.js

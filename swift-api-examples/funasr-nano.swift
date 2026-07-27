@@ -1,12 +1,12 @@
 func run() {
   let encoderAdaptor =
-    "./edgevox-onnx-funasr-nano-int8-2025-12-30/encoder_adaptor.int8.onnx"
+    "./sherpa-onnx-funasr-nano-int8-2025-12-30/encoder_adaptor.int8.onnx"
   let llm =
-    "./edgevox-onnx-funasr-nano-int8-2025-12-30/llm.int8.onnx"
+    "./sherpa-onnx-funasr-nano-int8-2025-12-30/llm.int8.onnx"
   let embedding =
-    "./edgevox-onnx-funasr-nano-int8-2025-12-30/embedding.int8.onnx"
+    "./sherpa-onnx-funasr-nano-int8-2025-12-30/embedding.int8.onnx"
   let tokenizer =
-    "./edgevox-onnx-funasr-nano-int8-2025-12-30/Qwen3-0.6B"
+    "./sherpa-onnx-funasr-nano-int8-2025-12-30/Qwen3-0.6B"
 
   let funasrNano = edgevoxOnnxOfflineFunASRNanoModelConfig(
     encoderAdaptor: encoderAdaptor,
@@ -29,7 +29,7 @@ func run() {
 
   let recognizer = EdgevoxOnnxOfflineRecognizer(config: &config)
 
-  let filePath = "./edgevox-onnx-funasr-nano-int8-2025-12-30/test_wavs/lyrics.wav"
+  let filePath = "./sherpa-onnx-funasr-nano-int8-2025-12-30/test_wavs/lyrics.wav"
   let audio = EdgevoxOnnxWaveWrapper.readWave(filename: filePath)
 
   let result = recognizer.decode(samples: audio.samples, sampleRate: audio.sampleRate)

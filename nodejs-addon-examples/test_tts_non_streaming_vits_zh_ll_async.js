@@ -8,9 +8,9 @@ async function createOfflineTts() {
   const config = {
     model: {
       vits: {
-        model: './edgevox-onnx-vits-zh-ll/model.onnx',
-        tokens: './edgevox-onnx-vits-zh-ll/tokens.txt',
-        lexicon: './edgevox-onnx-vits-zh-ll/lexicon.txt',
+        model: './sherpa-onnx-vits-zh-ll/model.onnx',
+        tokens: './sherpa-onnx-vits-zh-ll/tokens.txt',
+        lexicon: './sherpa-onnx-vits-zh-ll/lexicon.txt',
       },
       debug: false,
       numThreads: 1,
@@ -18,7 +18,7 @@ async function createOfflineTts() {
     },
     maxNumSentences: 1,
     ruleFsts:
-        './edgevox-onnx-vits-zh-ll/date.fst,./edgevox-onnx-vits-zh-ll/phone.fst,./edgevox-onnx-vits-zh-ll/number.fst',
+        './sherpa-onnx-vits-zh-ll/date.fst,./sherpa-onnx-vits-zh-ll/phone.fst,./sherpa-onnx-vits-zh-ll/number.fst',
   };
   return await edgevox_onnx.OfflineTts.createAsync(config);
 }

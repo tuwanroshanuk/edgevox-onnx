@@ -35,7 +35,7 @@ Otherwise, you may get the following error from within you browser:
 
 
 def cert_gen(
-    emailAddress="https://github.com/k2-fsa/edgevox-onnx",
+    emailAddress="https://github.com/k2-fsa/sherpa-onnx",
     commonName="edgevox-onnx",
     countryName="CN",
     localityName="k2-fsa",

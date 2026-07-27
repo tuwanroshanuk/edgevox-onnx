@@ -47,11 +47,11 @@ supports Chinese, English, Japanese, Korean, and Cantonese.
 ```bash
 cd tauri-examples/non-streaming-speech-recognition-from-microphone
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
-tar xvf edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
-rm edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
+tar xvf sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
+rm sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 ```
 
 ### 2. Copy assets into src-tauri
@@ -61,7 +61,7 @@ Tauri bundles files from `src-tauri/assets/`. Place the model directory
 
 ```bash
 mkdir -p src-tauri/assets
-cp -a edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17 src-tauri/assets/
+cp -a sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17 src-tauri/assets/
 cp silero_vad.onnx src-tauri/assets/
 ```
 
@@ -70,7 +70,7 @@ Expected layout:
 ```
 src-tauri/assets/
 ├── silero_vad.onnx
-└── edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/
+└── sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/
     ├── model.int8.onnx
     └── tokens.txt
 ```
@@ -101,7 +101,7 @@ to bundle:
 
 ```rust
 const MODEL_TYPE: u32 = 15;
-const MODEL_NAME: &str = "edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17";
+const MODEL_NAME: &str = "sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17";
 ```
 
 To switch models:

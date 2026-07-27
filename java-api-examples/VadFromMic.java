@@ -3,7 +3,7 @@
 // This file shows how to use a silero_vad model to detect speech
 // and save detected speech into a wave file.
 
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 import javax.sound.sampled.*;
 
 public class VadFromMic {
@@ -11,7 +11,7 @@ public class VadFromMic {
     int sampleRate = 16000;
     int windowSize = 512;
     // please download ./silero_vad.onnx from
-    // https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+    // https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
     String model = "./silero_vad.onnx";
     SileroVadModelConfig sileroVad =
         SileroVadModelConfig.builder()

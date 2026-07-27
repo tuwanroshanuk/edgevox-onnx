@@ -9,8 +9,8 @@
 //
 // 1. Download the test model and audio
 //
-//  wget https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/UVR-MDX-NET-Voc_FT.onnx
-//  wget https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/qi-feng-le-zh.wav
+//  wget https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/UVR-MDX-NET-Voc_FT.onnx
+//  wget https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/qi-feng-le-zh.wav
 //
 // 2. Build
 //

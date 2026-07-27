@@ -1,1 +1,1 @@
-../sherpa-onnx/kotlin-api/SpokenLanguageIdentification.kt
+../edgevox-onnx/kotlin-api/SpokenLanguageIdentification.kt

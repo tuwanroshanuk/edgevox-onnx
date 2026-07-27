@@ -307,7 +307,7 @@ class BuildExtension(build_ext):
                 raise Exception(
                     "\nBuild edgevox-onnx failed. Please check the error message.\n"
                     "You can ask for help by creating an issue on GitHub.\n"
-                    "\nClick:\n\thttps://github.com/k2-fsa/edgevox-onnx/issues/new\n"  # noqa
+                    "\nClick:\n\thttps://github.com/k2-fsa/sherpa-onnx/issues/new\n"  # noqa
                 )
 
         if need_split_package():

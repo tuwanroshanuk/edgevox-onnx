@@ -1,6 +1,6 @@
 # Introduction
 
-[edgevox-onnx](https://github.com/k2-fsa/edgevox-onnx) is an open-source
+[sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx) is an open-source
 real-time speech recognition toolkit developed
 by the Next-gen Kaldi team.
 
@@ -13,5 +13,5 @@ See the documentation https://k2-fsa.github.io/sherpa/onnx/index.html
 for details.
 
 Please see
-https://github.com/k2-fsa/edgevox-onnx/tree/master/dotnet-examples
+https://github.com/k2-fsa/sherpa-onnx/tree/master/dotnet-examples
 for how to use C# APIs of this package.

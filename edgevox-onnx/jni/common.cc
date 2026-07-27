@@ -44,7 +44,7 @@ void PrependAdspLibraryPath(const std::string &new_path) {
 You will see something like the following:
 
 Successfully set ADSP_LIBRARY_PATH to
-'/data/app/~~pHS2-9SwVjl9ma3cIKtj-g==/com.k2fsa.sherpa.onnx.simulate.streaming.asr-ejCDb8LodsnyK5cr3SvGjA==/lib/arm64;/odm/lib/rfsa/adsp;/vendor/lib/rfsa/adsp/;/system/lib/rfsa/adsp;/system/vendor/lib/rfsa/adsp;/dsp'
+'/data/app/~~pHS2-9SwVjl9ma3cIKtj-g==/com.nexus.edgevox.onnx.simulate.streaming.asr-ejCDb8LodsnyK5cr3SvGjA==/lib/arm64;/odm/lib/rfsa/adsp;/vendor/lib/rfsa/adsp/;/system/lib/rfsa/adsp;/system/vendor/lib/rfsa/adsp;/dsp'
 
    */
 }

@@ -2,7 +2,7 @@
 const edgevox_onnx = require('edgevox-onnx-node');
 
 // Please download test files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 const config = {
   'featConfig': {
     'sampleRate': 16000,
@@ -10,9 +10,9 @@ const config = {
   },
   'modelConfig': {
     'medasr': {
-      'model': './edgevox-onnx-medasr-ctc-en-int8-2025-12-25/model.int8.onnx',
+      'model': './sherpa-onnx-medasr-ctc-en-int8-2025-12-25/model.int8.onnx',
     },
-    'tokens': './edgevox-onnx-medasr-ctc-en-int8-2025-12-25/tokens.txt',
+    'tokens': './sherpa-onnx-medasr-ctc-en-int8-2025-12-25/tokens.txt',
     'numThreads': 2,
     'provider': 'cpu',
     'debug': 1,
@@ -20,7 +20,7 @@ const config = {
 };
 
 const waveFilename =
-    './edgevox-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/0.wav';
+    './sherpa-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/0.wav';
 
 const recognizer = new edgevox_onnx.OfflineRecognizer(config);
 console.log('Started');

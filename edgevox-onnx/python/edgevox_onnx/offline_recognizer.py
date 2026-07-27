@@ -59,8 +59,8 @@ class OfflineRecognizer(object):
         import soundfile as sf
 
         recognizer = edgevox_onnx.OfflineRecognizer.from_sense_voice(
-            model="./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx",
-            tokens="./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/tokens.txt",
+            model="./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx",
+            tokens="./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/tokens.txt",
             use_itn=True,
             debug=True,
         )
@@ -76,9 +76,9 @@ class OfflineRecognizer(object):
     Example using Whisper::
 
         recognizer = edgevox_onnx.OfflineRecognizer.from_whisper(
-            encoder="./edgevox-onnx-whisper-tiny/tiny-encoder.int8.onnx",
-            decoder="./edgevox-onnx-whisper-tiny/tiny-decoder.int8.onnx",
-            tokens="./edgevox-onnx-whisper-tiny/tiny-tokens.txt",
+            encoder="./sherpa-onnx-whisper-tiny/tiny-encoder.int8.onnx",
+            decoder="./sherpa-onnx-whisper-tiny/tiny-decoder.int8.onnx",
+            tokens="./sherpa-onnx-whisper-tiny/tiny-tokens.txt",
             language="en",
             task="transcribe",
         )
@@ -96,8 +96,8 @@ class OfflineRecognizer(object):
 
     Please refer to the following files for more usages:
 
-    - `<https://github.com/k2-fsa/edgevox-onnx/blob/master/python-api-examples/offline-decode-files.py>`_
-    - `<https://github.com/k2-fsa/edgevox-onnx/blob/master/python-api-examples/offline-sense-voice-ctc-decode-files.py>`_
+    - `<https://github.com/k2-fsa/sherpa-onnx/blob/master/python-api-examples/offline-decode-files.py>`_
+    - `<https://github.com/k2-fsa/sherpa-onnx/blob/master/python-api-examples/offline-sense-voice-ctc-decode-files.py>`_
     """
 
     @classmethod
@@ -284,7 +284,7 @@ class OfflineRecognizer(object):
     ):
         """
         Please refer to
-        `<https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models>`_
+        `<https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models>`_
         to download pre-trained models.
 
         Args:
@@ -651,7 +651,7 @@ class OfflineRecognizer(object):
     ):
         """
         Please refer to
-        `<https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models>`_
+        `<https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models>`_
         to download pre-trained models.
 
         Args:

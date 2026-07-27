@@ -1,1 +1,1 @@
-../sherpa-onnx/kotlin-api/Tts.kt
+../edgevox-onnx/kotlin-api/Tts.kt

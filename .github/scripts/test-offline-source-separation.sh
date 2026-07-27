@@ -20,27 +20,27 @@ which $EXE
 log "------------------------------------------------------------"
 log "Run spleeter"
 log "------------------------------------------------------------"
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/edgevox-onnx-spleeter-2stems-fp16.tar.bz2
-tar xvf edgevox-onnx-spleeter-2stems-fp16.tar.bz2
-rm edgevox-onnx-spleeter-2stems-fp16.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/sherpa-onnx-spleeter-2stems-fp16.tar.bz2
+tar xvf sherpa-onnx-spleeter-2stems-fp16.tar.bz2
+rm sherpa-onnx-spleeter-2stems-fp16.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/qi-feng-le-zh.wav
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/qi-feng-le-zh.wav
 
 $EXE \
-  --spleeter-vocals=edgevox-onnx-spleeter-2stems-fp16/vocals.fp16.onnx \
-  --spleeter-accompaniment=edgevox-onnx-spleeter-2stems-fp16/accompaniment.fp16.onnx \
+  --spleeter-vocals=sherpa-onnx-spleeter-2stems-fp16/vocals.fp16.onnx \
+  --spleeter-accompaniment=sherpa-onnx-spleeter-2stems-fp16/accompaniment.fp16.onnx \
   --num-threads=2 \
   --debug=1 \
   --input-wav=./qi-feng-le-zh.wav \
   --output-vocals-wav=spleeter_output_vocals.wav \
   --output-accompaniment-wav=spleeter_output_accompaniment.wav
 
-rm -rf edgevox-onnx-spleeter-2stems-fp16
+rm -rf sherpa-onnx-spleeter-2stems-fp16
 
 log "------------------------------------------------------------"
 log "Run UVR"
 log "------------------------------------------------------------"
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/UVR-MDX-NET-Voc_FT.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/UVR-MDX-NET-Voc_FT.onnx
 
 $EXE \
   --debug=1 \

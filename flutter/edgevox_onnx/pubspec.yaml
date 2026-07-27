@@ -4,9 +4,9 @@ description: >
   Speech recognition, speech synthesis, speaker diarization, and speaker recognition
   using next-gen Kaldi with onnxruntime without Internet connection.
 
-repository: https://github.com/k2-fsa/edgevox-onnx/tree/master/flutter
+repository: https://github.com/k2-fsa/sherpa-onnx/tree/master/flutter
 
-issue_tracker: https://github.com/k2-fsa/edgevox-onnx/issues
+issue_tracker: https://github.com/k2-fsa/sherpa-onnx/issues
 documentation: https://k2-fsa.github.io/sherpa/onnx/
 
 topics:
@@ -19,7 +19,7 @@ topics:
 # remember to change the version in ../edgevox_onnx_macos/macos/edgevox_onnx_macos.podspec
 version: 1.13.4
 
-homepage: https://github.com/k2-fsa/edgevox-onnx
+homepage: https://github.com/k2-fsa/sherpa-onnx
 
 environment:
   sdk: ">=3.1.0 <4.0.0"

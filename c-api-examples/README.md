@@ -34,4 +34,4 @@ for details.
   DPDFNet models. Use `dpdfnet_baseline.onnx`, `dpdfnet2.onnx`,
   `dpdfnet4.onnx`, or `dpdfnet8.onnx` for 16 kHz output.
 
-[edgevox-onnx]: https://github.com/k2-fsa/edgevox-onnx
+[sherpa-onnx]: https://github.com/k2-fsa/sherpa-onnx

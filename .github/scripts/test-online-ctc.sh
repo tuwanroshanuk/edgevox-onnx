@@ -19,7 +19,7 @@ log "------------------------------------------------------------"
 log "Run streaming NeMo CTC                                      "
 log "------------------------------------------------------------"
 
-url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-streaming-fast-conformer-ctc-en-80ms.tar.bz2
+url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-streaming-fast-conformer-ctc-en-80ms.tar.bz2
 name=$(basename $url)
 repo=$(basename -s .tar.bz2 $name)
 
@@ -40,10 +40,10 @@ rm -rf $repo
 log "------------------------------------------------------------"
 log "Run streaming Zipformer2 CTC HLG decoding                   "
 log "------------------------------------------------------------"
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
-tar xvf edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
-rm edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
-repo=$PWD/edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+tar xvf sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+rm sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+repo=$PWD/sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18
 ls -lh $repo
 echo "pwd: $PWD"
 
@@ -61,7 +61,7 @@ log "------------------------------------------------------------"
 log "Run streaming Zipformer2 CTC                                "
 log "------------------------------------------------------------"
 
-url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
+url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
 repo=$(basename -s .tar.bz2 $url)
 curl -SL -O $url
 tar xvf $repo.tar.bz2
@@ -91,7 +91,7 @@ edgevox-onnx-en-wenet-librispeech
 # edgevox-onnx-en-wenet-gigaspeech
 )
 for name in ${wenet_models[@]}; do
-  repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/$name.tar.bz2
+  repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/$name.tar.bz2
   curl -SL -O $repo_url
   tar xvf $name.tar.bz2
   rm $name.tar.bz2

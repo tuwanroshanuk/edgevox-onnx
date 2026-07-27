@@ -5,7 +5,7 @@ This file shows how to use a non-streaming FireRedASR CTC model
 to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program fire_red_asr_ctc;
@@ -35,13 +35,13 @@ var
 begin
   Initialize(Config);
 
-  Config.ModelConfig.FireRedAsrCtc.Model := './edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/model.int8.onnx';
-  Config.ModelConfig.Tokens := './edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/tokens.txt';
+  Config.ModelConfig.FireRedAsrCtc.Model := './sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/model.int8.onnx';
+  Config.ModelConfig.Tokens := './sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/tokens.txt';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := True;
 
-  WaveFilename := './edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/test_wavs/0.wav';
+  WaveFilename := './sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/test_wavs/0.wav';
 
   Wave := EdgevoxOnnxReadWave(WaveFilename);
 

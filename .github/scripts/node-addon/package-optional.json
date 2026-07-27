@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/k2-fsa/edgevox-onnx.git"
+    "url": "git+https://github.com/tuwanroshanuk/edgevox-onnx.git"
   },
   "keywords": [
     "speech to text",
@@ -53,9 +53,9 @@
   "author": "The next-gen Kaldi team",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/k2-fsa/edgevox-onnx/issues"
+    "url": "https://github.com/tuwanroshanuk/edgevox-onnx/issues"
   },
-  "homepage": "https://github.com/k2-fsa/edgevox-onnx#readme",
+  "homepage": "https://github.com/tuwanroshanuk/edgevox-onnx#readme",
    "os": [
     "PLATFORM"
   ],

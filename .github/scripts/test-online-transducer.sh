@@ -18,11 +18,11 @@ which $EXE
 log "------------------------------------------------------------"
 log "Run NeMo transducer (English)"
 log "------------------------------------------------------------"
-repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-streaming-fast-conformer-transducer-en-80ms.tar.bz2
+repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-streaming-fast-conformer-transducer-en-80ms.tar.bz2
 curl -SL -O $repo_url
-tar xvf edgevox-onnx-nemo-streaming-fast-conformer-transducer-en-80ms.tar.bz2
-rm edgevox-onnx-nemo-streaming-fast-conformer-transducer-en-80ms.tar.bz2
-repo=edgevox-onnx-nemo-streaming-fast-conformer-transducer-en-80ms
+tar xvf sherpa-onnx-nemo-streaming-fast-conformer-transducer-en-80ms.tar.bz2
+rm sherpa-onnx-nemo-streaming-fast-conformer-transducer-en-80ms.tar.bz2
+repo=sherpa-onnx-nemo-streaming-fast-conformer-transducer-en-80ms
 
 log "Start testing ${repo_url}"
 
@@ -58,11 +58,11 @@ log "------------------------------------------------------------"
 log "Run LSTM transducer (English)"
 log "------------------------------------------------------------"
 
-repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-lstm-en-2023-02-17.tar.bz2
+repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-lstm-en-2023-02-17.tar.bz2
 curl -SL -O $repo_url
-tar xvf edgevox-onnx-lstm-en-2023-02-17.tar.bz2
-rm edgevox-onnx-lstm-en-2023-02-17.tar.bz2
-repo=edgevox-onnx-lstm-en-2023-02-17
+tar xvf sherpa-onnx-lstm-en-2023-02-17.tar.bz2
+rm sherpa-onnx-lstm-en-2023-02-17.tar.bz2
+repo=sherpa-onnx-lstm-en-2023-02-17
 
 log "Start testing ${repo_url}"
 
@@ -98,11 +98,11 @@ log "------------------------------------------------------------"
 log "Run LSTM transducer (Chinese)"
 log "------------------------------------------------------------"
 
-repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-lstm-zh-2023-02-20.tar.bz2
+repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-lstm-zh-2023-02-20.tar.bz2
 curl -SL -O $repo_url
-tar xvf edgevox-onnx-lstm-zh-2023-02-20.tar.bz2
-rm edgevox-onnx-lstm-zh-2023-02-20.tar.bz2
-repo=edgevox-onnx-lstm-zh-2023-02-20
+tar xvf sherpa-onnx-lstm-zh-2023-02-20.tar.bz2
+rm sherpa-onnx-lstm-zh-2023-02-20.tar.bz2
+repo=sherpa-onnx-lstm-zh-2023-02-20
 
 log "Start testing ${repo_url}"
 
@@ -138,11 +138,11 @@ log "------------------------------------------------------------"
 log "Run streaming Zipformer transducer (English)"
 log "------------------------------------------------------------"
 
-repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-en-2023-02-21.tar.bz2
+repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-en-2023-02-21.tar.bz2
 curl -SL -O $repo_url
-tar xvf edgevox-onnx-streaming-zipformer-en-2023-02-21.tar.bz2
-rm edgevox-onnx-streaming-zipformer-en-2023-02-21.tar.bz2
-repo=edgevox-onnx-streaming-zipformer-en-2023-02-21
+tar xvf sherpa-onnx-streaming-zipformer-en-2023-02-21.tar.bz2
+rm sherpa-onnx-streaming-zipformer-en-2023-02-21.tar.bz2
+repo=sherpa-onnx-streaming-zipformer-en-2023-02-21
 
 log "Start testing ${repo_url}"
 
@@ -182,7 +182,7 @@ pushd $lm_repo
 git lfs pull --include "with-state-epoch-99-avg-1.onnx"
 popd
 
-bigram_repo_url=https://huggingface.co/vsd-vector/librispeech_bigram_edgevox-onnx-zipformer-large-en-2023-06-26
+bigram_repo_url=https://huggingface.co/vsd-vector/librispeech_bigram_sherpa-onnx-zipformer-large-en-2023-06-26
 log "Download bi-gram LM from ${bigram_repo_url}"
 GIT_LFS_SKIP_SMUDGE=1 git clone $bigram_repo_url
 bigramlm_repo=$(basename $bigram_repo_url)
@@ -233,11 +233,11 @@ log "------------------------------------------------------------"
 log "Run streaming Zipformer transducer (Bilingual, Chinese + English)"
 log "------------------------------------------------------------"
 
-repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
 curl -SL -O $repo_url
-tar xvf edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
-rm edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
-repo=edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
+tar xvf sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+rm sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+repo=sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
 
 log "Start testing ${repo_url}"
 
@@ -276,7 +276,7 @@ if [ $EXE == "edgevox-onnx-ffmpeg" ]; then
   $repo/encoder-epoch-99-avg-1.onnx \
   $repo/decoder-epoch-99-avg-1.onnx \
   $repo/joiner-epoch-99-avg-1.onnx \
-  https://huggingface.co/csukuangfj/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/resolve/main/test_wavs/4.wav \
+  https://huggingface.co/csukuangfj/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/resolve/main/test_wavs/4.wav \
   2
 fi
 
@@ -286,7 +286,7 @@ if [ $EXE == "edgevox-onnx-ffmpeg" ]; then
   $repo/encoder-epoch-99-avg-1.int8.onnx \
   $repo/decoder-epoch-99-avg-1.onnx \
   $repo/joiner-epoch-99-avg-1.int8.onnx \
-  https://huggingface.co/csukuangfj/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/resolve/main/test_wavs/4.wav \
+  https://huggingface.co/csukuangfj/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/resolve/main/test_wavs/4.wav \
   2
 fi
 
@@ -296,7 +296,7 @@ log "------------------------------------------------------------"
 log "Run streaming Conformer transducer (English)"
 log "------------------------------------------------------------"
 
-repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-conformer-en-2023-05-09.tar.bz2
+repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-conformer-en-2023-05-09.tar.bz2
 curl -SL -O $repo_url
 tar xvf edgevox-onnx-streaming-conformer-en-2023-05-09.tar.bz2
 rm edgevox-onnx-streaming-conformer-en-2023-05-09.tar.bz2

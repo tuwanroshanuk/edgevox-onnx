@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.k2fsa.sherpa.onnx.speaker.diarization"
+    namespace = "com.nexus.edgevox.onnx.speaker.diarization"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.k2fsa.sherpa.onnx.speaker.diarization"
+        applicationId = "com.nexus.edgevox.onnx.speaker.diarization"
         minSdk = 21
         targetSdk = 34
         versionCode = 20260707

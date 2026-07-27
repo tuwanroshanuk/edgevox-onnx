@@ -2,20 +2,20 @@
 const edgevox_onnx = require('edgevox-onnx-node');
 
 // Please download test files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 const config = {
   'modelConfig': {
     'toneCtc': {
-      'model': './edgevox-onnx-streaming-t-one-russian-2025-09-08/model.onnx',
+      'model': './sherpa-onnx-streaming-t-one-russian-2025-09-08/model.onnx',
     },
-    'tokens': './edgevox-onnx-streaming-t-one-russian-2025-09-08/tokens.txt',
+    'tokens': './sherpa-onnx-streaming-t-one-russian-2025-09-08/tokens.txt',
     'numThreads': 2,
     'provider': 'cpu',
     'debug': 1,
   }
 };
 
-const waveFilename = './edgevox-onnx-streaming-t-one-russian-2025-09-08/0.wav';
+const waveFilename = './sherpa-onnx-streaming-t-one-russian-2025-09-08/0.wav';
 
 const recognizer = new edgevox_onnx.OnlineRecognizer(config);
 console.log('Started');

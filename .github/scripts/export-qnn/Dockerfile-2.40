@@ -9,7 +9,7 @@ ARG ANDROID_NDK_VERSION=29.0.14206865
 
 LABEL org.opencontainers.image.title="QNN SDK ${QNN_SDK_VERSION}"
 LABEL org.opencontainers.image.description="Pre-built development environment for Qualcomm AI Engine Direct (QNN) SDK ${QNN_SDK_VERSION}, used by edgevox-onnx to convert and run ASR/TTS models on Qualcomm Snapdragon chipsets (e.g. SM8850). Includes: Android NDK r29 (${ANDROID_NDK_VERSION}) for cross-compiling to aarch64-android; Python 3.10 virtualenv with PyTorch, ONNX, onnxruntime, and QNN Python dependencies; QNN CLI tools (qnn-onnx-converter, qnn-model-lib-generator, qnn-context-binary-generator, qnn-net-run) for quantizing ONNX models to QNN context binaries targeting HTP/DSP backends. Typical workflow: mount model files, source envsetup.sh, run qnn-onnx-converter to quantize, then qnn-context-binary-generator to produce .bin files deployable on-device."
-LABEL org.opencontainers.image.source="https://github.com/k2-fsa/edgevox-onnx"
+LABEL org.opencontainers.image.source="https://github.com/k2-fsa/sherpa-onnx"
 LABEL org.opencontainers.image.licenses="Apache-2.0"
 
 ENV DEBIAN_FRONTEND=noninteractive

@@ -392,7 +392,7 @@ Everyting is open-sourced.
 
 It runs locally, without accessing the network
 
-See also https://github.com/k2-fsa/edgevox-onnx
+See also https://github.com/k2-fsa/sherpa-onnx
 
 新一代 Kaldi QQ 和微信交流群: 请看
 

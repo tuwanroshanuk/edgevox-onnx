@@ -6,9 +6,9 @@
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
-// tar xvf edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
-// rm edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
+// tar xvf sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
+// rm sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
 //
 // clang-format on
 
@@ -24,11 +24,11 @@ int32_t main() {
   OfflineRecognizerConfig config;
 
   config.model_config.fire_red_asr.encoder =
-      "./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/encoder.int8.onnx";
+      "./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/encoder.int8.onnx";
   config.model_config.fire_red_asr.decoder =
-      "./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/decoder.int8.onnx";
+      "./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/decoder.int8.onnx";
   config.model_config.tokens =
-      "./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/tokens.txt";
+      "./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/tokens.txt";
 
   config.model_config.num_threads = 1;
 
@@ -41,7 +41,7 @@ int32_t main() {
   std::cout << "Loading model done\n";
 
   std::string wave_filename =
-      "./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/0.wav";
+      "./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/0.wav";
   Wave wave = ReadWave(wave_filename);
   if (wave.samples.empty()) {
     std::cerr << "Failed to read: '" << wave_filename << "'\n";

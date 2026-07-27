@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.k2fsa.sherpa.onnx.speaker.identification"
+    namespace = "com.nexus.edgevox.onnx.speaker.identification"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.k2fsa.sherpa.onnx.speaker.identification"
+        applicationId = "com.nexus.edgevox.onnx.speaker.identification"
         minSdk = 21
         targetSdk = 34
         versionCode = 20260707

@@ -4,15 +4,15 @@ Pre-built libs are not checked-in.
 
 Please use
 
- - https://github.com/k2-fsa/edgevox-onnx/blob/master/build-android-arm64-v8a.sh
- - https://github.com/k2-fsa/edgevox-onnx/blob/master/build-android-armv7-eabi.sh
- - https://github.com/k2-fsa/edgevox-onnx/blob/master/build-android-x86-64.sh
- - https://github.com/k2-fsa/edgevox-onnx/blob/master/build-android-x86.sh
+ - https://github.com/k2-fsa/sherpa-onnx/blob/master/build-android-arm64-v8a.sh
+ - https://github.com/k2-fsa/sherpa-onnx/blob/master/build-android-armv7-eabi.sh
+ - https://github.com/k2-fsa/sherpa-onnx/blob/master/build-android-x86-64.sh
+ - https://github.com/k2-fsa/sherpa-onnx/blob/master/build-android-x86.sh
 
 The following is an example for `arm64-v8a`:
 
 ```bash
-git clone https://github.com/k2-fsa/edgevox-onnx
+git clone https://github.com/k2-fsa/sherpa-onnx
 cd edgevox-onnx
 
 export EDGEVOX_ONNX_ENABLE_JNI=OFF

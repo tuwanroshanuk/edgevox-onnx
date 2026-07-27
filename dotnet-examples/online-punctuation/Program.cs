@@ -3,9 +3,9 @@
 // This file shows how to add punctuations to text incrementally.
 //
 // 1. Download a model from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/punctuation-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/punctuation-models
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/punctuation-models/edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/punctuation-models/sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
 //
 // 2. Now run it
 //
@@ -19,8 +19,8 @@ class OnlinePunctuationDemo
   static void Main(string[] args)
   {
     var config = new OnlinePunctuationConfig();
-    config.Model.CnnBiLstm = "./edgevox-onnx-online-punct-en-2024-08-06/model.onnx";
-    config.Model.BpeVocab = "./edgevox-onnx-online-punct-en-2024-08-06/bpe.vocab";
+    config.Model.CnnBiLstm = "./sherpa-onnx-online-punct-en-2024-08-06/model.onnx";
+    config.Model.BpeVocab = "./sherpa-onnx-online-punct-en-2024-08-06/bpe.vocab";
     config.Model.Debug = 1;
     config.Model.NumThreads = 1;
 

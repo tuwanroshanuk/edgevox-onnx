@@ -7,7 +7,7 @@ if [ ! -d ../build-swift-macos ]; then
   exit 1
 fi
 
-if [ ! -f ./edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/model.int8.onnx ]; then
+if [ ! -f ./sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/model.int8.onnx ]; then
   echo "Please download the pre-trained model for testing."
   echo "You can refer to"
   echo ""
@@ -15,10 +15,10 @@ if [ ! -f ./edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/model.int8.
   echo ""
   echo "for help"
 
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
-  tar xvf edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
-  rm edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
-  ls -lh edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
+  tar xvf sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
+  rm sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
+  ls -lh sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02
 fi
 
 if [ ! -e ./dolphin-ctc-asr ]; then

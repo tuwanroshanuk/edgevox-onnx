@@ -7,16 +7,16 @@
 // clang-format off
 //
 // To use silero-vad:
-//  wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+//  wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 //
 // To use ten-vad:
-//  wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/ten-vad.onnx
+//  wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/ten-vad.onnx
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/Obama.wav
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/Obama.wav
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
-// tar xvf edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
-// rm edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
+// tar xvf sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
+// rm sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
 //
 // clang-format on
 
@@ -51,13 +51,13 @@ int32_t main() {
   }
 
   const char *preprocessor =
-      "./edgevox-onnx-moonshine-tiny-en-int8/preprocess.onnx";
-  const char *encoder = "./edgevox-onnx-moonshine-tiny-en-int8/encode.int8.onnx";
+      "./sherpa-onnx-moonshine-tiny-en-int8/preprocess.onnx";
+  const char *encoder = "./sherpa-onnx-moonshine-tiny-en-int8/encode.int8.onnx";
   const char *uncached_decoder =
-      "./edgevox-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx";
+      "./sherpa-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx";
   const char *cached_decoder =
-      "./edgevox-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx";
-  const char *tokens = "./edgevox-onnx-moonshine-tiny-en-int8/tokens.txt";
+      "./sherpa-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx";
+  const char *tokens = "./sherpa-onnx-moonshine-tiny-en-int8/tokens.txt";
 
   const EdgevoxOnnxWave *wave = EdgevoxOnnxReadWave(wav_filename);
   if (wave == NULL) {

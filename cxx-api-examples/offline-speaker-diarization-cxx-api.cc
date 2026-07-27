@@ -8,13 +8,13 @@
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-segmentation-models/edgevox-onnx-pyannote-segmentation-3-0.tar.bz2
-// tar xvf edgevox-onnx-pyannote-segmentation-3-0.tar.bz2
-// rm edgevox-onnx-pyannote-segmentation-3-0.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-segmentation-models/sherpa-onnx-pyannote-segmentation-3-0.tar.bz2
+// tar xvf sherpa-onnx-pyannote-segmentation-3-0.tar.bz2
+// rm sherpa-onnx-pyannote-segmentation-3-0.tar.bz2
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-segmentation-models/0-four-speakers-zh.wav
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-segmentation-models/0-four-speakers-zh.wav
 //
 // clang-format on
 
@@ -30,7 +30,7 @@ int32_t main() {
 
   OfflineSpeakerDiarizationConfig config;
   config.segmentation.pyannote.model =
-      "./edgevox-onnx-pyannote-segmentation-3-0/model.onnx";
+      "./sherpa-onnx-pyannote-segmentation-3-0/model.onnx";
   config.embedding.model =
       "./3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx";
   config.clustering.num_clusters = 4;

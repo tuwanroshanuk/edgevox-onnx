@@ -27,7 +27,7 @@ the code to use your selected model.
 
 We have a list of TTS models at
 
-<https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models>
+<https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models>
 
 You can select any of them. If you feel that there are so many that you don't know
 which one is the best, please visit <http://huggingface.co/spaces/k2-fsa/text-to-speech>
@@ -35,7 +35,7 @@ and try each one by yourself and select the one you consider the best.
 
 Suppose you select
 
-  <https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-piper-en_US-libritts_r-medium.tar.bz2>
+  <https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-libritts_r-medium.tar.bz2>
 
 Then please do the following:
 
@@ -43,7 +43,7 @@ Then please do the following:
 
 ```bash
 cd flutter-examples/tts/assets
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-piper-en_US-libritts_r-medium.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-libritts_r-medium.tar.bz2
 tar xf vits-piper-en_US-libritts_r-medium.tar.bz2
 rm vits-piper-en_US-libritts_r-medium.tar.bz2
 cd ..
@@ -61,8 +61,8 @@ cd ..
 
 ```
 // Example 6
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
-// https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-piper-en_US-libritts_r-medium.tar.bz2
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-libritts_r-medium.tar.bz2
 modelDir = 'vits-piper-en_US-libritts_r-medium';
 modelName = 'en_US-libritts_r-medium.onnx';
 dataDir = 'vits-piper-en_US-libritts_r-medium/espeak-ng-data';
@@ -146,8 +146,8 @@ Running Xcode build...
 Xcode build done.                                            7.9s
 Failed to build iOS app
 Could not build the precompiled application for the device.
-Error (Xcode): No profiles for 'com.k2fsa.sherpa.onnx.tts' were found: Xcode couldn't find any iOS App Development provisioning profiles matching
-'com.k2fsa.sherpa.onnx.tts'. Automatic signing is disabled and unable to generate a profile. To enable automatic signing, pass
+Error (Xcode): No profiles for 'com.nexus.edgevox.onnx.tts' were found: Xcode couldn't find any iOS App Development provisioning profiles matching
+'com.nexus.edgevox.onnx.tts'. Automatic signing is disabled and unable to generate a profile. To enable automatic signing, pass
 -allowProvisioningUpdates to xcodebuild.
 /Users/fangjun/open-source/edgevox-onnx/flutter-examples/tts/ios/Runner.xcodeproj
 

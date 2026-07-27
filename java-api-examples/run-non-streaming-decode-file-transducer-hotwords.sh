@@ -4,10 +4,10 @@ set -ex
 
 source ./setup.sh
 
-if [ ! -f ./edgevox-onnx-conformer-zh-stateless2-2023-05-23/tokens.txt ]; then
-  wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-conformer-zh-stateless2-2023-05-23.tar.bz2
-  tar xvf edgevox-onnx-conformer-zh-stateless2-2023-05-23.tar.bz2
-  rm edgevox-onnx-conformer-zh-stateless2-2023-05-23.tar.bz2
+if [ ! -f ./sherpa-onnx-conformer-zh-stateless2-2023-05-23/tokens.txt ]; then
+  wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-conformer-zh-stateless2-2023-05-23.tar.bz2
+  tar xvf sherpa-onnx-conformer-zh-stateless2-2023-05-23.tar.bz2
+  rm sherpa-onnx-conformer-zh-stateless2-2023-05-23.tar.bz2
 fi
 
 if [ ! -f hotwords_cn.txt ]; then

@@ -13,8 +13,8 @@ extension AVAudioPCMBuffer {
 }
 
 func run() {
-  let model = "./edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/model.int8.onnx"
-  let tokens = "./edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/tokens.txt"
+  let model = "./sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/model.int8.onnx"
+  let tokens = "./sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/tokens.txt"
 
   let dolphin = edgevoxOnnxOfflineDolphinModelConfig(
     model: model
@@ -37,7 +37,7 @@ func run() {
 
   let recognizer = EdgevoxOnnxOfflineRecognizer(config: &config)
 
-  let filePath = "./edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/test_wavs/0.wav"
+  let filePath = "./sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/test_wavs/0.wav"
   let fileURL: NSURL = NSURL(fileURLWithPath: filePath)
   let audioFile = try! AVAudioFile(forReading: fileURL as URL)
 

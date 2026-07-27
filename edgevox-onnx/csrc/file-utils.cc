@@ -95,7 +95,7 @@ std::vector<char> ReadFile(AAssetManager *mgr, const std::string &filename) {
         "card");
 
     EDGEVOX_ONNX_LOGE(
-        "See also https://github.com/k2-fsa/edgevox-onnx/issues/2562");
+        "See also https://github.com/k2-fsa/sherpa-onnx/issues/2562");
   }
 
   AAsset *asset = AAssetManager_open(mgr, filename.c_str(), AASSET_MODE_BUFFER);

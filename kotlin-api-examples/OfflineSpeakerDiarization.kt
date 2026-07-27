@@ -1,1 +1,1 @@
-../sherpa-onnx/kotlin-api/OfflineSpeakerDiarization.kt
+../edgevox-onnx/kotlin-api/OfflineSpeakerDiarization.kt

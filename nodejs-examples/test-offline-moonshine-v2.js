@@ -6,11 +6,11 @@ function createOfflineRecognizer() {
   let modelConfig = {
     moonshine: {
       encoder:
-          './edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/encoder_model.ort',
+          './sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/encoder_model.ort',
       mergedDecoder:
-          './edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/decoder_model_merged.ort',
+          './sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/decoder_model_merged.ort',
     },
-    tokens: './edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/tokens.txt',
+    tokens: './sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/tokens.txt',
   };
 
   let config = {
@@ -24,7 +24,7 @@ const recognizer = createOfflineRecognizer();
 const stream = recognizer.createStream();
 
 const waveFilename =
-    './edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/test_wavs/0.wav';
+    './sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/test_wavs/0.wav';
 const wave = edgevox_onnx.readWave(waveFilename);
 stream.acceptWaveform(wave.sampleRate, wave.samples);
 

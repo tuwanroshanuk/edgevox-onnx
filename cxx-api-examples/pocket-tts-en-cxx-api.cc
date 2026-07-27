@@ -9,9 +9,9 @@
 /*
 Usage
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
-tar xf edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
-rm edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+tar xf sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+rm sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
 
 ./pocket-tts-en-cxx-api
 
@@ -38,19 +38,19 @@ int32_t main(int32_t argc, char *argv[]) {
   OfflineTtsConfig config;
 
   config.model.pocket.lm_flow =
-      "./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx";
+      "./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx";
   config.model.pocket.lm_main =
-      "./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx";
+      "./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx";
   config.model.pocket.encoder =
-      "./edgevox-onnx-pocket-tts-int8-2026-01-26/encoder.onnx";
+      "./sherpa-onnx-pocket-tts-int8-2026-01-26/encoder.onnx";
   config.model.pocket.decoder =
-      "./edgevox-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx";
+      "./sherpa-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx";
   config.model.pocket.text_conditioner =
-      "./edgevox-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx";
+      "./sherpa-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx";
   config.model.pocket.vocab_json =
-      "./edgevox-onnx-pocket-tts-int8-2026-01-26/vocab.json";
+      "./sherpa-onnx-pocket-tts-int8-2026-01-26/vocab.json";
   config.model.pocket.token_scores_json =
-      "./edgevox-onnx-pocket-tts-int8-2026-01-26/token_scores.json";
+      "./sherpa-onnx-pocket-tts-int8-2026-01-26/token_scores.json";
 
   config.model.num_threads = 2;
 
@@ -70,7 +70,7 @@ int32_t main(int32_t argc, char *argv[]) {
   cfg.speed = 1.0;
 
   std::string reference_audio_file =
-      "./edgevox-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav";
+      "./sherpa-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav";
 
   Wave wave = ReadWave(reference_audio_file);
   cfg.reference_audio = std::move(wave.samples);

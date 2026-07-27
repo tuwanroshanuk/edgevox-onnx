@@ -3,18 +3,18 @@
 // This file shows how to use an offline Google MedASR CTC model,
 // i.e., non-streaming MedASR CTC model,
 // to decode files.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingDecodeFileMedAsrCtc {
   public static void main(String[] args) {
     // please refer to
     // https://k2-fsa.github.io/sherpa/onnx/medasr/index.html
     // to download model files
-    String model = "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/model.int8.onnx";
+    String model = "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/model.int8.onnx";
 
-    String tokens = "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/tokens.txt";
+    String tokens = "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/tokens.txt";
 
-    String waveFilename = "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/0.wav";
+    String waveFilename = "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/0.wav";
 
     WaveReader reader = new WaveReader(waveFilename);
 

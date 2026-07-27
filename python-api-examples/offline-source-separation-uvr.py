@@ -6,15 +6,15 @@ This file shows how to use UVR for source separation.
 
 Please first download a UVR model from
 
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/source-separation-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/source-separation-models
 
 The following is an example:
 
-    wget https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/UVR_MDXNET_9482.onnx
+    wget https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/UVR_MDXNET_9482.onnx
 
 Please also download a test file
 
-    wget https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/qi-feng-le-zh.wav
+    wget https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/qi-feng-le-zh.wav
 
 The test wav file is 16-bit encoded with 2 channels. If you have other
 formats, e.g., .mp4 or .mp3, please first use ffmpeg to convert it.

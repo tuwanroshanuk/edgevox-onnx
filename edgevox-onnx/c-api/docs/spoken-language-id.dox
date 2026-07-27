@@ -11,8 +11,8 @@ Whisper-based models to detect the language of spoken audio.
 @code
 EdgevoxOnnxSpokenLanguageIdentificationConfig config;
 memset(&config, 0, sizeof(config));
-config.whisper.encoder = "./edgevox-onnx-whisper-tiny/tiny-encoder.int8.onnx";
-config.whisper.decoder = "./edgevox-onnx-whisper-tiny/tiny-decoder.int8.onnx";
+config.whisper.encoder = "./sherpa-onnx-whisper-tiny/tiny-encoder.int8.onnx";
+config.whisper.decoder = "./sherpa-onnx-whisper-tiny/tiny-decoder.int8.onnx";
 config.num_threads = 1;
 config.provider = "cpu";
 
@@ -33,7 +33,7 @@ EdgevoxOnnxDestroyOfflineStream(stream);
 EdgevoxOnnxDestroySpokenLanguageIdentification(slid);
 @endcode
 
-Model package: `edgevox-onnx-whisper-tiny`
+Model package: `sherpa-onnx-whisper-tiny`
 
-Example source: [spoken-language-identification-c-api.c](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/spoken-language-identification-c-api.c)
+Example source: [spoken-language-identification-c-api.c](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/spoken-language-identification-c-api.c)
 */

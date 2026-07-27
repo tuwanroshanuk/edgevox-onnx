@@ -1,1 +1,1 @@
-../sherpa-onnx/kotlin-api/OnlineSpeechDenoiser.kt
+../edgevox-onnx/kotlin-api/OnlineSpeechDenoiser.kt

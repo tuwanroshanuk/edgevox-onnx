@@ -13,7 +13,7 @@ func getResource(_ forResource: String, _ ofType: String) -> String {
 /// https://k2-fsa.github.io/sherpa/onnx/pretrained_models/index.html
 /// to download pre-trained models
 
-/// edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20 (Bilingual, Chinese + English)
+/// sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20 (Bilingual, Chinese + English)
 /// https://k2-fsa.github.io/sherpa/onnx/pretrained_models/zipformer-transducer-models.html
 func getBilingualStreamingZhEnZipformer20230220() -> EdgevoxOnnxOnlineModelConfig {
   let encoder = getResource("encoder-epoch-99-avg-1.int8", "onnx")
@@ -32,8 +32,8 @@ func getBilingualStreamingZhEnZipformer20230220() -> EdgevoxOnnxOnlineModelConfi
   )
 }
 
-/// csukuangfj/edgevox-onnx-streaming-zipformer-zh-14M-2023-02-23 (Chinese)
-/// https://k2-fsa.github.io/sherpa/onnx/pretrained_models/online-transducer/zipformer-transducer-models.html#csukuangfj-edgevox-onnx-streaming-zipformer-zh-14m-2023-02-23-chinese
+/// csukuangfj/sherpa-onnx-streaming-zipformer-zh-14M-2023-02-23 (Chinese)
+/// https://k2-fsa.github.io/sherpa/onnx/pretrained_models/online-transducer/zipformer-transducer-models.html#csukuangfj-sherpa-onnx-streaming-zipformer-zh-14m-2023-02-23-chinese
 
 func getStreamingZh14MZipformer20230223() -> EdgevoxOnnxOnlineModelConfig {
   let encoder = getResource("encoder-epoch-99-avg-1.int8", "onnx")
@@ -52,8 +52,8 @@ func getStreamingZh14MZipformer20230223() -> EdgevoxOnnxOnlineModelConfig {
   )
 }
 
-/// csukuangfj/edgevox-onnx-streaming-zipformer-en-20M-2023-02-17 (English)
-/// https://k2-fsa.github.io/sherpa/onnx/pretrained_models/online-transducer/zipformer-transducer-models.html#csukuangfj-edgevox-onnx-streaming-zipformer-en-20m-2023-02-17-english
+/// csukuangfj/sherpa-onnx-streaming-zipformer-en-20M-2023-02-17 (English)
+/// https://k2-fsa.github.io/sherpa/onnx/pretrained_models/online-transducer/zipformer-transducer-models.html#csukuangfj-sherpa-onnx-streaming-zipformer-en-20m-2023-02-17-english
 
 func getStreamingEn20MZipformer20230217() -> EdgevoxOnnxOnlineModelConfig {
   let encoder = getResource("encoder-epoch-99-avg-1.int8", "onnx")
@@ -76,8 +76,8 @@ func getStreamingEn20MZipformer20230217() -> EdgevoxOnnxOnlineModelConfig {
 ///   Non-streaming models
 /// ========================================
 
-/// csukuangfj/edgevox-onnx-paraformer-zh-2023-09-14 (Chinese)
-/// https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-paraformer/paraformer-models.html#csukuangfj-edgevox-onnx-paraformer-zh-2023-09-14-chinese
+/// csukuangfj/sherpa-onnx-paraformer-zh-2023-09-14 (Chinese)
+/// https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-paraformer/paraformer-models.html#csukuangfj-sherpa-onnx-paraformer-zh-2023-09-14-chinese
 func getNonStreamingZhParaformer20230914() -> EdgevoxOnnxOfflineModelConfig {
   let model = getResource("model.int8", "onnx")
   let tokens = getResource("paraformer-tokens", "txt")

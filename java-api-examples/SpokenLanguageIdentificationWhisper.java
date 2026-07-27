@@ -5,14 +5,14 @@
 //
 // Note that it needs a multilingual whisper model. For instance,
 // tiny works, but tiny.en doesn't.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class SpokenLanguageIdentificationWhisper {
   public static void main(String[] args) {
     // please download model and test files from
-    // https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
-    String encoder = "./edgevox-onnx-whisper-tiny/tiny-encoder.int8.onnx";
-    String decoder = "./edgevox-onnx-whisper-tiny/tiny-decoder.int8.onnx";
+    // https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
+    String encoder = "./sherpa-onnx-whisper-tiny/tiny-encoder.int8.onnx";
+    String decoder = "./sherpa-onnx-whisper-tiny/tiny-decoder.int8.onnx";
 
     String[] testFiles =
         new String[] {

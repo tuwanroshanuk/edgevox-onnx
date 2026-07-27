@@ -4,7 +4,7 @@ import (
 	"log"
 	"strings"
 
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 )
 
 func main() {
@@ -12,10 +12,10 @@ func main() {
 
 	config := sherpa.OfflineRecognizerConfig{}
 
-	config.ModelConfig.Omnilingual.Model = "./edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/model.int8.onnx"
-	config.ModelConfig.Tokens = "./edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/tokens.txt"
+	config.ModelConfig.Omnilingual.Model = "./sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/model.int8.onnx"
+	config.ModelConfig.Tokens = "./sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/tokens.txt"
 
-	waveFilename := "./edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/test_wavs/en.wav"
+	waveFilename := "./sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/test_wavs/en.wav"
 
 	wave := sherpa.ReadWave(waveFilename)
 	if wave == nil {

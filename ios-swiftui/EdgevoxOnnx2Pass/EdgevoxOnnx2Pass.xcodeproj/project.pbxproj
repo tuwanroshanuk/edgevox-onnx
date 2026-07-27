@@ -316,7 +316,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "-lc++";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.k2-fsa.org.EdgevoxOnnx2Pass";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.k2-fsa.org.SherpaOnnx2Pass";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/../../swift-api-examples/EdgevoxOnnx-Bridging-Header.h";
@@ -346,7 +346,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "-lc++";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.k2-fsa.org.EdgevoxOnnx2Pass";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.k2-fsa.org.SherpaOnnx2Pass";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/../../swift-api-examples/EdgevoxOnnx-Bridging-Header.h";

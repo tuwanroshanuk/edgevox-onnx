@@ -10,9 +10,9 @@ function createOfflineRecognizer() {
   let config = {
     modelConfig: {
       zipformerCtc: {
-        model: './edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03/model.int8.onnx',
+        model: './sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03/model.int8.onnx',
       },
-      tokens: './edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03/tokens.txt',
+      tokens: './sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03/tokens.txt',
     }
   };
 
@@ -23,7 +23,7 @@ const recognizer = createOfflineRecognizer();
 const stream = recognizer.createStream();
 
 const waveFilename =
-    './edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03/test_wavs/0.wav';
+    './sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03/test_wavs/0.wav';
 const wave = edgevox_onnx.readWave(waveFilename);
 stream.acceptWaveform(wave.sampleRate, wave.samples);
 

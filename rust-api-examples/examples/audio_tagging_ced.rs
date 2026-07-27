@@ -9,21 +9,21 @@ use std::time::Instant;
 fn main() {
     let config = AudioTaggingConfig {
         model: AudioTaggingModelConfig {
-            ced: Some("./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/model.int8.onnx".into()),
+            ced: Some("./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/model.int8.onnx".into()),
             num_threads: 1,
             debug: true,
             provider: Some("cpu".into()),
             ..Default::default()
         },
         labels: Some(
-            "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/class_labels_indices.csv".into(),
+            "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/class_labels_indices.csv".into(),
         ),
         top_k: 5,
     };
 
     let tagger = AudioTagging::create(&config).expect("Failed to create AudioTagging");
 
-    let wav = Wave::read("./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/6.wav")
+    let wav = Wave::read("./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/6.wav")
         .expect("Failed to read test wave");
 
     let start = Instant::now();

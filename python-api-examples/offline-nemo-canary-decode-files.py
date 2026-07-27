@@ -5,7 +5,7 @@ This file shows how to use a non-streaming Canary model from NeMo
 to decode files.
 
 Please download model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 
 
 The example model supports 4 languages and it is converted from
@@ -24,17 +24,17 @@ import soundfile as sf
 
 
 def create_recognizer():
-    encoder = "./edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/encoder.int8.onnx"
-    decoder = "./edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/decoder.int8.onnx"
-    tokens = "./edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/tokens.txt"
+    encoder = "./sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/encoder.int8.onnx"
+    decoder = "./sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/decoder.int8.onnx"
+    tokens = "./sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/tokens.txt"
 
-    en_wav = "./edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/en.wav"
-    de_wav = "./edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/de.wav"
+    en_wav = "./sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/en.wav"
+    de_wav = "./sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/de.wav"
 
     if not Path(encoder).is_file() or not Path(en_wav).is_file():
         raise ValueError(
             """Please download model files from
-            https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+            https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
             """
         )
     return (

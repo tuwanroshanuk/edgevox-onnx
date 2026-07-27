@@ -8,8 +8,8 @@ https://modelscope.cn/models/csukuangfj/2026-01-05-rknn/files
 # Download test wave
 
 ```
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/en.wav
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/en-16k.wav
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/en.wav
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/en-16k.wav
 ```
 
 ## Export to onnx
@@ -42,7 +42,7 @@ ls -lh tiny.en-*.rknn
 ## Run it on your rk3588 board
 
 ```
-wget https://huggingface.co/csukuangfj/edgevox-onnx-whisper-tiny.en/resolve/main/tiny.en-tokens.txt
+wget https://huggingface.co/csukuangfj/sherpa-onnx-whisper-tiny.en/resolve/main/tiny.en-tokens.txt
 
 ./test_on_rk3588_board.py  --encoder ./tiny.en-encoder.rknn --decoder ./tiny.en-decoder.rknn --tokens ./tiny.en-tokens.txt --wav ./en-16k.wav
 ```

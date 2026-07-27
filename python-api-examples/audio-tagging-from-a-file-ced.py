@@ -17,13 +17,13 @@ import soundfile as sf
 
 def read_test_wave():
     # Please download the model files and test wave files from
-    # https://github.com/k2-fsa/edgevox-onnx/releases/tag/audio-tagging-models
-    test_wave = "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/6.wav"
+    # https://github.com/k2-fsa/sherpa-onnx/releases/tag/audio-tagging-models
+    test_wave = "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/6.wav"
 
     if not Path(test_wave).is_file():
         raise ValueError(
             f"Please download {test_wave} from "
-            "https://github.com/k2-fsa/edgevox-onnx/releases/tag/audio-tagging-models"
+            "https://github.com/k2-fsa/sherpa-onnx/releases/tag/audio-tagging-models"
         )
 
     # See https://python-soundfile.readthedocs.io/en/0.11.0/#soundfile.read
@@ -42,22 +42,22 @@ def read_test_wave():
 
 def create_audio_tagger():
     # Please download the model files and test wave files from
-    # https://github.com/k2-fsa/edgevox-onnx/releases/tag/audio-tagging-models
-    model_file = "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/model.int8.onnx"
+    # https://github.com/k2-fsa/sherpa-onnx/releases/tag/audio-tagging-models
+    model_file = "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/model.int8.onnx"
     label_file = (
-        "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/class_labels_indices.csv"
+        "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/class_labels_indices.csv"
     )
 
     if not Path(model_file).is_file():
         raise ValueError(
             f"Please download {model_file} from "
-            "https://github.com/k2-fsa/edgevox-onnx/releases/tag/audio-tagging-models"
+            "https://github.com/k2-fsa/sherpa-onnx/releases/tag/audio-tagging-models"
         )
 
     if not Path(label_file).is_file():
         raise ValueError(
             f"Please download {label_file} from "
-            "https://github.com/k2-fsa/edgevox-onnx/releases/tag/audio-tagging-models"
+            "https://github.com/k2-fsa/sherpa-onnx/releases/tag/audio-tagging-models"
         )
 
     config = edgevox_onnx.AudioTaggingConfig(

@@ -11,8 +11,8 @@
 namespace edgevox_onnx {
 
 // See also
-// https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/uvr_mdx/test.py
-// https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/uvr_mdx/add_meta_data_and_quantize.py
+// https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/uvr_mdx/test.py
+// https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/uvr_mdx/add_meta_data_and_quantize.py
 struct OfflineSourceSeparationUvrModelMetaData {
   int32_t sample_rate = 44100;
   int32_t num_stems = 2;
@@ -28,7 +28,7 @@ struct OfflineSourceSeparationUvrModelMetaData {
   std::string window_type = "hann";
 
   // the following fields are preconfigured. Please see
-  // https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/uvr_mdx/test.py
+  // https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/uvr_mdx/test.py
   int32_t margin = 0;  // changed in ./offline-source-separation-uvr-model.cc
   const int32_t num_chunks = 15;
 };

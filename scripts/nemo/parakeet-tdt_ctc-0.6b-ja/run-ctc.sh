@@ -13,7 +13,7 @@ curl -SL -O https://hf-mirror.com/csukuangfj/reazonspeech-k2-v2-ja-en/resolve/ma
 curl -SL -O https://hf-mirror.com/csukuangfj/reazonspeech-k2-v2-ja-en/resolve/main/test_wavs/test_ja_2.wav
 popd
 
-d=edgevox-onnx-nemo-parakeet-tdt_ctc-0.6b-ja-35000-int8
+d=sherpa-onnx-nemo-parakeet-tdt_ctc-0.6b-ja-35000-int8
 
 mkdir -p $d
 mv -v model.int8.onnx $d/
@@ -22,7 +22,7 @@ cp -av test_wavs $d
 ls -lh $d
 
 
-d=edgevox-onnx-nemo-parakeet-tdt_ctc-0.6b-ja-35000-int8
+d=sherpa-onnx-nemo-parakeet-tdt_ctc-0.6b-ja-35000-int8
 python3 ./test-onnx-ctc-non-streaming.py \
   --model $d/model.int8.onnx \
   --tokens $d/tokens.txt \

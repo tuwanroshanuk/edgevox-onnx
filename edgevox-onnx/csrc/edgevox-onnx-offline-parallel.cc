@@ -184,9 +184,9 @@ See https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-paraformer/in
 See https://k2-fsa.github.io/sherpa/onnx/pretrained_models/whisper/tiny.en.html
 
   ./bin/edgevox-onnx-offline-parallel \
-    --whisper-encoder=./edgevox-onnx-whisper-base.en/base.en-encoder.int8.onnx \
-    --whisper-decoder=./edgevox-onnx-whisper-base.en/base.en-decoder.int8.onnx \
-    --tokens=./edgevox-onnx-whisper-base.en/base.en-tokens.txt \
+    --whisper-encoder=./sherpa-onnx-whisper-base.en/base.en-encoder.int8.onnx \
+    --whisper-decoder=./sherpa-onnx-whisper-base.en/base.en-decoder.int8.onnx \
+    --tokens=./sherpa-onnx-whisper-base.en/base.en-tokens.txt \
     --num-threads=1 \
     /path/to/foo.wav [bar.wav foobar.wav ...]
 
@@ -195,14 +195,14 @@ See https://k2-fsa.github.io/sherpa/onnx/pretrained_models/whisper/tiny.en.html
 See https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-ctc/index.html
 
   ./bin/edgevox-onnx-offline-parallel \
-    --tokens=./edgevox-onnx-nemo-ctc-en-conformer-medium/tokens.txt \
-    --nemo-ctc-model=./edgevox-onnx-nemo-ctc-en-conformer-medium/model.onnx \
+    --tokens=./sherpa-onnx-nemo-ctc-en-conformer-medium/tokens.txt \
+    --nemo-ctc-model=./sherpa-onnx-nemo-ctc-en-conformer-medium/model.onnx \
     --num-threads=2 \
     --decoding-method=greedy_search \
     --debug=false \
-    ./edgevox-onnx-nemo-ctc-en-conformer-medium/test_wavs/0.wav \
-    ./edgevox-onnx-nemo-ctc-en-conformer-medium/test_wavs/1.wav \
-    ./edgevox-onnx-nemo-ctc-en-conformer-medium/test_wavs/8k.wav
+    ./sherpa-onnx-nemo-ctc-en-conformer-medium/test_wavs/0.wav \
+    ./sherpa-onnx-nemo-ctc-en-conformer-medium/test_wavs/1.wav \
+    ./sherpa-onnx-nemo-ctc-en-conformer-medium/test_wavs/8k.wav
 
 (5) TDNN CTC model for the yesno recipe from icefall
 

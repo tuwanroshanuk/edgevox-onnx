@@ -16,7 +16,7 @@ setup(
     version="1.13.4",
     description="Binary executables for edgevox-onnx",
     author="The edgevox-onnx development team",
-    url="https://github.com/k2-fsa/edgevox-onnx",
+    url="https://github.com/tuwanroshanuk/edgevox-onnx",
     author_email="dpovey@gmail.com",
     zip_safe=False,
     license="Apache 2.0",

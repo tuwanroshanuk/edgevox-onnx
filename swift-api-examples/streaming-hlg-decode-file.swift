@@ -14,10 +14,10 @@ extension AVAudioPCMBuffer {
 
 func run() {
   let filePath =
-    "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/8k.wav"
+    "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/8k.wav"
   let model =
-    "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx"
-  let tokens = "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt"
+    "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx"
+  let tokens = "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt"
   let zipfomer2CtcModelConfig = edgevoxOnnxOnlineZipformer2CtcModelConfig(
     model: model
   )
@@ -33,7 +33,7 @@ func run() {
   )
 
   let ctcFstDecoderConfig = edgevoxOnnxOnlineCtcFstDecoderConfig(
-    graph: "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst",
+    graph: "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst",
     maxActive: 3000
   )
 

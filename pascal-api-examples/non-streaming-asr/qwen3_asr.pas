@@ -5,7 +5,7 @@ This file shows how to use a non-streaming Qwen3 ASR model
 to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program qwen3_asr;
@@ -35,17 +35,17 @@ var
 begin
   Initialize(Config);
 
-  Config.ModelConfig.Qwen3Asr.ConvFrontend := './edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/conv_frontend.onnx';
-  Config.ModelConfig.Qwen3Asr.Encoder := './edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/encoder.int8.onnx';
-  Config.ModelConfig.Qwen3Asr.Decoder := './edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/decoder.int8.onnx';
-  Config.ModelConfig.Qwen3Asr.Tokenizer := './edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/tokenizer';
+  Config.ModelConfig.Qwen3Asr.ConvFrontend := './sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/conv_frontend.onnx';
+  Config.ModelConfig.Qwen3Asr.Encoder := './sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/encoder.int8.onnx';
+  Config.ModelConfig.Qwen3Asr.Decoder := './sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/decoder.int8.onnx';
+  Config.ModelConfig.Qwen3Asr.Tokenizer := './sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/tokenizer';
   Config.ModelConfig.Qwen3Asr.Hotwords := '';
   Config.ModelConfig.Tokens := '';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 3;
   Config.ModelConfig.Debug := True;
 
-  WaveFilename := './edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/test_wavs/raokouling.wav';
+  WaveFilename := './sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/test_wavs/raokouling.wav';
 
   Wave := EdgevoxOnnxReadWave(WaveFilename);
 

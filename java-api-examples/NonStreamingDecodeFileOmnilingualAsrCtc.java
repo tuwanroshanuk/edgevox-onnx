@@ -3,7 +3,7 @@
 // This file shows how to use an offline Omnilingual ASR CTC model,
 // i.e., non-streaming Omnilingual ASR CTC model,
 // to decode files.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingDecodeFileOmnilingualAsrCtc {
   public static void main(String[] args) {
@@ -11,13 +11,13 @@ public class NonStreamingDecodeFileOmnilingualAsrCtc {
     // https://k2-fsa.github.io/sherpa/onnx/omnilingual-asr/index.html
     // to download model files
     String model =
-        "edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/model.int8.onnx";
+        "sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/model.int8.onnx";
 
     String tokens =
-        "edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/tokens.txt";
+        "sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/tokens.txt";
 
     String waveFilename =
-        "./edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/test_wavs/en.wav";
+        "./sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/test_wavs/en.wav";
 
     WaveReader reader = new WaveReader(waveFilename);
 

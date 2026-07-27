@@ -8,7 +8,7 @@ fn main() {
     let config = OfflineSpeakerDiarizationConfig {
         segmentation: OfflineSpeakerSegmentationModelConfig {
             pyannote: OfflineSpeakerSegmentationPyannoteModelConfig {
-                model: Some("./edgevox-onnx-pyannote-segmentation-3-0/model.onnx".into()),
+                model: Some("./sherpa-onnx-pyannote-segmentation-3-0/model.onnx".into()),
             },
             ..Default::default()
         },

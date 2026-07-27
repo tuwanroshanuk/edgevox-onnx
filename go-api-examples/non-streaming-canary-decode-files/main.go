@@ -4,7 +4,7 @@ import (
 	"log"
 	"strings"
 
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 )
 
 func main() {
@@ -12,14 +12,14 @@ func main() {
 
 	config := sherpa.OfflineRecognizerConfig{}
 
-	config.ModelConfig.Canary.Encoder = "./edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/encoder.int8.onnx"
-	config.ModelConfig.Canary.Decoder = "./edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/decoder.int8.onnx"
+	config.ModelConfig.Canary.Encoder = "./sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/encoder.int8.onnx"
+	config.ModelConfig.Canary.Decoder = "./sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/decoder.int8.onnx"
 	config.ModelConfig.Canary.SrcLang = "en"
 	config.ModelConfig.Canary.TgtLang = "en"
 	config.ModelConfig.Canary.UsePnc = 1
-	config.ModelConfig.Tokens = "./edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/tokens.txt"
+	config.ModelConfig.Tokens = "./sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/tokens.txt"
 
-	waveFilename := "./edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/en.wav"
+	waveFilename := "./sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/en.wav"
 
 	wave := sherpa.ReadWave(waveFilename)
 	if wave == nil {

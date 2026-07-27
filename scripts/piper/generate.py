@@ -64,7 +64,7 @@ def get_ar_models():
                    echo "and https://github.com/OHF-Voice/piper1-gpl/discussions/27" >> README.md
                    echo "\n\n# License\n\n" >> README.md
 
-                   echo "See also https://github.com/k2-fsa/edgevox-onnx/pull/2480\n\n" >> README.md
+                   echo "See also https://github.com/k2-fsa/sherpa-onnx/pull/2480\n\n" >> README.md
                    echo "This model is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).\n" >> README.md
 
                    echo "- ✅ Always free for regular (non-commercial) users  \n" >> README.md
@@ -92,7 +92,7 @@ def get_ar_models():
                    echo "and https://github.com/OHF-Voice/piper1-gpl/discussions/27" >> README.md
                    echo "\n\n# License\n\n" >> README.md
 
-                   echo "See also https://github.com/k2-fsa/edgevox-onnx/pull/2480\n\n" >> README.md
+                   echo "See also https://github.com/k2-fsa/sherpa-onnx/pull/2480\n\n" >> README.md
                    echo "This model is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).\n" >> README.md
 
                    echo "- ✅ Always free for regular (non-commercial) users  \n" >> README.md
@@ -120,7 +120,7 @@ def get_ar_models():
                    echo "and https://github.com/OHF-Voice/piper1-gpl/discussions/27" >> README.md
                    echo "\n\n# License\n\n" >> README.md
 
-                   echo "See also https://github.com/k2-fsa/edgevox-onnx/pull/2480\n\n" >> README.md
+                   echo "See also https://github.com/k2-fsa/sherpa-onnx/pull/2480\n\n" >> README.md
                    echo "This model is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).\n" >> README.md
 
                    echo "- ✅ Always free for regular (non-commercial) users  \n" >> README.md
@@ -349,7 +349,7 @@ def get_es_models():
                    echo "and https://github.com/OHF-Voice/piper1-gpl/discussions/27" >> README.md
                    echo "\n\n# License\n\n" >> README.md
 
-                   echo "See also https://github.com/k2-fsa/edgevox-onnx/pull/2480\n\n" >> README.md
+                   echo "See also https://github.com/k2-fsa/sherpa-onnx/pull/2480\n\n" >> README.md
                    echo "This model is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).\n" >> README.md
 
                    echo "- ✅ Always free for regular (non-commercial) users  \n" >> README.md
@@ -568,7 +568,7 @@ def get_fr_models():
                    echo "and https://github.com/OHF-Voice/piper1-gpl/discussions/27" >> README.md
                    echo "\n\n# License\n\n" >> README.md
 
-                   echo "See also https://github.com/k2-fsa/edgevox-onnx/pull/2480\n\n" >> README.md
+                   echo "See also https://github.com/k2-fsa/sherpa-onnx/pull/2480\n\n" >> README.md
                    echo "This model is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).\n" >> README.md
 
                    echo "- ✅ Always free for regular (non-commercial) users  \n" >> README.md
@@ -721,7 +721,7 @@ def get_it_models():
                    echo "and https://github.com/OHF-Voice/piper1-gpl/discussions/27" >> README.md
                    echo "\n\n# License\n\n" >> README.md
 
-                   echo "See also https://github.com/k2-fsa/edgevox-onnx/pull/2480\n\n" >> README.md
+                   echo "See also https://github.com/k2-fsa/sherpa-onnx/pull/2480\n\n" >> README.md
                    echo "This model is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).\n" >> README.md
 
                    echo "- ✅ Always free for regular (non-commercial) users  \n" >> README.md
@@ -751,7 +751,7 @@ def get_it_models():
                    echo "and https://github.com/OHF-Voice/piper1-gpl/discussions/27" >> README.md
                    echo "\n\n# License\n\n" >> README.md
 
-                   echo "See also https://github.com/k2-fsa/edgevox-onnx/pull/2480\n\n" >> README.md
+                   echo "See also https://github.com/k2-fsa/sherpa-onnx/pull/2480\n\n" >> README.md
                    echo "This model is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).\n" >> README.md
 
                    echo "- ✅ Always free for regular (non-commercial) users  \n" >> README.md
@@ -994,7 +994,7 @@ def get_nl_models():
                    echo "and https://github.com/OHF-Voice/piper1-gpl/discussions/27" >> README.md
                    echo "\n\n# License\n\n" >> README.md
 
-                   echo "See also https://github.com/k2-fsa/edgevox-onnx/pull/2480\n\n" >> README.md
+                   echo "See also https://github.com/k2-fsa/sherpa-onnx/pull/2480\n\n" >> README.md
                    echo "This model is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).\n" >> README.md
 
                    echo "- ✅ Always free for regular (non-commercial) users  \n" >> README.md
@@ -1024,7 +1024,7 @@ def get_nl_models():
                    echo "and https://github.com/OHF-Voice/piper1-gpl/discussions/27" >> README.md
                    echo "\n\n# License\n\n" >> README.md
 
-                   echo "See also https://github.com/k2-fsa/edgevox-onnx/pull/2480\n\n" >> README.md
+                   echo "See also https://github.com/k2-fsa/sherpa-onnx/pull/2480\n\n" >> README.md
                    echo "This model is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).\n" >> README.md
 
                    echo "- ✅ Always free for regular (non-commercial) users  \n" >> README.md
@@ -1122,7 +1122,7 @@ def get_pl_models():
                    wget -qq https://huggingface.co/WitoldG/polish_piper_models/resolve/main/pl_PL-jarvis_wg_glos-medium.onnx.json
                    wget -qq https://huggingface.co/WitoldG/polish_piper_models/resolve/main/README.md
                    """,
-                url="https://github.com/k2-fsa/edgevox-onnx/issues/2402",
+                url="https://github.com/k2-fsa/sherpa-onnx/issues/2402",
             ),
             PiperModel(
                 name="justyna_wg_glos",
@@ -1134,7 +1134,7 @@ def get_pl_models():
                    wget -qq https://huggingface.co/WitoldG/polish_piper_models/resolve/main/pl_PL-justyna_wg_glos-medium.onnx.json
                    wget -qq https://huggingface.co/WitoldG/polish_piper_models/resolve/main/README.md
                    """,
-                url="https://github.com/k2-fsa/edgevox-onnx/issues/2402",
+                url="https://github.com/k2-fsa/sherpa-onnx/issues/2402",
             ),
             PiperModel(
                 name="meski_wg_glos",
@@ -1146,7 +1146,7 @@ def get_pl_models():
                    wget -qq https://huggingface.co/WitoldG/polish_piper_models/resolve/main/pl_PL-meski_wg_glos-medium.onnx.json
                    wget -qq https://huggingface.co/WitoldG/polish_piper_models/resolve/main/README.md
                    """,
-                url="https://github.com/k2-fsa/edgevox-onnx/issues/2402",
+                url="https://github.com/k2-fsa/sherpa-onnx/issues/2402",
             ),
             PiperModel(
                 name="zenski_wg_glos",
@@ -1158,7 +1158,7 @@ def get_pl_models():
                    wget -qq https://huggingface.co/WitoldG/polish_piper_models/resolve/main/pl_PL-zenski_wg_glos-medium.onnx.json
                    wget -qq https://huggingface.co/WitoldG/polish_piper_models/resolve/main/README.md
                    """,
-                url="https://github.com/k2-fsa/edgevox-onnx/issues/2402",
+                url="https://github.com/k2-fsa/sherpa-onnx/issues/2402",
             ),
         ]
     )
@@ -1227,7 +1227,7 @@ def get_pt_models():
                    echo "and https://github.com/OHF-Voice/piper1-gpl/discussions/27" >> README.md
                    echo "\n\n# License\n\n" >> README.md
 
-                   echo "See also https://github.com/k2-fsa/edgevox-onnx/pull/2480\n\n" >> README.md
+                   echo "See also https://github.com/k2-fsa/sherpa-onnx/pull/2480\n\n" >> README.md
                    echo "This model is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).\n" >> README.md
 
                    echo "- ✅ Always free for regular (non-commercial) users  \n" >> README.md
@@ -1257,7 +1257,7 @@ def get_pt_models():
                    echo "and https://github.com/OHF-Voice/piper1-gpl/discussions/27" >> README.md
                    echo "\n\n# License\n\n" >> README.md
 
-                   echo "See also https://github.com/k2-fsa/edgevox-onnx/pull/2480\n\n" >> README.md
+                   echo "See also https://github.com/k2-fsa/sherpa-onnx/pull/2480\n\n" >> README.md
                    echo "This model is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).\n" >> README.md
 
                    echo "- ✅ Always free for regular (non-commercial) users  \n" >> README.md
@@ -1290,7 +1290,7 @@ def get_pt_models():
                    echo "and https://github.com/OHF-Voice/piper1-gpl/discussions/27" >> README.md
                    echo "\n\n# License\n\n" >> README.md
 
-                   echo "See also https://github.com/k2-fsa/edgevox-onnx/pull/2480\n\n" >> README.md
+                   echo "See also https://github.com/k2-fsa/sherpa-onnx/pull/2480\n\n" >> README.md
                    echo "This model is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).\n" >> README.md
 
                    echo "- ✅ Always free for regular (non-commercial) users  \n" >> README.md
@@ -1320,7 +1320,7 @@ def get_pt_models():
                    echo "and https://github.com/OHF-Voice/piper1-gpl/discussions/27" >> README.md
                    echo "\n\n# License\n\n" >> README.md
 
-                   echo "See also https://github.com/k2-fsa/edgevox-onnx/pull/2480\n\n" >> README.md
+                   echo "See also https://github.com/k2-fsa/sherpa-onnx/pull/2480\n\n" >> README.md
                    echo "This model is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).\n" >> README.md
 
                    echo "- ✅ Always free for regular (non-commercial) users  \n" >> README.md
@@ -1858,7 +1858,7 @@ def get_en_models():
                    echo "and https://github.com/OHF-Voice/piper1-gpl/discussions/27" >> README.md
                    echo "\n\n# License\n\n" >> README.md
 
-                   echo "See also https://github.com/k2-fsa/edgevox-onnx/pull/2480\n\n" >> README.md
+                   echo "See also https://github.com/k2-fsa/sherpa-onnx/pull/2480\n\n" >> README.md
                    echo "This model is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).\n" >> README.md
 
                    echo "- ✅ Always free for regular (non-commercial) users  \n" >> README.md
@@ -1888,7 +1888,7 @@ def get_en_models():
                    echo "and https://github.com/OHF-Voice/piper1-gpl/discussions/27" >> README.md
                    echo "\n\n# License\n\n" >> README.md
 
-                   echo "See also https://github.com/k2-fsa/edgevox-onnx/pull/2480\n\n" >> README.md
+                   echo "See also https://github.com/k2-fsa/sherpa-onnx/pull/2480\n\n" >> README.md
                    echo "This model is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).\n" >> README.md
 
                    echo "- ✅ Always free for regular (non-commercial) users  \n" >> README.md
@@ -1941,7 +1941,7 @@ def get_en_models():
                    echo "and https://github.com/OHF-Voice/piper1-gpl/discussions/27" >> README.md
                    echo "\n\n# License\n\n" >> README.md
 
-                   echo "See also https://github.com/k2-fsa/edgevox-onnx/pull/2480\n\n" >> README.md
+                   echo "See also https://github.com/k2-fsa/sherpa-onnx/pull/2480\n\n" >> README.md
                    echo "This model is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).\n" >> README.md
 
                    echo "- ✅ Always free for regular (non-commercial) users  \n" >> README.md
@@ -2099,7 +2099,7 @@ def get_de_models():
                    echo "and https://github.com/OHF-Voice/piper1-gpl/discussions/27" >> README.md
                    echo "\n\n# License\n\n" >> README.md
 
-                   echo "See also https://github.com/k2-fsa/edgevox-onnx/pull/2480\n\n" >> README.md
+                   echo "See also https://github.com/k2-fsa/sherpa-onnx/pull/2480\n\n" >> README.md
                    echo "This model is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).\n" >> README.md
 
                    echo "- ✅ Always free for regular (non-commercial) users  \n" >> README.md
@@ -2129,7 +2129,7 @@ def get_de_models():
                    echo "and https://github.com/OHF-Voice/piper1-gpl/discussions/27" >> README.md
                    echo "\n\n# License\n\n" >> README.md
 
-                   echo "See also https://github.com/k2-fsa/edgevox-onnx/pull/2480\n\n" >> README.md
+                   echo "See also https://github.com/k2-fsa/sherpa-onnx/pull/2480\n\n" >> README.md
                    echo "This model is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).\n" >> README.md
 
                    echo "- ✅ Always free for regular (non-commercial) users  \n" >> README.md

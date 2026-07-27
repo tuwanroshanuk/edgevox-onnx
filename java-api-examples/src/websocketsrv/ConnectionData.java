@@ -5,7 +5,7 @@
 
 package websocketsrv;
 
-import com.k2fsa.sherpa.onnx.OnlineStream;
+import com.nexus.edgevox.onnx.OnlineStream;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.Queue;

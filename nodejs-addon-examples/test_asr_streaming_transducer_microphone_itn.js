@@ -14,14 +14,14 @@ function createOnlineRecognizer() {
     'modelConfig': {
       'transducer': {
         'encoder':
-            './edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.onnx',
+            './sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.onnx',
         'decoder':
-            './edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx',
+            './sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx',
         'joiner':
-            './edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.onnx',
+            './sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.onnx',
       },
       'tokens':
-          './edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt',
+          './sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt',
       'numThreads': 2,
       'provider': 'cpu',
       'debug': 1,
@@ -32,7 +32,7 @@ function createOnlineRecognizer() {
     'rule1MinTrailingSilence': 2.4,
     'rule2MinTrailingSilence': 1.2,
     'rule3MinUtteranceLength': 20,
-    // https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+    // https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
     ruleFsts: './itn_zh_number.fst',
   };
 

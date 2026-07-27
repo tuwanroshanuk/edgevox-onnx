@@ -1,1 +1,1 @@
-../sherpa-onnx/kotlin-api/FeatureConfig.kt
+../edgevox-onnx/kotlin-api/FeatureConfig.kt

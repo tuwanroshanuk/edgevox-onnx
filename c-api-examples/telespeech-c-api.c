@@ -7,9 +7,9 @@
 // C API.
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04.tar.bz2
-// tar xvf edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04.tar.bz2
-// rm edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04.tar.bz2
+// tar xvf sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04.tar.bz2
+// rm sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04.tar.bz2
 //
 // clang-format on
 
@@ -21,11 +21,11 @@
 
 int32_t main() {
   const char *wav_filename =
-      "edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04/test_wavs/3-sichuan.wav";
+      "sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04/test_wavs/3-sichuan.wav";
   const char *model_filename =
-      "edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04/model.int8.onnx";
+      "sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04/model.int8.onnx";
   const char *tokens_filename =
-      "edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04/tokens.txt";
+      "sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04/tokens.txt";
   const char *provider = "cpu";
 
   const EdgevoxOnnxWave *wave = EdgevoxOnnxReadWave(wav_filename);

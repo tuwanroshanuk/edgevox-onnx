@@ -1,1 +1,1 @@
-../../../sherpa-onnx/c-api/c-api.h
+../../../edgevox-onnx/c-api/c-api.h

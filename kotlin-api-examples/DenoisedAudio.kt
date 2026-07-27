@@ -1,1 +1,1 @@
-../sherpa-onnx/kotlin-api/DenoisedAudio.kt
+../edgevox-onnx/kotlin-api/DenoisedAudio.kt

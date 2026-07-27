@@ -21,9 +21,9 @@ func run() {
   // modelType = "moonshine"
 
   if modelType == "whisper" {
-    let encoder = "./edgevox-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx"
-    let decoder = "./edgevox-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx"
-    let tokens = "./edgevox-onnx-whisper-tiny.en/tiny.en-tokens.txt"
+    let encoder = "./sherpa-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx"
+    let decoder = "./sherpa-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx"
+    let tokens = "./sherpa-onnx-whisper-tiny.en/tiny.en-tokens.txt"
 
     let whisperConfig = edgevoxOnnxOfflineWhisperModelConfig(
       encoder: encoder,
@@ -37,8 +37,8 @@ func run() {
       modelType: "whisper"
     )
   } else if modelType == "paraformer" {
-    let model = "./edgevox-onnx-paraformer-zh-2023-09-14/model.int8.onnx"
-    let tokens = "./edgevox-onnx-paraformer-zh-2023-09-14/tokens.txt"
+    let model = "./sherpa-onnx-paraformer-zh-2023-09-14/model.int8.onnx"
+    let tokens = "./sherpa-onnx-paraformer-zh-2023-09-14/tokens.txt"
     let paraformerConfig = edgevoxOnnxOfflineParaformerModelConfig(
       model: model
     )
@@ -50,8 +50,8 @@ func run() {
       modelType: "paraformer"
     )
   } else if modelType == "sense_voice" {
-    let model = "./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/model.int8.onnx"
-    let tokens = "./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/tokens.txt"
+    let model = "./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/model.int8.onnx"
+    let tokens = "./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/tokens.txt"
     let senseVoiceConfig = edgevoxOnnxOfflineSenseVoiceModelConfig(
       model: model,
       useInverseTextNormalization: true
@@ -63,11 +63,11 @@ func run() {
       senseVoice: senseVoiceConfig
     )
   } else if modelType == "moonshine" {
-    let preprocessor = "./edgevox-onnx-moonshine-tiny-en-int8/preprocess.onnx"
-    let encoder = "./edgevox-onnx-moonshine-tiny-en-int8/encode.int8.onnx"
-    let uncachedDecoder = "./edgevox-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx"
-    let cachedDecoder = "./edgevox-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx"
-    let tokens = "./edgevox-onnx-moonshine-tiny-en-int8/tokens.txt"
+    let preprocessor = "./sherpa-onnx-moonshine-tiny-en-int8/preprocess.onnx"
+    let encoder = "./sherpa-onnx-moonshine-tiny-en-int8/encode.int8.onnx"
+    let uncachedDecoder = "./sherpa-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx"
+    let cachedDecoder = "./sherpa-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx"
+    let tokens = "./sherpa-onnx-moonshine-tiny-en-int8/tokens.txt"
     let moonshine = edgevoxOnnxOfflineMoonshineModelConfig(
       preprocessor: preprocessor,
       encoder: encoder,
@@ -96,11 +96,11 @@ func run() {
 
   recognizer = EdgevoxOnnxOfflineRecognizer(config: &config)
 
-  var filePath = "./edgevox-onnx-whisper-tiny.en/test_wavs/0.wav"
+  var filePath = "./sherpa-onnx-whisper-tiny.en/test_wavs/0.wav"
   if modelType == "sense_voice" {
-    filePath = "./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/test_wavs/zh.wav"
+    filePath = "./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/test_wavs/zh.wav"
   } else if modelType == "moonshine" {
-    filePath = "./edgevox-onnx-moonshine-tiny-en-int8/test_wavs/0.wav"
+    filePath = "./sherpa-onnx-moonshine-tiny-en-int8/test_wavs/0.wav"
   }
   let fileURL: NSURL = NSURL(fileURLWithPath: filePath)
   let audioFile = try! AVAudioFile(forReading: fileURL as URL)

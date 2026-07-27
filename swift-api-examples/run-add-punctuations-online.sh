@@ -8,10 +8,10 @@ if [ ! -d ../build-swift-macos ]; then
 fi
 
 # Download and extract the online punctuation model if not exists
-if [ ! -d ./edgevox-onnx-online-punct-en-2024-08-06 ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/punctuation-models/edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
-  tar xvf edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
-  rm edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
+if [ ! -d ./sherpa-onnx-online-punct-en-2024-08-06 ]; then
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/punctuation-models/sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
+  tar xvf sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
+  rm sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
 fi
 
 if [ ! -e ./add-punctuation-online ]; then

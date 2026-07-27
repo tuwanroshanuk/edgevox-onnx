@@ -5,9 +5,9 @@
 // This file demonstrates how to use MedASR with edgevox-onnx's C++ API.
 // clang-format off
 /*
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
-tar xvf edgevox-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
-rm edgevox-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
+tar xvf sherpa-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
+rm sherpa-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
 */
 //
 // clang-format on
@@ -24,8 +24,8 @@ int32_t main() {
   OfflineRecognizerConfig config;
 
   // clang-format off
-  config.model_config.medasr.model = "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/model.int8.onnx";
-  config.model_config.tokens = "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/tokens.txt";
+  config.model_config.medasr.model = "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/model.int8.onnx";
+  config.model_config.tokens = "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/tokens.txt";
 
   config.model_config.num_threads = 1;
 
@@ -37,7 +37,7 @@ int32_t main() {
   }
   std::cout << "Loading model done\n";
 
-  std::string wave_filename = "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/0.wav";
+  std::string wave_filename = "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/0.wav";
   // clang-format on
 
   Wave wave = ReadWave(wave_filename);

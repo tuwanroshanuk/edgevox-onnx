@@ -1,1 +1,1 @@
-../sherpa-onnx/kotlin-api/HomophoneReplacerConfig.kt
+../edgevox-onnx/kotlin-api/HomophoneReplacerConfig.kt

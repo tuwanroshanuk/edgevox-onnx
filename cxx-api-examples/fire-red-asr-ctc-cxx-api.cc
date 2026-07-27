@@ -5,9 +5,9 @@
 // This file demonstrates how to use FireRedASR CTC with edgevox-onnx's C++ API.
 // clang-format off
 /*
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
-tar xvf edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
-rm edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
+tar xvf sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
+rm sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
 */
 //
 // clang-format on
@@ -24,8 +24,8 @@ int32_t main() {
   OfflineRecognizerConfig config;
 
   // clang-format off
-  config.model_config.fire_red_asr_ctc.model = "./edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/model.int8.onnx";
-  config.model_config.tokens = "./edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/tokens.txt";
+  config.model_config.fire_red_asr_ctc.model = "./sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/model.int8.onnx";
+  config.model_config.tokens = "./sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/tokens.txt";
 
   config.model_config.num_threads = 1;
 
@@ -37,7 +37,7 @@ int32_t main() {
   }
   std::cout << "Loading model done\n";
 
-  std::string wave_filename ="./edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/test_wavs/1.wav";
+  std::string wave_filename ="./sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/test_wavs/1.wav";
   // clang-format on
 
   Wave wave = ReadWave(wave_filename);

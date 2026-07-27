@@ -27,26 +27,26 @@ Usage example:
 
 Step 1: Download a speaker segmentation model
 
-Please visit https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-segmentation-models
+Please visit https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-segmentation-models
 for a list of available models. The following is an example
 
-  wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-segmentation-models/edgevox-onnx-pyannote-segmentation-3-0.tar.bz2
-  tar xvf edgevox-onnx-pyannote-segmentation-3-0.tar.bz2
-  rm edgevox-onnx-pyannote-segmentation-3-0.tar.bz2
+  wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-segmentation-models/sherpa-onnx-pyannote-segmentation-3-0.tar.bz2
+  tar xvf sherpa-onnx-pyannote-segmentation-3-0.tar.bz2
+  rm sherpa-onnx-pyannote-segmentation-3-0.tar.bz2
 
 Step 2: Download a speaker embedding extractor model
 
-Please visit https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-recongition-models
+Please visit https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models
 for a list of available models. The following is an example
 
-  wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
+  wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
 
 Step 3. Download test wave files
 
-Please visit https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-segmentation-models
+Please visit https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-segmentation-models
 for a list of available test wave files. The following is an example
 
-  wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-segmentation-models/0-four-speakers-zh.wav
+  wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-segmentation-models/0-four-speakers-zh.wav
 
 Step 4. Build edgevox-onnx
 
@@ -54,7 +54,7 @@ Step 5. Run it
 
   ./bin/edgevox-onnx-offline-speaker-diarization \
     --clustering.num-clusters=4 \
-    --segmentation.pyannote-model=./edgevox-onnx-pyannote-segmentation-3-0/model.onnx \
+    --segmentation.pyannote-model=./sherpa-onnx-pyannote-segmentation-3-0/model.onnx \
     --embedding.model=./3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx \
     ./0-four-speakers-zh.wav
 
@@ -66,7 +66,7 @@ the argument --clustering.cluster-threshold. The following is an example:
 
   ./bin/edgevox-onnx-offline-speaker-diarization \
     --clustering.cluster-threshold=0.90 \
-    --segmentation.pyannote-model=./edgevox-onnx-pyannote-segmentation-3-0/model.onnx \
+    --segmentation.pyannote-model=./sherpa-onnx-pyannote-segmentation-3-0/model.onnx \
     --embedding.model=./3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx \
     ./0-four-speakers-zh.wav
 

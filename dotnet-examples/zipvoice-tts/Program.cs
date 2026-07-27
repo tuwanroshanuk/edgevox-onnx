@@ -5,7 +5,7 @@
 // Please refer to
 // https://k2-fsa.github.io/sherpa/onnx/tts/zipvoice.html
 // and
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
 // to download pre-trained models
 using EdgevoxOnnx;
 using System.Runtime.InteropServices;
@@ -20,19 +20,19 @@ class ZipVoiceTtsDemo
   static void TestZhEn()
   {
     var config = new OfflineTtsConfig();
-    config.Model.ZipVoice.Tokens = "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt";
-    config.Model.ZipVoice.Encoder = "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx";
-    config.Model.ZipVoice.Decoder = "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx";
+    config.Model.ZipVoice.Tokens = "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt";
+    config.Model.ZipVoice.Encoder = "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx";
+    config.Model.ZipVoice.Decoder = "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx";
     config.Model.ZipVoice.Vocoder = "./vocos_24khz.onnx";
-    config.Model.ZipVoice.DataDir = "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data";
-    config.Model.ZipVoice.Lexicon = "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt";
+    config.Model.ZipVoice.DataDir = "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data";
+    config.Model.ZipVoice.Lexicon = "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt";
     config.Model.ZipVoice.EspeakVoice = "en-us";
 
     config.Model.NumThreads = 2;
     config.Model.Debug = 1;
     config.Model.Provider = "cpu";
 
-    var referenceWaveFilename = "./edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav";
+    var referenceWaveFilename = "./sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav";
     var reader = new WaveReader(referenceWaveFilename);
 
     OfflineTtsGenerationConfig genConfig = new OfflineTtsGenerationConfig();

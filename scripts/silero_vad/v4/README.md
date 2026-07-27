@@ -33,7 +33,7 @@ It will generate a file `./m.onnx`
 ## 3. Test the onnx model
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/lei-jun-test.wav
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/lei-jun-test.wav
 ./test-onnx.py  --model ./m.onnx --wav ./lei-jun-test.wav
 ```
 

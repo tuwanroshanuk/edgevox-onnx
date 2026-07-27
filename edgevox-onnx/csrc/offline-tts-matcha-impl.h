@@ -114,7 +114,7 @@ class OfflineTtsMatchaImpl : public OfflineTtsImpl {
         EDGEVOX_ONNX_LOGE("You should use vocos-16khz-univ.onnx.");
         EDGEVOX_ONNX_LOGE(
             "Please re-download a vocoder from "
-            "https://github.com/k2-fsa/edgevox-onnx/releases/tag/"
+            "https://github.com/k2-fsa/sherpa-onnx/releases/tag/"
             "vocoder-models.");
       }
     }
@@ -189,7 +189,7 @@ class OfflineTtsMatchaImpl : public OfflineTtsImpl {
         EDGEVOX_ONNX_LOGE("You should use vocos-16khz-univ.onnx.");
         EDGEVOX_ONNX_LOGE(
             "Please re-download a vocoder from "
-            "https://github.com/k2-fsa/edgevox-onnx/releases/tag/"
+            "https://github.com/k2-fsa/sherpa-onnx/releases/tag/"
             "vocoder-models.");
       }
     }

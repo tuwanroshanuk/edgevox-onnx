@@ -2,17 +2,17 @@
 
 // This file shows how to use an offline NeMo CTC model, i.e., non-streaming NeMo CTC model,,
 // to decode files.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingDecodeFileNemo {
   public static void main(String[] args) {
     // please refer to
-    // https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-ctc-en-citrinet-512.tar.bz2
+    // https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-ctc-en-citrinet-512.tar.bz2
     // to download model files
-    String model = "./edgevox-onnx-nemo-ctc-en-citrinet-512/model.int8.onnx";
-    String tokens = "./edgevox-onnx-nemo-ctc-en-citrinet-512/tokens.txt";
+    String model = "./sherpa-onnx-nemo-ctc-en-citrinet-512/model.int8.onnx";
+    String tokens = "./sherpa-onnx-nemo-ctc-en-citrinet-512/tokens.txt";
 
-    String waveFilename = "./edgevox-onnx-nemo-ctc-en-citrinet-512/test_wavs/1.wav";
+    String waveFilename = "./sherpa-onnx-nemo-ctc-en-citrinet-512/test_wavs/1.wav";
 
     WaveReader reader = new WaveReader(waveFilename);
 

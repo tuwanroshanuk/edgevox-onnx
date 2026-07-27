@@ -1,6 +1,6 @@
 # edgevox_onnx_android_armeabi
 
-This is a sub project of [edgevox-onnx](https://github.com/k2-fsa/edgevox-onnx).
+This is a sub project of [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx).
 
 You are not expected to use this package directly.
 

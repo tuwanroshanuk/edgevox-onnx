@@ -16,11 +16,11 @@ Usage:
 (Note: You have to first start the server before starting the client)
 
 You can find the c++ server at
-https://github.com/k2-fsa/edgevox-onnx/blob/master/edgevox-onnx/csrc/online-websocket-server.cc
+https://github.com/k2-fsa/sherpa-onnx/blob/master/sherpa-onnx/csrc/online-websocket-server.cc
 or use the python server ./python-api-examples/streaming_server.py
 
 There is also a C++ version of the client. Please see
-https://github.com/k2-fsa/edgevox-onnx/blob/master/edgevox-onnx/csrc/online-websocket-client.cc
+https://github.com/k2-fsa/sherpa-onnx/blob/master/sherpa-onnx/csrc/online-websocket-client.cc
 """
 
 import argparse

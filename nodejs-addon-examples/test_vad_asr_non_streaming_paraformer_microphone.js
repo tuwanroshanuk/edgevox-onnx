@@ -7,7 +7,7 @@ const edgevox_onnx = require('edgevox-onnx-node');
 
 function createRecognizer() {
   // Please download test files from
-  // https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
   const config = {
     'featConfig': {
       'sampleRate': 16000,
@@ -15,9 +15,9 @@ function createRecognizer() {
     },
     'modelConfig': {
       'paraformer': {
-        'model': './edgevox-onnx-paraformer-zh-2023-09-14/model.int8.onnx',
+        'model': './sherpa-onnx-paraformer-zh-2023-09-14/model.int8.onnx',
       },
-      'tokens': './edgevox-onnx-paraformer-zh-2023-09-14/tokens.txt',
+      'tokens': './sherpa-onnx-paraformer-zh-2023-09-14/tokens.txt',
       'numThreads': 2,
       'provider': 'cpu',
       'debug': 1,
@@ -29,7 +29,7 @@ function createRecognizer() {
 
 function createVad() {
   // please download silero_vad.onnx from
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
   const config = {
     sileroVad: {
       model: './silero_vad.onnx',

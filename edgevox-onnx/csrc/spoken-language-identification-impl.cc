@@ -52,7 +52,7 @@ static ModelType GetModelType(const std::string &model_path, bool debug) {
         "No model_type in the metadata!\n"
         "Please make sure you have added metadata to the model.\n\n"
         "For instance, you can use\n"
-        "https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/whisper/"
+        "https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/whisper/"
         "export-onnx.py "
         "to add metadata to models from whisper\n");
     return ModelType::kUnknown;
@@ -89,7 +89,7 @@ static ModelType GetModelType(char *model_data, size_t model_data_length,
         "No model_type in the metadata!\n"
         "Please make sure you have added metadata to the model.\n\n"
         "For instance, you can use\n"
-        "https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/whisper/"
+        "https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/whisper/"
         "export-onnx.py "
         "to add metadata to models from whisper\n");
     return ModelType::kUnknown;

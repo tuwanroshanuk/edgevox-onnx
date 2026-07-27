@@ -2,7 +2,7 @@
 
 // This file shows how to use a PocketTTS English model
 // for voice cloning.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,13 +12,13 @@ public class PocketTts {
     // please visit
     // https://k2-fsa.github.io/sherpa/onnx/tts/pocket.html
     // to download model files
-    String lmFlow = "./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx";
-    String lmMain = "./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx";
-    String encoder = "./edgevox-onnx-pocket-tts-int8-2026-01-26/encoder.onnx";
-    String decoder = "./edgevox-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx";
-    String textConditioner = "./edgevox-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx";
-    String vocabJson = "./edgevox-onnx-pocket-tts-int8-2026-01-26/vocab.json";
-    String tokenScoresJson = "./edgevox-onnx-pocket-tts-int8-2026-01-26/token_scores.json";
+    String lmFlow = "./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx";
+    String lmMain = "./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx";
+    String encoder = "./sherpa-onnx-pocket-tts-int8-2026-01-26/encoder.onnx";
+    String decoder = "./sherpa-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx";
+    String textConditioner = "./sherpa-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx";
+    String vocabJson = "./sherpa-onnx-pocket-tts-int8-2026-01-26/vocab.json";
+    String tokenScoresJson = "./sherpa-onnx-pocket-tts-int8-2026-01-26/token_scores.json";
     String text =
         "Today as always, men fall into two groups: slaves and free men. Whoever does not have"
             + " two-thirds of his day for himself, is a slave, whatever he may be: a statesman, a"
@@ -45,7 +45,7 @@ public class PocketTts {
     OfflineTtsConfig config = OfflineTtsConfig.builder().setModel(modelConfig).build();
     OfflineTts tts = new OfflineTts(config);
 
-    String referenceAudioFilename = "./edgevox-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav";
+    String referenceAudioFilename = "./sherpa-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav";
     WaveReader reader = new WaveReader(referenceAudioFilename);
 
     GenerationConfig genConfig = new GenerationConfig();

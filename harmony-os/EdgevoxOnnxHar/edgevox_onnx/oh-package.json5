@@ -5,8 +5,8 @@
   "main": "Index.ets",
   "author": "The next-gen Kaldi team",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/k2-fsa/edgevox-onnx",
-  "repository": "https://github.com/k2-fsa/edgevox-onnx/tree/master/harmony-os/EdgevoxOnnxHar",
+  "homepage": "https://github.com/k2-fsa/sherpa-onnx",
+  "repository": "https://github.com/k2-fsa/sherpa-onnx/tree/master/harmony-os/SherpaOnnxHar",
   "dependencies": {
     "libedgevox_onnx.so": "file:./src/main/cpp/types/libedgevox_onnx"
   },
@@ -23,6 +23,6 @@
     "open-source",
   ],
   "bugs": {
-    "url": "https://github.com/k2-fsa/edgevox-onnx/issues"
+    "url": "https://github.com/k2-fsa/sherpa-onnx/issues"
   },
 }

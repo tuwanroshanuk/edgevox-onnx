@@ -2,7 +2,7 @@
 //!
 //! Use this module when you already have a complete text string and want a
 //! one-shot punctuation pass. See
-//! [`rust-api-examples/examples/offline_punctuation.rs`](https://github.com/k2-fsa/edgevox-onnx/blob/master/rust-api-examples/examples/offline_punctuation.rs)
+//! [`rust-api-examples/examples/offline_punctuation.rs`](https://github.com/k2-fsa/sherpa-onnx/blob/master/rust-api-examples/examples/offline_punctuation.rs)
 //! for a complete example.
 //!
 //! # Example

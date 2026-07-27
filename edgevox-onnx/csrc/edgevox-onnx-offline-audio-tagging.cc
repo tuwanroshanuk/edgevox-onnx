@@ -17,20 +17,20 @@ Audio tagging from a file.
 
 Usage:
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/audio-tagging-models/edgevox-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
-tar xvf edgevox-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
-rm edgevox-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/audio-tagging-models/sherpa-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
+tar xvf sherpa-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
+rm sherpa-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
 
 ./bin/edgevox-onnx-offline-audio-tagging \
-  --zipformer-model=./edgevox-onnx-zipformer-audio-tagging-2024-04-09/model.onnx \
-  --labels=./edgevox-onnx-zipformer-audio-tagging-2024-04-09/class_labels_indices.csv \
-  edgevox-onnx-zipformer-audio-tagging-2024-04-09/test_wavs/0.wav
+  --zipformer-model=./sherpa-onnx-zipformer-audio-tagging-2024-04-09/model.onnx \
+  --labels=./sherpa-onnx-zipformer-audio-tagging-2024-04-09/class_labels_indices.csv \
+  sherpa-onnx-zipformer-audio-tagging-2024-04-09/test_wavs/0.wav
 
 Input wave files should be of single channel, 16-bit PCM encoded wave file; its
 sampling rate can be arbitrary and does not need to be 16kHz.
 
 Please see
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/audio-tagging-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/audio-tagging-models
 for more models.
 )usage";
 

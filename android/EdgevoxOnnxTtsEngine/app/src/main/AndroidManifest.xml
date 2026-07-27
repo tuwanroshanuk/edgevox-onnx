@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.k2fsa.sherpa.onnx.tts.engine">
+    package="com.nexus.edgevox.onnx.tts.engine">
 
     <application
         android:allowBackup="true"
@@ -44,7 +44,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.k2fsa.sherpa.onnx.tts.engine.fileprovider"
+            android:authorities="com.nexus.edgevox.onnx.tts.engine.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

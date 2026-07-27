@@ -3,15 +3,15 @@ package main
 import (
 	"log"
 
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 )
 
 func main() {
 	log.SetFlags(log.LstdFlags | log.Lmicroseconds)
 
 	config := sherpa.OnlinePunctuationConfig{}
-	config.Model.CnnBilstm = "./edgevox-onnx-online-punct-en-2024-08-06/model.onnx"
-	config.Model.BpeVocab = "./edgevox-onnx-online-punct-en-2024-08-06/bpe.vocab"
+	config.Model.CnnBilstm = "./sherpa-onnx-online-punct-en-2024-08-06/model.onnx"
+	config.Model.BpeVocab = "./sherpa-onnx-online-punct-en-2024-08-06/bpe.vocab"
 	config.Model.NumThreads = 1
 	config.Model.Provider = "cpu"
 

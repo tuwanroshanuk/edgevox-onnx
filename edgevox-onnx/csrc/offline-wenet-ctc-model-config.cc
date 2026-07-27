@@ -15,7 +15,7 @@ void OfflineWenetCtcModelConfig::Register(ParseOptions *po) {
   po->Register(
       "wenet-ctc-model", &model,
       "Path to model.onnx from WeNet. Please see "
-      "https://github.com/k2-fsa/edgevox-onnx/pull/425 for available models");
+      "https://github.com/k2-fsa/sherpa-onnx/pull/425 for available models");
 }
 
 bool OfflineWenetCtcModelConfig::Validate() const {

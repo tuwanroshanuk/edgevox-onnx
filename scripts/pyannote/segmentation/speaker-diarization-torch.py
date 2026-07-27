@@ -3,7 +3,7 @@
 
 """
 Please refer to
-https://github.com/k2-fsa/edgevox-onnx/blob/master/.github/workflows/speaker-diarization.yaml
+https://github.com/k2-fsa/sherpa-onnx/blob/master/.github/workflows/speaker-diarization.yaml
 for usages.
 """
 

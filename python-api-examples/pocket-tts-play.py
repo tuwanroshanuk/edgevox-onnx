@@ -11,14 +11,14 @@ while the model is still generating.
 
 Usage:
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
-tar xvf edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
-rm edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+tar xvf sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+rm sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
 
 python3 ./pocket-tts-play.py
 
 You can find more models at
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
 
 Please see
 https://k2-fsa.github.io/sherpa/onnx/tts/pocket.html
@@ -52,13 +52,13 @@ def create_tts():
     tts_config = edgevox_onnx.OfflineTtsConfig(
         model=edgevox_onnx.OfflineTtsModelConfig(
             pocket=edgevox_onnx.OfflineTtsPocketModelConfig(
-                lm_flow="./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx",
-                lm_main="./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx",
-                encoder="./edgevox-onnx-pocket-tts-int8-2026-01-26/encoder.onnx",
-                decoder="./edgevox-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx",
-                text_conditioner="./edgevox-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx",
-                vocab_json="./edgevox-onnx-pocket-tts-int8-2026-01-26/vocab.json",
-                token_scores_json="./edgevox-onnx-pocket-tts-int8-2026-01-26/token_scores.json",
+                lm_flow="./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx",
+                lm_main="./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx",
+                encoder="./sherpa-onnx-pocket-tts-int8-2026-01-26/encoder.onnx",
+                decoder="./sherpa-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx",
+                text_conditioner="./sherpa-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx",
+                vocab_json="./sherpa-onnx-pocket-tts-int8-2026-01-26/vocab.json",
+                token_scores_json="./sherpa-onnx-pocket-tts-int8-2026-01-26/token_scores.json",
             ),
             debug=True,  # set it to True to see verbose logs
             num_threads=2,
@@ -189,7 +189,7 @@ def play_audio():
 
 
 def main():
-    reference_audio_file = "./edgevox-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav"
+    reference_audio_file = "./sherpa-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav"
     if not Path(reference_audio_file).is_file():
         raise ValueError(f"Reference audio {reference_audio_file} does not exist")
 

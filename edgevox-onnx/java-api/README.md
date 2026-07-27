@@ -1,6 +1,6 @@
 # edgevox-onnx JVM API
 
-This is the JVM (Java) API for [edgevox-onnx](https://github.com/k2-fsa/edgevox-onnx).
+This is the JVM (Java) API for [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx).
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ This is the JVM (Java) API for [edgevox-onnx](https://github.com/k2-fsa/edgevox-
 ```
 edgevox-onnx/java-api/
 ├── pom.xml                    # Maven build configuration
-└── src/main/java/com/k2fsa/sherpa/onnx/
+└── src/main/java/com/nexus/edgevox/onnx/
     ├── LibraryLoader.java
     ├── VersionInfo.java
     ├── OnlineRecognizer.java
@@ -59,7 +59,7 @@ Add to your `pom.xml`:
 
 ```xml
 <dependency>
-    <groupId>com.github.k2-fsa.edgevox-onnx</groupId>
+    <groupId>com.github.k2-fsa.sherpa-onnx</groupId>
     <artifactId>edgevox-onnx-jvm</artifactId>
     <version>1.13.4</version>
 </dependency>
@@ -70,7 +70,7 @@ Add to your `pom.xml`:
 Add to your `build.gradle`:
 
 ```groovy
-implementation 'com.github.k2-fsa.edgevox-onnx:edgevox-onnx-jvm:1.13.4'
+implementation 'com.github.k2-fsa.sherpa-onnx:sherpa-onnx-jvm:1.13.4'
 ```
 
 ### In a Gradle Kotlin DSL Project
@@ -78,7 +78,7 @@ implementation 'com.github.k2-fsa.edgevox-onnx:edgevox-onnx-jvm:1.13.4'
 Add to your `build.gradle.kts`:
 
 ```kotlin
-implementation("com.github.k2-fsa.edgevox-onnx:edgevox-onnx-jvm:1.13.4")
+implementation("com.github.k2-fsa.sherpa-onnx:sherpa-onnx-jvm:1.13.4")
 ```
 
 ### From Command Line
@@ -101,11 +101,11 @@ native libraries for your platform.
 
 | Platform | Artifact |
 |---|---|
-| macOS ARM64 | `com.github.k2-fsa.edgevox-onnx:edgevox-onnx-native-lib-osx-aarch64` |
-| macOS x64 | `com.github.k2-fsa.edgevox-onnx:edgevox-onnx-native-lib-osx-x64` |
-| Linux x64 | `com.github.k2-fsa.edgevox-onnx:edgevox-onnx-native-lib-linux-x64` |
-| Linux ARM64 | `com.github.k2-fsa.edgevox-onnx:edgevox-onnx-native-lib-linux-aarch64` |
-| Windows x64 | `com.github.k2-fsa.edgevox-onnx:edgevox-onnx-native-lib-win-x64` |
+| macOS ARM64 | `com.github.k2-fsa.sherpa-onnx:sherpa-onnx-native-lib-osx-aarch64` |
+| macOS x64 | `com.github.k2-fsa.sherpa-onnx:sherpa-onnx-native-lib-osx-x64` |
+| Linux x64 | `com.github.k2-fsa.sherpa-onnx:sherpa-onnx-native-lib-linux-x64` |
+| Linux ARM64 | `com.github.k2-fsa.sherpa-onnx:sherpa-onnx-native-lib-linux-aarch64` |
+| Windows x64 | `com.github.k2-fsa.sherpa-onnx:sherpa-onnx-native-lib-win-x64` |
 
 ## Adding New Java Files
 
@@ -113,7 +113,7 @@ With Maven, you don't need to edit any build configuration when adding new Java 
 Simply place your new `.java` file in:
 
 ```
-src/main/java/com/k2fsa/sherpa/onnx/YourNewClass.java
+src/main/java/com/nexus/edgevox/onnx/YourNewClass.java
 ```
 
 Maven will automatically discover and compile it.

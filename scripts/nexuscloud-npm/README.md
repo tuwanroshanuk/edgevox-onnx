@@ -1,6 +1,6 @@
 # @nexuscloud/edgevox-onnx
 
-Fork build of [edgevox-onnx](https://github.com/k2-fsa/edgevox-onnx) with ZipVoice **`espeakVoice`** support — configurable eSpeak language for out-of-lexicon words (e.g. `"si"` for Sinhala).
+Fork build of [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx) with ZipVoice **`espeakVoice`** support — configurable eSpeak language for out-of-lexicon words (e.g. `"si"` for Sinhala).
 
 Built from [ishankrishan/edgevox-onnx](https://github.com/ishankrishan/edgevox-onnx) via GitHub Actions (`.github/workflows/build.yaml`).
 

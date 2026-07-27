@@ -421,7 +421,7 @@ def get_vits_models() -> List[TtsModel]:
             lang="zh",
         ),
         TtsModel(
-            model_dir="edgevox-onnx-vits-zh-ll",
+            model_dir="sherpa-onnx-vits-zh-ll",
             model_name="model.onnx",
             lang="zh",
         ),
@@ -432,7 +432,7 @@ def get_vits_models() -> List[TtsModel]:
         s = [f"{m.model_dir}/{r}" for r in rule_fsts]
         if (
             "vits-zh-hf" in m.model_dir
-            or "edgevox-onnx-vits-zh-ll" == m.model_dir
+            or "sherpa-onnx-vits-zh-ll" == m.model_dir
             or "melo-tts" in m.model_dir
         ):
             s = s[:-1]
@@ -609,7 +609,7 @@ def get_supertonic3_models() -> List[TtsModel]:
     # fmt: on
 
     supertonic_models = [
-        TtsModel(model_dir="edgevox-onnx-supertonic-3-tts-int8-2026-05-11", lang=lang)
+        TtsModel(model_dir="sherpa-onnx-supertonic-3-tts-int8-2026-05-11", lang=lang)
         for lang in langs
     ]
     for m in supertonic_models:

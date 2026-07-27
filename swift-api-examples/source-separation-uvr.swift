@@ -6,7 +6,7 @@
 // UVR (MDX-Net) model.
 //
 // Please refer to
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/source-separation-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/source-separation-models
 // to download files used in this script
 
 import Foundation

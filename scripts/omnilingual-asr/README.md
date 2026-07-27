@@ -5,7 +5,7 @@ https://github.com/facebookresearch/omnilingual-asr
 to edgevox-onnx
 
 See
-https://github.com/k2-fsa/edgevox-onnx/blob/master/.github/workflows/export-omnilingual-asr-to-onnx.yaml
+https://github.com/k2-fsa/sherpa-onnx/blob/master/.github/workflows/export-omnilingual-asr-to-onnx.yaml
 for usage.
 
 ```

@@ -37,7 +37,7 @@ class Model:
 def get_models():
     return [
         Model(
-            model_name="edgevox-onnx-qnn-streaming-zipformer-transducer-zh-en-2023-03-20-chunk-size-32-android-aarch64",
+            model_name="sherpa-onnx-qnn-streaming-zipformer-transducer-zh-en-2023-03-20-chunk-size-32-android-aarch64",
             idx=9025,
             lang="zh_en",
             short_name="streaming_zipformer_transducer_2023_03_20_chunk_32",
@@ -52,7 +52,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-qnn-x-asr-streaming-zipformer-transducer-zh-en-2026-06-05-chunk-size-480ms-android-aarch64",
+            model_name="sherpa-onnx-qnn-x-asr-streaming-zipformer-transducer-zh-en-2026-06-05-chunk-size-480ms-android-aarch64",
             idx=9027,
             lang="zh_en",
             short_name="x_asr_streaming_zipformer_transducer_2026_06_05_chunk_480ms",
@@ -67,7 +67,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-qnn-x-asr-streaming-zipformer-transducer-zh-en-punct-2026-06-05-chunk-size-480ms-android-aarch64",
+            model_name="sherpa-onnx-qnn-x-asr-streaming-zipformer-transducer-zh-en-punct-2026-06-05-chunk-size-480ms-android-aarch64",
             idx=9028,
             lang="zh_en",
             short_name="x_asr_streaming_zipformer_transducer_punct_2026_06_05_chunk_480ms",
@@ -82,7 +82,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-qnn-SM8850-binary-x-asr-streaming-zipformer-transducer-zh-en-2026-06-05-chunk-size-480ms",
+            model_name="sherpa-onnx-qnn-SM8850-binary-x-asr-streaming-zipformer-transducer-zh-en-2026-06-05-chunk-size-480ms",
             idx=9029,
             lang="zh_en",
             short_name="SM8850_x_asr_streaming_zipformer_transducer_2026_06_05_chunk_480ms",
@@ -98,7 +98,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-qnn-SM8850-binary-x-asr-streaming-zipformer-transducer-zh-en-punct-2026-06-05-chunk-size-480ms",
+            model_name="sherpa-onnx-qnn-SM8850-binary-x-asr-streaming-zipformer-transducer-zh-en-punct-2026-06-05-chunk-size-480ms",
             idx=9030,
             lang="zh_en",
             short_name="SM8850_x_asr_streaming_zipformer_transducer_punct_2026_06_05_chunk_480ms",

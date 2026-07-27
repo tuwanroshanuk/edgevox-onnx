@@ -22,7 +22,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
     };
     match model_type {
         0 => {
-            // edgevox-onnx-paraformer-zh-2023-09-14
+            // sherpa-onnx-paraformer-zh-2023-09-14
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.paraformer = OfflineParaformerModelConfig {
                 model: p("model.int8.onnx"),
@@ -51,7 +51,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         2 => {
-            // edgevox-onnx-whisper-tiny.en
+            // sherpa-onnx-whisper-tiny.en
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.whisper = OfflineWhisperModelConfig {
                 encoder: p("tiny.en-encoder.int8.onnx"),
@@ -68,7 +68,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         3 => {
-            // edgevox-onnx-whisper-base.en
+            // sherpa-onnx-whisper-base.en
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.whisper = OfflineWhisperModelConfig {
                 encoder: p("base.en-encoder.int8.onnx"),
@@ -100,7 +100,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         5 => {
-            // edgevox-onnx-zipformer-multi-zh-hans-2023-9-2
+            // sherpa-onnx-zipformer-multi-zh-hans-2023-9-2
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.transducer = OfflineTransducerModelConfig {
                 encoder: p("encoder-epoch-20-avg-1.int8.onnx"),
@@ -115,7 +115,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         6 => {
-            // edgevox-onnx-nemo-ctc-en-citrinet-512
+            // sherpa-onnx-nemo-ctc-en-citrinet-512
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.nemo_ctc = OfflineNemoEncDecCtcModelConfig {
                 model: p("model.int8.onnx"),
@@ -127,7 +127,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         7 => {
-            // edgevox-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k
+            // sherpa-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.nemo_ctc = OfflineNemoEncDecCtcModelConfig {
                 model: p("model.onnx"),
@@ -139,7 +139,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         8 => {
-            // edgevox-onnx-nemo-fast-conformer-ctc-en-24500
+            // sherpa-onnx-nemo-fast-conformer-ctc-en-24500
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.nemo_ctc = OfflineNemoEncDecCtcModelConfig {
                 model: p("model.onnx"),
@@ -151,7 +151,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         9 => {
-            // edgevox-onnx-nemo-fast-conformer-ctc-en-de-es-fr-14288
+            // sherpa-onnx-nemo-fast-conformer-ctc-en-de-es-fr-14288
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.nemo_ctc = OfflineNemoEncDecCtcModelConfig {
                 model: p("model.onnx"),
@@ -163,7 +163,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         10 => {
-            // edgevox-onnx-nemo-fast-conformer-ctc-es-1424
+            // sherpa-onnx-nemo-fast-conformer-ctc-es-1424
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.nemo_ctc = OfflineNemoEncDecCtcModelConfig {
                 model: p("model.onnx"),
@@ -175,7 +175,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         11 => {
-            // edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04
+            // sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.telespeech_ctc = p("model.int8.onnx");
             config.model_config.tokens = p("tokens.txt");
@@ -186,7 +186,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         12 => {
-            // edgevox-onnx-zipformer-thai-2024-06-20
+            // sherpa-onnx-zipformer-thai-2024-06-20
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.transducer = OfflineTransducerModelConfig {
                 encoder: p("encoder-epoch-12-avg-5.int8.onnx"),
@@ -201,7 +201,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         13 => {
-            // edgevox-onnx-zipformer-korean-2024-06-24
+            // sherpa-onnx-zipformer-korean-2024-06-24
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.transducer = OfflineTransducerModelConfig {
                 encoder: p("encoder-epoch-99-avg-1.int8.onnx"),
@@ -216,7 +216,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         14 => {
-            // edgevox-onnx-paraformer-zh-small-2024-03-09
+            // sherpa-onnx-paraformer-zh-small-2024-03-09
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.paraformer = OfflineParaformerModelConfig {
                 model: p("model.int8.onnx"),
@@ -230,7 +230,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         15 => {
-            // edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17
+            // sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.sense_voice = OfflineSenseVoiceModelConfig {
                 model: p("model.int8.onnx"),
@@ -244,7 +244,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         16 => {
-            // edgevox-onnx-zipformer-ja-reazonspeech-2024-08-01
+            // sherpa-onnx-zipformer-ja-reazonspeech-2024-08-01
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.transducer = OfflineTransducerModelConfig {
                 encoder: p("encoder-epoch-99-avg-1.int8.onnx"),
@@ -259,7 +259,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         17 => {
-            // edgevox-onnx-zipformer-ru-2024-09-18
+            // sherpa-onnx-zipformer-ru-2024-09-18
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.transducer = OfflineTransducerModelConfig {
                 encoder: p("encoder.int8.onnx"),
@@ -289,7 +289,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         19 => {
-            // edgevox-onnx-nemo-ctc-giga-am-russian-2024-10-24
+            // sherpa-onnx-nemo-ctc-giga-am-russian-2024-10-24
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.nemo_ctc = OfflineNemoEncDecCtcModelConfig {
                 model: p("model.int8.onnx"),
@@ -301,7 +301,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         20 => {
-            // edgevox-onnx-nemo-transducer-giga-am-russian-2024-10-24
+            // sherpa-onnx-nemo-transducer-giga-am-russian-2024-10-24
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.transducer = OfflineTransducerModelConfig {
                 encoder: p("encoder.int8.onnx"),
@@ -316,7 +316,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         21 => {
-            // edgevox-onnx-moonshine-tiny-en-int8
+            // sherpa-onnx-moonshine-tiny-en-int8
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.moonshine = OfflineMoonshineModelConfig {
                 preprocessor: p("preprocess.onnx"),
@@ -332,7 +332,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         22 => {
-            // edgevox-onnx-moonshine-base-en-int8
+            // sherpa-onnx-moonshine-base-en-int8
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.moonshine = OfflineMoonshineModelConfig {
                 preprocessor: p("preprocess.onnx"),
@@ -348,7 +348,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         23 => {
-            // edgevox-onnx-zipformer-zh-en-2023-11-22
+            // sherpa-onnx-zipformer-zh-en-2023-11-22
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.transducer = OfflineTransducerModelConfig {
                 encoder: p("encoder-epoch-34-avg-19.int8.onnx"),
@@ -363,7 +363,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         24 => {
-            // edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16
+            // sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.fire_red_asr = OfflineFireRedAsrModelConfig {
                 encoder: p("encoder.int8.onnx"),
@@ -376,7 +376,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         25 => {
-            // edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02
+            // sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.dolphin = OfflineDolphinModelConfig {
                 model: p("model.int8.onnx"),
@@ -388,7 +388,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         26 => {
-            // edgevox-onnx-zipformer-vi-int8-2025-04-20
+            // sherpa-onnx-zipformer-vi-int8-2025-04-20
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.transducer = OfflineTransducerModelConfig {
                 encoder: p("encoder-epoch-12-avg-8.int8.onnx"),
@@ -403,7 +403,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         27 => {
-            // edgevox-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19
+            // sherpa-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.nemo_ctc = OfflineNemoEncDecCtcModelConfig {
                 model: p("model.int8.onnx"),
@@ -415,7 +415,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         28 => {
-            // edgevox-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19
+            // sherpa-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.transducer = OfflineTransducerModelConfig {
                 encoder: p("encoder.int8.onnx"),
@@ -430,7 +430,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         29 => {
-            // edgevox-onnx-zipformer-ru-int8-2025-04-20
+            // sherpa-onnx-zipformer-ru-int8-2025-04-20
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.transducer = OfflineTransducerModelConfig {
                 encoder: p("encoder.int8.onnx"),
@@ -445,7 +445,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         30 => {
-            // edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8
+            // sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.transducer = OfflineTransducerModelConfig {
                 encoder: p("encoder.int8.onnx"),
@@ -460,7 +460,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         31 => {
-            // edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03
+            // sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.zipformer_ctc = OfflineZipformerCtcModelConfig {
                 model: p("model.int8.onnx"),
@@ -472,7 +472,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         32 => {
-            // edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8
+            // sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.canary = OfflineCanaryModelConfig {
                 encoder: p("encoder.int8.onnx"),
@@ -489,7 +489,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         33 => {
-            // edgevox-onnx-nemo-parakeet_tdt_ctc_110m-en-36000-int8
+            // sherpa-onnx-nemo-parakeet_tdt_ctc_110m-en-36000-int8
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.nemo_ctc = OfflineNemoEncDecCtcModelConfig {
                 model: p("model.int8.onnx"),
@@ -501,7 +501,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         34 => {
-            // edgevox-onnx-nemo-parakeet-tdt_ctc-0.6b-ja-35000-int8
+            // sherpa-onnx-nemo-parakeet-tdt_ctc-0.6b-ja-35000-int8
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.nemo_ctc = OfflineNemoEncDecCtcModelConfig {
                 model: p("model.int8.onnx"),
@@ -513,7 +513,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         35 => {
-            // edgevox-onnx-nemo-transducer-stt_pt_fastconformer_hybrid_large_pc-int8
+            // sherpa-onnx-nemo-transducer-stt_pt_fastconformer_hybrid_large_pc-int8
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.transducer = OfflineTransducerModelConfig {
                 encoder: p("encoder.int8.onnx"),
@@ -528,7 +528,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         36 => {
-            // edgevox-onnx-nemo-stt_pt_fastconformer_hybrid_large_pc-int8
+            // sherpa-onnx-nemo-stt_pt_fastconformer_hybrid_large_pc-int8
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.nemo_ctc = OfflineNemoEncDecCtcModelConfig {
                 model: p("model.int8.onnx"),
@@ -540,7 +540,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         37 => {
-            // edgevox-onnx-nemo-transducer-stt_de_fastconformer_hybrid_large_pc-int8
+            // sherpa-onnx-nemo-transducer-stt_de_fastconformer_hybrid_large_pc-int8
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.transducer = OfflineTransducerModelConfig {
                 encoder: p("encoder.int8.onnx"),
@@ -555,7 +555,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         38 => {
-            // edgevox-onnx-nemo-stt_de_fastconformer_hybrid_large_pc-int8
+            // sherpa-onnx-nemo-stt_de_fastconformer_hybrid_large_pc-int8
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.nemo_ctc = OfflineNemoEncDecCtcModelConfig {
                 model: p("model.int8.onnx"),
@@ -567,7 +567,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         39 => {
-            // edgevox-onnx-zipformer-ctc-small-zh-int8-2025-07-16
+            // sherpa-onnx-zipformer-ctc-small-zh-int8-2025-07-16
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.zipformer_ctc = OfflineZipformerCtcModelConfig {
                 model: p("model.int8.onnx"),
@@ -579,7 +579,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         40 => {
-            // edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8
+            // sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.transducer = OfflineTransducerModelConfig {
                 encoder: p("encoder.int8.onnx"),
@@ -594,7 +594,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         41 => {
-            // edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2025-09-09
+            // sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2025-09-09
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.sense_voice = OfflineSenseVoiceModelConfig {
                 model: p("model.int8.onnx"),
@@ -608,7 +608,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         42 => {
-            // edgevox-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10
+            // sherpa-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.wenet_ctc = OfflineWenetCtcModelConfig {
                 model: p("model.int8.onnx"),
@@ -620,7 +620,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         43 => {
-            // edgevox-onnx-paraformer-zh-int8-2025-10-07
+            // sherpa-onnx-paraformer-zh-int8-2025-10-07
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.paraformer = OfflineParaformerModelConfig {
                 model: p("model.int8.onnx"),
@@ -633,7 +633,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         44 => {
-            // edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12
+            // sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.omnilingual = OfflineOmnilingualAsrCtcModelConfig {
                 model: p("model.int8.onnx"),
@@ -645,7 +645,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         45 => {
-            // edgevox-onnx-medasr-ctc-en-int8-2025-12-25
+            // sherpa-onnx-medasr-ctc-en-int8-2025-12-25
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.medasr = OfflineMedAsrCtcModelConfig {
                 model: p("model.int8.onnx"),
@@ -657,7 +657,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         46 => {
-            // edgevox-onnx-funasr-nano-int8-2025-12-30
+            // sherpa-onnx-funasr-nano-int8-2025-12-30
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.funasr_nano = OfflineFunASRNanoModelConfig {
                 encoder_adaptor: p("encoder_adaptor.int8.onnx"),
@@ -697,7 +697,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         49 => {
-            // edgevox-onnx-zipformer-vi-30M-int8-2026-02-09
+            // sherpa-onnx-zipformer-vi-30M-int8-2026-02-09
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.transducer = OfflineTransducerModelConfig {
                 encoder: p("encoder.int8.onnx"),
@@ -712,7 +712,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         50 => {
-            // edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25
+            // sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.fire_red_asr_ctc = OfflineFireRedAsrCtcModelConfig {
                 model: p("model.int8.onnx"),
@@ -724,7 +724,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         51 => {
-            // edgevox-onnx-moonshine-tiny-ko-quantized-2026-02-27
+            // sherpa-onnx-moonshine-tiny-ko-quantized-2026-02-27
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.moonshine = OfflineMoonshineModelConfig {
                 encoder: p("encoder_model.ort"),
@@ -738,7 +738,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         52 => {
-            // edgevox-onnx-moonshine-tiny-ja-quantized-2026-02-27
+            // sherpa-onnx-moonshine-tiny-ja-quantized-2026-02-27
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.moonshine = OfflineMoonshineModelConfig {
                 encoder: p("encoder_model.ort"),
@@ -752,7 +752,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         53 => {
-            // edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27
+            // sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.moonshine = OfflineMoonshineModelConfig {
                 encoder: p("encoder_model.ort"),
@@ -766,7 +766,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         54 => {
-            // edgevox-onnx-moonshine-base-zh-quantized-2026-02-27
+            // sherpa-onnx-moonshine-base-zh-quantized-2026-02-27
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.moonshine = OfflineMoonshineModelConfig {
                 encoder: p("encoder_model.ort"),
@@ -780,7 +780,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         55 => {
-            // edgevox-onnx-moonshine-base-vi-quantized-2026-02-27
+            // sherpa-onnx-moonshine-base-vi-quantized-2026-02-27
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.moonshine = OfflineMoonshineModelConfig {
                 encoder: p("encoder_model.ort"),
@@ -794,7 +794,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         56 => {
-            // edgevox-onnx-moonshine-base-uk-quantized-2026-02-27
+            // sherpa-onnx-moonshine-base-uk-quantized-2026-02-27
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.moonshine = OfflineMoonshineModelConfig {
                 encoder: p("encoder_model.ort"),
@@ -808,7 +808,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         57 => {
-            // edgevox-onnx-moonshine-base-ja-quantized-2026-02-27
+            // sherpa-onnx-moonshine-base-ja-quantized-2026-02-27
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.moonshine = OfflineMoonshineModelConfig {
                 encoder: p("encoder_model.ort"),
@@ -822,7 +822,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         58 => {
-            // edgevox-onnx-moonshine-base-es-quantized-2026-02-27
+            // sherpa-onnx-moonshine-base-es-quantized-2026-02-27
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.moonshine = OfflineMoonshineModelConfig {
                 encoder: p("encoder_model.ort"),
@@ -836,7 +836,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         59 => {
-            // edgevox-onnx-moonshine-base-en-quantized-2026-02-27
+            // sherpa-onnx-moonshine-base-en-quantized-2026-02-27
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.moonshine = OfflineMoonshineModelConfig {
                 encoder: p("encoder_model.ort"),
@@ -850,7 +850,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         60 => {
-            // edgevox-onnx-moonshine-base-ar-quantized-2026-02-27
+            // sherpa-onnx-moonshine-base-ar-quantized-2026-02-27
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.moonshine = OfflineMoonshineModelConfig {
                 encoder: p("encoder_model.ort"),
@@ -864,7 +864,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         61 => {
-            // edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25
+            // sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.qwen3_asr = OfflineQwen3ASRModelConfig {
                 conv_frontend: p("conv_frontend.onnx"),
@@ -880,7 +880,7 @@ pub fn get_model_config(model_type: u32, model_dir: &Path) -> Option<OfflineReco
         }
 
         62 => {
-            // edgevox-onnx-nemo-parakeet-unified-en-0.6b-int8-non-streaming
+            // sherpa-onnx-nemo-parakeet-unified-en-0.6b-int8-non-streaming
             let mut config = OfflineRecognizerConfig::default();
             config.model_config.transducer = OfflineTransducerModelConfig {
                 encoder: p("encoder.int8.onnx"),

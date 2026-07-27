@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	portaudio "github.com/csukuangfj/portaudio-go"
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 	"log"
 )
 
@@ -11,10 +11,10 @@ func createSpeakerEmbeddingExtractor() *sherpa.SpeakerEmbeddingExtractor {
 	config := sherpa.SpeakerEmbeddingExtractorConfig{}
 
 	// Please download the model from
-	// https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_campplus_sv_zh-cn_16k-common.onnx
+	// https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_campplus_sv_zh-cn_16k-common.onnx
 	//
 	// You can find more models at
-	// https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-recongition-models
+	// https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models
 
 	config.Model = "./3dspeaker_speech_campplus_sv_zh-cn_16k-common.onnx"
 	config.NumThreads = 2
@@ -89,7 +89,7 @@ func createVad() *sherpa.VoiceActivityDetector {
 	config := sherpa.VadModelConfig{}
 
 	// Please download silero_vad.onnx from
-	// https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+	// https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 	config.SileroVad.Model = "./silero_vad.onnx"
 	config.SileroVad.Threshold = 0.5

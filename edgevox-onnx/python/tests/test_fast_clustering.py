@@ -86,7 +86,7 @@ class TestFastClustering(unittest.TestCase):
         d = Path("/tmp/test-cluster")
 
         # Please download the onnx file from
-        # https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-recongition-models
+        # https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models
         model_file = d / "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx"
 
         if not model_file.exists():

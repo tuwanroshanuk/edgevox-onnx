@@ -19,11 +19,11 @@ log "------------------------------------------------------------"
 log "Run streaming Paraformer"
 log "------------------------------------------------------------"
 
-repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
 curl -SL -O $repo_url
-tar xvf edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
-rm edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
-repo=edgevox-onnx-streaming-paraformer-bilingual-zh-en
+tar xvf sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+rm sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+repo=sherpa-onnx-streaming-paraformer-bilingual-zh-en
 
 log "Start testing ${repo_url}"
 

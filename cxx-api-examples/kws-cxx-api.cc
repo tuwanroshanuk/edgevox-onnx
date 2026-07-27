@@ -7,9 +7,9 @@
 //
 // Usage
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/kws-models/edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile.tar.bz2
-// tar xvf edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile.tar.bz2
-// rm edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/kws-models/sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile.tar.bz2
+// tar xvf sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile.tar.bz2
+// rm sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile.tar.bz2
 //
 // ./kws-cxx-api
 //
@@ -25,19 +25,19 @@ int32_t main() {
 
   KeywordSpotterConfig config;
   config.model_config.transducer.encoder =
-      "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+      "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
       "encoder-epoch-12-avg-2-chunk-16-left-64.int8.onnx";
 
   config.model_config.transducer.decoder =
-      "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+      "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
       "decoder-epoch-12-avg-2-chunk-16-left-64.onnx";
 
   config.model_config.transducer.joiner =
-      "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+      "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
       "joiner-epoch-12-avg-2-chunk-16-left-64.int8.onnx";
 
   config.model_config.tokens =
-      "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+      "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
       "tokens.txt";
 
   config.model_config.provider = "cpu";
@@ -45,7 +45,7 @@ int32_t main() {
   config.model_config.debug = 1;
 
   config.keywords_file =
-      "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+      "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
       "test_wavs/test_keywords.txt";
 
   KeywordSpotter kws = KeywordSpotter::Create(config);
@@ -58,7 +58,7 @@ int32_t main() {
       << "--Test pre-defined keywords from test_wavs/test_keywords.txt--\n";
 
   std::string wave_filename =
-      "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+      "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
       "test_wavs/3.wav";
 
   std::array<float, 8000> tail_paddings = {0};  // 0.5 seconds

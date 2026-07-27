@@ -40,13 +40,13 @@ short_name={{ model.short_name }}
 lang={{ model.lang }}
 framework={{ model.framework }}
 
-wget -qq https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-recongition-models/$model_name
+wget -qq https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/$model_name
 
 popd
 # Now we are at the project root directory
 
 git checkout .
-pushd android/EdgevoxOnnxSpeakerIdentification/app/src/main/java/com/k2fsa/sherpa/onnx/speaker/identification/
+pushd android/EdgevoxOnnxSpeakerIdentification/app/src/main/java/com/nexus/edgevox/onnx/speaker/identification/
 sed -i.bak s/"private val modelName.*/private val modelName = \"$model_name\"/" ./Speaker.kt
 git diff
 popd

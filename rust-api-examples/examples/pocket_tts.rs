@@ -13,16 +13,16 @@ fn main() {
     let config = OfflineTtsConfig {
         model: edgevox_onnx::OfflineTtsModelConfig {
             pocket: OfflineTtsPocketModelConfig {
-                lm_flow: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx".into()),
-                lm_main: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx".into()),
-                encoder: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/encoder.onnx".into()),
-                decoder: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx".into()),
+                lm_flow: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx".into()),
+                lm_main: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx".into()),
+                encoder: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/encoder.onnx".into()),
+                decoder: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx".into()),
                 text_conditioner: Some(
-                    "./edgevox-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx".into(),
+                    "./sherpa-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx".into(),
                 ),
-                vocab_json: Some("./edgevox-onnx-pocket-tts-int8-2026-01-26/vocab.json".into()),
+                vocab_json: Some("./sherpa-onnx-pocket-tts-int8-2026-01-26/vocab.json".into()),
                 token_scores_json: Some(
-                    "./edgevox-onnx-pocket-tts-int8-2026-01-26/token_scores.json".into(),
+                    "./sherpa-onnx-pocket-tts-int8-2026-01-26/token_scores.json".into(),
                 ),
                 voice_embedding_cache_capacity: 50,
             },
@@ -45,7 +45,7 @@ fn main() {
         thing in the world was to lose touch with someone.";
 
     // Read reference audio for zero-shot voice cloning
-    let reference_audio_file = "./edgevox-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav";
+    let reference_audio_file = "./sherpa-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav";
     let wave = Wave::read(reference_audio_file).expect("Failed to read reference audio");
 
     let mut extra = HashMap::new();

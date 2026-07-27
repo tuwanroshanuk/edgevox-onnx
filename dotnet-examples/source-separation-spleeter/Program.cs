@@ -3,13 +3,13 @@
 // This file shows how to use the source separation API with Spleeter models.
 //
 // 1. Download a model from
-// https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/edgevox-onnx-spleeter-2stems-fp16.tar.bz2
+// https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/sherpa-onnx-spleeter-2stems-fp16.tar.bz2
 //
-// tar xjf edgevox-onnx-spleeter-2stems-fp16.tar.bz2
+// tar xjf sherpa-onnx-spleeter-2stems-fp16.tar.bz2
 //
 // 2. Download a test file
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/qi-feng-le-zh.wav
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/qi-feng-le-zh.wav
 //
 // 3. Now run it
 //
@@ -23,8 +23,8 @@ class OfflineSourceSeparationDemo
   static void Main(string[] args)
   {
     var config = new OfflineSourceSeparationConfig();
-    config.Model.Spleeter.Vocals = "./edgevox-onnx-spleeter-2stems-fp16/vocals.fp16.onnx";
-    config.Model.Spleeter.Accompaniment = "./edgevox-onnx-spleeter-2stems-fp16/accompaniment.fp16.onnx";
+    config.Model.Spleeter.Vocals = "./sherpa-onnx-spleeter-2stems-fp16/vocals.fp16.onnx";
+    config.Model.Spleeter.Accompaniment = "./sherpa-onnx-spleeter-2stems-fp16/accompaniment.fp16.onnx";
     config.Model.NumThreads = 1;
 
     var ss = new OfflineSourceSeparation(config);

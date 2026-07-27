@@ -8,15 +8,15 @@ function createOfflineTts() {
   const config = {
     model: {
       zipvoice: {
-        tokens: './edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt',
+        tokens: './sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt',
         encoder:
-            './edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx',
+            './sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx',
         decoder:
-            './edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx',
+            './sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx',
         vocoder: './vocos_24khz.onnx',
         dataDir:
-            './edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data',
-        lexicon: './edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt',
+            './sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data',
+        lexicon: './sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt',
         espeakVoice: 'en-us',
       },
       debug: true,
@@ -34,7 +34,7 @@ const text =
 const referenceText =
     '那还是三十六年前, 一九八七年. 我呢考上了武汉大学的计算机系.';
 const referenceAudioFilename =
-    './edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav';
+    './sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav';
 const referenceWave = edgevox_onnx.readWave(referenceAudioFilename);
 
 const generationConfig = new edgevox_onnx.GenerationConfig({

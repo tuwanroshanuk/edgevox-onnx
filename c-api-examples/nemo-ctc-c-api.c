@@ -6,9 +6,9 @@
 // This file demonstrates how to use NeMo CTC model with edgevox-onnx's C API.
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-ctc-en-citrinet-512.tar.bz2
-// tar xvf edgevox-onnx-nemo-ctc-en-citrinet-512.tar.bz2
-// rm edgevox-onnx-nemo-ctc-en-citrinet-512.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-ctc-en-citrinet-512.tar.bz2
+// tar xvf sherpa-onnx-nemo-ctc-en-citrinet-512.tar.bz2
+// rm sherpa-onnx-nemo-ctc-en-citrinet-512.tar.bz2
 //
 // clang-format on
 
@@ -20,9 +20,9 @@
 
 int32_t main() {
   // clang-format off
-  const char *wav_filename = "./edgevox-onnx-nemo-ctc-en-citrinet-512/test_wavs/0.wav";
-  const char *model_filename = "./edgevox-onnx-nemo-ctc-en-citrinet-512/model.onnx";
-  const char *tokens_filename = "./edgevox-onnx-nemo-ctc-en-citrinet-512/tokens.txt";
+  const char *wav_filename = "./sherpa-onnx-nemo-ctc-en-citrinet-512/test_wavs/0.wav";
+  const char *model_filename = "./sherpa-onnx-nemo-ctc-en-citrinet-512/model.onnx";
+  const char *tokens_filename = "./sherpa-onnx-nemo-ctc-en-citrinet-512/tokens.txt";
   // clang-format on
 
   const EdgevoxOnnxWave *wave = EdgevoxOnnxReadWave(wav_filename);

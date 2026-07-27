@@ -1,4 +1,4 @@
 source-separation
-edgevox-onnx-spleeter-*
+sherpa-onnx-spleeter-*
 UVR-MDX-NET-*
 *.wav

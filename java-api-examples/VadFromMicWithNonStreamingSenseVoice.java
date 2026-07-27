@@ -3,7 +3,7 @@
 // This file shows how to use a silero_vad model with a non-streaming
 // SenseVoice model for speech recognition.
 
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 import javax.sound.sampled.*;
 
 public class VadFromMicWithNonStreamingSenseVoice {
@@ -12,7 +12,7 @@ public class VadFromMicWithNonStreamingSenseVoice {
 
   public static Vad createVad() {
     // please download ./silero_vad.onnx from
-    // https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+    // https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
     String model = "./silero_vad.onnx";
     SileroVadModelConfig sileroVad =
         SileroVadModelConfig.builder()
@@ -39,8 +39,8 @@ public class VadFromMicWithNonStreamingSenseVoice {
     // please refer to
     // https://k2-fsa.github.io/sherpa/onnx/sense-voice/index.html
     // to download model files
-    String model = "./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/model.int8.onnx";
-    String tokens = "./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/tokens.txt";
+    String model = "./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/model.int8.onnx";
+    String tokens = "./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/tokens.txt";
 
     OfflineSenseVoiceModelConfig senseVoice =
         OfflineSenseVoiceModelConfig.builder().setModel(model).build();

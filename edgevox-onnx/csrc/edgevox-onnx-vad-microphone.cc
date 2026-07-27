@@ -53,10 +53,10 @@ This program shows how to use VAD in edgevox-onnx.
     --vad-num-threads=1
 
 Please download silero_vad.onnx from
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 For instance, use
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 )usage";
 
   edgevox_onnx::ParseOptions po(kUsageMessage);

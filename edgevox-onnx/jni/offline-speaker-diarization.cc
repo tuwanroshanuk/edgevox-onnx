@@ -21,13 +21,13 @@ static OfflineSpeakerDiarizationConfig GetOfflineSpeakerDiarizationConfig(
   //---------- segmentation ----------
   fid = env->GetFieldID(
       cls, "segmentation",
-      "Lcom/k2fsa/sherpa/onnx/OfflineSpeakerSegmentationModelConfig;");
+      "Lcom/nexus/edgevox/onnx/OfflineSpeakerSegmentationModelConfig;");
   jobject segmentation_config = env->GetObjectField(config, fid);
   jclass segmentation_config_cls = env->GetObjectClass(segmentation_config);
 
   fid = env->GetFieldID(
       segmentation_config_cls, "pyannote",
-      "Lcom/k2fsa/sherpa/onnx/OfflineSpeakerSegmentationPyannoteModelConfig;");
+      "Lcom/nexus/edgevox/onnx/OfflineSpeakerSegmentationPyannoteModelConfig;");
   jobject pyannote_config = env->GetObjectField(segmentation_config, fid);
   jclass pyannote_config_cls = env->GetObjectClass(pyannote_config);
 
@@ -46,7 +46,7 @@ static OfflineSpeakerDiarizationConfig GetOfflineSpeakerDiarizationConfig(
   //---------- embedding ----------
   fid = env->GetFieldID(
       cls, "embedding",
-      "Lcom/k2fsa/sherpa/onnx/SpeakerEmbeddingExtractorConfig;");
+      "Lcom/nexus/edgevox/onnx/SpeakerEmbeddingExtractorConfig;");
   jobject embedding_config = env->GetObjectField(config, fid);
   jclass embedding_config_cls = env->GetObjectClass(embedding_config);
 
@@ -63,7 +63,7 @@ static OfflineSpeakerDiarizationConfig GetOfflineSpeakerDiarizationConfig(
                               embedding_config_cls, embedding_config);
 
   fid = env->GetFieldID(cls, "clustering",
-                        "Lcom/k2fsa/sherpa/onnx/FastClusteringConfig;");
+                        "Lcom/nexus/edgevox/onnx/FastClusteringConfig;");
   jobject clustering_config = env->GetObjectField(config, fid);
   jclass clustering_config_cls = env->GetObjectClass(clustering_config);
 
@@ -85,7 +85,7 @@ static OfflineSpeakerDiarizationConfig GetOfflineSpeakerDiarizationConfig(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jlong JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineSpeakerDiarization_newFromAsset(
+Java_com_nexus_edgevox_onnx_OfflineSpeakerDiarization_newFromAsset(
     JNIEnv *env, jobject /*obj*/, jobject asset_manager, jobject _config) {
 #if __ANDROID_API__ >= 9
   AAssetManager *mgr = AAssetManager_fromJava(env, asset_manager);
@@ -117,7 +117,7 @@ Java_com_k2fsa_edgevox_onnx_OfflineSpeakerDiarization_newFromAsset(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jlong JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineSpeakerDiarization_newFromFile(
+Java_com_nexus_edgevox_onnx_OfflineSpeakerDiarization_newFromFile(
     JNIEnv *env, jobject /*obj*/, jobject _config) {
   bool ok = false;
   auto config =
@@ -142,7 +142,7 @@ Java_com_k2fsa_edgevox_onnx_OfflineSpeakerDiarization_newFromFile(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT void JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineSpeakerDiarization_setConfig(
+Java_com_nexus_edgevox_onnx_OfflineSpeakerDiarization_setConfig(
     JNIEnv *env, jobject /*obj*/, jlong ptr, jobject _config) {
   bool ok = false;
   auto config =
@@ -161,7 +161,7 @@ Java_com_k2fsa_edgevox_onnx_OfflineSpeakerDiarization_setConfig(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT void JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineSpeakerDiarization_delete(JNIEnv * /*env*/,
+Java_com_nexus_edgevox_onnx_OfflineSpeakerDiarization_delete(JNIEnv * /*env*/,
                                                             jobject /*obj*/,
                                                             jlong ptr) {
   delete reinterpret_cast<edgevox_onnx::OfflineSpeakerDiarization *>(ptr);
@@ -172,7 +172,7 @@ static jobjectArray ProcessImpl(
     const std::vector<edgevox_onnx::OfflineSpeakerDiarizationSegment>
         &segments) {
   jclass cls =
-      env->FindClass("com/k2fsa/sherpa/onnx/OfflineSpeakerDiarizationSegment");
+      env->FindClass("com/nexus/edgevox/onnx/OfflineSpeakerDiarizationSegment");
   if (cls == nullptr) {
     EDGEVOX_ONNX_LOGE(
         "Failed to find class OfflineSpeakerDiarizationSegment");
@@ -204,7 +204,7 @@ static jobjectArray ProcessImpl(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jobjectArray JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineSpeakerDiarization_process(
+Java_com_nexus_edgevox_onnx_OfflineSpeakerDiarization_process(
     JNIEnv *env, jobject /*obj*/, jlong ptr, jfloatArray samples) {
   auto sd = reinterpret_cast<edgevox_onnx::OfflineSpeakerDiarization *>(ptr);
 
@@ -218,7 +218,7 @@ Java_com_k2fsa_edgevox_onnx_OfflineSpeakerDiarization_process(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jobjectArray JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineSpeakerDiarization_processWithCallback(
+Java_com_nexus_edgevox_onnx_OfflineSpeakerDiarization_processWithCallback(
     JNIEnv *env, jobject /*obj*/, jlong ptr, jfloatArray samples,
     jobject callback, jlong arg) {
   std::function<int32_t(int32_t, int32_t, void *)> callback_wrapper =
@@ -262,7 +262,7 @@ Java_com_k2fsa_edgevox_onnx_OfflineSpeakerDiarization_processWithCallback(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jint JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineSpeakerDiarization_getSampleRate(
+Java_com_nexus_edgevox_onnx_OfflineSpeakerDiarization_getSampleRate(
     JNIEnv * /*env*/, jobject /*obj*/, jlong ptr) {
   return reinterpret_cast<edgevox_onnx::OfflineSpeakerDiarization *>(ptr)
       ->SampleRate();

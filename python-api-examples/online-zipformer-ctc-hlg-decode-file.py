@@ -6,15 +6,15 @@
 # We use the following model as an example
 #
 """
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
-tar xvf edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
-rm edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+tar xvf sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+rm sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
 
 python3 ./python-api-examples/online-zipformer-ctc-hlg-decode-file.py \
-  --tokens ./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt \
-  --graph ./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst \
-  --model ./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx \
-  ./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/0.wav
+  --tokens ./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt \
+  --graph ./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst \
+  --model ./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx \
+  ./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/0.wav
 
 """
 # (The above model is from https://github.com/k2-fsa/icefall/pull/1557)

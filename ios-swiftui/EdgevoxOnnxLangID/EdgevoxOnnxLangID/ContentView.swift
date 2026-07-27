@@ -15,7 +15,7 @@ struct ContentView: View {
             Text("ASR with Next-gen Kaldi")
                 .font(.title)
             if viewModel.status == .stop {
-                Text("See https://github.com/k2-fsa/edgevox-onnx")
+                Text("See https://github.com/k2-fsa/sherpa-onnx")
                 Text("Press the Start button to run!")
             }
             if viewModel.status == .recording {

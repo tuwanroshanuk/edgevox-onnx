@@ -8,12 +8,12 @@ const edgevox_onnx = require('edgevox-onnx');
 
 function createOnlineRecognizer() {
   let toneCtc = {
-    model: './edgevox-onnx-streaming-t-one-russian-2025-09-08/model.onnx',
+    model: './sherpa-onnx-streaming-t-one-russian-2025-09-08/model.onnx',
   };
 
   let onlineModelConfig = {
     toneCtc: toneCtc,
-    tokens: './edgevox-onnx-streaming-t-one-russian-2025-09-08/tokens.txt',
+    tokens: './sherpa-onnx-streaming-t-one-russian-2025-09-08/tokens.txt',
     numThreads: 1,
     provider: 'cpu',
     debug: 1,
@@ -36,7 +36,7 @@ function createOnlineRecognizer() {
 const recognizer = createOnlineRecognizer();
 const stream = recognizer.createStream();
 
-const waveFilename = './edgevox-onnx-streaming-t-one-russian-2025-09-08/0.wav';
+const waveFilename = './sherpa-onnx-streaming-t-one-russian-2025-09-08/0.wav';
 const wave = edgevox_onnx.readWave(waveFilename);
 
 const leftPadding = new Float32Array(wave.sampleRate * 0.3);

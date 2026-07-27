@@ -73,4 +73,4 @@ for details.
 - [./vad-spoken-language-identification](./vad-spoken-language-identification) It shows how to use silero VAD + Whisper
   for spoken language identification.
 
-[edgevox-onnx]: https://github.com/k2-fsa/edgevox-onnx
+[sherpa-onnx]: https://github.com/k2-fsa/sherpa-onnx

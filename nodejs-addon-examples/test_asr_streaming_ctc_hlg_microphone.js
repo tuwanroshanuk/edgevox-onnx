@@ -14,16 +14,16 @@ function createOnlineRecognizer() {
     'modelConfig': {
       'zipformer2Ctc': {
         'model':
-            './edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx',
+            './sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx',
       },
       'tokens':
-          './edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt',
+          './sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt',
       'numThreads': 2,
       'provider': 'cpu',
       'debug': 1,
     },
     'ctcFstDecoderConfig': {
-      'graph': './edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst',
+      'graph': './sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst',
     },
     'enableEndpoint': true,
     'rule1MinTrailingSilence': 2.4,

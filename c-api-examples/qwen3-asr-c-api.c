@@ -11,8 +11,8 @@
 //   cmake --build build --target qwen3-asr-c-api
 //
 // Model:
-//   wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
-//   tar xvf edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
+//   wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
+//   tar xvf sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
 //
 // Run:
 //   ./build/bin/qwen3-asr-c-api
@@ -31,11 +31,11 @@
 
 int32_t main() {
   // clang-format off
-  const char *wav_filename = "edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/test_wavs/raokouling.wav";
-  const char *conv_frontend = "edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/conv_frontend.onnx";
-  const char *encoder = "edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/encoder.int8.onnx";
-  const char *decoder = "edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/decoder.int8.onnx";
-  const char *tokenizer = "edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/tokenizer";
+  const char *wav_filename = "sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/test_wavs/raokouling.wav";
+  const char *conv_frontend = "sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/conv_frontend.onnx";
+  const char *encoder = "sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/encoder.int8.onnx";
+  const char *decoder = "sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/decoder.int8.onnx";
+  const char *tokenizer = "sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/tokenizer";
   // clang-format on
 
   const EdgevoxOnnxWave* wave = EdgevoxOnnxReadWave(wav_filename);

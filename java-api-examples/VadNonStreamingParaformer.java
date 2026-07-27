@@ -3,13 +3,13 @@
 // This file shows how to use a silero_vad model with a non-streaming Paraformer
 // for speech recognition.
 
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 import java.util.Arrays;
 
 public class VadNonStreamingParaformer {
   public static Vad createVad() {
     // please download ./silero_vad.onnx from
-    // https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+    // https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
     String model = "./silero_vad.onnx";
     SileroVadModelConfig sileroVad =
         SileroVadModelConfig.builder()
@@ -35,10 +35,10 @@ public class VadNonStreamingParaformer {
 
   public static OfflineRecognizer createOfflineRecognizer() {
     // please refer to
-    // https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-paraformer/paraformer-models.html#csukuangfj-edgevox-onnx-paraformer-zh-2023-09-14-chinese-english
+    // https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-paraformer/paraformer-models.html#csukuangfj-sherpa-onnx-paraformer-zh-2023-09-14-chinese-english
     // to download model files
-    String model = "./edgevox-onnx-paraformer-zh-2023-09-14/model.int8.onnx";
-    String tokens = "./edgevox-onnx-paraformer-zh-2023-09-14/tokens.txt";
+    String model = "./sherpa-onnx-paraformer-zh-2023-09-14/model.int8.onnx";
+    String tokens = "./sherpa-onnx-paraformer-zh-2023-09-14/tokens.txt";
 
     OfflineParaformerModelConfig paraformer =
         OfflineParaformerModelConfig.builder().setModel(model).build();
@@ -66,7 +66,7 @@ public class VadNonStreamingParaformer {
     OfflineRecognizer recognizer = createOfflineRecognizer();
 
     // You can download the test file from
-    // https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+    // https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
     String testWaveFilename = "./lei-jun-test.wav";
     WaveReader reader = new WaveReader(testWaveFilename);
 

@@ -3,14 +3,14 @@
 // Copyright (c)  2025  Xiaomi Corporation
 
 // We assume you have pre-downloaded the Nemo Canary model
-// from https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// from https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 // An example is given below:
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
-// tar xvf edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
-// rm edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
+// tar xvf sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
+// rm sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
 //
 // clang-format on
 //
@@ -25,13 +25,13 @@
 
 int32_t main() {
   const char *wav_filename =
-      "./edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/de.wav";
+      "./sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/de.wav";
   const char *encoder_filename =
-      "edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/encoder.int8.onnx";
+      "sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/encoder.int8.onnx";
   const char *decoder_filename =
-      "edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/decoder.int8.onnx";
+      "sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/decoder.int8.onnx";
   const char *tokens_filename =
-      "edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/tokens.txt";
+      "sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/tokens.txt";
   const char *provider = "cpu";
 
   const EdgevoxOnnxWave *wave = EdgevoxOnnxReadWave(wav_filename);

@@ -1,4 +1,4 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 fun main() {
   testPunctuation()
@@ -7,7 +7,7 @@ fun main() {
 fun testPunctuation() {
   val config = OfflinePunctuationConfig(
       model=OfflinePunctuationModelConfig(
-          ctTransformer="./edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx",
+          ctTransformer="./sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx",
           numThreads=1,
           debug=true,
           provider="cpu",

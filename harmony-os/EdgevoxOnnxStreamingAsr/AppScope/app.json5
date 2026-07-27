@@ -1,6 +1,6 @@
 {
   "app": {
-    "bundleName": "com.k2fsa.sherpa.onnx.streaming.asr",
+    "bundleName": "com.nexus.edgevox.onnx.streaming.asr",
     "vendor": "example",
     "versionCode": 1000000,
     "versionName": "1.0.0",

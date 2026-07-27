@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 )
 
 func main() {
@@ -25,7 +25,7 @@ func main() {
 
 	switch modelType {
 	case "spleeter":
-		modelDir := "./edgevox-onnx-spleeter-2stems-fp16"
+		modelDir := "./sherpa-onnx-spleeter-2stems-fp16"
 		config.Model.Spleeter = sherpa.OfflineSourceSeparationSpleeterModelConfig{
 			Vocals:        modelDir + "/vocals.fp16.onnx",
 			Accompaniment: modelDir + "/accompaniment.fp16.onnx",

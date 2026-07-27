@@ -779,7 +779,7 @@
 * Add TTS engine APKs for more models (#2327)
 * Fix static link without tts (#2328)
 * Fix VAD+ASR C++ example. (#2335)
-* Add edgevox-onnx-streaming-zipformer-zh-int8-2025-06-30 to android ASR apk (#2336)
+* Add sherpa-onnx-streaming-zipformer-zh-int8-2025-06-30 to android ASR apk (#2336)
 * Support non-streaming zipformer CTC ASR models (#2340)
 * Support linux aarch64 for Dart and Flutter (#2342)
 
@@ -1392,7 +1392,7 @@
 ## 1.10.12
 
 * Add Flush to VAD so that the last speech segment can be detected. See also
-  https://github.com/k2-fsa/edgevox-onnx/discussions/1077#discussioncomment-9979740
+  https://github.com/k2-fsa/sherpa-onnx/discussions/1077#discussioncomment-9979740
 
 ## 1.10.11
 

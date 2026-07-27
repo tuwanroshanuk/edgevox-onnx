@@ -1,12 +1,12 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 fun main() {
   testSupertonicTts()
 }
 
 fun testSupertonicTts() {
-  // see https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
-  val modelDir = "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11"
+  // see https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
+  val modelDir = "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11"
   val config = OfflineTtsConfig(
     model=OfflineTtsModelConfig(
       supertonic=OfflineTtsSupertonicModelConfig(

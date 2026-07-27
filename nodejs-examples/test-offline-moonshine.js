@@ -5,14 +5,14 @@ const edgevox_onnx = require('edgevox-onnx');
 function createOfflineRecognizer() {
   let modelConfig = {
     moonshine: {
-      preprocessor: './edgevox-onnx-moonshine-tiny-en-int8/preprocess.onnx',
-      encoder: './edgevox-onnx-moonshine-tiny-en-int8/encode.int8.onnx',
+      preprocessor: './sherpa-onnx-moonshine-tiny-en-int8/preprocess.onnx',
+      encoder: './sherpa-onnx-moonshine-tiny-en-int8/encode.int8.onnx',
       uncachedDecoder:
-          './edgevox-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx',
+          './sherpa-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx',
       cachedDecoder:
-          './edgevox-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx',
+          './sherpa-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx',
     },
-    tokens: './edgevox-onnx-moonshine-tiny-en-int8/tokens.txt',
+    tokens: './sherpa-onnx-moonshine-tiny-en-int8/tokens.txt',
   };
 
   let config = {
@@ -25,7 +25,7 @@ function createOfflineRecognizer() {
 const recognizer = createOfflineRecognizer();
 const stream = recognizer.createStream();
 
-const waveFilename = './edgevox-onnx-moonshine-tiny-en-int8/test_wavs/0.wav';
+const waveFilename = './sherpa-onnx-moonshine-tiny-en-int8/test_wavs/0.wav';
 const wave = edgevox_onnx.readWave(waveFilename);
 stream.acceptWaveform(wave.sampleRate, wave.samples);
 

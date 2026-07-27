@@ -39,7 +39,7 @@
 namespace edgevox_onnx {
 
 namespace {
-// Please see https://github.com/k2-fsa/edgevox-onnx/pull/2853
+// Please see https://github.com/k2-fsa/sherpa-onnx/pull/2853
 // for why we need to do the replacement
 static const std::vector<std::pair<std::string, std::string>> kReplacements = {
     {"ɝ", "ɜɹ"}, {"ɚ", "əɹ"},

@@ -73,7 +73,7 @@ function initTts(context: Context): OfflineTts {
   /* Such a design is to make it easier to build flutter APPs with
      github actions for a variety of tts models
 
-     See https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/flutter/generate-tts.py
+     See https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/flutter/generate-tts.py
      for details
    */
 
@@ -111,14 +111,14 @@ function initTts(context: Context): OfflineTts {
   // lexicon = 'lexicon.txt';
 
   // Example 2:
-  // https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2
+  // https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2
   // modelDir = 'vits-piper-en_US-amy-low';
   // modelName = 'en_US-amy-low.onnx';
   // dataDir = 'espeak-ng-data';
 
   // Example 3:
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-icefall-zh-aishell3.tar.bz2
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-icefall-zh-aishell3.tar.bz2
   // modelDir = 'vits-icefall-zh-aishell3';
   // modelName = 'model.onnx';
   // ruleFsts = 'phone.fst,date.fst,number.fst,new_heteronym.fst';
@@ -132,27 +132,27 @@ function initTts(context: Context): OfflineTts {
   // lexicon = 'lexicon.txt';
 
   // Example 5:
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-coqui-de-css10.tar.bz2
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-de-css10.tar.bz2
   // modelDir = 'vits-coqui-de-css10';
   // modelName = 'model.onnx';
 
   // Example 6
-  // https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-piper-en_US-libritts_r-medium.tar.bz2
+  // https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-libritts_r-medium.tar.bz2
   // modelDir = 'vits-piper-en_US-libritts_r-medium';
   // modelName = 'en_US-libritts_r-medium.onnx';
   // dataDir = 'espeak-ng-data';
 
   // Example 7
-  // https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-melo-tts-zh_en.tar.bz2
+  // https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-melo-tts-zh_en.tar.bz2
   // modelDir = 'vits-melo-tts-zh_en';
   // modelName = 'model.onnx';
   // lexicon = 'lexicon.txt';
   // ruleFsts = `date.fst,phone.fst,number.fst`;
 
   // Example 8
-  // https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
   // https://k2-fsa.github.io/sherpa/onnx/tts/pretrained_models/matcha.html#matcha-icefall-zh-baker-chinese-1-female-speaker
   // modelDir = 'matcha-icefall-zh-baker';
   // acousticModelName = 'model-steps-3.onnx';
@@ -161,7 +161,7 @@ function initTts(context: Context): OfflineTts {
   // ruleFsts = `date.fst,phone.fst,number.fst`;
 
   // Example 9
-  // https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
   // https://k2-fsa.github.io/sherpa/onnx/tts/pretrained_models/matcha.html#matcha-icefall-en-us-ljspeech-american-english-1-female-speaker
   // modelDir = 'matcha-icefall-en_US-ljspeech';
   // acousticModelName = 'model-steps-3.onnx';

@@ -4,7 +4,7 @@
 This file shows how to use a streaming Paraformer model to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program paraformer;
@@ -34,17 +34,17 @@ var
 begin
   Initialize(Config);
 
-  {Please visit https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+  {Please visit https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
   to download model files used in this file.}
-  Config.ModelConfig.Paraformer.Encoder := './edgevox-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx';
-  Config.ModelConfig.Paraformer.Decoder := './edgevox-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx';
-  Config.ModelConfig.Tokens := './edgevox-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt';
+  Config.ModelConfig.Paraformer.Encoder := './sherpa-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx';
+  Config.ModelConfig.Paraformer.Decoder := './sherpa-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx';
+  Config.ModelConfig.Tokens := './sherpa-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt';
 
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := False;
 
-  WaveFilename := './edgevox-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/2.wav';
+  WaveFilename := './sherpa-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/2.wav';
 
   Wave := EdgevoxOnnxReadWave(WaveFilename);
 

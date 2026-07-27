@@ -5,7 +5,7 @@ This file shows how to use a non-streaming FunASR Nano model
 to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program funasr_nano;
@@ -35,16 +35,16 @@ var
 begin
   Initialize(Config);
 
-  Config.ModelConfig.FunAsrNano.EncoderAdaptor := './edgevox-onnx-funasr-nano-int8-2025-12-30/encoder_adaptor.int8.onnx';
-  Config.ModelConfig.FunAsrNano.LLM := './edgevox-onnx-funasr-nano-int8-2025-12-30/llm.int8.onnx';
-  Config.ModelConfig.FunAsrNano.Embedding := './edgevox-onnx-funasr-nano-int8-2025-12-30/embedding.int8.onnx';
-  Config.ModelConfig.FunAsrNano.Tokenizer := './edgevox-onnx-funasr-nano-int8-2025-12-30/Qwen3-0.6B';
+  Config.ModelConfig.FunAsrNano.EncoderAdaptor := './sherpa-onnx-funasr-nano-int8-2025-12-30/encoder_adaptor.int8.onnx';
+  Config.ModelConfig.FunAsrNano.LLM := './sherpa-onnx-funasr-nano-int8-2025-12-30/llm.int8.onnx';
+  Config.ModelConfig.FunAsrNano.Embedding := './sherpa-onnx-funasr-nano-int8-2025-12-30/embedding.int8.onnx';
+  Config.ModelConfig.FunAsrNano.Tokenizer := './sherpa-onnx-funasr-nano-int8-2025-12-30/Qwen3-0.6B';
   Config.ModelConfig.Tokens := '';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 2;
   Config.ModelConfig.Debug := True;
 
-  WaveFilename := './edgevox-onnx-funasr-nano-int8-2025-12-30/test_wavs/lyrics.wav';
+  WaveFilename := './sherpa-onnx-funasr-nano-int8-2025-12-30/test_wavs/lyrics.wav';
 
   Wave := EdgevoxOnnxReadWave(WaveFilename);
 

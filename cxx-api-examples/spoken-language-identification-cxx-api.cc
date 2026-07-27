@@ -8,9 +8,9 @@
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-whisper-tiny.tar.bz2
-// tar xvf edgevox-onnx-whisper-tiny.tar.bz2
-// rm edgevox-onnx-whisper-tiny.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-tiny.tar.bz2
+// tar xvf sherpa-onnx-whisper-tiny.tar.bz2
+// rm sherpa-onnx-whisper-tiny.tar.bz2
 //
 // clang-format on
 
@@ -24,8 +24,8 @@ int32_t main() {
   using namespace edgevox_onnx::cxx;  // NOLINT
 
   SpokenLanguageIdentificationConfig config;
-  config.whisper.encoder = "./edgevox-onnx-whisper-tiny/tiny-encoder.int8.onnx";
-  config.whisper.decoder = "./edgevox-onnx-whisper-tiny/tiny-decoder.int8.onnx";
+  config.whisper.encoder = "./sherpa-onnx-whisper-tiny/tiny-encoder.int8.onnx";
+  config.whisper.decoder = "./sherpa-onnx-whisper-tiny/tiny-decoder.int8.onnx";
   config.num_threads = 1;
 
   SpokenLanguageIdentification slid =
@@ -35,7 +35,7 @@ int32_t main() {
     return -1;
   }
 
-  std::string wav_filename = "./edgevox-onnx-whisper-tiny/test_wavs/0.wav";
+  std::string wav_filename = "./sherpa-onnx-whisper-tiny/test_wavs/0.wav";
   Wave wave = ReadWave(wav_filename);
   if (wave.samples.empty()) {
     std::cerr << "Failed to read: '" << wav_filename << "'\n";

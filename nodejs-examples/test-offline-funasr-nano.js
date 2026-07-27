@@ -11,11 +11,11 @@ function createOfflineRecognizer() {
     modelConfig: {
       funasrNano: {
         encoderAdaptor:
-            './edgevox-onnx-funasr-nano-int8-2025-12-30/encoder_adaptor.int8.onnx',
-        llm: './edgevox-onnx-funasr-nano-int8-2025-12-30/llm.int8.onnx',
+            './sherpa-onnx-funasr-nano-int8-2025-12-30/encoder_adaptor.int8.onnx',
+        llm: './sherpa-onnx-funasr-nano-int8-2025-12-30/llm.int8.onnx',
         embedding:
-            './edgevox-onnx-funasr-nano-int8-2025-12-30/embedding.int8.onnx',
-        tokenizer: './edgevox-onnx-funasr-nano-int8-2025-12-30/Qwen3-0.6B',
+            './sherpa-onnx-funasr-nano-int8-2025-12-30/embedding.int8.onnx',
+        tokenizer: './sherpa-onnx-funasr-nano-int8-2025-12-30/Qwen3-0.6B',
       },
       tokens: '',
     }
@@ -28,7 +28,7 @@ const recognizer = createOfflineRecognizer();
 const stream = recognizer.createStream();
 
 const waveFilename =
-    './edgevox-onnx-funasr-nano-int8-2025-12-30/test_wavs/lyrics.wav';
+    './sherpa-onnx-funasr-nano-int8-2025-12-30/test_wavs/lyrics.wav';
 const wave = edgevox_onnx.readWave(waveFilename);
 stream.acceptWaveform(wave.sampleRate, wave.samples);
 

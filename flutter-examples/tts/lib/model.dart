@@ -19,7 +19,7 @@ Future<edgevox_onnx.OfflineTts> createOfflineTts() async {
   // Such a design is to make it easier to build flutter APPs with
   // github actions for a variety of tts models
   //
-  // See https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/flutter/generate-tts.py
+  // See https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/flutter/generate-tts.py
   // for details
 
   String modelDir = '';
@@ -44,14 +44,14 @@ Future<edgevox_onnx.OfflineTts> createOfflineTts() async {
   // lexicon = 'lexicon.txt';
 
   // Example 2:
-  // https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2
+  // https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2
   // modelDir = 'vits-piper-en_US-amy-low';
   // modelName = 'en_US-amy-low.onnx';
   // dataDir = 'vits-piper-en_US-amy-low/espeak-ng-data';
 
   // Example 3:
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-icefall-zh-aishell3.tar.bz2
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-icefall-zh-aishell3.tar.bz2
   // modelDir = 'vits-icefall-zh-aishell3';
   // modelName = 'model.onnx';
   // ruleFsts = 'vits-icefall-zh-aishell3/phone.fst,vits-icefall-zh-aishell3/date.fst,vits-icefall-zh-aishell3/number.fst,vits-icefall-zh-aishell3/new_heteronym.fst';
@@ -65,20 +65,20 @@ Future<edgevox_onnx.OfflineTts> createOfflineTts() async {
   // lexicon = 'lexicon.txt';
 
   // Example 5:
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-coqui-de-css10.tar.bz2
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-de-css10.tar.bz2
   // modelDir = 'vits-coqui-de-css10';
   // modelName = 'model.onnx';
 
   // Example 6
-  // https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-piper-en_US-libritts_r-medium.tar.bz2
+  // https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-libritts_r-medium.tar.bz2
   // modelDir = 'vits-piper-en_US-libritts_r-medium';
   // modelName = 'en_US-libritts_r-medium.onnx';
   // dataDir = 'vits-piper-en_US-libritts_r-medium/espeak-ng-data';
 
   // Example 7
-  // https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-melo-tts-zh_en.tar.bz2
+  // https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-melo-tts-zh_en.tar.bz2
   // modelDir = 'vits-melo-tts-zh_en';
   // modelName = 'model.onnx';
   // lexicon = 'lexicon.txt';
@@ -99,7 +99,7 @@ Future<edgevox_onnx.OfflineTts> createOfflineTts() async {
   // lexicon = 'kokoro-multi-lang-v1_0/lexicon-us-en.txt,kokoro-multi-lang-v1_0/lexicon-zh.txt';
 
   // Example 10
-  // https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
   // modelDir = 'kitten-nano-en-v0_8-fp32';
   // modelName = 'model.fp32.onnx';
   // voices = 'voices.bin';

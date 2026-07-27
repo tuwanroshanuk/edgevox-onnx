@@ -2,11 +2,11 @@
 
 // This file shows how to use an offline Cohere Transcribe model
 // to decode files.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingDecodeFileCohereTranscribe {
   public static void main(String[] args) {
-    String modelDir = "./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01";
+    String modelDir = "./sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01";
     String encoder = modelDir + "/encoder.int8.onnx";
     String decoder = modelDir + "/decoder.int8.onnx";
     String tokens = modelDir + "/tokens.txt";

@@ -45,27 +45,27 @@ Usage:
 
 (2) Streaming zipformer2 CTC
 
-  wget -q https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
-  tar xvf edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
+  wget -q https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
+  tar xvf sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
 
   ./bin/edgevox-onnx \
     --debug=1 \
-    --zipformer2-ctc-model=./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/ctc-epoch-20-avg-1-chunk-16-left-128.onnx \
-    --tokens=./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/tokens.txt \
-    ./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000000.wav \
-    ./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000001.wav \
-    ./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000002.wav
+    --zipformer2-ctc-model=./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/ctc-epoch-20-avg-1-chunk-16-left-128.onnx \
+    --tokens=./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/tokens.txt \
+    ./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000000.wav \
+    ./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000001.wav \
+    ./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000002.wav
 
 (3) Streaming paraformer
 
-  wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
-  tar xvf edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+  wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+  tar xvf sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
 
   ./bin/edgevox-onnx \
-    --tokens=./edgevox-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt \
-    --paraformer-encoder=./edgevox-onnx-streaming-paraformer-bilingual-zh-en/encoder.onnx \
-    --paraformer-decoder=./edgevox-onnx-streaming-paraformer-bilingual-zh-en/decoder.onnx \
-    ./edgevox-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/0.wav
+    --tokens=./sherpa-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt \
+    --paraformer-encoder=./sherpa-onnx-streaming-paraformer-bilingual-zh-en/encoder.onnx \
+    --paraformer-decoder=./sherpa-onnx-streaming-paraformer-bilingual-zh-en/decoder.onnx \
+    ./sherpa-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/0.wav
 
 Note: It supports decoding multiple files in batches
 

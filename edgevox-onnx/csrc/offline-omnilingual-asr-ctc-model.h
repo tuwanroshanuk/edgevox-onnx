@@ -18,7 +18,7 @@ namespace edgevox_onnx {
  * https://github.com/facebookresearch/omnilingual-asr
  *
  * See
- * https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/omnilingual-asr/export-onnx.py
+ * https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/omnilingual-asr/export-onnx.py
  */
 class OfflineOmnilingualAsrCtcModel : public OfflineCtcModel {
  public:

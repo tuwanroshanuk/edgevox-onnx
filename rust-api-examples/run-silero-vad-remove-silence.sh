@@ -3,11 +3,11 @@ set -ex
 
 # https://k2-fsa.github.io/sherpa/onnx/vad/silero-vad.html
 if [ ! -f "./silero_vad.onnx" ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 fi
 
 if [ ! -f ./lei-jun-test.wav ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/lei-jun-test.wav
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/lei-jun-test.wav
 fi
 
 cargo run --example silero_vad_remove_silence -- \

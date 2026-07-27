@@ -735,7 +735,7 @@ if __name__ == "__main__":
     try:
         # To fix
         # TypeError: scaled_dot_product_attention(): argument 'is_causal' must be bool, not Tensor
-        # See also https://github.com/k2-fsa/edgevox-onnx/issues/1764
+        # See also https://github.com/k2-fsa/sherpa-onnx/issues/1764
         from whisper.model import disable_sdpa
 
         with disable_sdpa():

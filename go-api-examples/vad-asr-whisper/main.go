@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	portaudio "github.com/csukuangfj/portaudio-go"
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 	"log"
 	"strings"
 )
@@ -15,7 +15,7 @@ func main() {
 	config := sherpa.VadModelConfig{}
 
 	// Please download silero_vad.onnx from
-	// https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+	// https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 	config.SileroVad.Model = "./silero_vad.onnx"
 	config.SileroVad.Threshold = 0.5
@@ -38,9 +38,9 @@ func main() {
 	c := sherpa.OfflineRecognizerConfig{}
 	c.FeatConfig.SampleRate = 16000
 	c.FeatConfig.FeatureDim = 80
-	c.ModelConfig.Whisper.Encoder = "./edgevox-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx"
-	c.ModelConfig.Whisper.Decoder = "./edgevox-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx"
-	c.ModelConfig.Tokens = "./edgevox-onnx-whisper-tiny.en/tiny.en-tokens.txt"
+	c.ModelConfig.Whisper.Encoder = "./sherpa-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx"
+	c.ModelConfig.Whisper.Decoder = "./sherpa-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx"
+	c.ModelConfig.Tokens = "./sherpa-onnx-whisper-tiny.en/tiny.en-tokens.txt"
 	c.ModelConfig.NumThreads = 2
 	c.ModelConfig.Debug = 1
 	c.ModelConfig.Provider = "cpu"

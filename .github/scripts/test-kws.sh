@@ -17,9 +17,9 @@ log "------------------------------------------------------------"
 log "Run Chinese keyword spotting (Wenetspeech）"
 log "------------------------------------------------------------"
 
-repo_url=https://github.com/pkufool/keyword-spotting-models/releases/download/v0.1/edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz
+repo_url=https://github.com/pkufool/keyword-spotting-models/releases/download/v0.1/sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz
 log "Start testing ${repo_url}"
-repo=edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01
+repo=sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01
 
 log "Download pretrained model and test-data from $repo_url"
 curl -SL -O $repo_url
@@ -42,9 +42,9 @@ log "------------------------------------------------------------"
 log "Run English keyword spotting (Gigaspeech）"
 log "------------------------------------------------------------"
 
-repo_url=https://github.com/pkufool/keyword-spotting-models/releases/download/v0.1/edgevox-onnx-kws-zipformer-gigaspeech-3.3M-2024-01-01.tar.bz
+repo_url=https://github.com/pkufool/keyword-spotting-models/releases/download/v0.1/sherpa-onnx-kws-zipformer-gigaspeech-3.3M-2024-01-01.tar.bz
 log "Start testing ${repo_url}"
-repo=edgevox-onnx-kws-zipformer-gigaspeech-3.3M-2024-01-01
+repo=sherpa-onnx-kws-zipformer-gigaspeech-3.3M-2024-01-01
 
 log "Download pretrained model and test-data from $repo_url"
 curl -SL -O $repo_url

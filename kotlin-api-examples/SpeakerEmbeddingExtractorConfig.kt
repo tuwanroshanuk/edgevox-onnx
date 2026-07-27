@@ -1,1 +1,1 @@
-../sherpa-onnx/kotlin-api/SpeakerEmbeddingExtractorConfig.kt
+../edgevox-onnx/kotlin-api/SpeakerEmbeddingExtractorConfig.kt

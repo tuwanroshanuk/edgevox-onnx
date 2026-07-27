@@ -114,7 +114,7 @@ def cmvn(features):
 
 def main():
     # Please download the test data from
-    # https://hf-mirror.com/csukuangfj/edgevox-onnx-paraformer-zh-small-2024-03-09/tree/main/test_wavs
+    # https://hf-mirror.com/csukuangfj/sherpa-onnx-paraformer-zh-small-2024-03-09/tree/main/test_wavs
     test_wav_filename = "./3-sichuan.wav"
     test_wav_filename = "./4-tianjin.wav"
     test_wav_filename = "./5-henan.wav"

@@ -11,7 +11,7 @@
 namespace edgevox_onnx {
 
 // for
-// https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/omnilingual-asr/test.py
+// https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/omnilingual-asr/test.py
 struct OfflineOmnilingualAsrCtcModelConfig {
   std::string model;
 

@@ -1,4 +1,4 @@
-# Example using the edgevox-onnx Python API and edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8 model
+# Example using the edgevox-onnx Python API and sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8 model
 # Prints recognized text, per-token timestamps, and durations
 
 import os
@@ -6,11 +6,11 @@ import sys
 import edgevox_onnx
 import soundfile as sf
 
-wav_filename = "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/test_wavs/en.wav"
-encoder = "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/encoder.int8.onnx"
-decoder = "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/decoder.int8.onnx"
-joiner = "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/joiner.int8.onnx"
-tokens = "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/tokens.txt"
+wav_filename = "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/test_wavs/en.wav"
+encoder = "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/encoder.int8.onnx"
+decoder = "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/decoder.int8.onnx"
+joiner = "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/joiner.int8.onnx"
+tokens = "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/tokens.txt"
 
 if not os.path.exists(wav_filename):
     print(f"File not found: {wav_filename}")

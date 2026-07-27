@@ -9,9 +9,9 @@
 // from external files API.
 // clang-format off
 // 
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
-// tar xvf edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
-// rm edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
+// tar xvf sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
+// rm sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
 //
 // clang-format on
 
@@ -50,13 +50,13 @@ static size_t ReadFile(const char *filename, const char **buffer_out) {
 
 int32_t main() {
   const char *wav_filename =
-      "edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/"
+      "sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/"
       "DEV_T0000000000.wav";
   const char *model_filename =
-      "edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/"
+      "sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/"
       "ctc-epoch-20-avg-1-chunk-16-left-128.onnx";
   const char *tokens_filename =
-      "edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/tokens.txt";
+      "sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/tokens.txt";
   const char *provider = "cpu";
 
   const EdgevoxOnnxWave *wave = EdgevoxOnnxReadWave(wav_filename);

@@ -1,7 +1,7 @@
 { Copyright (c)  2024  Xiaomi Corporation
 
 Please see
-https://github.com/k2-fsa/edgevox-onnx/tree/master/pascal-api-examples
+https://github.com/k2-fsa/sherpa-onnx/tree/master/pascal-api-examples
 for how to use APIs in this file.
 }
 
@@ -3552,7 +3552,7 @@ initialization
   { Match the C API's default behavior. PocketTTS can raise FP overflow flags
     during native inference on some platforms, and Free Pascal would otherwise
     surface them as EOverflow.
-    See also https://github.com/k2-fsa/edgevox-onnx/pull/3351
+    See also https://github.com/k2-fsa/sherpa-onnx/pull/3351
   }
   SetExceptionMask([exInvalidOp, exDenormalized, exZeroDivide, exOverflow,
     exUnderflow, exPrecision]);

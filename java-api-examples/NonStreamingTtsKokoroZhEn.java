@@ -2,7 +2,7 @@
 
 // This file shows how to use a Kokoro multi-lingual model
 // to convert Chinese and English text to speech
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingTtsKokoroZhEn {
   public static void main(String[] args) {

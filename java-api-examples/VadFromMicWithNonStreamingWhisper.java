@@ -3,7 +3,7 @@
 // This file shows how to use a silero_vad model with a non-streaming Whisper tiny.en
 // for speech recognition.
 
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 import javax.sound.sampled.*;
 
 public class VadFromMicNonStreamingWhisper {
@@ -12,7 +12,7 @@ public class VadFromMicNonStreamingWhisper {
 
   public static Vad createVad() {
     // please download ./silero_vad.onnx from
-    // https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+    // https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
     String model = "./silero_vad.onnx";
     SileroVadModelConfig sileroVad =
         SileroVadModelConfig.builder()
@@ -39,9 +39,9 @@ public class VadFromMicNonStreamingWhisper {
     // please refer to
     // https://k2-fsa.github.io/sherpa/onnx/pretrained_models/whisper/tiny.en.html
     // to download model files
-    String encoder = "./edgevox-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx";
-    String decoder = "./edgevox-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx";
-    String tokens = "./edgevox-onnx-whisper-tiny.en/tiny.en-tokens.txt";
+    String encoder = "./sherpa-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx";
+    String decoder = "./sherpa-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx";
+    String tokens = "./sherpa-onnx-whisper-tiny.en/tiny.en-tokens.txt";
 
     OfflineWhisperModelConfig whisper =
         OfflineWhisperModelConfig.builder().setEncoder(encoder).setDecoder(decoder).build();

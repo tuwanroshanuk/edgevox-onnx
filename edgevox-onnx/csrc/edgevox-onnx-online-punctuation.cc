@@ -21,7 +21,7 @@ The input text can contain English words.
 Usage:
 
 Please download the model from:
-https://github.com/k2-fsa/edgevox-onnx/releases/download/punctuation-models/edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
+https://github.com/k2-fsa/sherpa-onnx/releases/download/punctuation-models/sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
 
 ./bin/Release/edgevox-onnx-online-punctuation \
   --cnn-bilstm=/path/to/model.onnx \

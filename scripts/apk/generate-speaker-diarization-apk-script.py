@@ -45,7 +45,7 @@ class Model:
 def get_segmentation_models() -> List[SpeakerSegmentationModel]:
     models = [
         SpeakerSegmentationModel(
-            model_name="edgevox-onnx-pyannote-segmentation-3-0",
+            model_name="sherpa-onnx-pyannote-segmentation-3-0",
             short_name="pyannote_audio",
         ),
         SpeakerSegmentationModel(

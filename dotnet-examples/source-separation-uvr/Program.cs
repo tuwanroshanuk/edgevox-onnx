@@ -3,11 +3,11 @@
 // This file shows how to use the source separation API with UVR (MDX-Net) models.
 //
 // 1. Download a model from
-// https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/UVR-MDX-NET-Voc_FT.onnx
+// https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/UVR-MDX-NET-Voc_FT.onnx
 //
 // 2. Download a test file
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/qi-feng-le-zh.wav
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/qi-feng-le-zh.wav
 //
 // 3. Now run it
 //

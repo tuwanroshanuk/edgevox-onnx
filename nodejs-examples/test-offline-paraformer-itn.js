@@ -9,14 +9,14 @@ const edgevox_onnx = require('edgevox-onnx');
 function createOfflineRecognizer() {
   let modelConfig = {
     paraformer: {
-      model: './edgevox-onnx-paraformer-zh-2023-09-14/model.int8.onnx',
+      model: './sherpa-onnx-paraformer-zh-2023-09-14/model.int8.onnx',
     },
-    tokens: './edgevox-onnx-paraformer-zh-2023-09-14/tokens.txt',
+    tokens: './sherpa-onnx-paraformer-zh-2023-09-14/tokens.txt',
   };
 
   let config = {
     modelConfig: modelConfig,
-    // https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+    // https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
     ruleFsts: './itn_zh_number.fst',
   };
 
@@ -27,7 +27,7 @@ function createOfflineRecognizer() {
 const recognizer = createOfflineRecognizer();
 const stream = recognizer.createStream();
 
-// https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn-zh-number.wav
+// https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn-zh-number.wav
 const waveFilename = './itn-zh-number.wav';
 const wave = edgevox_onnx.readWave(waveFilename);
 stream.acceptWaveform(wave.sampleRate, wave.samples);

@@ -5,7 +5,7 @@ This file shows how to use a streaming NeMo transducer
 to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program nemo_transducer;
@@ -35,17 +35,17 @@ var
 begin
   Initialize(Config);
 
-  {Please visit https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+  {Please visit https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
   to download model files used in this file.}
-  Config.ModelConfig.Transducer.Encoder := './edgevox-onnx-nemo-streaming-fast-conformer-transducer-en-80ms/encoder.onnx';
-  Config.ModelConfig.Transducer.Decoder := './edgevox-onnx-nemo-streaming-fast-conformer-transducer-en-80ms/decoder.onnx';
-  Config.ModelConfig.Transducer.Joiner := './edgevox-onnx-nemo-streaming-fast-conformer-transducer-en-80ms/joiner.onnx';
-  Config.ModelConfig.Tokens := './edgevox-onnx-nemo-streaming-fast-conformer-transducer-en-80ms/tokens.txt';
+  Config.ModelConfig.Transducer.Encoder := './sherpa-onnx-nemo-streaming-fast-conformer-transducer-en-80ms/encoder.onnx';
+  Config.ModelConfig.Transducer.Decoder := './sherpa-onnx-nemo-streaming-fast-conformer-transducer-en-80ms/decoder.onnx';
+  Config.ModelConfig.Transducer.Joiner := './sherpa-onnx-nemo-streaming-fast-conformer-transducer-en-80ms/joiner.onnx';
+  Config.ModelConfig.Tokens := './sherpa-onnx-nemo-streaming-fast-conformer-transducer-en-80ms/tokens.txt';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := False;
 
-  WaveFilename := './edgevox-onnx-nemo-streaming-fast-conformer-transducer-en-80ms/test_wavs/0.wav';
+  WaveFilename := './sherpa-onnx-nemo-streaming-fast-conformer-transducer-en-80ms/test_wavs/0.wav';
 
   Wave := EdgevoxOnnxReadWave(WaveFilename);
 

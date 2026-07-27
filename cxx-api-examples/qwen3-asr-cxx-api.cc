@@ -10,8 +10,8 @@
 //   cmake --build build --target qwen3-asr-cxx-api
 //
 // Model:
-//   wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
-//   tar xvf edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
+//   wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
+//   tar xvf sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
 //
 // Run:
 //   ./build/bin/qwen3-asr-cxx-api
@@ -38,10 +38,10 @@ int32_t main(int32_t argc, char *argv[]) {
   config.model_config.provider = "cpu";
 
   // clang-format off
-  config.model_config.qwen3_asr.conv_frontend = "edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/conv_frontend.onnx";
-  config.model_config.qwen3_asr.encoder = "edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/encoder.int8.onnx";
-  config.model_config.qwen3_asr.decoder = "edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/decoder.int8.onnx";
-  config.model_config.qwen3_asr.tokenizer = "edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/tokenizer";
+  config.model_config.qwen3_asr.conv_frontend = "sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/conv_frontend.onnx";
+  config.model_config.qwen3_asr.encoder = "sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/encoder.int8.onnx";
+  config.model_config.qwen3_asr.decoder = "sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/decoder.int8.onnx";
+  config.model_config.qwen3_asr.tokenizer = "sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/tokenizer";
   config.model_config.qwen3_asr.hotwords = "";  // optional; e.g. "foo,bar"
   config.model_config.qwen3_asr.max_total_len = 512;
   config.model_config.qwen3_asr.max_new_tokens = 128;
@@ -51,7 +51,7 @@ int32_t main(int32_t argc, char *argv[]) {
   // clang-format on
 
   std::string wave_filename =
-      "edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25/test_wavs/raokouling.wav";
+      "sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25/test_wavs/raokouling.wav";
   if (argc >= 2) {
     wave_filename = argv[1];
   }

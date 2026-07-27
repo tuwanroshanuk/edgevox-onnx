@@ -1,6 +1,6 @@
 {
   "app": {
-    "bundleName": "com.k2fsa.sherpa.onnx.tts",
+    "bundleName": "com.nexus.edgevox.onnx.tts",
     "vendor": "next-gen Kaldi",
     "versionCode": 1000000,
     "versionName": "1.0.0",

@@ -338,25 +338,25 @@ void CNonStreamingSpeechRecognitionDlg::ShowInitRecognizerHelpMessage() {
   msg +=
       "wget "
       "https://huggingface.co/csukuangfj/"
-      "edgevox-onnx-paraformer-zh-2023-09-14/resolve/main/model.int8.onnx\r\n";
+      "sherpa-onnx-paraformer-zh-2023-09-14/resolve/main/model.int8.onnx\r\n";
   msg +=
       "wget "
-      "https://huggingface.co/csukuangfj/edgevox-onnx-paraformer-zh-2023-09-14/"
+      "https://huggingface.co/csukuangfj/sherpa-onnx-paraformer-zh-2023-09-14/"
       "resolve/main/tokens.txt\r\n\r\n";
   msg += "\r\n Now rename them\r\n";
   msg += "mv model.onnx paraformer.onnx\r\n\r\n";
   msg += "(3) Whisper\r\n\r\n";
   msg +=
       "wget "
-      "https://huggingface.co/csukuangfj/edgevox-onnx-whisper-tiny.en/resolve/"
+      "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-tiny.en/resolve/"
       "main/tiny.en-encoder.onnx\r\n";
   msg +=
       "wget "
-      "https://huggingface.co/csukuangfj/edgevox-onnx-whisper-tiny.en/resolve/"
+      "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-tiny.en/resolve/"
       "main/tiny.en-decoder.onnx\r\n";
   msg +=
       "wget "
-      "https://huggingface.co/csukuangfj/edgevox-onnx-whisper-tiny.en/resolve/"
+      "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-tiny.en/resolve/"
       "main/tiny.en-tokens.txt\r\n";
   msg += "\r\n Now rename them\r\n";
   msg += "mv tiny.en-encoder.onnx whisper-encoder.onnx\r\n";

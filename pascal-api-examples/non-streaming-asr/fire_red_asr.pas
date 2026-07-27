@@ -5,7 +5,7 @@ This file shows how to use a non-streaming FireRedAsr AED model
 to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program fire_red_asr;
@@ -35,14 +35,14 @@ var
 begin
   Initialize(Config);
 
-  Config.ModelConfig.FireRedAsr.Encoder := './edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/encoder.int8.onnx';
-  Config.ModelConfig.FireRedAsr.Decoder := './edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/decoder.int8.onnx';
-  Config.ModelConfig.Tokens := './edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/tokens.txt';
+  Config.ModelConfig.FireRedAsr.Encoder := './sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/encoder.int8.onnx';
+  Config.ModelConfig.FireRedAsr.Decoder := './sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/decoder.int8.onnx';
+  Config.ModelConfig.Tokens := './sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/tokens.txt';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := False;
 
-  WaveFilename := './edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/0.wav';
+  WaveFilename := './sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/0.wav';
 
   Wave := EdgevoxOnnxReadWave(WaveFilename);
 

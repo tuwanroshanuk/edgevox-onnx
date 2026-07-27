@@ -5,7 +5,7 @@
 // Please refer to
 // https://k2-fsa.github.io/sherpa/onnx/tts/pocket.html
 // and
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
 // to download pre-trained models
 using EdgevoxOnnx;
 using System.Runtime.InteropServices;
@@ -21,13 +21,13 @@ class PocketTtsDemo
   static void TestEn()
   {
     var config = new OfflineTtsConfig();
-    config.Model.Pocket.LmFlow = "./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx";
-    config.Model.Pocket.LmMain = "./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx";
-    config.Model.Pocket.Encoder = "./edgevox-onnx-pocket-tts-int8-2026-01-26/encoder.onnx";
-    config.Model.Pocket.Decoder = "./edgevox-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx";
-    config.Model.Pocket.TextConditioner = "./edgevox-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx";
-    config.Model.Pocket.VocabJson = "./edgevox-onnx-pocket-tts-int8-2026-01-26/vocab.json";
-    config.Model.Pocket.TokenScoresJson = "./edgevox-onnx-pocket-tts-int8-2026-01-26/token_scores.json";
+    config.Model.Pocket.LmFlow = "./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx";
+    config.Model.Pocket.LmMain = "./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx";
+    config.Model.Pocket.Encoder = "./sherpa-onnx-pocket-tts-int8-2026-01-26/encoder.onnx";
+    config.Model.Pocket.Decoder = "./sherpa-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx";
+    config.Model.Pocket.TextConditioner = "./sherpa-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx";
+    config.Model.Pocket.VocabJson = "./sherpa-onnx-pocket-tts-int8-2026-01-26/vocab.json";
+    config.Model.Pocket.TokenScoresJson = "./sherpa-onnx-pocket-tts-int8-2026-01-26/token_scores.json";
 
     config.Model.NumThreads = 2;
     config.Model.Debug = 1;
@@ -35,7 +35,7 @@ class PocketTtsDemo
 
     OfflineTtsGenerationConfig genConfig = new OfflineTtsGenerationConfig();
 
-    var referenceWaveFilename = "./edgevox-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav";
+    var referenceWaveFilename = "./sherpa-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav";
     var reader = new WaveReader(referenceWaveFilename);
 
     genConfig.ReferenceAudio = reader.Samples;

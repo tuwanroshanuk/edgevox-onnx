@@ -24,11 +24,11 @@ if [[ ! -f ../../build/install/lib/libedgevox-onnx-c-api.dylib  && ! -f ../../bu
   popd
 fi
 
-if [ ! -f ./edgevox-onnx-whisper-tiny.en/tiny.en-tokens.txt ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-whisper-tiny.en.tar.bz2
+if [ ! -f ./sherpa-onnx-whisper-tiny.en/tiny.en-tokens.txt ]; then
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-tiny.en.tar.bz2
 
-  tar xvf edgevox-onnx-whisper-tiny.en.tar.bz2
-  rm edgevox-onnx-whisper-tiny.en.tar.bz2
+  tar xvf sherpa-onnx-whisper-tiny.en.tar.bz2
+  rm sherpa-onnx-whisper-tiny.en.tar.bz2
 fi
 
 fpc \

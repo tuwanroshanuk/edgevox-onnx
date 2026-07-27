@@ -1,1 +1,1 @@
-../sherpa-onnx/kotlin-api/VersionInfo.kt
+../edgevox-onnx/kotlin-api/VersionInfo.kt

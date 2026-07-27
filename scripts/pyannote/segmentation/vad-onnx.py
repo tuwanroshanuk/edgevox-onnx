@@ -4,7 +4,7 @@
 ./export-onnx.py
 ./preprocess.sh
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/lei-jun-test.wav
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/lei-jun-test.wav
 ./vad-onnx.py --model ./model.onnx --wav ./lei-jun-test.wav
 """
 

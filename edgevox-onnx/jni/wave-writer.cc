@@ -6,7 +6,7 @@
 #include "edgevox-onnx/jni/common.h"
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT bool JNICALL Java_com_k2fsa_edgevox_onnx_WaveWriter_writeWaveToFile(
+JNIEXPORT bool JNICALL Java_com_nexus_edgevox_onnx_WaveWriter_writeWaveToFile(
     JNIEnv *env, jclass /*obj*/, jstring filename, jfloatArray samples,
     jint sample_rate) {
   jfloat *p = env->GetFloatArrayElements(samples, nullptr);

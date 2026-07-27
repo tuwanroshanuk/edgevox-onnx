@@ -4,15 +4,15 @@ const edgevox_onnx = require('edgevox-onnx');
 
 function createRecognizer() {
   // Please download test files from
-  // https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
   const config = {
     'modelConfig': {
       'whisper': {
-        'encoder': './edgevox-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx',
-        'decoder': './edgevox-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx',
+        'encoder': './sherpa-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx',
+        'decoder': './sherpa-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx',
         'tailPaddings': 2000,
       },
-      'tokens': './edgevox-onnx-whisper-tiny.en/tiny.en-tokens.txt',
+      'tokens': './sherpa-onnx-whisper-tiny.en/tiny.en-tokens.txt',
       'debug': 0,
     }
   };
@@ -22,7 +22,7 @@ function createRecognizer() {
 
 function createVad() {
   // please download silero_vad.onnx from
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
   const config = {
     sileroVad: {
       model: './silero_vad.onnx',
@@ -45,7 +45,7 @@ const recognizer = createRecognizer();
 const vad = createVad();
 
 // please download ./Obama.wav from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 const waveFilename = './Obama.wav';
 const wave = edgevox_onnx.readWave(waveFilename);
 

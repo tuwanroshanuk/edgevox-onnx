@@ -43,7 +43,7 @@ def main():
         "maintainer": "k2-fsa",
         "use_eos_bos": 0,
         "num_ode_steps": 5,
-        "see_also": "https://github.com/k2-fsa/edgevox-onnx/issues/1779",
+        "see_also": "https://github.com/k2-fsa/sherpa-onnx/issues/1779",
     }
     add_meta_data("./female/model.onnx", meta_data)
     add_meta_data("./male/model.onnx", meta_data)

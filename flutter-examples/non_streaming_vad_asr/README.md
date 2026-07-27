@@ -18,9 +18,9 @@ Choose one of the following non-streaming ASR models:
 - **parakeet-tdt**: NeMo transducer-based parakeet-tdt model
 
 #### Model Download Links:
-- **whisper**: https://huggingface.co/csukuangfj/edgevox-onnx-whisper-base
-- **senseVoice**: https://huggingface.co/csukuangfj/edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2025-09-09  
-- **parakeet-tdt**: https://huggingface.co/csukuangfj/edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8
+- **whisper**: https://huggingface.co/csukuangfj/sherpa-onnx-whisper-base
+- **senseVoice**: https://huggingface.co/csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2025-09-09  
+- **parakeet-tdt**: https://huggingface.co/csukuangfj/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8
 
 ### 2. Download VAD Model
 

@@ -5,7 +5,7 @@ This file shows how to use a non-streaming Omnilingual ASR CTC model
 to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program omnilingual_asr_ctc;
@@ -35,13 +35,13 @@ var
 begin
   Initialize(Config);
 
-  Config.ModelConfig.Omnilingual.Model := './edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/model.int8.onnx';
-  Config.ModelConfig.Tokens := './edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/tokens.txt';
+  Config.ModelConfig.Omnilingual.Model := './sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/model.int8.onnx';
+  Config.ModelConfig.Tokens := './sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/tokens.txt';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := False;
 
-  WaveFilename := './edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/test_wavs/en.wav';
+  WaveFilename := './sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12/test_wavs/en.wav';
 
   Wave := EdgevoxOnnxReadWave(WaveFilename);
 

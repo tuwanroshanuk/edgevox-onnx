@@ -1,7 +1,7 @@
 package main
 
 import (
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 	"log"
 )
 
@@ -11,20 +11,20 @@ func main() {
 	config := sherpa.KeywordSpotterConfig{}
 
 	// Please download the models from
-	// https://github.com/k2-fsa/edgevox-onnx/releases/tag/kws-models
+	// https://github.com/k2-fsa/sherpa-onnx/releases/tag/kws-models
 
-	config.ModelConfig.Transducer.Encoder = "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/encoder-epoch-12-avg-2-chunk-16-left-64.onnx"
-	config.ModelConfig.Transducer.Decoder = "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/decoder-epoch-12-avg-2-chunk-16-left-64.onnx"
-	config.ModelConfig.Transducer.Joiner = "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/joiner-epoch-12-avg-2-chunk-16-left-64.onnx"
-	config.ModelConfig.Tokens = "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/tokens.txt"
-	config.KeywordsFile = "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/test_keywords.txt"
+	config.ModelConfig.Transducer.Encoder = "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/encoder-epoch-12-avg-2-chunk-16-left-64.onnx"
+	config.ModelConfig.Transducer.Decoder = "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/decoder-epoch-12-avg-2-chunk-16-left-64.onnx"
+	config.ModelConfig.Transducer.Joiner = "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/joiner-epoch-12-avg-2-chunk-16-left-64.onnx"
+	config.ModelConfig.Tokens = "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/tokens.txt"
+	config.KeywordsFile = "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/test_keywords.txt"
 	config.ModelConfig.NumThreads = 1
 	config.ModelConfig.Debug = 1
 
 	spotter := sherpa.NewKeywordSpotter(&config)
 	defer sherpa.DeleteKeywordSpotter(spotter)
 
-	wave_filename := "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/3.wav"
+	wave_filename := "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/3.wav"
 
 	wave := sherpa.ReadWave(wave_filename)
 	if wave == nil {

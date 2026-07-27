@@ -6,13 +6,13 @@ https://github.com/usefulsensors/moonshine
 to decode files.
 
 Please download model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 
 For instance,
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
-tar xvf edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
-rm edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
+tar xvf sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
+rm sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
 """
 
 import datetime as dt
@@ -23,17 +23,17 @@ import soundfile as sf
 
 
 def create_recognizer():
-    encoder = "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/encoder_model.ort"
+    encoder = "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/encoder_model.ort"
     decoder = (
-        "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/decoder_model_merged.ort"
+        "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/decoder_model_merged.ort"
     )
-    tokens = "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/tokens.txt"
-    test_wav = "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/test_wavs/0.wav"
+    tokens = "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/tokens.txt"
+    test_wav = "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/test_wavs/0.wav"
 
     if not Path(encoder).is_file() or not Path(test_wav).is_file():
         raise ValueError(
             """Please download model files from
-            https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+            https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
             """
         )
     return (

@@ -19,9 +19,9 @@ Spleeter separates audio into vocals and accompaniment (2 stems).
 EdgevoxOnnxOfflineSourceSeparationConfig config;
 memset(&config, 0, sizeof(config));
 config.model.spleeter.vocals =
-    "./edgevox-onnx-spleeter-2stems-fp16/vocals.fp16.onnx";
+    "./sherpa-onnx-spleeter-2stems-fp16/vocals.fp16.onnx";
 config.model.spleeter.accompaniment =
-    "./edgevox-onnx-spleeter-2stems-fp16/accompaniment.fp16.onnx";
+    "./sherpa-onnx-spleeter-2stems-fp16/accompaniment.fp16.onnx";
 config.model.num_threads = 1;
 config.model.provider = "cpu";
 
@@ -31,9 +31,9 @@ const EdgevoxOnnxOfflineSourceSeparation *ss =
 EdgevoxOnnxDestroyOfflineSourceSeparation(ss);
 @endcode
 
-Model package: `edgevox-onnx-spleeter-2stems-fp16`
+Model package: `sherpa-onnx-spleeter-2stems-fp16`
 
-Example source: [source-separation-spleeter-c-api.c](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/source-separation-spleeter-c-api.c)
+Example source: [source-separation-spleeter-c-api.c](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/source-separation-spleeter-c-api.c)
 
 @section ss_uvr UVR (MDX-Net)
 
@@ -54,5 +54,5 @@ EdgevoxOnnxDestroyOfflineSourceSeparation(ss);
 
 Model file: `UVR-MDX-NET-Voc_FT.onnx`
 
-Example source: [source-separation-uvr-c-api.c](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/source-separation-uvr-c-api.c)
+Example source: [source-separation-uvr-c-api.c](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/source-separation-uvr-c-api.c)
 */

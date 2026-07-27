@@ -1,4 +1,4 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 data class FeatureConfig(
     var sampleRate: Int = 16000,

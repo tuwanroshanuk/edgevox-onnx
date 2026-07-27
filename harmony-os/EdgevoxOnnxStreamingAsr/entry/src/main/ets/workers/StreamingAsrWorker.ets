@@ -19,7 +19,7 @@ function getModelConfig(type: number): OnlineModelConfig {
   const modelConfig = new OnlineModelConfig();
   switch (type) {
     case 0: {
-      const modelDir = 'edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20';
+      const modelDir = 'sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20';
       modelConfig.transducer.encoder = `${modelDir}/encoder-epoch-99-avg-1.onnx`;
       modelConfig.transducer.decoder = `${modelDir}/decoder-epoch-99-avg-1.onnx`;
       modelConfig.transducer.joiner = `${modelDir}/joiner-epoch-99-avg-1.onnx`;
@@ -29,7 +29,7 @@ function getModelConfig(type: number): OnlineModelConfig {
     }
 
     case 1: {
-      const modelDir = 'edgevox-onnx-lstm-zh-2023-02-20';
+      const modelDir = 'sherpa-onnx-lstm-zh-2023-02-20';
       modelConfig.transducer.encoder = `${modelDir}/encoder-epoch-11-avg-1.onnx`;
       modelConfig.transducer.decoder = `${modelDir}/decoder-epoch-11-avg-1.onnx`;
       modelConfig.transducer.joiner = `${modelDir}/joiner-epoch-11-avg-1.onnx`;
@@ -39,7 +39,7 @@ function getModelConfig(type: number): OnlineModelConfig {
     }
 
     case 2: {
-      const modelDir = 'edgevox-onnx-lstm-en-2023-02-17';
+      const modelDir = 'sherpa-onnx-lstm-en-2023-02-17';
       modelConfig.transducer.encoder = `${modelDir}/encoder-epoch-99-avg-1.onnx`;
       modelConfig.transducer.decoder = `${modelDir}/decoder-epoch-99-avg-1.onnx`;
       modelConfig.transducer.joiner = `${modelDir}/joiner-epoch-99-avg-1.onnx`;
@@ -69,7 +69,7 @@ function getModelConfig(type: number): OnlineModelConfig {
     }
 
     case 5: {
-      const modelDir = 'edgevox-onnx-streaming-paraformer-bilingual-zh-en';
+      const modelDir = 'sherpa-onnx-streaming-paraformer-bilingual-zh-en';
       modelConfig.paraformer.encoder = `${modelDir}/encoder.int8.onnx`;
       modelConfig.paraformer.decoder = `${modelDir}/decoder.int8.onnx`;
       modelConfig.tokens = `${modelDir}/tokens.txt`;
@@ -78,7 +78,7 @@ function getModelConfig(type: number): OnlineModelConfig {
     }
 
     case 6: {
-      const modelDir = 'edgevox-onnx-streaming-zipformer-en-2023-06-26';
+      const modelDir = 'sherpa-onnx-streaming-zipformer-en-2023-06-26';
       modelConfig.transducer.encoder = `${modelDir}/encoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx`;
       modelConfig.transducer.decoder = `${modelDir}/decoder-epoch-99-avg-1-chunk-16-left-128.onnx`;
       modelConfig.transducer.joiner = `${modelDir}/joiner-epoch-99-avg-1-chunk-16-left-128.onnx`;
@@ -88,7 +88,7 @@ function getModelConfig(type: number): OnlineModelConfig {
     }
 
     case 7: {
-      const modelDir = 'edgevox-onnx-streaming-zipformer-fr-2023-04-14';
+      const modelDir = 'sherpa-onnx-streaming-zipformer-fr-2023-04-14';
       modelConfig.transducer.encoder = `${modelDir}/encoder-epoch-29-avg-9-with-averaged-model.int8.onnx`;
       modelConfig.transducer.decoder = `${modelDir}/decoder-epoch-29-avg-9-with-averaged-model.onnx`;
       modelConfig.transducer.joiner = `${modelDir}/joiner-epoch-29-avg-9-with-averaged-model.onnx`;
@@ -98,7 +98,7 @@ function getModelConfig(type: number): OnlineModelConfig {
     }
 
     case 8: {
-      const modelDir = 'edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20';
+      const modelDir = 'sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20';
       modelConfig.transducer.encoder = `${modelDir}/encoder-epoch-99-avg-1.int8.onnx`;
       modelConfig.transducer.decoder = `${modelDir}/decoder-epoch-99-avg-1.onnx`;
       modelConfig.transducer.joiner = `${modelDir}/joiner-epoch-99-avg-1.int8.onnx`;
@@ -108,7 +108,7 @@ function getModelConfig(type: number): OnlineModelConfig {
     }
 
     case 9: {
-      const modelDir = 'edgevox-onnx-streaming-zipformer-zh-14M-2023-02-23'
+      const modelDir = 'sherpa-onnx-streaming-zipformer-zh-14M-2023-02-23'
       modelConfig.transducer.encoder = `${modelDir}/encoder-epoch-99-avg-1.int8.onnx`;
       modelConfig.transducer.decoder = `${modelDir}/decoder-epoch-99-avg-1.onnx`;
       modelConfig.transducer.joiner = `${modelDir}/joiner-epoch-99-avg-1.int8.onnx`;
@@ -118,7 +118,7 @@ function getModelConfig(type: number): OnlineModelConfig {
     }
 
     case 10: {
-      const modelDir = 'edgevox-onnx-streaming-zipformer-en-20M-2023-02-17';
+      const modelDir = 'sherpa-onnx-streaming-zipformer-en-20M-2023-02-17';
       modelConfig.transducer.encoder = `${modelDir}/encoder-epoch-99-avg-1.int8.onnx`;
       modelConfig.transducer.decoder = `${modelDir}/decoder-epoch-99-avg-1.onnx`;
       modelConfig.transducer.joiner = `${modelDir}/joiner-epoch-99-avg-1.int8.onnx`;
@@ -128,7 +128,7 @@ function getModelConfig(type: number): OnlineModelConfig {
     }
 
     case 14: {
-      const modelDir = 'edgevox-onnx-streaming-zipformer-korean-2024-06-16';
+      const modelDir = 'sherpa-onnx-streaming-zipformer-korean-2024-06-16';
       modelConfig.transducer.encoder = `${modelDir}/encoder-epoch-99-avg-1.int8.onnx`;
       modelConfig.transducer.decoder = `${modelDir}/decoder-epoch-99-avg-1.onnx`;
       modelConfig.transducer.joiner = `${modelDir}/joiner-epoch-99-avg-1.int8.onnx`;
@@ -153,10 +153,10 @@ If you use type = 8, then you should have the following directory structure in t
 (py38) fangjuns-MacBook-Pro:rawfile fangjun$ pwd
 /Users/fangjun/open-source/edgevox-onnx/harmony-os/EdgevoxOnnxStreamingAsr/entry/src/main/resources/rawfile
 (py38) fangjuns-MacBook-Pro:rawfile fangjun$ ls
-edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
+sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
 (py38) fangjuns-MacBook-Pro:rawfile fangjun$ tree .
 .
-└── edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
+└── sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
     ├── decoder-epoch-99-avg-1.onnx
     ├── encoder-epoch-99-avg-1.int8.onnx
     ├── joiner-epoch-99-avg-1.int8.onnx
@@ -165,7 +165,7 @@ edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
 1 directory, 4 files
 
 You can download model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 
 Note that please delete files that are not used. Otherwise, you APP will be very large
 due to containing unused large files.

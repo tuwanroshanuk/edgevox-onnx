@@ -45,5 +45,5 @@ EdgevoxOnnxDestroySpeakerEmbeddingExtractor(extractor);
 
 Model file: `3dspeaker_speech_campplus_sv_zh-cn_16k-common.onnx`
 
-Example source: [speaker-identification-c-api.c](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/speaker-identification-c-api.c)
+Example source: [speaker-identification-c-api.c](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/speaker-identification-c-api.c)
 */

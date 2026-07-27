@@ -7,12 +7,12 @@ if [ ! -d ../build-swift-macos ]; then
   exit 1
 fi
 
-if [ ! -f ./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst ]; then
+if [ ! -f ./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst ]; then
   echo "Downloading the pre-trained model for testing."
 
-  wget -q https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
-  tar xvf edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
-  rm edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+  wget -q https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+  tar xvf sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+  rm sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
 fi
 
 if [ ! -e ./streaming-hlg-decode-file ]; then

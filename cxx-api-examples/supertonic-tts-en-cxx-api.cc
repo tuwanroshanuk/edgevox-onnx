@@ -9,9 +9,9 @@
 /*
 Usage
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
-tar xf edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
-rm edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+tar xf sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+rm sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
 
 ./supertonic-tts-en-cxx-api
 
@@ -37,21 +37,21 @@ int32_t main(int32_t argc, char *argv[]) {
   OfflineTtsConfig config;
 
   config.model.supertonic.duration_predictor =
-      "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/"
+      "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/"
       "duration_predictor.int8.onnx";
   config.model.supertonic.text_encoder =
-      "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx";
+      "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx";
   config.model.supertonic.vector_estimator =
-      "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/"
+      "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/"
       "vector_estimator.int8.onnx";
   config.model.supertonic.vocoder =
-      "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx";
+      "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx";
   config.model.supertonic.tts_json =
-      "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/tts.json";
+      "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json";
   config.model.supertonic.unicode_indexer =
-      "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin";
+      "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin";
   config.model.supertonic.voice_style =
-      "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin";
+      "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin";
 
   config.model.num_threads = 2;
 

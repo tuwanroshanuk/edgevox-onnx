@@ -9,12 +9,12 @@ const edgevox_onnx = require('edgevox-onnx');
 function createOnlineRecognizer() {
   let onlineZipformer2CtcModelConfig = {
     model:
-        './edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx',
+        './sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx',
   };
 
   let onlineModelConfig = {
     zipformer2Ctc: onlineZipformer2CtcModelConfig,
-    tokens: './edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt',
+    tokens: './sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt',
     numThreads: 1,
     provider: 'cpu',
     debug: 0,
@@ -36,7 +36,7 @@ function createOnlineRecognizer() {
     rule2MinTrailingSilence: 1.2,
     rule3MinUtteranceLength: 20,
     ctcFstDecoderConfig: {
-      graph: './edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst',
+      graph: './sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst',
       maxActive: 3000,
     }
   };
@@ -48,7 +48,7 @@ const recognizer = createOnlineRecognizer();
 const stream = recognizer.createStream();
 
 const waveFilename =
-    './edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/8k.wav';
+    './sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/8k.wav';
 
 const reader = new wav.Reader();
 const readable = new Readable().wrap(reader);

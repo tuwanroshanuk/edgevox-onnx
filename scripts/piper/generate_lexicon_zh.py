@@ -4,7 +4,7 @@
 # It may take 100 minutes to generate the lexicon.
 #
 # You can download a pre-generated one from
-# https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+# https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
 
 from typing import List, Tuple
 

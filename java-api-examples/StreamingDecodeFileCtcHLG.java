@@ -2,18 +2,18 @@
 
 // This file shows how to use an online CTC model, i.e., streaming CTC model,
 // to decode files.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class StreamingDecodeFileCtcHLG {
   public static void main(String[] args) {
     // please refer to
-    // https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+    // https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
     // to download model files
     String model =
-        "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx";
-    String tokens = "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt";
-    String hlg = "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst";
-    String waveFilename = "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/8k.wav";
+        "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx";
+    String tokens = "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt";
+    String hlg = "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst";
+    String waveFilename = "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/8k.wav";
 
     WaveReader reader = new WaveReader(waveFilename);
 

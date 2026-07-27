@@ -43,7 +43,7 @@ type1={{ first.idx }}
 lang1={{ first.lang }}
 short_name1={{ first.short_name }}
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/${model_name1}.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/${model_name1}.tar.bz2
 tar xvf ${model_name1}.tar.bz2
 
 {{ first.cmd }}
@@ -57,7 +57,7 @@ type2={{ second.idx }}
 lang2={{ second.lang }}
 short_name2={{ second.short_name }}
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/${model_name2}.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/${model_name2}.tar.bz2
 tar xvf ${model_name2}.tar.bz2
 
 {{ second.cmd }}
@@ -69,7 +69,7 @@ popd
 # Now we are at the project root directory
 
 git checkout .
-pushd android/EdgevoxOnnx2Pass/app/src/main/java/com/k2fsa/sherpa/onnx
+pushd android/EdgevoxOnnx2Pass/app/src/main/java/com/nexus/edgevox/onnx
 sed -i.bak s/"firstType = 9/firstType = $type1/" ./MainActivity.kt
 sed -i.bak s/"secondType = 0/secondType = $type2/" ./MainActivity.kt
 

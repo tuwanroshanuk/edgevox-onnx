@@ -26,7 +26,7 @@ def get_args():
 @dataclass
 class Model:
     # We will download
-    # https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/{model_name}.tar.bz2
+    # https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/{model_name}.tar.bz2
     model_name: str
 
     # The type of the model, e..g, 0, 1, 2. It is hardcoded in the kotlin code
@@ -47,14 +47,14 @@ class Model:
 def get_models():
     models = [
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20",
+            model_name="sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20",
             idx=8,
             lang="bilingual_zh_en",
             short_name="zipformer",
             rule_fsts="itn_zh_number.fst",
             cmd="""
             if [ ! -f itn_zh_number.fst ]; then
-              curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+              curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
             fi
             pushd $model_name
             rm -fv decoder-epoch-99-avg-1.int8.onnx
@@ -74,7 +74,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-en-2023-06-26",
+            model_name="sherpa-onnx-streaming-zipformer-en-2023-06-26",
             idx=6,
             lang="en",
             short_name="zipformer2",
@@ -101,7 +101,7 @@ def get_models():
             rule_fsts="itn_zh_number.fst",
             cmd="""
             if [ ! -f itn_zh_number.fst ]; then
-              curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+              curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
             fi
             pushd $model_name
             rm -fv exp/encoder-epoch-12-avg-4-chunk-16-left-128.onnx
@@ -120,7 +120,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-fr-2023-04-14",
+            model_name="sherpa-onnx-streaming-zipformer-fr-2023-04-14",
             idx=7,
             lang="fr",
             short_name="zipformer",
@@ -140,14 +140,14 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-zh-14M-2023-02-23",
+            model_name="sherpa-onnx-streaming-zipformer-zh-14M-2023-02-23",
             idx=9,
             lang="zh",
             short_name="small_zipformer_14M_2023_02_23",
             rule_fsts="itn_zh_number.fst",
             cmd="""
             if [ ! -f itn_zh_number.fst ]; then
-              curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+              curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
             fi
             pushd $model_name
             rm -fv encoder-epoch-99-avg-1.onnx
@@ -164,7 +164,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-en-20M-2023-02-17",
+            model_name="sherpa-onnx-streaming-zipformer-en-20M-2023-02-17",
             idx=10,
             lang="en",
             short_name="small_zipformer_20M_2023_02_17",
@@ -184,7 +184,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-streaming-fast-conformer-ctc-en-80ms",
+            model_name="sherpa-onnx-nemo-streaming-fast-conformer-ctc-en-80ms",
             idx=11,
             lang="en",
             short_name="nemo_ctc_80ms",
@@ -198,7 +198,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-streaming-fast-conformer-ctc-en-480ms",
+            model_name="sherpa-onnx-nemo-streaming-fast-conformer-ctc-en-480ms",
             idx=12,
             lang="en",
             short_name="nemo_ctc_480ms",
@@ -212,7 +212,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-streaming-fast-conformer-ctc-en-1040ms",
+            model_name="sherpa-onnx-nemo-streaming-fast-conformer-ctc-en-1040ms",
             idx=13,
             lang="en",
             short_name="nemo_ctc_1040ms",
@@ -226,7 +226,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-korean-2024-06-16",
+            model_name="sherpa-onnx-streaming-zipformer-korean-2024-06-16",
             idx=14,
             lang="ko",
             short_name="zipformer",
@@ -247,7 +247,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-paraformer-bilingual-zh-en",
+            model_name="sherpa-onnx-streaming-paraformer-bilingual-zh-en",
             idx=5,
             lang="zh_en",
             short_name="paraformer",
@@ -264,14 +264,14 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-small-ctc-zh-int8-2025-04-01",
+            model_name="sherpa-onnx-streaming-zipformer-small-ctc-zh-int8-2025-04-01",
             idx=15,
             lang="zh",
             short_name="int8_small_zipformer_2025_04_01",
             rule_fsts="itn_zh_number.fst",
             cmd="""
             if [ ! -f itn_zh_number.fst ]; then
-              curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+              curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
             fi
             pushd $model_name
             rm -f bpe.model
@@ -284,14 +284,14 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-small-ctc-zh-2025-04-01",
+            model_name="sherpa-onnx-streaming-zipformer-small-ctc-zh-2025-04-01",
             idx=16,
             lang="zh",
             short_name="small_zipformer_2025_04_01",
             rule_fsts="itn_zh_number.fst",
             cmd="""
             if [ ! -f itn_zh_number.fst ]; then
-              curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+              curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
             fi
             pushd $model_name
             rm -f bpe.model
@@ -304,14 +304,14 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-ctc-zh-int8-2025-06-30",
+            model_name="sherpa-onnx-streaming-zipformer-ctc-zh-int8-2025-06-30",
             idx=17,
             lang="zh",
             short_name="large_zipformer_int8",
             rule_fsts="itn_zh_number.fst",
             cmd="""
             if [ ! -f itn_zh_number.fst ]; then
-              curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+              curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
             fi
             pushd $model_name
             rm -fv bpe.model
@@ -324,14 +324,14 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-ctc-zh-2025-06-30",
+            model_name="sherpa-onnx-streaming-zipformer-ctc-zh-2025-06-30",
             idx=18,
             lang="zh",
             short_name="large_zipformer",
             rule_fsts="itn_zh_number.fst",
             cmd="""
             if [ ! -f itn_zh_number.fst ]; then
-              curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+              curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
             fi
             pushd $model_name
             rm -fv bpe.model
@@ -344,14 +344,14 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-ctc-zh-fp16-2025-06-30",
+            model_name="sherpa-onnx-streaming-zipformer-ctc-zh-fp16-2025-06-30",
             idx=19,
             lang="zh",
             short_name="large_zipformer_fp16",
             rule_fsts="itn_zh_number.fst",
             cmd="""
             if [ ! -f itn_zh_number.fst ]; then
-              curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+              curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
             fi
             pushd $model_name
             rm -fv bpe.model
@@ -364,14 +364,14 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-ctc-zh-int8-2025-06-30",
+            model_name="sherpa-onnx-streaming-zipformer-ctc-zh-int8-2025-06-30",
             idx=20,
             lang="zh",
             short_name="large_zipformer_int8",
             rule_fsts="itn_zh_number.fst",
             cmd="""
             if [ ! -f itn_zh_number.fst ]; then
-              curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+              curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
             fi
             pushd $model_name
             rm -fv bpe.model
@@ -384,7 +384,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-en-kroko-2025-08-06",
+            model_name="sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06",
             idx=21,
             lang="en",
             short_name="zipformer_kroko_asr",
@@ -398,7 +398,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-es-kroko-2025-08-06",
+            model_name="sherpa-onnx-streaming-zipformer-es-kroko-2025-08-06",
             idx=22,
             lang="es",
             short_name="zipformer_kroko_asr",
@@ -412,7 +412,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-fr-kroko-2025-08-06",
+            model_name="sherpa-onnx-streaming-zipformer-fr-kroko-2025-08-06",
             idx=23,
             lang="fr",
             short_name="zipformer_kroko_asr",
@@ -426,7 +426,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-de-kroko-2025-08-06",
+            model_name="sherpa-onnx-streaming-zipformer-de-kroko-2025-08-06",
             idx=24,
             lang="de",
             short_name="zipformer_kroko_asr",
@@ -440,7 +440,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-small-ru-vosk-int8-2025-08-16",
+            model_name="sherpa-onnx-streaming-zipformer-small-ru-vosk-int8-2025-08-16",
             idx=25,
             lang="ru",
             short_name="small_zipformer_int8_2025_08_16",
@@ -455,7 +455,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-small-ru-vosk-2025-08-16",
+            model_name="sherpa-onnx-streaming-zipformer-small-ru-vosk-2025-08-16",
             idx=26,
             lang="ru",
             short_name="small_zipformer_2025_08_16",
@@ -470,7 +470,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-t-one-russian-2025-09-08",
+            model_name="sherpa-onnx-streaming-t-one-russian-2025-09-08",
             idx=27,
             lang="ru",
             short_name="t_one_ctc_2025_09_08",
@@ -485,7 +485,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemotron-speech-streaming-en-0.6b-int8-2026-01-14",
+            model_name="sherpa-onnx-nemotron-speech-streaming-en-0.6b-int8-2026-01-14",
             idx=28,
             lang="en",
             short_name="nemotron-speech-streaming-en-0.6b-int8-2026-01-14",
@@ -500,7 +500,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-bn-vosk-2026-02-09",
+            model_name="sherpa-onnx-streaming-zipformer-bn-vosk-2026-02-09",
             idx=29,
             lang="bn",
             short_name="bengali_vosk_2026_02_09",
@@ -515,7 +515,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemotron-speech-streaming-en-0.6b-80ms-int8-2026-04-25",
+            model_name="sherpa-onnx-nemotron-speech-streaming-en-0.6b-80ms-int8-2026-04-25",
             idx=30,
             lang="en",
             short_name="nemotron-speech-streaming-en-0.6b-80ms-int8-2026-04-25",
@@ -530,7 +530,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemotron-speech-streaming-en-0.6b-160ms-int8-2026-04-25",
+            model_name="sherpa-onnx-nemotron-speech-streaming-en-0.6b-160ms-int8-2026-04-25",
             idx=31,
             lang="en",
             short_name="nemotron-speech-streaming-en-0.6b-160ms-int8-2026-04-25",
@@ -545,7 +545,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25",
+            model_name="sherpa-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25",
             idx=32,
             lang="en",
             short_name="nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25",
@@ -560,7 +560,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemotron-speech-streaming-en-0.6b-1120ms-int8-2026-04-25",
+            model_name="sherpa-onnx-nemotron-speech-streaming-en-0.6b-1120ms-int8-2026-04-25",
             idx=33,
             lang="en",
             short_name="nemotron-speech-streaming-en-0.6b-1120ms-int8-2026-04-25",

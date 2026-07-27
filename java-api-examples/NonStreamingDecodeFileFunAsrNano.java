@@ -3,21 +3,21 @@
 // This file shows how to use an offline FunASR Nano model,
 // i.e., non-streaming FunASR Nano model,
 // to decode files.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingDecodeFileFunAsrNano {
   public static void main(String[] args) {
     // please refer to
     // https://k2-fsa.github.io/sherpa/onnx/funasr-nano/index.html
     // to download model files
-    String encoderAdaptor = "./edgevox-onnx-funasr-nano-int8-2025-12-30/encoder_adaptor.int8.onnx";
-    String llm = "./edgevox-onnx-funasr-nano-int8-2025-12-30/llm.int8.onnx";
-    String embedding = "./edgevox-onnx-funasr-nano-int8-2025-12-30/embedding.int8.onnx";
-    String tokenizer = "./edgevox-onnx-funasr-nano-int8-2025-12-30/Qwen3-0.6B";
+    String encoderAdaptor = "./sherpa-onnx-funasr-nano-int8-2025-12-30/encoder_adaptor.int8.onnx";
+    String llm = "./sherpa-onnx-funasr-nano-int8-2025-12-30/llm.int8.onnx";
+    String embedding = "./sherpa-onnx-funasr-nano-int8-2025-12-30/embedding.int8.onnx";
+    String tokenizer = "./sherpa-onnx-funasr-nano-int8-2025-12-30/Qwen3-0.6B";
 
     String tokens = "";
 
-    String waveFilename = "./edgevox-onnx-funasr-nano-int8-2025-12-30/test_wavs/lyrics.wav";
+    String waveFilename = "./sherpa-onnx-funasr-nano-int8-2025-12-30/test_wavs/lyrics.wav";
 
     WaveReader reader = new WaveReader(waveFilename);
 

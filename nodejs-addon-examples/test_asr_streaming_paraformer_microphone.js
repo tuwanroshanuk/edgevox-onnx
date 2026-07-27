@@ -14,11 +14,11 @@ function createOnlineRecognizer() {
     'modelConfig': {
       'paraformer': {
         'encoder':
-            './edgevox-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx',
+            './sherpa-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx',
         'decoder':
-            './edgevox-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx',
+            './sherpa-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx',
       },
-      'tokens': './edgevox-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt',
+      'tokens': './sherpa-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt',
       'numThreads': 2,
       'provider': 'cpu',
       'debug': 1,

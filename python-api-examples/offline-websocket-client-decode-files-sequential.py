@@ -20,7 +20,7 @@ Usage:
 (Note: You have to first start the server before starting the client)
 
 You can find the server at
-https://github.com/k2-fsa/edgevox-onnx/blob/master/edgevox-onnx/csrc/offline-websocket-server.cc
+https://github.com/k2-fsa/sherpa-onnx/blob/master/sherpa-onnx/csrc/offline-websocket-server.cc
 
 Note: The server is implemented in C++.
 """

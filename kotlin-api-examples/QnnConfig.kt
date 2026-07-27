@@ -1,1 +1,1 @@
-../sherpa-onnx/kotlin-api/QnnConfig.kt
+../edgevox-onnx/kotlin-api/QnnConfig.kt

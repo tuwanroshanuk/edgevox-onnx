@@ -8,9 +8,9 @@
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
-// tar xvf edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
-// rm edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
+// tar xvf sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
+// rm sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
 //
 // clang-format on
 //
@@ -29,9 +29,9 @@ int32_t main() {
   OfflineRecognizerConfig config;
 
   config.model_config.canary.encoder =
-      "edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/encoder.int8.onnx";
+      "sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/encoder.int8.onnx";
   config.model_config.canary.decoder =
-      "edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/decoder.int8.onnx";
+      "sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/decoder.int8.onnx";
 
   // our input audio is German, so we set src_lang to "de"
   config.model_config.canary.src_lang = "de";
@@ -39,7 +39,7 @@ int32_t main() {
   // we can set tgt_lang either to de or en in this specific case
   config.model_config.canary.tgt_lang = "en";
   config.model_config.tokens =
-      "edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/tokens.txt";
+      "sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/tokens.txt";
 
   config.model_config.num_threads = 1;
 
@@ -52,7 +52,7 @@ int32_t main() {
   std::cout << "Loading model done\n";
 
   std::string wave_filename =
-      "./edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/de.wav";
+      "./sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/de.wav";
 
   Wave wave = ReadWave(wave_filename);
   if (wave.samples.empty()) {

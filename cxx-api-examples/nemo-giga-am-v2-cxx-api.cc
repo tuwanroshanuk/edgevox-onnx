@@ -8,9 +8,9 @@
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19.tar.bz2
-// tar xvf edgevox-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19.tar.bz2
-// rm edgevox-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19.tar.bz2
+// tar xvf sherpa-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19.tar.bz2
+// rm sherpa-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19.tar.bz2
 //
 // clang-format on
 
@@ -26,19 +26,19 @@ int32_t main() {
   OfflineRecognizerConfig config;
 
   config.model_config.transducer.encoder =
-      "./edgevox-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
+      "./sherpa-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
       "encoder.int8.onnx";
 
   config.model_config.transducer.decoder =
-      "./edgevox-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
+      "./sherpa-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
       "decoder.onnx";
 
   config.model_config.transducer.joiner =
-      "./edgevox-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
+      "./sherpa-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
       "joiner.onnx";
 
   config.model_config.tokens =
-      "./edgevox-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
+      "./sherpa-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
       "tokens.txt";
 
   config.model_config.num_threads = 1;
@@ -52,7 +52,7 @@ int32_t main() {
   std::cout << "Loading model done\n";
 
   std::string wave_filename =
-      "./edgevox-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
+      "./sherpa-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
       "test_wavs/example.wav";
 
   Wave wave = ReadWave(wave_filename);

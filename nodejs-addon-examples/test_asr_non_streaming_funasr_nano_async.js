@@ -41,7 +41,7 @@ function createStreamFromFile(recognizer, file) {
 }
 
 async function main() {
-  const modelDir = './edgevox-onnx-funasr-nano-int8-2025-12-30';
+  const modelDir = './sherpa-onnx-funasr-nano-int8-2025-12-30';
 
   // Async recognizer creation
   const recognizer = await createRecognizerAsync(modelDir);

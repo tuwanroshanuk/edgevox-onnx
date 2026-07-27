@@ -6,12 +6,12 @@ const edgevox_onnx = require('edgevox-onnx-node');
 
 function createVad() {
   // please download silero_vad.onnx from
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
   //
   // OR
   //
   // please download ten-vad.onnx from
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/ten-vad.onnx
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/ten-vad.onnx
   const config = {
     sileroVad: {
       // model: '',

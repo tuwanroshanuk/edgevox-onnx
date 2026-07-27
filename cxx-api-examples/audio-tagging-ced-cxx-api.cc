@@ -7,9 +7,9 @@
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/audio-tagging-models/edgevox-onnx-ced-mini-audio-tagging-2024-04-19.tar.bz2
-// tar xvf edgevox-onnx-ced-mini-audio-tagging-2024-04-19.tar.bz2
-// rm edgevox-onnx-ced-mini-audio-tagging-2024-04-19.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/audio-tagging-models/sherpa-onnx-ced-mini-audio-tagging-2024-04-19.tar.bz2
+// tar xvf sherpa-onnx-ced-mini-audio-tagging-2024-04-19.tar.bz2
+// rm sherpa-onnx-ced-mini-audio-tagging-2024-04-19.tar.bz2
 //
 // clang-format on
 #include <chrono>  // NOLINT
@@ -25,11 +25,11 @@ int32_t main() {
   AudioTaggingConfig config;
 
   config.model.ced =
-      "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/model.int8.onnx";
+      "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/model.int8.onnx";
   config.model.num_threads = 1;
   config.model.debug = true;
   config.labels =
-      "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/"
+      "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/"
       "class_labels_indices.csv";
 
   config.top_k = 5;
@@ -42,7 +42,7 @@ int32_t main() {
   }
 
   std::string wave_filename =
-      "./edgevox-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/1.wav";
+      "./sherpa-onnx-ced-mini-audio-tagging-2024-04-19/test_wavs/1.wav";
 
   Wave wave = ReadWave(wave_filename);
   if (wave.samples.empty()) {

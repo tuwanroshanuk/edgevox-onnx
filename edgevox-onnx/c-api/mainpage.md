@@ -93,59 +93,59 @@ For both APIs, the usual flow is:
 
 Start with:
 
-- [`c-api.h`](https://github.com/k2-fsa/edgevox-onnx/blob/master/edgevox-onnx/c-api/c-api.h)
+- [`c-api.h`](https://github.com/k2-fsa/sherpa-onnx/blob/master/sherpa-onnx/c-api/c-api.h)
   for the plain C API
-- [`cxx-api.h`](https://github.com/k2-fsa/edgevox-onnx/blob/master/edgevox-onnx/c-api/cxx-api.h)
+- [`cxx-api.h`](https://github.com/k2-fsa/sherpa-onnx/blob/master/sherpa-onnx/c-api/cxx-api.h)
   for the C++ wrapper
 
 Representative example programs live in:
 
-- [`c-api-examples/`](https://github.com/k2-fsa/edgevox-onnx/tree/master/c-api-examples)
-- [`cxx-api-examples/`](https://github.com/k2-fsa/edgevox-onnx/tree/master/cxx-api-examples)
+- [`c-api-examples/`](https://github.com/k2-fsa/sherpa-onnx/tree/master/c-api-examples)
+- [`cxx-api-examples/`](https://github.com/k2-fsa/sherpa-onnx/tree/master/cxx-api-examples)
 
 Useful examples include:
 
 **Offline ASR (C API):**
-- [`whisper-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/whisper-c-api.c)
-- [`sense-voice-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/sense-voice-c-api.c)
-- [`paraformer-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/paraformer-c-api.c)
-- [`moonshine-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/moonshine-c-api.c)
-- [`zipformer-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/zipformer-c-api.c)
-- [`nemo-parakeet-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/nemo-parakeet-c-api.c)
-- [`nemo-giga-am-v2-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/nemo-giga-am-v2-c-api.c)
-- [`nemo-ctc-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/nemo-ctc-c-api.c)
-- [`cohere-transcribe-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/cohere-transcribe-c-api.c)
-- [`dolphin-ctc-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/dolphin-ctc-c-api.c)
+- [`whisper-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/whisper-c-api.c)
+- [`sense-voice-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/sense-voice-c-api.c)
+- [`paraformer-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/paraformer-c-api.c)
+- [`moonshine-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/moonshine-c-api.c)
+- [`zipformer-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/zipformer-c-api.c)
+- [`nemo-parakeet-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/nemo-parakeet-c-api.c)
+- [`nemo-giga-am-v2-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/nemo-giga-am-v2-c-api.c)
+- [`nemo-ctc-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/nemo-ctc-c-api.c)
+- [`cohere-transcribe-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/cohere-transcribe-c-api.c)
+- [`dolphin-ctc-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/dolphin-ctc-c-api.c)
 
 **Streaming ASR (C API):**
-- [`streaming-zipformer-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/streaming-zipformer-c-api.c)
-- [`streaming-nemotron-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/streaming-nemotron-c-api.c)
-- [`streaming-paraformer-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/streaming-paraformer-c-api.c)
+- [`streaming-zipformer-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/streaming-zipformer-c-api.c)
+- [`streaming-nemotron-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/streaming-nemotron-c-api.c)
+- [`streaming-paraformer-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/streaming-paraformer-c-api.c)
 
 **TTS (C API):**
-- [`kokoro-tts-en-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/kokoro-tts-en-c-api.c)
-- [`pocket-tts-en-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/pocket-tts-en-c-api.c)
-- [`offline-tts-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/offline-tts-c-api.c)
+- [`kokoro-tts-en-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/kokoro-tts-en-c-api.c)
+- [`pocket-tts-en-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/pocket-tts-en-c-api.c)
+- [`offline-tts-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/offline-tts-c-api.c)
 
 **Other features (C API):**
-- [`vad-whisper-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/vad-whisper-c-api.c)
-- [`audio-tagging-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/audio-tagging-c-api.c)
-- [`speaker-identification-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/speaker-identification-c-api.c)
-- [`offline-speaker-diarization-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/offline-speaker-diarization-c-api.c)
-- [`spoken-language-identification-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/spoken-language-identification-c-api.c)
-- [`kws-c-api.c`](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/kws-c-api.c)
+- [`vad-whisper-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/vad-whisper-c-api.c)
+- [`audio-tagging-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/audio-tagging-c-api.c)
+- [`speaker-identification-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/speaker-identification-c-api.c)
+- [`offline-speaker-diarization-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/offline-speaker-diarization-c-api.c)
+- [`spoken-language-identification-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/spoken-language-identification-c-api.c)
+- [`kws-c-api.c`](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/kws-c-api.c)
 
 **C++ API examples:**
-- [`streaming-zipformer-cxx-api.cc`](https://github.com/k2-fsa/edgevox-onnx/blob/master/cxx-api-examples/streaming-zipformer-cxx-api.cc)
-- [`streaming-nemotron-cxx-api.cc`](https://github.com/k2-fsa/edgevox-onnx/blob/master/cxx-api-examples/streaming-nemotron-cxx-api.cc)
-- [`paraformer-cxx-api.cc`](https://github.com/k2-fsa/edgevox-onnx/blob/master/cxx-api-examples/paraformer-cxx-api.cc)
-- [`nemo-ctc-cxx-api.cc`](https://github.com/k2-fsa/edgevox-onnx/blob/master/cxx-api-examples/nemo-ctc-cxx-api.cc)
-- [`offline-tts-piper-cxx-api.cc`](https://github.com/k2-fsa/edgevox-onnx/blob/master/cxx-api-examples/offline-tts-piper-cxx-api.cc)
-- [`pocket-tts-en-cxx-api.cc`](https://github.com/k2-fsa/edgevox-onnx/blob/master/cxx-api-examples/pocket-tts-en-cxx-api.cc)
-- [`vad-cxx-api.cc`](https://github.com/k2-fsa/edgevox-onnx/blob/master/cxx-api-examples/vad-cxx-api.cc)
-- [`offline-speaker-diarization-cxx-api.cc`](https://github.com/k2-fsa/edgevox-onnx/blob/master/cxx-api-examples/offline-speaker-diarization-cxx-api.cc)
-- [`speaker-identification-cxx-api.cc`](https://github.com/k2-fsa/edgevox-onnx/blob/master/cxx-api-examples/speaker-identification-cxx-api.cc)
-- [`spoken-language-identification-cxx-api.cc`](https://github.com/k2-fsa/edgevox-onnx/blob/master/cxx-api-examples/spoken-language-identification-cxx-api.cc)
+- [`streaming-zipformer-cxx-api.cc`](https://github.com/k2-fsa/sherpa-onnx/blob/master/cxx-api-examples/streaming-zipformer-cxx-api.cc)
+- [`streaming-nemotron-cxx-api.cc`](https://github.com/k2-fsa/sherpa-onnx/blob/master/cxx-api-examples/streaming-nemotron-cxx-api.cc)
+- [`paraformer-cxx-api.cc`](https://github.com/k2-fsa/sherpa-onnx/blob/master/cxx-api-examples/paraformer-cxx-api.cc)
+- [`nemo-ctc-cxx-api.cc`](https://github.com/k2-fsa/sherpa-onnx/blob/master/cxx-api-examples/nemo-ctc-cxx-api.cc)
+- [`offline-tts-piper-cxx-api.cc`](https://github.com/k2-fsa/sherpa-onnx/blob/master/cxx-api-examples/offline-tts-piper-cxx-api.cc)
+- [`pocket-tts-en-cxx-api.cc`](https://github.com/k2-fsa/sherpa-onnx/blob/master/cxx-api-examples/pocket-tts-en-cxx-api.cc)
+- [`vad-cxx-api.cc`](https://github.com/k2-fsa/sherpa-onnx/blob/master/cxx-api-examples/vad-cxx-api.cc)
+- [`offline-speaker-diarization-cxx-api.cc`](https://github.com/k2-fsa/sherpa-onnx/blob/master/cxx-api-examples/offline-speaker-diarization-cxx-api.cc)
+- [`speaker-identification-cxx-api.cc`](https://github.com/k2-fsa/sherpa-onnx/blob/master/cxx-api-examples/speaker-identification-cxx-api.cc)
+- [`spoken-language-identification-cxx-api.cc`](https://github.com/k2-fsa/sherpa-onnx/blob/master/cxx-api-examples/spoken-language-identification-cxx-api.cc)
 
 ## Generating the documentation
 

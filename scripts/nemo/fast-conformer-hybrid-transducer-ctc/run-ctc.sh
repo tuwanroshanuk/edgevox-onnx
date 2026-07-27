@@ -16,9 +16,9 @@ ms=(
 
 for m in ${ms[@]}; do
   ./export-onnx-ctc.py --model $m
-  d=edgevox-onnx-nemo-streaming-fast-conformer-ctc-en-${m}ms
+  d=sherpa-onnx-nemo-streaming-fast-conformer-ctc-en-${m}ms
 
-  d_int8=edgevox-onnx-nemo-streaming-fast-conformer-ctc-en-${m}ms-int8
+  d_int8=sherpa-onnx-nemo-streaming-fast-conformer-ctc-en-${m}ms-int8
 
   if [ ! -f $d/model.onnx ]; then
     mkdir -p $d $d_int8
@@ -39,14 +39,14 @@ done
 # Now test the exported models
 
 for m in ${ms[@]}; do
-  d=edgevox-onnx-nemo-streaming-fast-conformer-ctc-en-${m}ms
+  d=sherpa-onnx-nemo-streaming-fast-conformer-ctc-en-${m}ms
   echo "---$d---"
   python3 ./test-onnx-ctc.py \
     --model $d/model.onnx \
     --tokens $d/tokens.txt \
     --wav ./0.wav
 
-  d=edgevox-onnx-nemo-streaming-fast-conformer-ctc-en-${m}ms-int8
+  d=sherpa-onnx-nemo-streaming-fast-conformer-ctc-en-${m}ms-int8
   echo "---$d---"
   python3 ./test-onnx-ctc.py \
     --model $d/model.int8.onnx \

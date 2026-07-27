@@ -5,7 +5,7 @@ This file shows how to use a non-streaming zipformer CTC model from icefall
 to decode files.
 
 Please download model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 
 """
 
@@ -16,14 +16,14 @@ import soundfile as sf
 
 
 def create_recognizer():
-    model = "./edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03/model.int8.onnx"
-    tokens = "./edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03/tokens.txt"
-    test_wav = "./edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03/test_wavs/0.wav"
+    model = "./sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03/model.int8.onnx"
+    tokens = "./sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03/tokens.txt"
+    test_wav = "./sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03/test_wavs/0.wav"
 
     if not Path(model).is_file() or not Path(test_wav).is_file():
         raise ValueError(
             """Please download model files from
-            https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+            https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
             """
         )
     return (

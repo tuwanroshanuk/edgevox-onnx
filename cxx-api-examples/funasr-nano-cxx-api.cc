@@ -9,9 +9,9 @@
 //
 // Usage:
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-funasr-nano-int8-2025-12-30.tar.bz2
-// tar xvf edgevox-onnx-funasr-nano-int8-2025-12-30.tar.bz2
-// rm edgevox-onnx-funasr-nano-int8-2025-12-30.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-funasr-nano-int8-2025-12-30.tar.bz2
+// tar xvf sherpa-onnx-funasr-nano-int8-2025-12-30.tar.bz2
+// rm sherpa-onnx-funasr-nano-int8-2025-12-30.tar.bz2
 //
 // clang-format on
 
@@ -32,10 +32,10 @@ int32_t main(int32_t argc, char *argv[]) {
   config.model_config.provider = "cpu";
 
   // clang-format off
-  config.model_config.funasr_nano.encoder_adaptor = "./edgevox-onnx-funasr-nano-int8-2025-12-30/encoder_adaptor.int8.onnx";
-  config.model_config.funasr_nano.llm = "./edgevox-onnx-funasr-nano-int8-2025-12-30/llm.int8.onnx";
-  config.model_config.funasr_nano.embedding = "./edgevox-onnx-funasr-nano-int8-2025-12-30/embedding.int8.onnx";
-  config.model_config.funasr_nano.tokenizer = "./edgevox-onnx-funasr-nano-int8-2025-12-30/Qwen3-0.6B";
+  config.model_config.funasr_nano.encoder_adaptor = "./sherpa-onnx-funasr-nano-int8-2025-12-30/encoder_adaptor.int8.onnx";
+  config.model_config.funasr_nano.llm = "./sherpa-onnx-funasr-nano-int8-2025-12-30/llm.int8.onnx";
+  config.model_config.funasr_nano.embedding = "./sherpa-onnx-funasr-nano-int8-2025-12-30/embedding.int8.onnx";
+  config.model_config.funasr_nano.tokenizer = "./sherpa-onnx-funasr-nano-int8-2025-12-30/Qwen3-0.6B";
 
   // clang-format on
 
@@ -48,7 +48,7 @@ int32_t main(int32_t argc, char *argv[]) {
   std::cout << "Loading model done\n";
 
   std::string wave_filename =
-      "./edgevox-onnx-funasr-nano-int8-2025-12-30/test_wavs/dia_yue.wav";
+      "./sherpa-onnx-funasr-nano-int8-2025-12-30/test_wavs/dia_yue.wav";
 
   Wave wave = ReadWave(wave_filename);
   if (wave.samples.empty()) {

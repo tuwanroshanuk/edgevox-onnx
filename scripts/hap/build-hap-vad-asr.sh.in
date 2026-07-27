@@ -46,7 +46,7 @@ lang={{ model.lang }}
 lang2={{ model.lang2 }}
 short_name={{ model.short_name }}
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/${model_name}.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/${model_name}.tar.bz2
 tar xvf ${model_name}.tar.bz2
 
 {{ model.cmd }}
@@ -55,7 +55,7 @@ rm -rf  *.tar.bz2
 ls -lh $model_name
 
 if [ ! -f ./silero_vad.onnx ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 fi
 
 popd

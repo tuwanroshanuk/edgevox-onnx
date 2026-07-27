@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.k2fsa.sherpa.onnx.slid"
+    namespace = "com.nexus.edgevox.onnx.slid"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.k2fsa.sherpa.onnx.slid"
+        applicationId = "com.nexus.edgevox.onnx.slid"
         minSdk = 21
         targetSdk = 34
         versionCode = 20260707

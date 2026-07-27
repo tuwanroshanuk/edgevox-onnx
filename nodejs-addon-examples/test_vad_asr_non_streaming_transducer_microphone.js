@@ -7,7 +7,7 @@ const edgevox_onnx = require('edgevox-onnx-node');
 
 function createRecognizer() {
   // Please download test files from
-  // https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
   const config = {
     'featConfig': {
       'sampleRate': 16000,
@@ -16,13 +16,13 @@ function createRecognizer() {
     'modelConfig': {
       'transducer': {
         'encoder':
-            './edgevox-onnx-zipformer-en-2023-04-01/encoder-epoch-99-avg-1.int8.onnx',
+            './sherpa-onnx-zipformer-en-2023-04-01/encoder-epoch-99-avg-1.int8.onnx',
         'decoder':
-            './edgevox-onnx-zipformer-en-2023-04-01/decoder-epoch-99-avg-1.onnx',
+            './sherpa-onnx-zipformer-en-2023-04-01/decoder-epoch-99-avg-1.onnx',
         'joiner':
-            './edgevox-onnx-zipformer-en-2023-04-01/joiner-epoch-99-avg-1.int8.onnx',
+            './sherpa-onnx-zipformer-en-2023-04-01/joiner-epoch-99-avg-1.int8.onnx',
       },
-      'tokens': './edgevox-onnx-zipformer-en-2023-04-01/tokens.txt',
+      'tokens': './sherpa-onnx-zipformer-en-2023-04-01/tokens.txt',
       'numThreads': 2,
       'provider': 'cpu',
       'debug': 1,
@@ -34,7 +34,7 @@ function createRecognizer() {
 
 function createVad() {
   // please download silero_vad.onnx from
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
   const config = {
     sileroVad: {
       model: './silero_vad.onnx',

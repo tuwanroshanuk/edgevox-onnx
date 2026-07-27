@@ -2,7 +2,7 @@
 const edgevox_onnx = require('edgevox-onnx-node');
 
 // Please download test files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 const config = {
   'featConfig': {
     'sampleRate': 16000,
@@ -11,11 +11,11 @@ const config = {
   'modelConfig': {
     'paraformer': {
       'encoder':
-          './edgevox-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx',
+          './sherpa-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx',
       'decoder':
-          './edgevox-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx',
+          './sherpa-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx',
     },
-    'tokens': './edgevox-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt',
+    'tokens': './sherpa-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt',
     'numThreads': 2,
     'provider': 'cpu',
     'debug': 1,
@@ -23,7 +23,7 @@ const config = {
 };
 
 const waveFilename =
-    './edgevox-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/0.wav';
+    './sherpa-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/0.wav';
 
 const recognizer = new edgevox_onnx.OnlineRecognizer(config);
 console.log('Started');

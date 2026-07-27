@@ -1,4 +1,4 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 import android.content.res.AssetManager
 
@@ -163,39 +163,39 @@ to add your own. (It should be straightforward to add a new model
 by following the code)
 
 @param type
-0 - edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20 (Bilingual, Chinese + English)
-    https://k2-fsa.github.io/sherpa/onnx/pretrained_models/zipformer-transducer-models.html#edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20-bilingual-chinese-english
+0 - sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20 (Bilingual, Chinese + English)
+    https://k2-fsa.github.io/sherpa/onnx/pretrained_models/zipformer-transducer-models.html#sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20-bilingual-chinese-english
 
-1 - csukuangfj/edgevox-onnx-lstm-zh-2023-02-20 (Chinese)
+1 - csukuangfj/sherpa-onnx-lstm-zh-2023-02-20 (Chinese)
 
-    https://k2-fsa.github.io/sherpa/onnx/pretrained_models/lstm-transducer-models.html#csukuangfj-edgevox-onnx-lstm-zh-2023-02-20-chinese
+    https://k2-fsa.github.io/sherpa/onnx/pretrained_models/lstm-transducer-models.html#csukuangfj-sherpa-onnx-lstm-zh-2023-02-20-chinese
 
-2 - csukuangfj/edgevox-onnx-lstm-en-2023-02-17 (English)
-    https://k2-fsa.github.io/sherpa/onnx/pretrained_models/lstm-transducer-models.html#csukuangfj-edgevox-onnx-lstm-en-2023-02-17-english
+2 - csukuangfj/sherpa-onnx-lstm-en-2023-02-17 (English)
+    https://k2-fsa.github.io/sherpa/onnx/pretrained_models/lstm-transducer-models.html#csukuangfj-sherpa-onnx-lstm-en-2023-02-17-english
 
 3,4 - pkufool/icefall-asr-zipformer-streaming-wenetspeech-20230615
     https://huggingface.co/pkufool/icefall-asr-zipformer-streaming-wenetspeech-20230615
     3 - int8 encoder
     4 - float32 encoder
 
-5 - csukuangfj/edgevox-onnx-streaming-paraformer-bilingual-zh-en
-    https://huggingface.co/csukuangfj/edgevox-onnx-streaming-paraformer-bilingual-zh-en
+5 - csukuangfj/sherpa-onnx-streaming-paraformer-bilingual-zh-en
+    https://huggingface.co/csukuangfj/sherpa-onnx-streaming-paraformer-bilingual-zh-en
 
-6 - edgevox-onnx-streaming-zipformer-en-2023-06-26
-    https://huggingface.co/csukuangfj/edgevox-onnx-streaming-zipformer-en-2023-06-26
+6 - sherpa-onnx-streaming-zipformer-en-2023-06-26
+    https://huggingface.co/csukuangfj/sherpa-onnx-streaming-zipformer-en-2023-06-26
 
-7 - shaojieli/edgevox-onnx-streaming-zipformer-fr-2023-04-14 (French)
-    https://huggingface.co/shaojieli/edgevox-onnx-streaming-zipformer-fr-2023-04-14
+7 - shaojieli/sherpa-onnx-streaming-zipformer-fr-2023-04-14 (French)
+    https://huggingface.co/shaojieli/sherpa-onnx-streaming-zipformer-fr-2023-04-14
 
-8 - csukuangfj/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20 (Bilingual, Chinese + English)
-    https://huggingface.co/csukuangfj/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
+8 - csukuangfj/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20 (Bilingual, Chinese + English)
+    https://huggingface.co/csukuangfj/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
     encoder int8, decoder/joiner float32
 
-9025 - edgevox-onnx-qnn-streaming-zipformer-transducer-zh-en-2023-03-20-chunk-size-32-android-aarch64
+9025 - sherpa-onnx-qnn-streaming-zipformer-transducer-zh-en-2023-03-20-chunk-size-32-android-aarch64
     QNN model libs with writable binary context files
     libencoder.so, libdecoder.so, libjoiner.so
 
-9026 - edgevox-onnx-qnn-SM8850-binary-streaming-zipformer-transducer-zh-en-2023-03-20-chunk-size-32
+9026 - sherpa-onnx-qnn-SM8850-binary-streaming-zipformer-transducer-zh-en-2023-03-20-chunk-size-32
     QNN binary context files only
     encoder.bin, decoder.bin, joiner.bin
 
@@ -203,7 +203,7 @@ by following the code)
 fun getModelConfig(type: Int): OnlineModelConfig? {
     when (type) {
         0 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20"
+            val modelDir = "sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder-epoch-99-avg-1.onnx",
@@ -216,7 +216,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         1 -> {
-            val modelDir = "edgevox-onnx-lstm-zh-2023-02-20"
+            val modelDir = "sherpa-onnx-lstm-zh-2023-02-20"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder-epoch-11-avg-1.onnx",
@@ -229,7 +229,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         2 -> {
-            val modelDir = "edgevox-onnx-lstm-en-2023-02-17"
+            val modelDir = "sherpa-onnx-lstm-en-2023-02-17"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder-epoch-99-avg-1.onnx",
@@ -268,7 +268,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         5 -> {
-            val modelDir = "edgevox-onnx-streaming-paraformer-bilingual-zh-en"
+            val modelDir = "sherpa-onnx-streaming-paraformer-bilingual-zh-en"
             return OnlineModelConfig(
                 paraformer = OnlineParaformerModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -280,7 +280,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         6 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-en-2023-06-26"
+            val modelDir = "sherpa-onnx-streaming-zipformer-en-2023-06-26"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx",
@@ -293,7 +293,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         7 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-fr-2023-04-14"
+            val modelDir = "sherpa-onnx-streaming-zipformer-fr-2023-04-14"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder-epoch-29-avg-9-with-averaged-model.int8.onnx",
@@ -306,7 +306,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         8 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20"
+            val modelDir = "sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder-epoch-99-avg-1.int8.onnx",
@@ -319,7 +319,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         9 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-zh-14M-2023-02-23"
+            val modelDir = "sherpa-onnx-streaming-zipformer-zh-14M-2023-02-23"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder-epoch-99-avg-1.int8.onnx",
@@ -332,7 +332,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         10 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-en-20M-2023-02-17"
+            val modelDir = "sherpa-onnx-streaming-zipformer-en-20M-2023-02-17"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder-epoch-99-avg-1.int8.onnx",
@@ -345,7 +345,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         11 -> {
-            val modelDir = "edgevox-onnx-nemo-streaming-fast-conformer-ctc-en-80ms"
+            val modelDir = "sherpa-onnx-nemo-streaming-fast-conformer-ctc-en-80ms"
             return OnlineModelConfig(
                 neMoCtc = OnlineNeMoCtcModelConfig(
                     model = "$modelDir/model.onnx",
@@ -355,7 +355,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         12 -> {
-            val modelDir = "edgevox-onnx-nemo-streaming-fast-conformer-ctc-en-480ms"
+            val modelDir = "sherpa-onnx-nemo-streaming-fast-conformer-ctc-en-480ms"
             return OnlineModelConfig(
                 neMoCtc = OnlineNeMoCtcModelConfig(
                     model = "$modelDir/model.onnx",
@@ -365,7 +365,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         13 -> {
-            val modelDir = "edgevox-onnx-nemo-streaming-fast-conformer-ctc-en-1040ms"
+            val modelDir = "sherpa-onnx-nemo-streaming-fast-conformer-ctc-en-1040ms"
             return OnlineModelConfig(
                 neMoCtc = OnlineNeMoCtcModelConfig(
                     model = "$modelDir/model.onnx",
@@ -375,7 +375,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         14 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-korean-2024-06-16"
+            val modelDir = "sherpa-onnx-streaming-zipformer-korean-2024-06-16"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder-epoch-99-avg-1.int8.onnx",
@@ -388,7 +388,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         15 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-small-ctc-zh-int8-2025-04-01"
+            val modelDir = "sherpa-onnx-streaming-zipformer-small-ctc-zh-int8-2025-04-01"
             return OnlineModelConfig(
                 zipformer2Ctc = OnlineZipformer2CtcModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -398,7 +398,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         16 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-small-ctc-zh-2025-04-01"
+            val modelDir = "sherpa-onnx-streaming-zipformer-small-ctc-zh-2025-04-01"
             return OnlineModelConfig(
                 zipformer2Ctc = OnlineZipformer2CtcModelConfig(
                     model = "$modelDir/model.onnx",
@@ -408,7 +408,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         17 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-ctc-zh-int8-2025-06-30"
+            val modelDir = "sherpa-onnx-streaming-zipformer-ctc-zh-int8-2025-06-30"
             return OnlineModelConfig(
                 zipformer2Ctc = OnlineZipformer2CtcModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -418,7 +418,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         18 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-ctc-zh-2025-06-30"
+            val modelDir = "sherpa-onnx-streaming-zipformer-ctc-zh-2025-06-30"
             return OnlineModelConfig(
                 zipformer2Ctc = OnlineZipformer2CtcModelConfig(
                     model = "$modelDir/model.onnx",
@@ -429,7 +429,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         19 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-ctc-zh-fp16-2025-06-30"
+            val modelDir = "sherpa-onnx-streaming-zipformer-ctc-zh-fp16-2025-06-30"
             return OnlineModelConfig(
                 zipformer2Ctc = OnlineZipformer2CtcModelConfig(
                     model = "$modelDir/model.fp16.onnx",
@@ -440,7 +440,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         20 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-zh-int8-2025-06-30"
+            val modelDir = "sherpa-onnx-streaming-zipformer-zh-int8-2025-06-30"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -453,7 +453,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         21 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-en-kroko-2025-08-06"
+            val modelDir = "sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder.onnx",
@@ -466,7 +466,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         22 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-es-kroko-2025-08-06"
+            val modelDir = "sherpa-onnx-streaming-zipformer-es-kroko-2025-08-06"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder.onnx",
@@ -479,7 +479,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         23 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-fr-kroko-2025-08-06"
+            val modelDir = "sherpa-onnx-streaming-zipformer-fr-kroko-2025-08-06"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder.onnx",
@@ -492,7 +492,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         24 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-de-kroko-2025-08-06"
+            val modelDir = "sherpa-onnx-streaming-zipformer-de-kroko-2025-08-06"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder.onnx",
@@ -505,7 +505,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         25 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-small-ru-vosk-int8-2025-08-16"
+            val modelDir = "sherpa-onnx-streaming-zipformer-small-ru-vosk-int8-2025-08-16"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -518,7 +518,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         26 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-small-ru-vosk-2025-08-16"
+            val modelDir = "sherpa-onnx-streaming-zipformer-small-ru-vosk-2025-08-16"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder.onnx",
@@ -531,7 +531,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         27 -> {
-            val modelDir = "edgevox-onnx-streaming-t-one-russian-2025-09-08"
+            val modelDir = "sherpa-onnx-streaming-t-one-russian-2025-09-08"
             return OnlineModelConfig(
                 toneCtc = OnlineToneCtcModelConfig(
                     model = "$modelDir/model.onnx",
@@ -541,7 +541,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         28 -> {
-            val modelDir = "edgevox-onnx-nemotron-speech-streaming-en-0.6b-int8-2026-01-14"
+            val modelDir = "sherpa-onnx-nemotron-speech-streaming-en-0.6b-int8-2026-01-14"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -553,7 +553,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         29 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-bn-vosk-2026-02-09"
+            val modelDir = "sherpa-onnx-streaming-zipformer-bn-vosk-2026-02-09"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder.onnx",
@@ -566,7 +566,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         30 -> {
-            val modelDir = "edgevox-onnx-nemotron-speech-streaming-en-0.6b-80ms-int8-2026-04-25"
+            val modelDir = "sherpa-onnx-nemotron-speech-streaming-en-0.6b-80ms-int8-2026-04-25"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -578,7 +578,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         31 -> {
-            val modelDir = "edgevox-onnx-nemotron-speech-streaming-en-0.6b-160ms-int8-2026-04-25"
+            val modelDir = "sherpa-onnx-nemotron-speech-streaming-en-0.6b-160ms-int8-2026-04-25"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -590,7 +590,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         32 -> {
-            val modelDir = "edgevox-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25"
+            val modelDir = "sherpa-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -602,7 +602,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         }
 
         33 -> {
-            val modelDir = "edgevox-onnx-nemotron-speech-streaming-en-0.6b-1120ms-int8-2026-04-25"
+            val modelDir = "sherpa-onnx-nemotron-speech-streaming-en-0.6b-1120ms-int8-2026-04-25"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -615,7 +615,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
 
         9025 -> {
             val modelDir =
-                "edgevox-onnx-qnn-streaming-zipformer-transducer-zh-en-2023-03-20-chunk-size-32-android-aarch64"
+                "sherpa-onnx-qnn-streaming-zipformer-transducer-zh-en-2023-03-20-chunk-size-32-android-aarch64"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/libencoder.so",
@@ -638,7 +638,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         9026 -> {
             // for Xiaomi 17 Pro
             val modelDir =
-                "edgevox-onnx-qnn-SM8850-binary-streaming-zipformer-transducer-zh-en-2023-03-20-chunk-size-32"
+                "sherpa-onnx-qnn-SM8850-binary-streaming-zipformer-transducer-zh-en-2023-03-20-chunk-size-32"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     qnnConfig = QnnConfig(
@@ -655,7 +655,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
 
         9027 -> {
             val modelDir =
-                "edgevox-onnx-qnn-x-asr-streaming-zipformer-transducer-zh-en-2026-06-05-chunk-size-480ms-android-aarch64"
+                "sherpa-onnx-qnn-x-asr-streaming-zipformer-transducer-zh-en-2026-06-05-chunk-size-480ms-android-aarch64"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/libencoder.so",
@@ -675,7 +675,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
 
         9028 -> {
             val modelDir =
-                "edgevox-onnx-qnn-x-asr-streaming-zipformer-transducer-zh-en-punct-2026-06-05-chunk-size-480ms-android-aarch64"
+                "sherpa-onnx-qnn-x-asr-streaming-zipformer-transducer-zh-en-punct-2026-06-05-chunk-size-480ms-android-aarch64"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     encoder = "$modelDir/libencoder.so",
@@ -696,7 +696,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         9029 -> {
             // for Xiaomi 17 Pro
             val modelDir =
-                "edgevox-onnx-qnn-SM8850-binary-x-asr-streaming-zipformer-transducer-zh-en-2026-06-05-chunk-size-480ms"
+                "sherpa-onnx-qnn-SM8850-binary-x-asr-streaming-zipformer-transducer-zh-en-2026-06-05-chunk-size-480ms"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     qnnConfig = QnnConfig(
@@ -714,7 +714,7 @@ fun getModelConfig(type: Int): OnlineModelConfig? {
         9030 -> {
             // for Xiaomi 17 Pro
             val modelDir =
-                "edgevox-onnx-qnn-SM8850-binary-x-asr-streaming-zipformer-transducer-zh-en-punct-2026-06-05-chunk-size-480ms"
+                "sherpa-onnx-qnn-SM8850-binary-x-asr-streaming-zipformer-transducer-zh-en-punct-2026-06-05-chunk-size-480ms"
             return OnlineModelConfig(
                 transducer = OnlineTransducerModelConfig(
                     qnnConfig = QnnConfig(
@@ -771,13 +771,13 @@ to add your own LM model. (It should be straightforward to train a new NN LM mod
 by following the code, https://github.com/k2-fsa/icefall/blob/master/icefall/rnn_lm/train.py)
 
 @param type
-0 - edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20 (Bilingual, Chinese + English)
-    https://k2-fsa.github.io/sherpa/onnx/pretrained_models/zipformer-transducer-models.html#edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20-bilingual-chinese-english
+0 - sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20 (Bilingual, Chinese + English)
+    https://k2-fsa.github.io/sherpa/onnx/pretrained_models/zipformer-transducer-models.html#sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20-bilingual-chinese-english
  */
 fun getOnlineLMConfig(type: Int): OnlineLMConfig {
     when (type) {
         0 -> {
-            val modelDir = "edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20"
+            val modelDir = "sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20"
             return OnlineLMConfig(
                 model = "$modelDir/with-state-epoch-99-avg-1.int8.onnx",
                 scale = 0.5f,

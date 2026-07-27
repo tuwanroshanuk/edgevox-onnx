@@ -16,7 +16,7 @@ void OfflineMedAsrCtcModelConfig::Register(ParseOptions *po) {
   po->Register(
       "medasr", &model,
       "Path to model.onnx from MedASR. Please see "
-      "https://github.com/k2-fsa/edgevox-onnx/pull/2934 for available models");
+      "https://github.com/k2-fsa/sherpa-onnx/pull/2934 for available models");
 }
 
 bool OfflineMedAsrCtcModelConfig::Validate() const {

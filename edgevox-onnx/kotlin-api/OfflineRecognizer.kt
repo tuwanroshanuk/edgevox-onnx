@@ -1,4 +1,4 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 import android.content.res.AssetManager
 
@@ -260,19 +260,19 @@ by following the code)
 
 @param type
 
-0 - csukuangfj/edgevox-onnx-paraformer-zh-2023-09-14 (Chinese)
-    https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-paraformer/paraformer-models.html#csukuangfj-edgevox-onnx-paraformer-zh-2023-09-14-chinese
+0 - csukuangfj/sherpa-onnx-paraformer-zh-2023-09-14 (Chinese)
+    https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-paraformer/paraformer-models.html#csukuangfj-sherpa-onnx-paraformer-zh-2023-09-14-chinese
     int8
 
 1 - icefall-asr-multidataset-pruned_transducer_stateless7-2023-05-04 (English)
     https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-transducer/zipformer-transducer-models.html#icefall-asr-multidataset-pruned-transducer-stateless7-2023-05-04-english
     encoder int8, decoder/joiner float32
 
-2 - edgevox-onnx-whisper-tiny.en
+2 - sherpa-onnx-whisper-tiny.en
     https://k2-fsa.github.io/sherpa/onnx/pretrained_models/whisper/tiny.en.html#tiny-en
     encoder int8, decoder int8
 
-3 - edgevox-onnx-whisper-base.en
+3 - sherpa-onnx-whisper-base.en
     https://k2-fsa.github.io/sherpa/onnx/pretrained_models/whisper/tiny.en.html#tiny-en
     encoder int8, decoder int8
 
@@ -284,7 +284,7 @@ by following the code)
 fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
     when (type) {
         0 -> {
-            val modelDir = "edgevox-onnx-paraformer-zh-2023-09-14"
+            val modelDir = "sherpa-onnx-paraformer-zh-2023-09-14"
             return OfflineModelConfig(
                 paraformer = OfflineParaformerModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -308,7 +308,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         2 -> {
-            val modelDir = "edgevox-onnx-whisper-tiny.en"
+            val modelDir = "sherpa-onnx-whisper-tiny.en"
             return OfflineModelConfig(
                 whisper = OfflineWhisperModelConfig(
                     encoder = "$modelDir/tiny.en-encoder.int8.onnx",
@@ -320,7 +320,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         3 -> {
-            val modelDir = "edgevox-onnx-whisper-base.en"
+            val modelDir = "sherpa-onnx-whisper-base.en"
             return OfflineModelConfig(
                 whisper = OfflineWhisperModelConfig(
                     encoder = "$modelDir/base.en-encoder.int8.onnx",
@@ -346,7 +346,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         5 -> {
-            val modelDir = "edgevox-onnx-zipformer-multi-zh-hans-2023-9-2"
+            val modelDir = "sherpa-onnx-zipformer-multi-zh-hans-2023-9-2"
             return OfflineModelConfig(
                 transducer = OfflineTransducerModelConfig(
                     encoder = "$modelDir/encoder-epoch-20-avg-1.int8.onnx",
@@ -359,7 +359,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         6 -> {
-            val modelDir = "edgevox-onnx-nemo-ctc-en-citrinet-512"
+            val modelDir = "sherpa-onnx-nemo-ctc-en-citrinet-512"
             return OfflineModelConfig(
                 nemo = OfflineNemoEncDecCtcModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -369,7 +369,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         7 -> {
-            val modelDir = "edgevox-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k"
+            val modelDir = "sherpa-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k"
             return OfflineModelConfig(
                 nemo = OfflineNemoEncDecCtcModelConfig(
                     model = "$modelDir/model.onnx",
@@ -379,7 +379,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         8 -> {
-            val modelDir = "edgevox-onnx-nemo-fast-conformer-ctc-en-24500"
+            val modelDir = "sherpa-onnx-nemo-fast-conformer-ctc-en-24500"
             return OfflineModelConfig(
                 nemo = OfflineNemoEncDecCtcModelConfig(
                     model = "$modelDir/model.onnx",
@@ -389,7 +389,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         9 -> {
-            val modelDir = "edgevox-onnx-nemo-fast-conformer-ctc-en-de-es-fr-14288"
+            val modelDir = "sherpa-onnx-nemo-fast-conformer-ctc-en-de-es-fr-14288"
             return OfflineModelConfig(
                 nemo = OfflineNemoEncDecCtcModelConfig(
                     model = "$modelDir/model.onnx",
@@ -399,7 +399,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         10 -> {
-            val modelDir = "edgevox-onnx-nemo-fast-conformer-ctc-es-1424"
+            val modelDir = "sherpa-onnx-nemo-fast-conformer-ctc-es-1424"
             return OfflineModelConfig(
                 nemo = OfflineNemoEncDecCtcModelConfig(
                     model = "$modelDir/model.onnx",
@@ -409,7 +409,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         11 -> {
-            val modelDir = "edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04"
+            val modelDir = "sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04"
             return OfflineModelConfig(
                 teleSpeech = "$modelDir/model.int8.onnx",
                 tokens = "$modelDir/tokens.txt",
@@ -418,7 +418,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         12 -> {
-            val modelDir = "edgevox-onnx-zipformer-thai-2024-06-20"
+            val modelDir = "sherpa-onnx-zipformer-thai-2024-06-20"
             return OfflineModelConfig(
                 transducer = OfflineTransducerModelConfig(
                     encoder = "$modelDir/encoder-epoch-12-avg-5.int8.onnx",
@@ -431,7 +431,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         13 -> {
-            val modelDir = "edgevox-onnx-zipformer-korean-2024-06-24"
+            val modelDir = "sherpa-onnx-zipformer-korean-2024-06-24"
             return OfflineModelConfig(
                 transducer = OfflineTransducerModelConfig(
                     encoder = "$modelDir/encoder-epoch-99-avg-1.int8.onnx",
@@ -444,7 +444,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         14 -> {
-            val modelDir = "edgevox-onnx-paraformer-zh-small-2024-03-09"
+            val modelDir = "sherpa-onnx-paraformer-zh-small-2024-03-09"
             return OfflineModelConfig(
                 paraformer = OfflineParaformerModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -455,7 +455,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         15 -> {
-            val modelDir = "edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17"
+            val modelDir = "sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17"
             return OfflineModelConfig(
                 senseVoice = OfflineSenseVoiceModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -465,7 +465,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         16 -> {
-            val modelDir = "edgevox-onnx-zipformer-ja-reazonspeech-2024-08-01"
+            val modelDir = "sherpa-onnx-zipformer-ja-reazonspeech-2024-08-01"
             return OfflineModelConfig(
                 transducer = OfflineTransducerModelConfig(
                     encoder = "$modelDir/encoder-epoch-99-avg-1.int8.onnx",
@@ -478,7 +478,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         17 -> {
-            val modelDir = "edgevox-onnx-zipformer-ru-2024-09-18"
+            val modelDir = "sherpa-onnx-zipformer-ru-2024-09-18"
             return OfflineModelConfig(
                 transducer = OfflineTransducerModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -504,7 +504,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         19 -> {
-            val modelDir = "edgevox-onnx-nemo-ctc-giga-am-russian-2024-10-24"
+            val modelDir = "sherpa-onnx-nemo-ctc-giga-am-russian-2024-10-24"
             return OfflineModelConfig(
                 nemo = OfflineNemoEncDecCtcModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -514,7 +514,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         20 -> {
-            val modelDir = "edgevox-onnx-nemo-transducer-giga-am-russian-2024-10-24"
+            val modelDir = "sherpa-onnx-nemo-transducer-giga-am-russian-2024-10-24"
             return OfflineModelConfig(
                 transducer = OfflineTransducerModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -527,7 +527,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         21 -> {
-            val modelDir = "edgevox-onnx-moonshine-tiny-en-int8"
+            val modelDir = "sherpa-onnx-moonshine-tiny-en-int8"
             return OfflineModelConfig(
                 moonshine = OfflineMoonshineModelConfig(
                     preprocessor = "$modelDir/preprocess.onnx",
@@ -540,7 +540,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         22 -> {
-            val modelDir = "edgevox-onnx-moonshine-base-en-int8"
+            val modelDir = "sherpa-onnx-moonshine-base-en-int8"
             return OfflineModelConfig(
                 moonshine = OfflineMoonshineModelConfig(
                     preprocessor = "$modelDir/preprocess.onnx",
@@ -553,7 +553,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         23 -> {
-            val modelDir = "edgevox-onnx-zipformer-zh-en-2023-11-22"
+            val modelDir = "sherpa-onnx-zipformer-zh-en-2023-11-22"
             return OfflineModelConfig(
                 transducer = OfflineTransducerModelConfig(
                     encoder = "$modelDir/encoder-epoch-34-avg-19.int8.onnx",
@@ -566,7 +566,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         24 -> {
-            val modelDir = "edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16"
+            val modelDir = "sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16"
             return OfflineModelConfig(
                 fireRedAsr = OfflineFireRedAsrModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -577,7 +577,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         25 -> {
-            val modelDir = "edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02"
+            val modelDir = "sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02"
             return OfflineModelConfig(
                 dolphin = OfflineDolphinModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -587,7 +587,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         26 -> {
-            val modelDir = "edgevox-onnx-zipformer-vi-int8-2025-04-20"
+            val modelDir = "sherpa-onnx-zipformer-vi-int8-2025-04-20"
             return OfflineModelConfig(
                 transducer = OfflineTransducerModelConfig(
                     encoder = "$modelDir/encoder-epoch-12-avg-8.int8.onnx",
@@ -600,7 +600,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         27 -> {
-            val modelDir = "edgevox-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19"
+            val modelDir = "sherpa-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19"
             return OfflineModelConfig(
                 nemo = OfflineNemoEncDecCtcModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -610,7 +610,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         28 -> {
-            val modelDir = "edgevox-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19"
+            val modelDir = "sherpa-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19"
             return OfflineModelConfig(
                 transducer = OfflineTransducerModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -623,7 +623,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         29 -> {
-            val modelDir = "edgevox-onnx-zipformer-ru-int8-2025-04-20"
+            val modelDir = "sherpa-onnx-zipformer-ru-int8-2025-04-20"
             return OfflineModelConfig(
                 transducer = OfflineTransducerModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -636,7 +636,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         30 -> {
-            val modelDir = "edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8"
+            val modelDir = "sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8"
             return OfflineModelConfig(
                 transducer = OfflineTransducerModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -649,7 +649,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         31 -> {
-            val modelDir = "edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03"
+            val modelDir = "sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03"
             return OfflineModelConfig(
                 zipformerCtc = OfflineZipformerCtcModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -659,7 +659,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         32 -> {
-            val modelDir = "edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8"
+            val modelDir = "sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8"
             return OfflineModelConfig(
                 canary = OfflineCanaryModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -673,7 +673,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         33 -> {
-            val modelDir = "edgevox-onnx-nemo-parakeet_tdt_ctc_110m-en-36000-int8"
+            val modelDir = "sherpa-onnx-nemo-parakeet_tdt_ctc_110m-en-36000-int8"
             return OfflineModelConfig(
                 nemo = OfflineNemoEncDecCtcModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -683,7 +683,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         34 -> {
-            val modelDir = "edgevox-onnx-nemo-parakeet-tdt_ctc-0.6b-ja-35000-int8"
+            val modelDir = "sherpa-onnx-nemo-parakeet-tdt_ctc-0.6b-ja-35000-int8"
             return OfflineModelConfig(
                 nemo = OfflineNemoEncDecCtcModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -693,7 +693,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         35 -> {
-            val modelDir = "edgevox-onnx-nemo-transducer-stt_pt_fastconformer_hybrid_large_pc-int8"
+            val modelDir = "sherpa-onnx-nemo-transducer-stt_pt_fastconformer_hybrid_large_pc-int8"
             return OfflineModelConfig(
                 transducer = OfflineTransducerModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -706,7 +706,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         36 -> {
-            val modelDir = "edgevox-onnx-nemo-stt_pt_fastconformer_hybrid_large_pc-int8"
+            val modelDir = "sherpa-onnx-nemo-stt_pt_fastconformer_hybrid_large_pc-int8"
             return OfflineModelConfig(
                 nemo = OfflineNemoEncDecCtcModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -716,7 +716,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         37 -> {
-            val modelDir = "edgevox-onnx-nemo-transducer-stt_de_fastconformer_hybrid_large_pc-int8"
+            val modelDir = "sherpa-onnx-nemo-transducer-stt_de_fastconformer_hybrid_large_pc-int8"
             return OfflineModelConfig(
                 transducer = OfflineTransducerModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -729,7 +729,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         38 -> {
-            val modelDir = "edgevox-onnx-nemo-stt_de_fastconformer_hybrid_large_pc-int8"
+            val modelDir = "sherpa-onnx-nemo-stt_de_fastconformer_hybrid_large_pc-int8"
             return OfflineModelConfig(
                 nemo = OfflineNemoEncDecCtcModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -739,7 +739,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         39 -> {
-            val modelDir = "edgevox-onnx-zipformer-ctc-small-zh-int8-2025-07-16"
+            val modelDir = "sherpa-onnx-zipformer-ctc-small-zh-int8-2025-07-16"
             return OfflineModelConfig(
                 zipformerCtc = OfflineZipformerCtcModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -749,7 +749,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         40 -> {
-            val modelDir = "edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8"
+            val modelDir = "sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8"
             return OfflineModelConfig(
                 transducer = OfflineTransducerModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -762,7 +762,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         41 -> {
-            val modelDir = "edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2025-09-09"
+            val modelDir = "sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2025-09-09"
             return OfflineModelConfig(
                 senseVoice = OfflineSenseVoiceModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -773,7 +773,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         42 -> {
             val modelDir =
-                "edgevox-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10"
+                "sherpa-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10"
             return OfflineModelConfig(
                 wenetCtc = OfflineWenetCtcModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -783,7 +783,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         43 -> {
-            val modelDir = "edgevox-onnx-paraformer-zh-int8-2025-10-07"
+            val modelDir = "sherpa-onnx-paraformer-zh-int8-2025-10-07"
             return OfflineModelConfig(
                 paraformer = OfflineParaformerModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -794,7 +794,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         44 -> {
-            val modelDir = "edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12"
+            val modelDir = "sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12"
             return OfflineModelConfig(
                 omnilingual = OfflineOmnilingualAsrCtcModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -804,7 +804,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         45 -> {
-            val modelDir = "edgevox-onnx-medasr-ctc-en-int8-2025-12-25"
+            val modelDir = "sherpa-onnx-medasr-ctc-en-int8-2025-12-25"
             return OfflineModelConfig(
                 medasr = OfflineMedAsrCtcModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -814,7 +814,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         46 -> {
-            val modelDir = "edgevox-onnx-funasr-nano-int8-2025-12-30"
+            val modelDir = "sherpa-onnx-funasr-nano-int8-2025-12-30"
             return OfflineModelConfig(
                 funasrNano = OfflineFunAsrNanoModelConfig(
                     encoderAdaptor = "$modelDir/encoder_adaptor.int8.onnx",
@@ -848,7 +848,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         49 -> {
-            val modelDir = "edgevox-onnx-zipformer-vi-30M-int8-2026-02-09"
+            val modelDir = "sherpa-onnx-zipformer-vi-30M-int8-2026-02-09"
             return OfflineModelConfig(
                 transducer = OfflineTransducerModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -861,7 +861,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         50 -> {
-            val modelDir = "edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25"
+            val modelDir = "sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25"
             return OfflineModelConfig(
                 fireRedAsrCtc = OfflineFireRedAsrCtcModelConfig(
                     model = "$modelDir/model.int8.onnx",
@@ -871,7 +871,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         51 -> {
-            val modelDir = "edgevox-onnx-moonshine-tiny-ko-quantized-2026-02-27"
+            val modelDir = "sherpa-onnx-moonshine-tiny-ko-quantized-2026-02-27"
             return OfflineModelConfig(
                 moonshine = OfflineMoonshineModelConfig(
                     encoder = "$modelDir/encoder_model.ort",
@@ -882,7 +882,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         52 -> {
-            val modelDir = "edgevox-onnx-moonshine-tiny-ja-quantized-2026-02-27"
+            val modelDir = "sherpa-onnx-moonshine-tiny-ja-quantized-2026-02-27"
             return OfflineModelConfig(
                 moonshine = OfflineMoonshineModelConfig(
                     encoder = "$modelDir/encoder_model.ort",
@@ -893,7 +893,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         53 -> {
-            val modelDir = "edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27"
+            val modelDir = "sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27"
             return OfflineModelConfig(
                 moonshine = OfflineMoonshineModelConfig(
                     encoder = "$modelDir/encoder_model.ort",
@@ -904,7 +904,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         54 -> {
-            val modelDir = "edgevox-onnx-moonshine-base-zh-quantized-2026-02-27"
+            val modelDir = "sherpa-onnx-moonshine-base-zh-quantized-2026-02-27"
             return OfflineModelConfig(
                 moonshine = OfflineMoonshineModelConfig(
                     encoder = "$modelDir/encoder_model.ort",
@@ -915,7 +915,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         55 -> {
-            val modelDir = "edgevox-onnx-moonshine-base-vi-quantized-2026-02-27"
+            val modelDir = "sherpa-onnx-moonshine-base-vi-quantized-2026-02-27"
             return OfflineModelConfig(
                 moonshine = OfflineMoonshineModelConfig(
                     encoder = "$modelDir/encoder_model.ort",
@@ -926,7 +926,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         56 -> {
-            val modelDir = "edgevox-onnx-moonshine-base-uk-quantized-2026-02-27"
+            val modelDir = "sherpa-onnx-moonshine-base-uk-quantized-2026-02-27"
             return OfflineModelConfig(
                 moonshine = OfflineMoonshineModelConfig(
                     encoder = "$modelDir/encoder_model.ort",
@@ -937,7 +937,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         57 -> {
-            val modelDir = "edgevox-onnx-moonshine-base-ja-quantized-2026-02-27"
+            val modelDir = "sherpa-onnx-moonshine-base-ja-quantized-2026-02-27"
             return OfflineModelConfig(
                 moonshine = OfflineMoonshineModelConfig(
                     encoder = "$modelDir/encoder_model.ort",
@@ -948,7 +948,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         58 -> {
-            val modelDir = "edgevox-onnx-moonshine-base-es-quantized-2026-02-27"
+            val modelDir = "sherpa-onnx-moonshine-base-es-quantized-2026-02-27"
             return OfflineModelConfig(
                 moonshine = OfflineMoonshineModelConfig(
                     encoder = "$modelDir/encoder_model.ort",
@@ -959,7 +959,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         59 -> {
-            val modelDir = "edgevox-onnx-moonshine-base-en-quantized-2026-02-27"
+            val modelDir = "sherpa-onnx-moonshine-base-en-quantized-2026-02-27"
             return OfflineModelConfig(
                 moonshine = OfflineMoonshineModelConfig(
                     encoder = "$modelDir/encoder_model.ort",
@@ -970,7 +970,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         60 -> {
-            val modelDir = "edgevox-onnx-moonshine-base-ar-quantized-2026-02-27"
+            val modelDir = "sherpa-onnx-moonshine-base-ar-quantized-2026-02-27"
             return OfflineModelConfig(
                 moonshine = OfflineMoonshineModelConfig(
                     encoder = "$modelDir/encoder_model.ort",
@@ -981,7 +981,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         61 -> {
-            val modelDir = "edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25"
+            val modelDir = "sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25"
             return OfflineModelConfig(
                 qwen3Asr = OfflineQwen3AsrModelConfig(
                     convFrontend = "$modelDir/conv_frontend.onnx",
@@ -995,7 +995,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         62 -> {
-            val modelDir = "edgevox-onnx-nemo-parakeet-unified-en-0.6b-int8-non-streaming"
+            val modelDir = "sherpa-onnx-nemo-parakeet-unified-en-0.6b-int8-non-streaming"
             return OfflineModelConfig(
                 transducer = OfflineTransducerModelConfig(
                     encoder = "$modelDir/encoder.int8.onnx",
@@ -1009,7 +1009,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9000 -> {
             val modelDir =
-                "edgevox-onnx-qnn-5-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
+                "sherpa-onnx-qnn-5-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 senseVoice = OfflineSenseVoiceModelConfig(
@@ -1031,7 +1031,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9001 -> {
             val modelDir =
-                "edgevox-onnx-qnn-8-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
+                "sherpa-onnx-qnn-8-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 senseVoice = OfflineSenseVoiceModelConfig(
@@ -1049,7 +1049,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9002 -> {
             val modelDir =
-                "edgevox-onnx-qnn-10-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
+                "sherpa-onnx-qnn-10-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 senseVoice = OfflineSenseVoiceModelConfig(
@@ -1067,7 +1067,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9003 -> {
             val modelDir =
-                "edgevox-onnx-qnn-13-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
+                "sherpa-onnx-qnn-13-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 senseVoice = OfflineSenseVoiceModelConfig(
@@ -1084,7 +1084,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9004 -> {
             val modelDir =
-                "edgevox-onnx-qnn-15-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
+                "sherpa-onnx-qnn-15-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 senseVoice = OfflineSenseVoiceModelConfig(
@@ -1101,7 +1101,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9005 -> {
             val modelDir =
-                "edgevox-onnx-qnn-18-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
+                "sherpa-onnx-qnn-18-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 senseVoice = OfflineSenseVoiceModelConfig(
@@ -1118,7 +1118,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9006 -> {
             val modelDir =
-                "edgevox-onnx-qnn-20-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
+                "sherpa-onnx-qnn-20-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 senseVoice = OfflineSenseVoiceModelConfig(
@@ -1135,7 +1135,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9007 -> {
             val modelDir =
-                "edgevox-onnx-qnn-23-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
+                "sherpa-onnx-qnn-23-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 senseVoice = OfflineSenseVoiceModelConfig(
@@ -1152,7 +1152,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9008 -> {
             val modelDir =
-                "edgevox-onnx-qnn-25-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
+                "sherpa-onnx-qnn-25-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 senseVoice = OfflineSenseVoiceModelConfig(
@@ -1169,7 +1169,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9009 -> {
             val modelDir =
-                "edgevox-onnx-qnn-28-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
+                "sherpa-onnx-qnn-28-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 senseVoice = OfflineSenseVoiceModelConfig(
@@ -1186,7 +1186,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9010 -> {
             val modelDir =
-                "edgevox-onnx-qnn-30-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
+                "sherpa-onnx-qnn-30-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 senseVoice = OfflineSenseVoiceModelConfig(
@@ -1203,7 +1203,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9011 -> {
             val modelDir =
-                "edgevox-onnx-qnn-5-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
+                "sherpa-onnx-qnn-5-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 zipformerCtc = OfflineZipformerCtcModelConfig(
@@ -1221,7 +1221,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9012 -> {
             val modelDir =
-                "edgevox-onnx-qnn-8-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
+                "sherpa-onnx-qnn-8-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 zipformerCtc = OfflineZipformerCtcModelConfig(
@@ -1239,7 +1239,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9013 -> {
             val modelDir =
-                "edgevox-onnx-qnn-10-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
+                "sherpa-onnx-qnn-10-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 zipformerCtc = OfflineZipformerCtcModelConfig(
@@ -1257,7 +1257,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9014 -> {
             val modelDir =
-                "edgevox-onnx-qnn-13-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
+                "sherpa-onnx-qnn-13-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 zipformerCtc = OfflineZipformerCtcModelConfig(
@@ -1274,7 +1274,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9015 -> {
             val modelDir =
-                "edgevox-onnx-qnn-15-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
+                "sherpa-onnx-qnn-15-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 zipformerCtc = OfflineZipformerCtcModelConfig(
@@ -1291,7 +1291,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9016 -> {
             val modelDir =
-                "edgevox-onnx-qnn-18-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
+                "sherpa-onnx-qnn-18-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 zipformerCtc = OfflineZipformerCtcModelConfig(
@@ -1308,7 +1308,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9017 -> {
             val modelDir =
-                "edgevox-onnx-qnn-20-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
+                "sherpa-onnx-qnn-20-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 zipformerCtc = OfflineZipformerCtcModelConfig(
@@ -1325,7 +1325,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9018 -> {
             val modelDir =
-                "edgevox-onnx-qnn-23-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
+                "sherpa-onnx-qnn-23-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 zipformerCtc = OfflineZipformerCtcModelConfig(
@@ -1342,7 +1342,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9019 -> {
             val modelDir =
-                "edgevox-onnx-qnn-25-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
+                "sherpa-onnx-qnn-25-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 zipformerCtc = OfflineZipformerCtcModelConfig(
@@ -1359,7 +1359,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9020 -> {
             val modelDir =
-                "edgevox-onnx-qnn-28-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
+                "sherpa-onnx-qnn-28-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 zipformerCtc = OfflineZipformerCtcModelConfig(
@@ -1376,7 +1376,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9021 -> {
             val modelDir =
-                "edgevox-onnx-qnn-30-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
+                "sherpa-onnx-qnn-30-seconds-zipformer-ctc-zh-2025-07-03-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 zipformerCtc = OfflineZipformerCtcModelConfig(
@@ -1394,7 +1394,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         9022 -> {
             // for Xiaomi 17 Pro
             val modelDir =
-                "edgevox-onnx-qnn-SM8850-binary-10-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8"
+                "sherpa-onnx-qnn-SM8850-binary-10-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8"
             return OfflineModelConfig(
                 provider = "qnn",
                 senseVoice = OfflineSenseVoiceModelConfig(
@@ -1411,7 +1411,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         9023 -> {
-            val modelDir = "edgevox-onnx-qnn-5-seconds-paraformer-zh-2023-03-28-int8-android-aarch64"
+            val modelDir = "sherpa-onnx-qnn-5-seconds-paraformer-zh-2023-03-28-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 paraformer = OfflineParaformerModelConfig(
@@ -1430,7 +1430,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         }
 
         9024 -> {
-            val modelDir = "edgevox-onnx-qnn-5-seconds-paraformer-zh-2025-10-07-int8-android-aarch64"
+            val modelDir = "sherpa-onnx-qnn-5-seconds-paraformer-zh-2025-10-07-int8-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 paraformer = OfflineParaformerModelConfig(
@@ -1450,7 +1450,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9025 -> {
             // for Xiaomi 17 Pro
-            val modelDir = "edgevox-onnx-qnn-SM8850-binary-5-seconds-paraformer-zh-2023-03-28-int8"
+            val modelDir = "sherpa-onnx-qnn-SM8850-binary-5-seconds-paraformer-zh-2023-03-28-int8"
             return OfflineModelConfig(
                 provider = "qnn",
                 paraformer = OfflineParaformerModelConfig(
@@ -1467,7 +1467,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
 
         9026 -> {
             val modelDir =
-                "edgevox-onnx-qnn-reazonspeech-zipformer-transducer-ja-5s-2024-08-01-android-aarch64"
+                "sherpa-onnx-qnn-reazonspeech-zipformer-transducer-ja-5s-2024-08-01-android-aarch64"
             return OfflineModelConfig(
                 provider = "qnn",
                 transducer = OfflineTransducerModelConfig(
@@ -1489,7 +1489,7 @@ fun getOfflineModelConfig(type: Int): OfflineModelConfig? {
         9027 -> {
             // for Xiaomi 17 Pro
             val modelDir =
-                "edgevox-onnx-qnn-SM8850-binary-reazonspeech-zipformer-transducer-ja-5s-2024-08-01"
+                "sherpa-onnx-qnn-SM8850-binary-reazonspeech-zipformer-transducer-ja-5s-2024-08-01"
             return OfflineModelConfig(
                 provider = "qnn",
                 transducer = OfflineTransducerModelConfig(

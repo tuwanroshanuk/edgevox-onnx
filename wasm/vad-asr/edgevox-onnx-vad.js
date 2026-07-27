@@ -1,1 +1,1 @@
-../vad/sherpa-onnx-vad.js
+../vad/edgevox-onnx-vad.js

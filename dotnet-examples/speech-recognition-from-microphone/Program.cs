@@ -100,9 +100,9 @@ dotnet run -c Release \
 (2) Streaming Paraformer models
 
 dotnet run \
-  --tokens=./edgevox-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt \
-  --paraformer-encoder=./edgevox-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx \
-  --paraformer-decoder=./edgevox-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx
+  --tokens=./sherpa-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt \
+  --paraformer-encoder=./sherpa-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx \
+  --paraformer-decoder=./sherpa-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx
 
 Please refer to
 https://k2-fsa.github.io/sherpa/onnx/pretrained_models/online-transducer/index.html

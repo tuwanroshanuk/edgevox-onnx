@@ -15,7 +15,7 @@ extension AVAudioPCMBuffer {
 func run() {
   let model = "./dpdfnet_baseline.onnx"
   // Please refer to
-  // https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
   // to download files used in this script
   // Use dpdfnet_baseline.onnx, dpdfnet2.onnx, dpdfnet4.onnx, or dpdfnet8.onnx
   // for 16 kHz downstream ASR or speech recognition.

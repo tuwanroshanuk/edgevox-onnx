@@ -100,21 +100,21 @@ struct OnlineToneCtcModelConfig {
  * of them will be chosen and the choice is implementation-defined.
  *
  * Example using
- * `edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20`:
+ * `sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20`:
  *
  * @code
  * OnlineModelConfig model;
  * model.transducer.encoder =
- *     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+ *     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
  *     "encoder-epoch-99-avg-1.int8.onnx";
  * model.transducer.decoder =
- *     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+ *     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
  *     "decoder-epoch-99-avg-1.onnx";
  * model.transducer.joiner =
- *     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+ *     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
  *     "joiner-epoch-99-avg-1.int8.onnx";
  * model.tokens =
- *     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt";
+ *     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt";
  * model.num_threads = 1;
  * @endcode
  */
@@ -182,16 +182,16 @@ struct HomophoneReplacerConfig {
  * @code
  * OnlineRecognizerConfig config;
  * config.model_config.transducer.encoder =
- *     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+ *     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
  *     "encoder-epoch-99-avg-1.int8.onnx";
  * config.model_config.transducer.decoder =
- *     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+ *     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
  *     "decoder-epoch-99-avg-1.onnx";
  * config.model_config.transducer.joiner =
- *     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
+ *     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/"
  *     "joiner-epoch-99-avg-1.int8.onnx";
  * config.model_config.tokens =
- *     "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt";
+ *     "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt";
  * config.model_config.num_threads = 1;
  * config.hr.lexicon = "./lexicon.txt";
  * config.hr.rule_fsts = "./replace.fst";
@@ -697,11 +697,11 @@ struct OfflineLMConfig {
  * @code
  * OfflineRecognizerConfig config;
  * config.model_config.sense_voice.model =
- *     "./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/model.int8.onnx";
+ *     "./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/model.int8.onnx";
  * config.model_config.sense_voice.language = "auto";
  * config.model_config.sense_voice.use_itn = true;
  * config.model_config.tokens =
- *     "./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/tokens.txt";
+ *     "./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/tokens.txt";
  * config.model_config.num_threads = 1;
  * @endcode
  *
@@ -710,13 +710,13 @@ struct OfflineLMConfig {
  * @code
  * OfflineRecognizerConfig config;
  * config.model_config.transducer.encoder =
- *     "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/encoder.int8.onnx";
+ *     "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/encoder.int8.onnx";
  * config.model_config.transducer.decoder =
- *     "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/decoder.int8.onnx";
+ *     "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/decoder.int8.onnx";
  * config.model_config.transducer.joiner =
- *     "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/joiner.int8.onnx";
+ *     "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/joiner.int8.onnx";
  * config.model_config.tokens =
- *     "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/tokens.txt";
+ *     "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/tokens.txt";
  * config.model_config.model_type = "nemo_transducer";
  * config.model_config.num_threads = 1;
  * @endcode
@@ -1075,19 +1075,19 @@ using OfflineTtsCallback = int32_t (*)(const float *samples,
  * @code
  * OfflineTtsConfig config;
  * config.model.pocket.lm_flow =
- *     "./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx";
+ *     "./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx";
  * config.model.pocket.lm_main =
- *     "./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx";
+ *     "./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx";
  * config.model.pocket.encoder =
- *     "./edgevox-onnx-pocket-tts-int8-2026-01-26/encoder.onnx";
+ *     "./sherpa-onnx-pocket-tts-int8-2026-01-26/encoder.onnx";
  * config.model.pocket.decoder =
- *     "./edgevox-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx";
+ *     "./sherpa-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx";
  * config.model.pocket.text_conditioner =
- *     "./edgevox-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx";
+ *     "./sherpa-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx";
  * config.model.pocket.vocab_json =
- *     "./edgevox-onnx-pocket-tts-int8-2026-01-26/vocab.json";
+ *     "./sherpa-onnx-pocket-tts-int8-2026-01-26/vocab.json";
  * config.model.pocket.token_scores_json =
- *     "./edgevox-onnx-pocket-tts-int8-2026-01-26/token_scores.json";
+ *     "./sherpa-onnx-pocket-tts-int8-2026-01-26/token_scores.json";
  * @endcode
  */
 class EDGEVOX_ONNX_API OfflineTts

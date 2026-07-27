@@ -2,7 +2,7 @@
 //
 // Please download a speech enhancement model and ./inp_16k.wav used in this file
 // from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
 //
 // This script shows how to use speech enhancement API from edgevox-onnx.
 const edgevox_onnx = require('edgevox-onnx');

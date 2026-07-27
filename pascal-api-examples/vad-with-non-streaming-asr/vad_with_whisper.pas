@@ -5,7 +5,7 @@ This file shows how to use a non-streaming Whisper model
 with silero VAD to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program vad_with_whisper;
@@ -47,9 +47,9 @@ var
 begin
   Initialize(Config);
 
-  Config.ModelConfig.Whisper.Encoder := './edgevox-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx';
-  Config.ModelConfig.Whisper.Decoder := './edgevox-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx';
-  Config.ModelConfig.Tokens := './edgevox-onnx-whisper-tiny.en/tiny.en-tokens.txt';
+  Config.ModelConfig.Whisper.Encoder := './sherpa-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx';
+  Config.ModelConfig.Whisper.Decoder := './sherpa-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx';
+  Config.ModelConfig.Tokens := './sherpa-onnx-whisper-tiny.en/tiny.en-tokens.txt';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := False;

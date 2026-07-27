@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.k2fsa.sherpa.onnx</groupId>
+    <groupId>com.nexus.edgevox.onnx</groupId>
     <artifactId>edgevox-onnx-maven-example</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -38,7 +38,7 @@
 
         <!-- 1. JVM core API Jar -->
         <dependency>
-            <groupId>com.github.k2-fsa.edgevox-onnx</groupId>
+            <groupId>com.github.k2-fsa.sherpa-onnx</groupId>
             <artifactId>edgevox-onnx-jvm</artifactId>
             <version>refactor-jar-SNAPSHOT</version>
         </dependency>
@@ -47,7 +47,7 @@
 
         <!-- macOS ARM64 (Apple Silicon) -->
         <dependency>
-            <groupId>com.github.k2-fsa.edgevox-onnx</groupId>
+            <groupId>com.github.k2-fsa.sherpa-onnx</groupId>
             <artifactId>edgevox-onnx-native-lib-osx-aarch64</artifactId>
             <version>refactor-jar-SNAPSHOT</version>
         </dependency>
@@ -55,7 +55,7 @@
         <!-- macOS x64 (Intel) -->
         <!--
         <dependency>
-            <groupId>com.github.k2-fsa.edgevox-onnx</groupId>
+            <groupId>com.github.k2-fsa.sherpa-onnx</groupId>
             <artifactId>edgevox-onnx-native-lib-osx-x64</artifactId>
             <version>refactor-jar-SNAPSHOT</version>
         </dependency>
@@ -64,7 +64,7 @@
         <!-- Linux x64 -->
         <!--
         <dependency>
-            <groupId>com.github.k2-fsa.edgevox-onnx</groupId>
+            <groupId>com.github.k2-fsa.sherpa-onnx</groupId>
             <artifactId>edgevox-onnx-native-lib-linux-x64</artifactId>
             <version>refactor-jar-SNAPSHOT</version>
         </dependency>
@@ -73,7 +73,7 @@
         <!-- Linux ARM64 -->
         <!--
         <dependency>
-            <groupId>com.github.k2-fsa.edgevox-onnx</groupId>
+            <groupId>com.github.k2-fsa.sherpa-onnx</groupId>
             <artifactId>edgevox-onnx-native-lib-linux-aarch64</artifactId>
             <version>refactor-jar-SNAPSHOT</version>
         </dependency>
@@ -82,7 +82,7 @@
         <!-- Windows x64 -->
         <!--
         <dependency>
-            <groupId>com.github.k2-fsa.edgevox-onnx</groupId>
+            <groupId>com.github.k2-fsa.sherpa-onnx</groupId>
             <artifactId>edgevox-onnx-native-lib-win-x64</artifactId>
             <version>refactor-jar-SNAPSHOT</version>
         </dependency>
@@ -107,7 +107,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.k2fsa.sherpa.onnx.example.VersionTest</mainClass>
+                            <mainClass>com.nexus.edgevox.onnx.example.VersionTest</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

@@ -23,43 +23,43 @@ Usage examples:
 (1) Use a non-streaming transducer model
 
 cd /path/to/edgevox-onnx
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-zipformer-en-2023-06-26.tar.bz2
-tar xvf edgevox-onnx-zipformer-en-2023-06-26.tar.bz2
-rm edgevox-onnx-zipformer-en-2023-06-26.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-zipformer-en-2023-06-26.tar.bz2
+tar xvf sherpa-onnx-zipformer-en-2023-06-26.tar.bz2
+rm sherpa-onnx-zipformer-en-2023-06-26.tar.bz2
 
 python3 ./python-api-examples/non_streaming_server.py \
-  --encoder ./edgevox-onnx-zipformer-en-2023-06-26/encoder-epoch-99-avg-1.onnx \
-  --decoder ./edgevox-onnx-zipformer-en-2023-06-26/decoder-epoch-99-avg-1.onnx \
-  --joiner ./edgevox-onnx-zipformer-en-2023-06-26/joiner-epoch-99-avg-1.onnx \
-  --tokens ./edgevox-onnx-zipformer-en-2023-06-26/tokens.txt \
+  --encoder ./sherpa-onnx-zipformer-en-2023-06-26/encoder-epoch-99-avg-1.onnx \
+  --decoder ./sherpa-onnx-zipformer-en-2023-06-26/decoder-epoch-99-avg-1.onnx \
+  --joiner ./sherpa-onnx-zipformer-en-2023-06-26/joiner-epoch-99-avg-1.onnx \
+  --tokens ./sherpa-onnx-zipformer-en-2023-06-26/tokens.txt \
   --port 6006
   
 (2) Use a non-streaming paraformer
 
 cd /path/to/edgevox-onnx
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-paraformer-zh-2023-09-14.tar.bz2
-tar xvf edgevox-onnx-paraformer-zh-2023-09-14.tar.bz2
-rm edgevox-onnx-paraformer-zh-2023-09-14.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-paraformer-zh-2023-09-14.tar.bz2
+tar xvf sherpa-onnx-paraformer-zh-2023-09-14.tar.bz2
+rm sherpa-onnx-paraformer-zh-2023-09-14.tar.bz2
 
 python3 ./python-api-examples/non_streaming_server.py \
-  --paraformer ./edgevox-onnx-paraformer-zh-2023-09-14/model.int8.onnx \
-  --tokens ./edgevox-onnx-paraformer-zh-2023-09-14/tokens.txt
+  --paraformer ./sherpa-onnx-paraformer-zh-2023-09-14/model.int8.onnx \
+  --tokens ./sherpa-onnx-paraformer-zh-2023-09-14/tokens.txt
 
 (3) Use a non-streaming CTC model from NeMo
 
 cd /path/to/edgevox-onnx
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-ctc-en-conformer-medium.tar.bz2
-tar xvf edgevox-onnx-nemo-ctc-en-conformer-medium.tar.bz2
-rm edgevox-onnx-nemo-ctc-en-conformer-medium.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-ctc-en-conformer-medium.tar.bz2
+tar xvf sherpa-onnx-nemo-ctc-en-conformer-medium.tar.bz2
+rm sherpa-onnx-nemo-ctc-en-conformer-medium.tar.bz2
 
 python3 ./python-api-examples/non_streaming_server.py \
-  --nemo-ctc ./edgevox-onnx-nemo-ctc-en-conformer-medium/model.onnx \
-  --tokens ./edgevox-onnx-nemo-ctc-en-conformer-medium/tokens.txt
+  --nemo-ctc ./sherpa-onnx-nemo-ctc-en-conformer-medium/model.onnx \
+  --tokens ./sherpa-onnx-nemo-ctc-en-conformer-medium/tokens.txt
 
 (4) Use a non-streaming CTC model from WeNet
 
 cd /path/to/edgevox-onnx
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-zh-wenet-wenetspeech.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-zh-wenet-wenetspeech.tar.bz2
 tar xvf edgevox-onnx-zh-wenet-wenetspeech.tar.bz2
 rm edgevox-onnx-zh-wenet-wenetspeech.tar.bz2
 
@@ -70,34 +70,34 @@ python3 ./python-api-examples/non_streaming_server.py \
 (5) Use a Moonshine model
 
 cd /path/to/edgevox-onnx
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
-tar xvf edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
-rm edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
+tar xvf sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
+rm sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
 
 python3 ./python-api-examples/non_streaming_server.py \
-  --moonshine-preprocessor=./edgevox-onnx-moonshine-tiny-en-int8/preprocess.onnx \
-  --moonshine-encoder=./edgevox-onnx-moonshine-tiny-en-int8/encode.int8.onnx \
-  --moonshine-uncached-decoder=./edgevox-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx \
-  --moonshine-cached-decoder=./edgevox-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx \
-  --tokens=./edgevox-onnx-moonshine-tiny-en-int8/tokens.txt
+  --moonshine-preprocessor=./sherpa-onnx-moonshine-tiny-en-int8/preprocess.onnx \
+  --moonshine-encoder=./sherpa-onnx-moonshine-tiny-en-int8/encode.int8.onnx \
+  --moonshine-uncached-decoder=./sherpa-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx \
+  --moonshine-cached-decoder=./sherpa-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx \
+  --tokens=./sherpa-onnx-moonshine-tiny-en-int8/tokens.txt
 
 (6) Use a Whisper model
 
 cd /path/to/edgevox-onnx
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-whisper-tiny.en.tar.bz2
-tar xvf edgevox-onnx-whisper-tiny.en.tar.bz2
-rm edgevox-onnx-whisper-tiny.en.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-tiny.en.tar.bz2
+tar xvf sherpa-onnx-whisper-tiny.en.tar.bz2
+rm sherpa-onnx-whisper-tiny.en.tar.bz2
 
 python3 ./python-api-examples/non_streaming_server.py \
-  --whisper-encoder=./edgevox-onnx-whisper-tiny.en/tiny.en-encoder.onnx \
-  --whisper-decoder=./edgevox-onnx-whisper-tiny.en/tiny.en-decoder.onnx \
-  --tokens=./edgevox-onnx-whisper-tiny.en/tiny.en-tokens.txt
+  --whisper-encoder=./sherpa-onnx-whisper-tiny.en/tiny.en-encoder.onnx \
+  --whisper-decoder=./sherpa-onnx-whisper-tiny.en/tiny.en-decoder.onnx \
+  --tokens=./sherpa-onnx-whisper-tiny.en/tiny.en-tokens.txt
 
 (7) Use a tdnn model of the yesno recipe from icefall
 
 cd /path/to/edgevox-onnx
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-tdnn-yesno.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-tdnn-yesno.tar.bz2
 tar xvf edgevox-onnx-tdnn-yesno.tar.bz2
 rm edgevox-onnx-tdnn-yesno.tar.bz2
 
@@ -109,31 +109,31 @@ python3 ./python-api-examples/non_streaming_server.py \
 
 (8) Use a Non-streaming SenseVoice model
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
-tar xvf edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
-rm edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
+tar xvf sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
+rm sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
 
 python3 ./python-api-examples/non_streaming_server.py \
-  --sense-voice=./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx \
-  --tokens=./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/tokens.txt
+  --sense-voice=./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx \
+  --tokens=./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/tokens.txt
 
 (9) Use a Non-streaming telespeech ctc model
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04.tar.bz2
-tar xvf edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04.tar.bz2
-rm edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04.tar.bz2
+tar xvf sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04.tar.bz2
+rm sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04.tar.bz2
 
 python3 ./python-api-examples/non_streaming_server.py \
-  --telespeech-ctc=./edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04/model.int8.onnx \
-  --tokens=./edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04/tokens.txt
+  --telespeech-ctc=./sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04/model.int8.onnx \
+  --tokens=./sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04/tokens.txt
 
 ----
 
 To use a certificate so that you can use https, please use
 
 python3 ./python-api-examples/non_streaming_server.py \
-  --whisper-encoder=./edgevox-onnx-whisper-tiny.en/tiny.en-encoder.onnx \
-  --whisper-decoder=./edgevox-onnx-whisper-tiny.en/tiny.en-decoder.onnx \
+  --whisper-encoder=./sherpa-onnx-whisper-tiny.en/tiny.en-encoder.onnx \
+  --whisper-decoder=./sherpa-onnx-whisper-tiny.en/tiny.en-decoder.onnx \
   --certificate=/path/to/your/cert.pem
 
 If you don't have a certificate, please run:

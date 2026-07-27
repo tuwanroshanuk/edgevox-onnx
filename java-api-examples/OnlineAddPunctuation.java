@@ -3,14 +3,14 @@
 // This file shows how to use a punctuation model to add punctuations to text.
 //
 // The model supports ONLY English.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class OnlineAddPunctuation {
   public static void main(String[] args) {
     // please download the model from
-    // https://github.com/k2-fsa/edgevox-onnx/releases/download/punctuation-models/edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
-    String model = "./edgevox-onnx-online-punct-en-2024-08-06/model.int8.onnx";
-    String bpeVocab = "./edgevox-onnx-online-punct-en-2024-08-06/bpe.vocab";
+    // https://github.com/k2-fsa/sherpa-onnx/releases/download/punctuation-models/sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
+    String model = "./sherpa-onnx-online-punct-en-2024-08-06/model.int8.onnx";
+    String bpeVocab = "./sherpa-onnx-online-punct-en-2024-08-06/bpe.vocab";
     OnlinePunctuationModelConfig modelConfig =
         OnlinePunctuationModelConfig.builder()
             .setCnnBilstm(model)

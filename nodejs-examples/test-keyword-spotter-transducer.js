@@ -3,19 +3,19 @@ const edgevox_onnx = require('edgevox-onnx');
 
 function createKeywordSpotter() {
   // Please download test files from
-  // https://github.com/k2-fsa/edgevox-onnx/releases/tag/kws-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/tag/kws-models
   const config = {
     'modelConfig': {
       'transducer': {
         'encoder':
-            './edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/encoder-epoch-12-avg-2-chunk-16-left-64.onnx',
+            './sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/encoder-epoch-12-avg-2-chunk-16-left-64.onnx',
         'decoder':
-            './edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/decoder-epoch-12-avg-2-chunk-16-left-64.onnx',
+            './sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/decoder-epoch-12-avg-2-chunk-16-left-64.onnx',
         'joiner':
-            './edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/joiner-epoch-12-avg-2-chunk-16-left-64.onnx',
+            './sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/joiner-epoch-12-avg-2-chunk-16-left-64.onnx',
       },
       'tokens':
-          './edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/tokens.txt',
+          './sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/tokens.txt',
     },
     keywords: 'w én s ēn t è k ǎ s uǒ  @文森特卡索\n' +
         'f ǎ g uó @法国'
@@ -27,7 +27,7 @@ function createKeywordSpotter() {
 const kws = createKeywordSpotter();
 const stream = kws.createStream();
 const waveFilename =
-    './edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/3.wav';
+    './sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/3.wav';
 
 const wave = edgevox_onnx.readWave(waveFilename);
 stream.acceptWaveform(wave.sampleRate, wave.samples);

@@ -32,4 +32,4 @@ dotnet nuget locals all --list
 dotnet nuget locals all --clear
 ```
 
-[edgevox-onnx]: https://github.com/k2-fsa/edgevox-onnx
+[sherpa-onnx]: https://github.com/k2-fsa/sherpa-onnx

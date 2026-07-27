@@ -3,7 +3,7 @@
 // This file shows how to use an offline Moonshine,
 // i.e., non-streaming Moonshine v2 model,
 // to decode files.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingDecodeFileMoonshineV2 {
   public static void main(String[] args) {
@@ -11,12 +11,12 @@ public class NonStreamingDecodeFileMoonshineV2 {
     // https://k2-fsa.github.io/sherpa/onnx/moonshine/index.html
     // to download model files
 
-    String encoder = "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/encoder_model.ort";
+    String encoder = "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/encoder_model.ort";
     String decoder =
-        "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/decoder_model_merged.ort";
-    String tokens = "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/tokens.txt";
+        "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/decoder_model_merged.ort";
+    String tokens = "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/tokens.txt";
 
-    String waveFilename = "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/test_wavs/0.wav";
+    String waveFilename = "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/test_wavs/0.wav";
 
     WaveReader reader = new WaveReader(waveFilename);
 

@@ -3,7 +3,7 @@
 set -ex
 
 if [ ! -d ./edgevox-onnx-tdnn-yesno ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-tdnn-yesno.tar.bz2
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-tdnn-yesno.tar.bz2
   tar xvf edgevox-onnx-tdnn-yesno.tar.bz2
   rm edgevox-onnx-tdnn-yesno.tar.bz2
 fi

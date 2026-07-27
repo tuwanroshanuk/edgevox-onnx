@@ -17,7 +17,7 @@ doc="STT PT FastConformer Hybrid Transducer-CTC Large transcribes text in upper 
 
 log "Process $name at $url"
 ./export-onnx-ctc-non-streaming.py --model $name --doc "$doc"
-d=edgevox-onnx-nemo-stt_pt_fastconformer_hybrid_large_pc
+d=sherpa-onnx-nemo-stt_pt_fastconformer_hybrid_large_pc
 mkdir -p $d
 mv -v model.onnx $d/
 cp -v tokens.txt $d/
@@ -25,11 +25,11 @@ ls -lh $d
 
 mkdir test_wavs
 pushd test_wavs
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/pt_br.wav
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/pt_br.wav
 popd
 cp -a test_wavs $d
 
-d=edgevox-onnx-nemo-stt_pt_fastconformer_hybrid_large_pc-int8
+d=sherpa-onnx-nemo-stt_pt_fastconformer_hybrid_large_pc-int8
 mkdir -p $d
 mv -v model.int8.onnx $d/
 mv -v tokens.txt $d/
@@ -50,7 +50,7 @@ doc="This model transcribes speech in upper and lower case German alphabet along
 
 log "Process $name at $url"
 ./export-onnx-ctc-non-streaming.py --model $name --doc "$doc"
-d=edgevox-onnx-nemo-stt_de_fastconformer_hybrid_large_pc
+d=sherpa-onnx-nemo-stt_de_fastconformer_hybrid_large_pc
 mkdir -p $d
 mv -v model.onnx $d/
 cp -v tokens.txt $d/
@@ -58,11 +58,11 @@ ls -lh $d
 
 mkdir test_wavs
 pushd test_wavs
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/de.wav
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/de.wav
 popd
 cp -a test_wavs $d
 
-d=edgevox-onnx-nemo-stt_de_fastconformer_hybrid_large_pc-int8
+d=sherpa-onnx-nemo-stt_de_fastconformer_hybrid_large_pc-int8
 mkdir -p $d
 mv -v model.int8.onnx $d/
 mv -v tokens.txt $d/

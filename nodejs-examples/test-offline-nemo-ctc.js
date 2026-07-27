@@ -10,9 +10,9 @@ function createOfflineRecognizer() {
   let config = {
     modelConfig: {
       nemoCtc: {
-        model: './edgevox-onnx-nemo-ctc-en-conformer-small/model.int8.onnx',
+        model: './sherpa-onnx-nemo-ctc-en-conformer-small/model.int8.onnx',
       },
-      tokens: './edgevox-onnx-nemo-ctc-en-conformer-small/tokens.txt',
+      tokens: './sherpa-onnx-nemo-ctc-en-conformer-small/tokens.txt',
     }
   };
 
@@ -23,7 +23,7 @@ const recognizer = createOfflineRecognizer();
 const stream = recognizer.createStream();
 
 const waveFilename =
-    './edgevox-onnx-nemo-ctc-en-conformer-small/test_wavs/0.wav';
+    './sherpa-onnx-nemo-ctc-en-conformer-small/test_wavs/0.wav';
 const wave = edgevox_onnx.readWave(waveFilename);
 stream.acceptWaveform(wave.sampleRate, wave.samples);
 

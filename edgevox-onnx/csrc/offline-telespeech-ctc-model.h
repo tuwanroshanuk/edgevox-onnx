@@ -20,7 +20,7 @@ namespace edgevox_onnx {
  * See
  * https://github.com/lovemefan/telespeech-asr-python/blob/main/telespeechasr/onnx/onnx_infer.py
  * and
- * https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/tele-speech/test.py
+ * https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/tele-speech/test.py
  */
 class OfflineTeleSpeechCtcModel : public OfflineCtcModel {
  public:

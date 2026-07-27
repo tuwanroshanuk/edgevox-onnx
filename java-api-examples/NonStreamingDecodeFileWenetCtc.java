@@ -3,7 +3,7 @@
 // This file shows how to use an offline Wenet CTC model,
 // i.e., non-streaming Wenet CTC model,
 // to decode files.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingDecodeFileWenetCtc {
   public static void main(String[] args) {
@@ -11,13 +11,13 @@ public class NonStreamingDecodeFileWenetCtc {
     // https://k2-fsa.github.io/sherpa/onnx/sense-voice/index.html
     // to download model files
     String model =
-        "edgevox-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/model.int8.onnx";
+        "sherpa-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/model.int8.onnx";
 
     String tokens =
-        "edgevox-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/tokens.txt";
+        "sherpa-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/tokens.txt";
 
     String waveFilename =
-        "edgevox-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/test_wavs/yue-0.wav";
+        "sherpa-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10/test_wavs/yue-0.wav";
 
     WaveReader reader = new WaveReader(waveFilename);
 

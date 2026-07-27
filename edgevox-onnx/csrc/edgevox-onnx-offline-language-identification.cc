@@ -21,15 +21,15 @@ Usage:
 
 (1) Use a whisper multilingual model
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-whisper-tiny.tar.bz2
-tar xvf edgevox-onnx-whisper-tiny.tar.bz2
-rm edgevox-onnx-whisper-tiny.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-tiny.tar.bz2
+tar xvf sherpa-onnx-whisper-tiny.tar.bz2
+rm sherpa-onnx-whisper-tiny.tar.bz2
 
 We only use the int8.onnx models below.
 
 ./bin/edgevox-onnx-offline-spoken-language-identification \
-  --whisper-encoder=edgevox-onnx-whisper-tiny/tiny-encoder.int8.onnx \
-  --whisper-decoder=edgevox-onnx-whisper-tiny/tiny-decoder.int8.onnx \
+  --whisper-encoder=sherpa-onnx-whisper-tiny/tiny-encoder.int8.onnx \
+  --whisper-decoder=sherpa-onnx-whisper-tiny/tiny-decoder.int8.onnx \
   --num-threads=1 \
   /path/to/foo.wav
 

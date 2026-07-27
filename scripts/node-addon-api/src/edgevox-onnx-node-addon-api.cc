@@ -1,1 +1,1 @@
-../../../harmony-os/SherpaOnnxHar/sherpa_onnx/src/main/cpp/sherpa-onnx-node-addon-api.cc
+../../../harmony-os/EdgevoxOnnxHar/edgevox_onnx/src/main/cpp/edgevox-onnx-node-addon-api.cc

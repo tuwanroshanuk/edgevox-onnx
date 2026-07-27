@@ -3,14 +3,14 @@
 // Copyright (c)  2024  Xiaomi Corporation
 
 // We assume you have pre-downloaded the whisper multi-lingual models
-// from https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// from https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 // An example command to download the "tiny" whisper model is given below:
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-whisper-tiny.tar.bz2
-// tar xvf edgevox-onnx-whisper-tiny.tar.bz2
-// rm edgevox-onnx-whisper-tiny.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-tiny.tar.bz2
+// tar xvf sherpa-onnx-whisper-tiny.tar.bz2
+// rm sherpa-onnx-whisper-tiny.tar.bz2
 //
 // clang-format on
 
@@ -25,8 +25,8 @@ int32_t main() {
 
   memset(&config, 0, sizeof(config));
 
-  config.whisper.encoder = "./edgevox-onnx-whisper-tiny/tiny-encoder.int8.onnx";
-  config.whisper.decoder = "./edgevox-onnx-whisper-tiny/tiny-decoder.int8.onnx";
+  config.whisper.encoder = "./sherpa-onnx-whisper-tiny/tiny-encoder.int8.onnx";
+  config.whisper.decoder = "./sherpa-onnx-whisper-tiny/tiny-decoder.int8.onnx";
   config.num_threads = 1;
   config.debug = 1;
   config.provider = "cpu";
@@ -40,7 +40,7 @@ int32_t main() {
 
   // You can find more test waves from
   // https://hf-mirror.com/spaces/k2-fsa/spoken-language-identification/tree/main/test_wavs
-  const char *wav_filename = "./edgevox-onnx-whisper-tiny/test_wavs/0.wav";
+  const char *wav_filename = "./sherpa-onnx-whisper-tiny/test_wavs/0.wav";
   const EdgevoxOnnxWave *wave = EdgevoxOnnxReadWave(wav_filename);
   if (wave == NULL) {
     fprintf(stderr, "Failed to read %s\n", wav_filename);

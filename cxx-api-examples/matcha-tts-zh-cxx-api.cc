@@ -9,11 +9,11 @@
 /*
 Usage
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/matcha-icefall-zh-baker.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-icefall-zh-baker.tar.bz2
 tar xvf matcha-icefall-zh-baker.tar.bz2
 rm matcha-icefall-zh-baker.tar.bz2
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
 
 ./matcha-tts-zh-cxx-api
 

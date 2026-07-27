@@ -144,13 +144,13 @@ It specifies number of active paths to keep during the search")]
 # Zipformer
 
 dotnet run \
-  --tokens=./edgevox-onnx-zipformer-en-2023-04-01/tokens.txt \
-  --encoder=./edgevox-onnx-zipformer-en-2023-04-01/encoder-epoch-99-avg-1.onnx \
-  --decoder=./edgevox-onnx-zipformer-en-2023-04-01/decoder-epoch-99-avg-1.onnx \
-  --joiner=./edgevox-onnx-zipformer-en-2023-04-01/joiner-epoch-99-avg-1.onnx \
-  --files ./edgevox-onnx-zipformer-en-2023-04-01/test_wavs/0.wav \
-  ./edgevox-onnx-zipformer-en-2023-04-01/test_wavs/1.wav \
-  ./edgevox-onnx-zipformer-en-2023-04-01/test_wavs/8k.wav
+  --tokens=./sherpa-onnx-zipformer-en-2023-04-01/tokens.txt \
+  --encoder=./sherpa-onnx-zipformer-en-2023-04-01/encoder-epoch-99-avg-1.onnx \
+  --decoder=./sherpa-onnx-zipformer-en-2023-04-01/decoder-epoch-99-avg-1.onnx \
+  --joiner=./sherpa-onnx-zipformer-en-2023-04-01/joiner-epoch-99-avg-1.onnx \
+  --files ./sherpa-onnx-zipformer-en-2023-04-01/test_wavs/0.wav \
+  ./sherpa-onnx-zipformer-en-2023-04-01/test_wavs/1.wav \
+  ./sherpa-onnx-zipformer-en-2023-04-01/test_wavs/8k.wav
 
 Please refer to
 https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-transducer/index.html
@@ -159,13 +159,13 @@ to download pre-trained non-streaming zipformer models.
 # Paraformer
 
 dotnet run \
-  --tokens=./edgevox-onnx-paraformer-zh-2023-09-14/tokens.txt \
-  --paraformer=./edgevox-onnx-paraformer-zh-2023-09-14/model.int8.onnx \
-  --files ./edgevox-onnx-zipformer-en-2023-04-01/test_wavs/0.wav \
-  ./edgevox-onnx-paraformer-zh-2023-09-14/test_wavs/0.wav \
-  ./edgevox-onnx-paraformer-zh-2023-09-14/test_wavs/1.wav \
-  ./edgevox-onnx-paraformer-zh-2023-09-14/test_wavs/2.wav \
-  ./edgevox-onnx-paraformer-zh-2023-09-14/test_wavs/8k.wav
+  --tokens=./sherpa-onnx-paraformer-zh-2023-09-14/tokens.txt \
+  --paraformer=./sherpa-onnx-paraformer-zh-2023-09-14/model.int8.onnx \
+  --files ./sherpa-onnx-zipformer-en-2023-04-01/test_wavs/0.wav \
+  ./sherpa-onnx-paraformer-zh-2023-09-14/test_wavs/0.wav \
+  ./sherpa-onnx-paraformer-zh-2023-09-14/test_wavs/1.wav \
+  ./sherpa-onnx-paraformer-zh-2023-09-14/test_wavs/2.wav \
+  ./sherpa-onnx-paraformer-zh-2023-09-14/test_wavs/8k.wav
 
 Please refer to
 https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-paraformer/index.html
@@ -174,12 +174,12 @@ to download pre-trained paraformer models
 # NeMo CTC
 
 dotnet run \
-  --tokens=./edgevox-onnx-nemo-ctc-en-conformer-medium/tokens.txt \
-  --nemo-ctc=./edgevox-onnx-nemo-ctc-en-conformer-medium/model.onnx \
+  --tokens=./sherpa-onnx-nemo-ctc-en-conformer-medium/tokens.txt \
+  --nemo-ctc=./sherpa-onnx-nemo-ctc-en-conformer-medium/model.onnx \
   --num-threads=1 \
-  --files ./edgevox-onnx-nemo-ctc-en-conformer-medium/test_wavs/0.wav \
-  ./edgevox-onnx-nemo-ctc-en-conformer-medium/test_wavs/1.wav \
-  ./edgevox-onnx-nemo-ctc-en-conformer-medium/test_wavs/8k.wav
+  --files ./sherpa-onnx-nemo-ctc-en-conformer-medium/test_wavs/0.wav \
+  ./sherpa-onnx-nemo-ctc-en-conformer-medium/test_wavs/1.wav \
+  ./sherpa-onnx-nemo-ctc-en-conformer-medium/test_wavs/8k.wav
 
 Please refer to
 https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-ctc/index.html
@@ -188,12 +188,12 @@ to download pre-trained paraformer models
 # Whisper
 
 dotnet run \
-  --whisper-encoder=./edgevox-onnx-whisper-tiny.en/tiny.en-encoder.onnx \
-  --whisper-decoder=./edgevox-onnx-whisper-tiny.en/tiny.en-decoder.onnx \
-  --tokens=./edgevox-onnx-whisper-tiny.en/tiny.en-tokens.txt \
-  --files ./edgevox-onnx-whisper-tiny.en/test_wavs/0.wav \
-  ./edgevox-onnx-whisper-tiny.en/test_wavs/1.wav \
-  ./edgevox-onnx-whisper-tiny.en/test_wavs/8k.wav
+  --whisper-encoder=./sherpa-onnx-whisper-tiny.en/tiny.en-encoder.onnx \
+  --whisper-decoder=./sherpa-onnx-whisper-tiny.en/tiny.en-decoder.onnx \
+  --tokens=./sherpa-onnx-whisper-tiny.en/tiny.en-tokens.txt \
+  --files ./sherpa-onnx-whisper-tiny.en/test_wavs/0.wav \
+  ./sherpa-onnx-whisper-tiny.en/test_wavs/1.wav \
+  ./sherpa-onnx-whisper-tiny.en/test_wavs/8k.wav
 
 Please refer to
 https://k2-fsa.github.io/sherpa/onnx/pretrained_models/whisper/tiny.en.html

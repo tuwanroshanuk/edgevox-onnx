@@ -6,13 +6,13 @@ https://huggingface.co/google/medasr
 to decode files.
 
 Please download model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 
 For instance,
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
-tar xvf edgevox-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
-rm edgevox-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
+tar xvf sherpa-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
+rm sherpa-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
 """
 
 import time
@@ -24,14 +24,14 @@ import edgevox_onnx
 
 
 def create_recognizer():
-    model = "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/model.int8.onnx"
-    tokens = "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/tokens.txt"
-    test_wav_0 = "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/0.wav"
-    test_wav_1 = "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/1.wav"
-    test_wav_2 = "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/2.wav"
-    test_wav_3 = "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/3.wav"
-    test_wav_4 = "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/4.wav"
-    test_wav_5 = "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/5.wav"
+    model = "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/model.int8.onnx"
+    tokens = "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/tokens.txt"
+    test_wav_0 = "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/0.wav"
+    test_wav_1 = "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/1.wav"
+    test_wav_2 = "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/2.wav"
+    test_wav_3 = "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/3.wav"
+    test_wav_4 = "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/4.wav"
+    test_wav_5 = "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/5.wav"
 
     for f in [
         model,
@@ -48,7 +48,7 @@ def create_recognizer():
 
             raise ValueError(
                 """Please download model files from
-                https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+                https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
                 """
             )
     return (

@@ -7,11 +7,11 @@
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
-// tar xvf edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
-// rm edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
+// tar xvf sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
+// rm sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
 //
 // clang-format on
 
@@ -83,9 +83,9 @@ static edgevox_onnx::cxx::OfflineRecognizer CreateOfflineRecognizer() {
   OfflineRecognizerConfig config;
 
   config.model_config.zipformer_ctc.model =
-      "./edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03/model.int8.onnx";
+      "./sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03/model.int8.onnx";
   config.model_config.tokens =
-      "./edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03/tokens.txt";
+      "./sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03/tokens.txt";
 
   config.model_config.num_threads = 2;
   config.model_config.debug = false;

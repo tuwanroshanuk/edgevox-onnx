@@ -4,7 +4,7 @@ import (
 	"log"
 	"strings"
 
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 )
 
 func main() {
@@ -12,11 +12,11 @@ func main() {
 
 	config := sherpa.OfflineRecognizerConfig{}
 
-	config.ModelConfig.Moonshine.Encoder = "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/encoder_model.ort"
-	config.ModelConfig.Moonshine.MergedDecoder = "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/decoder_model_merged.ort"
-	config.ModelConfig.Tokens = "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/tokens.txt"
+	config.ModelConfig.Moonshine.Encoder = "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/encoder_model.ort"
+	config.ModelConfig.Moonshine.MergedDecoder = "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/decoder_model_merged.ort"
+	config.ModelConfig.Tokens = "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/tokens.txt"
 
-	waveFilename := "./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/test_wavs/0.wav"
+	waveFilename := "./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/test_wavs/0.wav"
 
 	wave := sherpa.ReadWave(waveFilename)
 	if wave == nil {

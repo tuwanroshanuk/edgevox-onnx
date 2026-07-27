@@ -2,7 +2,7 @@
 //!
 //! This module detects predefined or per-stream override keywords from an
 //! online ASR model. See
-//! [`rust-api-examples/examples/keyword_spotter.rs`](https://github.com/k2-fsa/edgevox-onnx/blob/master/rust-api-examples/examples/keyword_spotter.rs)
+//! [`rust-api-examples/examples/keyword_spotter.rs`](https://github.com/k2-fsa/sherpa-onnx/blob/master/rust-api-examples/examples/keyword_spotter.rs)
 //! for a complete example.
 //!
 //! # Example

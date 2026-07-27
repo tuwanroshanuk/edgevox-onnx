@@ -7,9 +7,9 @@
 // API.
 // clang-format off
 // 
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-en-20M-2023-02-17.tar.bz2
-// tar xvf edgevox-onnx-streaming-zipformer-en-20M-2023-02-17.tar.bz2
-// rm edgevox-onnx-streaming-zipformer-en-20M-2023-02-17.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-en-20M-2023-02-17.tar.bz2
+// tar xvf sherpa-onnx-streaming-zipformer-en-20M-2023-02-17.tar.bz2
+// rm sherpa-onnx-streaming-zipformer-en-20M-2023-02-17.tar.bz2
 //
 // clang-format on
 
@@ -21,18 +21,18 @@
 
 int32_t main() {
   const char *wav_filename =
-      "edgevox-onnx-streaming-zipformer-en-20M-2023-02-17/test_wavs/0.wav";
+      "sherpa-onnx-streaming-zipformer-en-20M-2023-02-17/test_wavs/0.wav";
   const char *encoder_filename =
-      "edgevox-onnx-streaming-zipformer-en-20M-2023-02-17/"
+      "sherpa-onnx-streaming-zipformer-en-20M-2023-02-17/"
       "encoder-epoch-99-avg-1.onnx";
   const char *decoder_filename =
-      "edgevox-onnx-streaming-zipformer-en-20M-2023-02-17/"
+      "sherpa-onnx-streaming-zipformer-en-20M-2023-02-17/"
       "decoder-epoch-99-avg-1.onnx";
   const char *joiner_filename =
-      "edgevox-onnx-streaming-zipformer-en-20M-2023-02-17/"
+      "sherpa-onnx-streaming-zipformer-en-20M-2023-02-17/"
       "joiner-epoch-99-avg-1.onnx";
   const char *tokens_filename =
-      "edgevox-onnx-streaming-zipformer-en-20M-2023-02-17/tokens.txt";
+      "sherpa-onnx-streaming-zipformer-en-20M-2023-02-17/tokens.txt";
   const char *provider = "cpu";
 
   const EdgevoxOnnxWave *wave = EdgevoxOnnxReadWave(wav_filename);

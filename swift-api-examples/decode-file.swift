@@ -20,14 +20,14 @@ func run() {
   modelType = "transducer"
 
   if modelType == "transducer" {
-    filePath = "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/1.wav"
+    filePath = "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/test_wavs/1.wav"
     let encoder =
-      "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.onnx"
+      "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.onnx"
     let decoder =
-      "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx"
+      "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx"
     let joiner =
-      "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.onnx"
-    let tokens = "./edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt"
+      "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.onnx"
+    let tokens = "./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt"
 
     let transducerConfig = edgevoxOnnxOnlineTransducerModelConfig(
       encoder: encoder,
@@ -41,10 +41,10 @@ func run() {
     )
   } else {
     filePath =
-      "./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000000.wav"
+      "./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000000.wav"
     let model =
-      "./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/ctc-epoch-20-avg-1-chunk-16-left-128.onnx"
-    let tokens = "./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/tokens.txt"
+      "./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/ctc-epoch-20-avg-1-chunk-16-left-128.onnx"
+    let tokens = "./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/tokens.txt"
     let zipfomer2CtcModelConfig = edgevoxOnnxOnlineZipformer2CtcModelConfig(
       model: model
     )

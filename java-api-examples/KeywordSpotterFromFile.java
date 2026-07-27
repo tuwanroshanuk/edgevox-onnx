@@ -3,23 +3,23 @@
 // This file shows how to use a keyword spotter model to spot keywords from
 // a file.
 
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class KyewordSpotterFromFile {
   public static void main(String[] args) {
-    // please download test files from https://github.com/k2-fsa/edgevox-onnx/releases/tag/kws-models
+    // please download test files from https://github.com/k2-fsa/sherpa-onnx/releases/tag/kws-models
     String encoder =
-        "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/encoder-epoch-12-avg-2-chunk-16-left-64.onnx";
+        "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/encoder-epoch-12-avg-2-chunk-16-left-64.onnx";
     String decoder =
-        "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/decoder-epoch-12-avg-2-chunk-16-left-64.onnx";
+        "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/decoder-epoch-12-avg-2-chunk-16-left-64.onnx";
     String joiner =
-        "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/joiner-epoch-12-avg-2-chunk-16-left-64.onnx";
-    String tokens = "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/tokens.txt";
+        "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/joiner-epoch-12-avg-2-chunk-16-left-64.onnx";
+    String tokens = "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/tokens.txt";
 
     String keywordsFile =
-        "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/test_keywords.txt";
+        "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/test_keywords.txt";
 
-    String waveFilename = "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/3.wav";
+    String waveFilename = "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/3.wav";
 
     OnlineTransducerModelConfig transducer =
         OnlineTransducerModelConfig.builder()

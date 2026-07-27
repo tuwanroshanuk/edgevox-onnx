@@ -1,1 +1,1 @@
-../sherpa-onnx/kotlin-api/OnlineRecognizer.kt
+../edgevox-onnx/kotlin-api/OnlineRecognizer.kt

@@ -14,7 +14,7 @@ fn main() {
         model: AudioTaggingModelConfig {
             zipformer: OfflineZipformerAudioTaggingModelConfig {
                 model: Some(
-                    "./edgevox-onnx-zipformer-small-audio-tagging-2024-04-15/model.int8.onnx"
+                    "./sherpa-onnx-zipformer-small-audio-tagging-2024-04-15/model.int8.onnx"
                         .into(),
                 ),
             },
@@ -24,7 +24,7 @@ fn main() {
             ..Default::default()
         },
         labels: Some(
-            "./edgevox-onnx-zipformer-small-audio-tagging-2024-04-15/class_labels_indices.csv"
+            "./sherpa-onnx-zipformer-small-audio-tagging-2024-04-15/class_labels_indices.csv"
                 .into(),
         ),
         top_k: 5,
@@ -33,7 +33,7 @@ fn main() {
     let tagger = AudioTagging::create(&config).expect("Failed to create AudioTagging");
 
     let wav =
-        Wave::read("./edgevox-onnx-zipformer-small-audio-tagging-2024-04-15/test_wavs/1.wav")
+        Wave::read("./sherpa-onnx-zipformer-small-audio-tagging-2024-04-15/test_wavs/1.wav")
             .expect("Failed to read test wave");
 
     let start = Instant::now();

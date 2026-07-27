@@ -49,7 +49,7 @@ rm -rf edgevox-onnx-*
 
 echo '----------FireRedAsr----------'
 ./run-fire-red-asr.sh
-rm -rf edgevox-onnx-fire-red-asr-*
+rm -rf sherpa-onnx-fire-red-asr-*
 
 echo '----------NeMo transducer----------'
 ./run-nemo-transducer.sh
@@ -129,7 +129,7 @@ echo '----------tts----------'
 ./run-zipvoice-zh-en.sh
 ls -lh *.wav
 rm -rf matcha-icefall-*
-rm -rf edgevox-onnx-zipvoice-*
+rm -rf sherpa-onnx-zipvoice-*
 rm *.onnx
 
 echo '----------piper tts----------'
@@ -203,7 +203,7 @@ echo '----------CT Transformer----------'
 ./run-ct-transformer.sh
 echo '----------Online punctuation----------'
 ./run-online.sh
-rm -rf edgevox-onnx-online-punct-en-2024-08-06
+rm -rf sherpa-onnx-online-punct-en-2024-08-06
 popd
 
 pushd audio-tagging

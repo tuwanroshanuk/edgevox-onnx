@@ -19,7 +19,7 @@ static OfflineDiacritizationConfig GetOfflineDiacritizationConfig(
   jfieldID fid;
 
   fid = env->GetFieldID(
-      cls, "model", "Lcom/k2fsa/sherpa/onnx/OfflineDiacritizationModelConfig;");
+      cls, "model", "Lcom/nexus/edgevox/onnx/OfflineDiacritizationModelConfig;");
   jobject model_config = env->GetObjectField(config, fid);
   jclass model_config_cls = env->GetObjectClass(model_config);
 
@@ -46,7 +46,7 @@ static OfflineDiacritizationConfig GetOfflineDiacritizationConfig(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jlong JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineDiacritization_newFromAsset(
+Java_com_nexus_edgevox_onnx_OfflineDiacritization_newFromAsset(
     JNIEnv *env, jobject /*obj*/, jobject asset_manager, jobject _config) {
 #if __ANDROID_API__ >= 9
   AAssetManager *mgr = AAssetManager_fromJava(env, asset_manager);
@@ -76,7 +76,7 @@ Java_com_k2fsa_edgevox_onnx_OfflineDiacritization_newFromAsset(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jlong JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineDiacritization_newFromFile(JNIEnv *env,
+Java_com_nexus_edgevox_onnx_OfflineDiacritization_newFromFile(JNIEnv *env,
                                                              jobject /*obj*/,
                                                              jobject _config) {
   bool ok = false;
@@ -100,14 +100,14 @@ Java_com_k2fsa_edgevox_onnx_OfflineDiacritization_newFromFile(JNIEnv *env,
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_OfflineDiacritization_delete(
+JNIEXPORT void JNICALL Java_com_nexus_edgevox_onnx_OfflineDiacritization_delete(
     JNIEnv * /*env*/, jobject /*obj*/, jlong ptr) {
   delete reinterpret_cast<edgevox_onnx::OfflineDiacritization *>(ptr);
 }
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jstring JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineDiacritization_addDiacritics(JNIEnv *env,
+Java_com_nexus_edgevox_onnx_OfflineDiacritization_addDiacritics(JNIEnv *env,
                                                                jobject /*obj*/,
                                                                jlong ptr,
                                                                jstring text) {

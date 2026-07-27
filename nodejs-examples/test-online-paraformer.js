@@ -9,14 +9,14 @@ const edgevox_onnx = require('edgevox-onnx');
 function createOnlineRecognizer() {
   let onlineParaformerModelConfig = {
     encoder:
-        './edgevox-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx',
+        './sherpa-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx',
     decoder:
-        './edgevox-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx',
+        './sherpa-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx',
   };
 
   let onlineModelConfig = {
     paraformer: onlineParaformerModelConfig,
-    tokens: './edgevox-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt',
+    tokens: './sherpa-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt',
   };
 
   let recognizerConfig = {
@@ -30,7 +30,7 @@ const recognizer = createOnlineRecognizer();
 const stream = recognizer.createStream();
 
 const waveFilename =
-    './edgevox-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/0.wav';
+    './sherpa-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/0.wav';
 
 const reader = new wav.Reader();
 const readable = new Readable().wrap(reader);

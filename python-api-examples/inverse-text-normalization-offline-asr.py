@@ -9,21 +9,21 @@ Usage:
 
 (1) Download the test model
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-paraformer-zh-2023-09-14.tar.bz2
-tar xvf edgevox-onnx-paraformer-zh-2023-09-14.tar.bz2
-rm edgevox-onnx-paraformer-zh-2023-09-14.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-paraformer-zh-2023-09-14.tar.bz2
+tar xvf sherpa-onnx-paraformer-zh-2023-09-14.tar.bz2
+rm sherpa-onnx-paraformer-zh-2023-09-14.tar.bz2
 
 (2) Download rule fst
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
 
 Please refer to
-https://github.com/k2-fsa/colab/blob/master/edgevox-onnx/itn_zh_number.ipynb
+https://github.com/k2-fsa/colab/blob/master/sherpa-onnx/itn_zh_number.ipynb
 for how itn_zh_number.fst is generated.
 
 (3) Download test wave
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn-zh-number.wav
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn-zh-number.wav
 
 (4) Run this script
 
@@ -36,8 +36,8 @@ import soundfile as sf
 
 
 def create_recognizer():
-    model = "./edgevox-onnx-paraformer-zh-2023-09-14/model.int8.onnx"
-    tokens = "./edgevox-onnx-paraformer-zh-2023-09-14/tokens.txt"
+    model = "./sherpa-onnx-paraformer-zh-2023-09-14/model.int8.onnx"
+    tokens = "./sherpa-onnx-paraformer-zh-2023-09-14/tokens.txt"
     rule_fsts = "./itn_zh_number.fst"
 
     if (
@@ -47,7 +47,7 @@ def create_recognizer():
     ):
         raise ValueError(
             """Please download model files from
-            https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+            https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
             """
         )
     return edgevox_onnx.OfflineRecognizer.from_paraformer(
@@ -64,7 +64,7 @@ def main():
     if not Path(wave_filename).is_file():
         raise ValueError(
             """Please download model files from
-            https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+            https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
             """
         )
     audio, sample_rate = sf.read(wave_filename, dtype="float32", always_2d=True)

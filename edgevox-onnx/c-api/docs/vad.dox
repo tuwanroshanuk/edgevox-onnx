@@ -32,7 +32,7 @@ const EdgevoxOnnxVoiceActivityDetector *vad =
 
 Model file: `silero_vad.onnx`
 
-Example source: [vad-whisper-c-api.c](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/vad-whisper-c-api.c)
+Example source: [vad-whisper-c-api.c](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/vad-whisper-c-api.c)
 
 @section vad_ten Ten VAD
 
@@ -57,5 +57,5 @@ const EdgevoxOnnxVoiceActivityDetector *vad =
 
 Model file: `ten-vad.onnx`
 
-Example source: [vad-whisper-c-api.c](https://github.com/k2-fsa/edgevox-onnx/blob/master/c-api-examples/vad-whisper-c-api.c)
+Example source: [vad-whisper-c-api.c](https://github.com/k2-fsa/sherpa-onnx/blob/master/c-api-examples/vad-whisper-c-api.c)
 */

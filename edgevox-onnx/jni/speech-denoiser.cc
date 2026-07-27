@@ -17,7 +17,7 @@ OfflineSpeechDenoiserModelConfig GetOfflineSpeechDenoiserModelConfig(
 
   fid = env->GetFieldID(
       model_config_cls, "gtcrn",
-      "Lcom/k2fsa/sherpa/onnx/OfflineSpeechDenoiserGtcrnModelConfig;");
+      "Lcom/nexus/edgevox/onnx/OfflineSpeechDenoiserGtcrnModelConfig;");
   jobject gtcrn = env->GetObjectField(model, fid);
   jclass gtcrn_cls = env->GetObjectClass(gtcrn);
 
@@ -25,7 +25,7 @@ OfflineSpeechDenoiserModelConfig GetOfflineSpeechDenoiserModelConfig(
 
   fid = env->GetFieldID(
       model_config_cls, "dpdfnet",
-      "Lcom/k2fsa/sherpa/onnx/OfflineSpeechDenoiserDpdfNetModelConfig;");
+      "Lcom/nexus/edgevox/onnx/OfflineSpeechDenoiserDpdfNetModelConfig;");
   jobject dpdfnet = env->GetObjectField(model, fid);
   jclass dpdfnet_cls = env->GetObjectClass(dpdfnet);
 
@@ -47,7 +47,7 @@ OfflineSpeechDenoiserConfig GetOfflineSpeechDenoiserConfig(JNIEnv *env,
 
   jclass cls = env->GetObjectClass(config);
   jfieldID fid = env->GetFieldID(
-      cls, "model", "Lcom/k2fsa/sherpa/onnx/OfflineSpeechDenoiserModelConfig;");
+      cls, "model", "Lcom/nexus/edgevox/onnx/OfflineSpeechDenoiserModelConfig;");
   jobject model = env->GetObjectField(config, fid);
 
   ans.model = GetOfflineSpeechDenoiserModelConfig(env, model, ok);
@@ -61,7 +61,7 @@ OnlineSpeechDenoiserConfig GetOnlineSpeechDenoiserConfig(JNIEnv *env,
 
   jclass cls = env->GetObjectClass(config);
   jfieldID fid = env->GetFieldID(
-      cls, "model", "Lcom/k2fsa/sherpa/onnx/OfflineSpeechDenoiserModelConfig;");
+      cls, "model", "Lcom/nexus/edgevox/onnx/OfflineSpeechDenoiserModelConfig;");
   jobject model = env->GetObjectField(config, fid);
 
   ans.model = GetOfflineSpeechDenoiserModelConfig(env, model, ok);
@@ -69,7 +69,7 @@ OnlineSpeechDenoiserConfig GetOnlineSpeechDenoiserConfig(JNIEnv *env,
 }
 
 jobject NewDenoisedAudio(JNIEnv *env, const DenoisedAudio &denoised) {
-  jclass cls = env->FindClass("com/k2fsa/sherpa/onnx/DenoisedAudio");
+  jclass cls = env->FindClass("com/nexus/edgevox/onnx/DenoisedAudio");
   if (cls == nullptr) {
     EDGEVOX_ONNX_LOGE("Failed to get class for DenoisedAudio");
     return nullptr;

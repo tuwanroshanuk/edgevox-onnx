@@ -65,7 +65,7 @@ static ModelType GetModelType(const std::string &model_path, bool debug) {
     EDGEVOX_ONNX_LOGE(
         "No model_type in the metadata!\n"
         "Please make sure you are using the vocoder from "
-        "https://github.com/k2-fsa/edgevox-onnx/releases/tag/vocoder-models");
+        "https://github.com/k2-fsa/sherpa-onnx/releases/tag/vocoder-models");
     return ModelType::kUnknown;
   }
 
@@ -107,7 +107,7 @@ static ModelType GetModelType(char *model_data, size_t model_data_length,
     EDGEVOX_ONNX_LOGE(
         "No model_type in the metadata!\n"
         "Please make sure you are using the vocoder from "
-        "https://github.com/k2-fsa/edgevox-onnx/releases/tag/vocoder-models");
+        "https://github.com/k2-fsa/sherpa-onnx/releases/tag/vocoder-models");
     return ModelType::kUnknown;
   }
 

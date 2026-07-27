@@ -3,14 +3,14 @@
 // This file shows how to use a silero_vad model to remove silences from
 // a wave file.
 
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class VadRemoveSilence {
   public static void main(String[] args) {
     // please download ./silero_vad.onnx from
-    // https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+    // https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
     String model = "./silero_vad.onnx";
     SileroVadModelConfig sileroVad =
         SileroVadModelConfig.builder()
@@ -34,7 +34,7 @@ public class VadRemoveSilence {
     Vad vad = new Vad(config);
 
     // You can download the test file from
-    // https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+    // https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
     String testWaveFilename = "./lei-jun-test.wav";
     WaveReader reader = new WaveReader(testWaveFilename);
 

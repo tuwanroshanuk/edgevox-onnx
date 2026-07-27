@@ -25,7 +25,7 @@ def get_args():
 @dataclass
 class Model:
     # We will download
-    # https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/{model_name}.tar.bz2
+    # https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/{model_name}.tar.bz2
     model_name: str
 
     cmd: str
@@ -34,7 +34,7 @@ class Model:
 def get_streaming_zipformer_transducer_models():
     models = [
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-korean-2024-06-16",
+            model_name="sherpa-onnx-streaming-zipformer-korean-2024-06-16",
             cmd="""
             ./run-impl.sh \
               --input $src/encoder-epoch-99-avg-1.onnx \
@@ -50,13 +50,13 @@ def get_streaming_zipformer_transducer_models():
             cat > $dst/notes.md <<EOF
 # Introduction
 This model is converted from
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/$src.tar.bz2
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/$src.tar.bz2
 and it supports only batch size equal to 1.
 EOF
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-multi-zh-hans-2023-12-12",
+            model_name="sherpa-onnx-streaming-zipformer-multi-zh-hans-2023-12-12",
             cmd="""
             ./run-impl.sh \
               --input $src/encoder-epoch-20-avg-1-chunk-16-left-128.onnx \
@@ -73,7 +73,7 @@ EOF
             cat > $dst/notes.md <<EOF
 # Introduction
 This model is converted from
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/$src.tar.bz2
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/$src.tar.bz2
 and it supports only batch size equal to 1.
 EOF
             """,
@@ -95,13 +95,13 @@ EOF
             cat > $dst/notes.md <<EOF
 # Introduction
 This model is converted from
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/$src.tar.bz2
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/$src.tar.bz2
 and it supports only batch size equal to 1.
 EOF
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-en-2023-06-26",
+            model_name="sherpa-onnx-streaming-zipformer-en-2023-06-26",
             cmd="""
             ./run-impl.sh \
               --input $src/encoder-epoch-99-avg-1-chunk-16-left-128.onnx \
@@ -118,13 +118,13 @@ EOF
             cat > $dst/notes.md <<EOF
 # Introduction
 This model is converted from
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/$src.tar.bz2
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/$src.tar.bz2
 and it supports only batch size equal to 1.
 EOF
               """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-en-2023-06-21",
+            model_name="sherpa-onnx-streaming-zipformer-en-2023-06-21",
             cmd="""
             ./run-impl.sh \
               --input $src/encoder-epoch-99-avg-1.onnx \
@@ -140,13 +140,13 @@ EOF
             cat > $dst/notes.md <<EOF
 # Introduction
 This model is converted from
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/$src.tar.bz2
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/$src.tar.bz2
 and it supports only batch size equal to 1.
 EOF
                 """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-en-2023-02-21",
+            model_name="sherpa-onnx-streaming-zipformer-en-2023-02-21",
             cmd="""
             ./run-impl.sh \
               --input $src/encoder-epoch-99-avg-1.onnx \
@@ -163,13 +163,13 @@ EOF
             cat > $dst/notes.md <<EOF
 # Introduction
 This model is converted from
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/$src.tar.bz2
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/$src.tar.bz2
 and it supports only batch size equal to 1.
 EOF
               """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20",
+            model_name="sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20",
             cmd="""
             ./run-impl.sh \
               --input $src/encoder-epoch-99-avg-1.onnx \
@@ -185,13 +185,13 @@ EOF
             cat > $dst/notes.md <<EOF
 # Introduction
 This model is converted from
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/$src.tar.bz2
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/$src.tar.bz2
 and it supports only batch size equal to 1.
 EOF
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-fr-2023-04-14",
+            model_name="sherpa-onnx-streaming-zipformer-fr-2023-04-14",
             cmd="""
             ./run-impl.sh \
               --input $src/encoder-epoch-29-avg-9-with-averaged-model.onnx \
@@ -208,13 +208,13 @@ EOF
             cat > $dst/notes.md <<EOF
 # Introduction
 This model is converted from
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/$src.tar.bz2
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/$src.tar.bz2
 and it supports only batch size equal to 1.
 EOF
               """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-small-bilingual-zh-en-2023-02-16",
+            model_name="sherpa-onnx-streaming-zipformer-small-bilingual-zh-en-2023-02-16",
             cmd="""
             ./run-impl.sh \
               --input $src/encoder-epoch-99-avg-1.onnx \
@@ -252,13 +252,13 @@ EOF
             cat > $dst/notes.md <<EOF
 # Introduction
 This model is converted from
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/$src.tar.bz2
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/$src.tar.bz2
 and it supports only batch size equal to 1.
 EOF
               """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-zh-14M-2023-02-23",
+            model_name="sherpa-onnx-streaming-zipformer-zh-14M-2023-02-23",
             cmd="""
             ./run-impl.sh \
               --input $src/encoder-epoch-99-avg-1.onnx \
@@ -275,13 +275,13 @@ EOF
             cat > $dst/notes.md <<EOF
 # Introduction
 This model is converted from
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/$src.tar.bz2
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/$src.tar.bz2
 and it supports only batch size equal to 1.
 EOF
             """,
         ),
         Model(
-            model_name="edgevox-onnx-streaming-zipformer-en-20M-2023-02-17",
+            model_name="sherpa-onnx-streaming-zipformer-en-20M-2023-02-17",
             cmd="""
             ./run-impl.sh \
               --input $src/encoder-epoch-99-avg-1.onnx \
@@ -298,7 +298,7 @@ EOF
             cat > $dst/notes.md <<EOF
 # Introduction
 This model is converted from
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/$src.tar.bz2
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/$src.tar.bz2
 and it supports only batch size equal to 1.
 EOF
             """,

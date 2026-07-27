@@ -13,8 +13,8 @@ extension AVAudioPCMBuffer {
 }
 
 func run() {
-  let model = "./edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03/model.int8.onnx"
-  let tokens = "./edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03/tokens.txt"
+  let model = "./sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03/model.int8.onnx"
+  let tokens = "./sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03/tokens.txt"
 
   let zipformerCtc = edgevoxOnnxOfflineZipformerCtcModelConfig(
     model: model
@@ -37,7 +37,7 @@ func run() {
 
   let recognizer = EdgevoxOnnxOfflineRecognizer(config: &config)
 
-  let filePath = "./edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03/test_wavs/0.wav"
+  let filePath = "./sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03/test_wavs/0.wav"
   let fileURL: NSURL = NSURL(fileURLWithPath: filePath)
   let audioFile = try! AVAudioFile(forReading: fileURL as URL)
 

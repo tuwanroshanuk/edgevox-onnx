@@ -22,25 +22,25 @@ Usage examples:
 (1) Chinese: Streaming zipformer (1st pass) + Non-streaming paraformer (2nd pass)
 
 python3 ./python-api-examples/two-pass-speech-recognition-from-microphone.py \
-  --first-encoder ./edgevox-onnx-streaming-zipformer-zh-14M-2023-02-23/encoder-epoch-99-avg-1.onnx \
-  --first-decoder ./edgevox-onnx-streaming-zipformer-zh-14M-2023-02-23/decoder-epoch-99-avg-1.onnx \
-  --first-joiner ./edgevox-onnx-streaming-zipformer-zh-14M-2023-02-23/joiner-epoch-99-avg-1.onnx \
-  --first-tokens ./edgevox-onnx-streaming-zipformer-zh-14M-2023-02-23/tokens.txt \
+  --first-encoder ./sherpa-onnx-streaming-zipformer-zh-14M-2023-02-23/encoder-epoch-99-avg-1.onnx \
+  --first-decoder ./sherpa-onnx-streaming-zipformer-zh-14M-2023-02-23/decoder-epoch-99-avg-1.onnx \
+  --first-joiner ./sherpa-onnx-streaming-zipformer-zh-14M-2023-02-23/joiner-epoch-99-avg-1.onnx \
+  --first-tokens ./sherpa-onnx-streaming-zipformer-zh-14M-2023-02-23/tokens.txt \
   \
-  --second-paraformer ./edgevox-onnx-paraformer-zh-2023-09-14/model.int8.onnx \
-  --second-tokens ./edgevox-onnx-paraformer-zh-2023-09-14/tokens.txt
+  --second-paraformer ./sherpa-onnx-paraformer-zh-2023-09-14/model.int8.onnx \
+  --second-tokens ./sherpa-onnx-paraformer-zh-2023-09-14/tokens.txt
 
 (2) English: Streaming zipformer (1st pass) + Non-streaming whisper (2nd pass)
 
 python3 ./python-api-examples/two-pass-speech-recognition-from-microphone.py \
-  --first-encoder ./edgevox-onnx-streaming-zipformer-en-20M-2023-02-17/encoder-epoch-99-avg-1.onnx \
-  --first-decoder ./edgevox-onnx-streaming-zipformer-en-20M-2023-02-17/decoder-epoch-99-avg-1.onnx \
-  --first-joiner ./edgevox-onnx-streaming-zipformer-en-20M-2023-02-17/joiner-epoch-99-avg-1.onnx \
-  --first-tokens ./edgevox-onnx-streaming-zipformer-en-20M-2023-02-17/tokens.txt \
+  --first-encoder ./sherpa-onnx-streaming-zipformer-en-20M-2023-02-17/encoder-epoch-99-avg-1.onnx \
+  --first-decoder ./sherpa-onnx-streaming-zipformer-en-20M-2023-02-17/decoder-epoch-99-avg-1.onnx \
+  --first-joiner ./sherpa-onnx-streaming-zipformer-en-20M-2023-02-17/joiner-epoch-99-avg-1.onnx \
+  --first-tokens ./sherpa-onnx-streaming-zipformer-en-20M-2023-02-17/tokens.txt \
   \
-  --second-whisper-encoder ./edgevox-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx \
-  --second-whisper-decoder ./edgevox-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx \
-  --second-tokens ./edgevox-onnx-whisper-tiny.en/tiny.en-tokens.txt
+  --second-whisper-encoder ./sherpa-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx \
+  --second-whisper-decoder ./sherpa-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx \
+  --second-tokens ./sherpa-onnx-whisper-tiny.en/tiny.en-tokens.txt
 """
 
 import argparse

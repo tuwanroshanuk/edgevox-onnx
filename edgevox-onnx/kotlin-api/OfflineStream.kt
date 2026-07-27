@@ -1,4 +1,4 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 class OfflineStream(var ptr: Long) {
     fun acceptWaveform(samples: FloatArray, sampleRate: Int) =

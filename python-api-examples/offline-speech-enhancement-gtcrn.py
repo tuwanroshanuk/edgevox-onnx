@@ -4,12 +4,12 @@
 This file shows how to use the speech enhancement API.
 
 Please download files used this script from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
 
 Example:
 
- wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/gtcrn_simple.onnx
- wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/speech_with_noise.wav
+ wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/gtcrn_simple.onnx
+ wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/speech_with_noise.wav
 """
 
 import time
@@ -26,7 +26,7 @@ def create_speech_denoiser():
     if not Path(model_filename).is_file():
         raise ValueError(
             "Please first download a model from "
-            "https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models"
+            "https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models"
         )
 
     config = edgevox_onnx.OfflineSpeechDenoiserConfig(
@@ -62,7 +62,7 @@ def main():
     if not Path(test_wave).is_file():
         raise ValueError(
             f"{test_wave} does not exist. You can download it from "
-            "https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models"
+            "https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models"
         )
 
     samples, sample_rate = load_audio(test_wave)

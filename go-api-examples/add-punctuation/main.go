@@ -1,7 +1,7 @@
 package main
 
 import (
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 	"log"
 )
 
@@ -9,7 +9,7 @@ func main() {
 	log.SetFlags(log.LstdFlags | log.Lmicroseconds)
 
 	config := sherpa.OfflinePunctuationConfig{}
-	config.Model.CtTransformer = "./edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx"
+	config.Model.CtTransformer = "./sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx"
 	config.Model.NumThreads = 1
 	config.Model.Provider = "cpu"
 

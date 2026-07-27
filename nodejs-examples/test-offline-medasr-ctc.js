@@ -9,9 +9,9 @@ function createOfflineRecognizer() {
   let config = {
     modelConfig: {
       medasr: {
-        model: './edgevox-onnx-medasr-ctc-en-int8-2025-12-25/model.int8.onnx',
+        model: './sherpa-onnx-medasr-ctc-en-int8-2025-12-25/model.int8.onnx',
       },
-      tokens: './edgevox-onnx-medasr-ctc-en-int8-2025-12-25/tokens.txt',
+      tokens: './sherpa-onnx-medasr-ctc-en-int8-2025-12-25/tokens.txt',
     }
   };
 
@@ -22,7 +22,7 @@ const recognizer = createOfflineRecognizer();
 const stream = recognizer.createStream();
 
 const waveFilename =
-    './edgevox-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/0.wav';
+    './sherpa-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/0.wav';
 const wave = edgevox_onnx.readWave(waveFilename);
 stream.acceptWaveform(wave.sampleRate, wave.samples);
 

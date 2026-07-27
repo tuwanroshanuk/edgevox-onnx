@@ -329,7 +329,7 @@ def get_vits_models() -> List[TtsModel]:
             lang="zh",
         ),
         TtsModel(
-            model_dir="edgevox-onnx-vits-zh-ll",
+            model_dir="sherpa-onnx-vits-zh-ll",
             model_name="model.onnx",
             lang="zh",
         ),
@@ -340,7 +340,7 @@ def get_vits_models() -> List[TtsModel]:
         s = [f"{m.model_dir}/{r}" for r in rule_fsts]
         if (
             "vits-zh-hf" in m.model_dir
-            or "edgevox-onnx-vits-zh-ll" == m.model_dir
+            or "sherpa-onnx-vits-zh-ll" == m.model_dir
             or "melo-tts" in m.model_dir
         ):
             m.dict_dir = m.model_dir + "/dict"

@@ -25,17 +25,17 @@ function readWave(filename: string): Samples {
 function initOfflineSpeakerDiarization(context: Context): OfflineSpeakerDiarization {
   const config: OfflineSpeakerDiarizationConfig = new OfflineSpeakerDiarizationConfig();
 
-  // Please refer to https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-segmentation-models
+  // Please refer to https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-segmentation-models
   // to download models.
   // Make sure you have placed it inside the directory
   // harmony-os/EdgevoxOnnxSpeakerDiarization/entry/src/main/resources/rawfile
   //
   // Also, please delete unused files to reduce the size of the app
-  config.segmentation.pyannote.model = 'edgevox-onnx-pyannote-segmentation-3-0/model.int8.onnx';
+  config.segmentation.pyannote.model = 'sherpa-onnx-pyannote-segmentation-3-0/model.int8.onnx';
   config.segmentation.numThreads = 2;
   config.segmentation.debug = true;
 
-  // Please refer to https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-recongition-models
+  // Please refer to https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models
   // to download models.
   // Make sure you have placed it inside the directory
   // harmony-os/EdgevoxOnnxSpeakerDiarization/entry/src/main/resources/rawfile
@@ -54,17 +54,17 @@ function initOfflineSpeakerDiarization(context: Context): OfflineSpeakerDiarizat
   (py38) fangjuns-MacBook-Pro:rawfile fangjun$ ls -lh
   total 77336
   -rw-r--r--  1 fangjun  staff    38M Dec 10 16:28 3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
-  drwxr-xr-x  3 fangjun  staff    96B Dec 10 19:36 edgevox-onnx-pyannote-segmentation-3-0
+  drwxr-xr-x  3 fangjun  staff    96B Dec 10 19:36 sherpa-onnx-pyannote-segmentation-3-0
   (py38) fangjuns-MacBook-Pro:rawfile fangjun$ tree .
   .
   ├── 3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
-  └── edgevox-onnx-pyannote-segmentation-3-0
+  └── sherpa-onnx-pyannote-segmentation-3-0
       └── model.int8.onnx
 
   1 directory, 2 files
 
   (Note that we have kept only model.int8.onnx and removed all other files
-  from edgevox-onnx-pyannote-segmentation-3-0
+  from sherpa-onnx-pyannote-segmentation-3-0
   )
    */
 }

@@ -7,9 +7,9 @@
 // API.
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25.tar.bz2
-// tar xvf edgevox-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25.tar.bz2
-// rm edgevox-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25.tar.bz2
+// tar xvf sherpa-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25.tar.bz2
+// rm sherpa-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25.tar.bz2
 //
 // clang-format on
 
@@ -21,19 +21,19 @@
 
 int32_t main() {
   const char *wav_filename =
-      "edgevox-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
+      "sherpa-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
       "test_wavs/0.wav";
   const char *encoder_filename =
-      "edgevox-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
+      "sherpa-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
       "encoder.int8.onnx";
   const char *decoder_filename =
-      "edgevox-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
+      "sherpa-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
       "decoder.int8.onnx";
   const char *joiner_filename =
-      "edgevox-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
+      "sherpa-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
       "joiner.int8.onnx";
   const char *tokens_filename =
-      "edgevox-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
+      "sherpa-onnx-nemotron-speech-streaming-en-0.6b-560ms-int8-2026-04-25/"
       "tokens.txt";
   const char *provider = "cpu";
 

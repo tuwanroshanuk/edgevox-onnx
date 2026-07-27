@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.k2fsa.sherpa.onnx"
+    namespace = "com.nexus.edgevox.onnx"
     compileSdk = 34
 
     defaultConfig {

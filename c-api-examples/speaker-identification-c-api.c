@@ -4,7 +4,7 @@
 
 // We assume you have pre-downloaded the speaker embedding extractor model
 // from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-recongition-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models
 //
 // An example command to download
 // "3dspeaker_speech_campplus_sv_zh-cn_16k-common.onnx"
@@ -12,7 +12,7 @@
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_campplus_sv_zh-cn_16k-common.onnx
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_campplus_sv_zh-cn_16k-common.onnx
 //
 // clang-format on
 //
@@ -63,7 +63,7 @@ int32_t main() {
   memset(&config, 0, sizeof(config));
 
   // please download the model from
-  // https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-recongition-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models
   config.model = "./3dspeaker_speech_campplus_sv_zh-cn_16k-common.onnx";
 
   config.num_threads = 1;

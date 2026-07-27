@@ -5,7 +5,7 @@ This file shows how to use a non-streaming NeMo transducer
 to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program nemo_transducer;
@@ -35,16 +35,16 @@ var
 begin
   Initialize(Config);
 
-  Config.ModelConfig.Transducer.Encoder := './edgevox-onnx-nemo-fast-conformer-transducer-be-de-en-es-fr-hr-it-pl-ru-uk-20k/encoder.onnx';
-  Config.ModelConfig.Transducer.Decoder := './edgevox-onnx-nemo-fast-conformer-transducer-be-de-en-es-fr-hr-it-pl-ru-uk-20k/decoder.onnx';
-  Config.ModelConfig.Transducer.Joiner := './edgevox-onnx-nemo-fast-conformer-transducer-be-de-en-es-fr-hr-it-pl-ru-uk-20k/joiner.onnx';
+  Config.ModelConfig.Transducer.Encoder := './sherpa-onnx-nemo-fast-conformer-transducer-be-de-en-es-fr-hr-it-pl-ru-uk-20k/encoder.onnx';
+  Config.ModelConfig.Transducer.Decoder := './sherpa-onnx-nemo-fast-conformer-transducer-be-de-en-es-fr-hr-it-pl-ru-uk-20k/decoder.onnx';
+  Config.ModelConfig.Transducer.Joiner := './sherpa-onnx-nemo-fast-conformer-transducer-be-de-en-es-fr-hr-it-pl-ru-uk-20k/joiner.onnx';
   Config.ModelConfig.ModelType := 'nemo_transducer';
-  Config.ModelConfig.Tokens := './edgevox-onnx-nemo-fast-conformer-transducer-be-de-en-es-fr-hr-it-pl-ru-uk-20k/tokens.txt';
+  Config.ModelConfig.Tokens := './sherpa-onnx-nemo-fast-conformer-transducer-be-de-en-es-fr-hr-it-pl-ru-uk-20k/tokens.txt';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := False;
 
-  WaveFilename := './edgevox-onnx-nemo-fast-conformer-transducer-be-de-en-es-fr-hr-it-pl-ru-uk-20k/test_wavs/de-german.wav';
+  WaveFilename := './sherpa-onnx-nemo-fast-conformer-transducer-be-de-en-es-fr-hr-it-pl-ru-uk-20k/test_wavs/de-german.wav';
 
   Wave := EdgevoxOnnxReadWave(WaveFilename);
 

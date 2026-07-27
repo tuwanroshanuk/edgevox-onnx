@@ -7,11 +7,11 @@
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
-// tar xvf edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
-// rm edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
+// tar xvf sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
+// rm sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
 //
 // clang-format on
 
@@ -83,13 +83,13 @@ static edgevox_onnx::cxx::OfflineRecognizer CreateOfflineRecognizer() {
   OfflineRecognizerConfig config;
 
   config.model_config.transducer.encoder =
-      "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/encoder.int8.onnx";
+      "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/encoder.int8.onnx";
   config.model_config.transducer.decoder =
-      "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/decoder.int8.onnx";
+      "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/decoder.int8.onnx";
   config.model_config.transducer.joiner =
-      "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/joiner.int8.onnx";
+      "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/joiner.int8.onnx";
   config.model_config.tokens =
-      "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8/tokens.txt";
+      "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/tokens.txt";
 
   config.model_config.model_type = "nemo_transducer";
 

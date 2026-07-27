@@ -2,7 +2,7 @@
 const edgevox_onnx = require('edgevox-onnx-node');
 
 // Please download test files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 
 
 // If your path contains non-ascii characters, e.g., Chinese, you can use
@@ -17,11 +17,11 @@ const config = {
   'modelConfig': {
     'senseVoice': {
       'model':
-          './edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx',
+          './sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx',
       // 'model': model,
       'useInverseTextNormalization': 1,
     },
-    'tokens': './edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/tokens.txt',
+    'tokens': './sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/tokens.txt',
     // 'tokens': tokens,
     'numThreads': 2,
     'provider': 'cpu',
@@ -30,7 +30,7 @@ const config = {
 };
 
 const waveFilename =
-    './edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/test_wavs/zh.wav';
+    './sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/test_wavs/zh.wav';
 
 const recognizer = new edgevox_onnx.OfflineRecognizer(config);
 console.log('Started');

@@ -2,7 +2,7 @@
 
 // This file shows how to use a matcha English model
 // to convert text to speech
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingTtsMatchaEn {
   public static void main(String[] args) {

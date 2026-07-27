@@ -10,10 +10,10 @@ function createOfflineRecognizer() {
     modelConfig: {
       fireRedAsrCtc: {
         model:
-            './edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/model.int8.onnx',
+            './sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/model.int8.onnx',
       },
       tokens:
-          './edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/tokens.txt',
+          './sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/tokens.txt',
     }
   };
 
@@ -24,7 +24,7 @@ const recognizer = createOfflineRecognizer();
 const stream = recognizer.createStream();
 
 const waveFilename =
-    './edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/test_wavs/1.wav';
+    './sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/test_wavs/1.wav';
 const wave = edgevox_onnx.readWave(waveFilename);
 stream.acceptWaveform(wave.sampleRate, wave.samples);
 

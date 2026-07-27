@@ -1,21 +1,21 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 fun main() {
   testPocketTts()
 }
 
 fun testPocketTts() {
-  // see https://github.com/k2-fsa/edgevox-onnx/releases/tag/tts-models
+  // see https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models
   val config = OfflineTtsConfig(
     model=OfflineTtsModelConfig(
       pocket=OfflineTtsPocketModelConfig(
-        lmFlow="./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx",
-        lmMain="./edgevox-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx",
-        encoder="./edgevox-onnx-pocket-tts-int8-2026-01-26/encoder.onnx",
-        decoder="./edgevox-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx",
-        textConditioner="./edgevox-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx",
-        vocabJson="./edgevox-onnx-pocket-tts-int8-2026-01-26/vocab.json",
-        tokenScoresJson="./edgevox-onnx-pocket-tts-int8-2026-01-26/token_scores.json",
+        lmFlow="./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx",
+        lmMain="./sherpa-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx",
+        encoder="./sherpa-onnx-pocket-tts-int8-2026-01-26/encoder.onnx",
+        decoder="./sherpa-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx",
+        textConditioner="./sherpa-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx",
+        vocabJson="./sherpa-onnx-pocket-tts-int8-2026-01-26/vocab.json",
+        tokenScoresJson="./sherpa-onnx-pocket-tts-int8-2026-01-26/token_scores.json",
       ),
       numThreads=2,
       debug=true,
@@ -23,7 +23,7 @@ fun testPocketTts() {
   )
   val tts = OfflineTts(config=config)
 
-  val referenceAudioFilename = "./edgevox-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav"
+  val referenceAudioFilename = "./sherpa-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav"
   val wave = WaveReader.readWave(
       filename = referenceAudioFilename,
   )

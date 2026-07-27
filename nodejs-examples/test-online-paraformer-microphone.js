@@ -8,14 +8,14 @@ const edgevox_onnx = require('edgevox-onnx');
 function createOnlineRecognizer() {
   let onlineParaformerModelConfig = {
     encoder:
-        './edgevox-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx',
+        './sherpa-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx',
     decoder:
-        './edgevox-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx',
+        './sherpa-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx',
   };
 
   let onlineModelConfig = {
     paraformer: onlineParaformerModelConfig,
-    tokens: './edgevox-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt',
+    tokens: './sherpa-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt',
   };
 
   let recognizerConfig = {

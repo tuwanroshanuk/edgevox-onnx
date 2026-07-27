@@ -27,7 +27,7 @@ export EDGEVOX_ONNX_ENABLE_BINARY=OFF
 
 log "Download qnn header files"
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models-qnn/qnn-include-2.40.0.251030.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models-qnn/qnn-include-2.40.0.251030.tar.bz2
 tar xf qnn-include-2.40.0.251030.tar.bz2
 rm qnn-include-2.40.0.251030.tar.bz2
 ls -lh qnn-include-2.40.0.251030
@@ -40,7 +40,7 @@ log "====================arm64-v8a================="
 cp -v ./build-android-arm64-v8a/install/lib/*.so ./android/EdgevoxOnnx/app/src/main/jniLibs/arm64-v8a/
 
 log "=======Download qnn libs============"
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models-qnn/qnn-libs-2.40.0.251030.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models-qnn/qnn-libs-2.40.0.251030.tar.bz2
 tar xvf qnn-libs-2.40.0.251030.tar.bz2
 rm qnn-libs-2.40.0.251030.tar.bz2
 cp -v qnn-libs-2.40.0.251030/*.so ./android/EdgevoxOnnx/app/src/main/jniLibs/arm64-v8a/
@@ -58,7 +58,7 @@ type={{ model.idx }}
 lang={{ model.lang }}
 short_name={{ model.short_name }}
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/{{ model.release_tag }}/${model_name}.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/{{ model.release_tag }}/${model_name}.tar.bz2
 tar xvf ${model_name}.tar.bz2
 
 {{ model.cmd }}
@@ -70,7 +70,7 @@ popd
 # Now we are at the project root directory
 
 git checkout .
-pushd android/EdgevoxOnnx/app/src/main/java/com/k2fsa/sherpa/onnx
+pushd android/EdgevoxOnnx/app/src/main/java/com/nexus/edgevox/onnx
 sed -i.bak s/"type = 0/type = $type/" ./MainActivity.kt
 
 git diff

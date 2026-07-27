@@ -1,5 +1,5 @@
 // c-api-examples/nemo-parakeet-c-api.c
-// Example using the C API and edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8 model
+// Example using the C API and sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8 model
 // Prints recognized text, per-token timestamps, and durations
 
 #include <stdio.h>
@@ -10,15 +10,15 @@
 
 int32_t main() {
   const char *wav_filename =
-      "./edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/test_wavs/en.wav";
+      "./sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/test_wavs/en.wav";
   const char *encoder_filename =
-      "edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/encoder.int8.onnx";
+      "sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/encoder.int8.onnx";
   const char *decoder_filename =
-      "edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/decoder.int8.onnx";
+      "sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/decoder.int8.onnx";
   const char *joiner_filename =
-      "edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/joiner.int8.onnx";
+      "sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/joiner.int8.onnx";
   const char *tokens_filename =
-      "edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/tokens.txt";
+      "sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/tokens.txt";
   const char *provider = "cpu";
 
   if (!EdgevoxOnnxFileExists(wav_filename)) {

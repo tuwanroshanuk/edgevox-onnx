@@ -1,6 +1,6 @@
 # edgevox-onnx Gradle Kotlin DSL (KTS) Example
 
-This directory demonstrates how to use [edgevox-onnx](https://github.com/k2-fsa/edgevox-onnx) via Gradle with Kotlin DSL (`build.gradle.kts`).
+This directory demonstrates how to use [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx) via Gradle with Kotlin DSL (`build.gradle.kts`).
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.k2-fsa:edgevox-onnx:refactor-jar-SNAPSHOT")
+    implementation("com.github.k2-fsa:sherpa-onnx:refactor-jar-SNAPSHOT")
 }
 ```
 
@@ -40,10 +40,10 @@ repositories {
 
 dependencies {
     // 1. JVM core API
-    implementation("com.github.k2-fsa.edgevox-onnx:edgevox-onnx-jvm:refactor-jar-SNAPSHOT")
+    implementation("com.github.k2-fsa.sherpa-onnx:sherpa-onnx-jvm:refactor-jar-SNAPSHOT")
 
     // 2. Platform native lib — pick ONE for your target platform
-    implementation("com.github.k2-fsa.edgevox-onnx:edgevox-onnx-native-lib-osx-aarch64:refactor-jar-SNAPSHOT")
+    implementation("com.github.k2-fsa.sherpa-onnx:sherpa-onnx-native-lib-osx-aarch64:refactor-jar-SNAPSHOT")
 }
 ```
 

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.k2fsa.sherpa.onnx.audio.tagging"
+    namespace = "com.nexus.edgevox.onnx.audio.tagging"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.k2fsa.sherpa.onnx.audio.tagging"
+        applicationId = "com.nexus.edgevox.onnx.audio.tagging"
         minSdk = 21
         targetSdk = 34
         versionCode = 20260707

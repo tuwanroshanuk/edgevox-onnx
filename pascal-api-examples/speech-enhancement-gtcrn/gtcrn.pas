@@ -4,8 +4,8 @@ This file shows how to use the speech enhancement API from edgevox-onnx
 
 Please first download files used in this script before you run it.
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/gtcrn_simple.onnx
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/inp_16k.wav
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/gtcrn_simple.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/inp_16k.wav
 }
 program main;
 

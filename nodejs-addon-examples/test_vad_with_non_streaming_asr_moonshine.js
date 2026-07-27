@@ -4,7 +4,7 @@ const edgevox_onnx = require('edgevox-onnx-node');
 
 function createRecognizer() {
   // Please download test files from
-  // https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+  // https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
   const config = {
     'featConfig': {
       'sampleRate': 16000,
@@ -12,14 +12,14 @@ function createRecognizer() {
     },
     'modelConfig': {
       'moonshine': {
-        'preprocessor': './edgevox-onnx-moonshine-tiny-en-int8/preprocess.onnx',
-        'encoder': './edgevox-onnx-moonshine-tiny-en-int8/encode.int8.onnx',
+        'preprocessor': './sherpa-onnx-moonshine-tiny-en-int8/preprocess.onnx',
+        'encoder': './sherpa-onnx-moonshine-tiny-en-int8/encode.int8.onnx',
         'uncachedDecoder':
-            './edgevox-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx',
+            './sherpa-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx',
         'cachedDecoder':
-            './edgevox-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx',
+            './sherpa-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx',
       },
-      'tokens': './edgevox-onnx-moonshine-tiny-en-int8/tokens.txt',
+      'tokens': './sherpa-onnx-moonshine-tiny-en-int8/tokens.txt',
       'numThreads': 2,
       'provider': 'cpu',
       'debug': 1,
@@ -31,7 +31,7 @@ function createRecognizer() {
 
 function createVad() {
   // please download silero_vad.onnx from
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
   const config = {
     sileroVad: {
       model: './silero_vad.onnx',
@@ -55,7 +55,7 @@ const recognizer = createRecognizer();
 const vad = createVad();
 
 // please download ./Obama.wav from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 const waveFilename = './Obama.wav';
 const wave = edgevox_onnx.readWave(waveFilename);
 

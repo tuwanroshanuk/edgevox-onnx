@@ -8,67 +8,67 @@ Usage:
 
 (1) Streaming transducer
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-en-2023-06-26.tar.bz2
-tar xvf edgevox-onnx-streaming-zipformer-en-2023-06-26.tar.bz2
-rm edgevox-onnx-streaming-zipformer-en-2023-06-26.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-en-2023-06-26.tar.bz2
+tar xvf sherpa-onnx-streaming-zipformer-en-2023-06-26.tar.bz2
+rm sherpa-onnx-streaming-zipformer-en-2023-06-26.tar.bz2
 
 ./python-api-examples/online-decode-files.py \
-  --tokens=./edgevox-onnx-streaming-zipformer-en-2023-06-26/tokens.txt \
-  --encoder=./edgevox-onnx-streaming-zipformer-en-2023-06-26/encoder-epoch-99-avg-1-chunk-16-left-64.onnx \
-  --decoder=./edgevox-onnx-streaming-zipformer-en-2023-06-26/decoder-epoch-99-avg-1-chunk-16-left-64.onnx \
-  --joiner=./edgevox-onnx-streaming-zipformer-en-2023-06-26/joiner-epoch-99-avg-1-chunk-16-left-64.onnx \
-  ./edgevox-onnx-streaming-zipformer-en-2023-06-26/test_wavs/0.wav \
-  ./edgevox-onnx-streaming-zipformer-en-2023-06-26/test_wavs/1.wav \
-  ./edgevox-onnx-streaming-zipformer-en-2023-06-26/test_wavs/8k.wav
+  --tokens=./sherpa-onnx-streaming-zipformer-en-2023-06-26/tokens.txt \
+  --encoder=./sherpa-onnx-streaming-zipformer-en-2023-06-26/encoder-epoch-99-avg-1-chunk-16-left-64.onnx \
+  --decoder=./sherpa-onnx-streaming-zipformer-en-2023-06-26/decoder-epoch-99-avg-1-chunk-16-left-64.onnx \
+  --joiner=./sherpa-onnx-streaming-zipformer-en-2023-06-26/joiner-epoch-99-avg-1-chunk-16-left-64.onnx \
+  ./sherpa-onnx-streaming-zipformer-en-2023-06-26/test_wavs/0.wav \
+  ./sherpa-onnx-streaming-zipformer-en-2023-06-26/test_wavs/1.wav \
+  ./sherpa-onnx-streaming-zipformer-en-2023-06-26/test_wavs/8k.wav
 
 or with RNN LM rescoring and LODR:
 
 ./python-api-examples/online-decode-files.py \
-  --tokens=./edgevox-onnx-streaming-zipformer-en-2023-06-26/tokens.txt \
-  --encoder=./edgevox-onnx-streaming-zipformer-en-2023-06-26/encoder-epoch-99-avg-1-chunk-16-left-64.onnx \
-  --decoder=./edgevox-onnx-streaming-zipformer-en-2023-06-26/decoder-epoch-99-avg-1-chunk-16-left-64.onnx \
-  --joiner=./edgevox-onnx-streaming-zipformer-en-2023-06-26/joiner-epoch-99-avg-1-chunk-16-left-64.onnx \
+  --tokens=./sherpa-onnx-streaming-zipformer-en-2023-06-26/tokens.txt \
+  --encoder=./sherpa-onnx-streaming-zipformer-en-2023-06-26/encoder-epoch-99-avg-1-chunk-16-left-64.onnx \
+  --decoder=./sherpa-onnx-streaming-zipformer-en-2023-06-26/decoder-epoch-99-avg-1-chunk-16-left-64.onnx \
+  --joiner=./sherpa-onnx-streaming-zipformer-en-2023-06-26/joiner-epoch-99-avg-1-chunk-16-left-64.onnx \
   --decoding-method=modified_beam_search \
   --lm=/path/to/lm.onnx \
   --lm-scale=0.1 \
   --lodr-fst=/path/to/lodr.fst \
   --lodr-scale=-0.1 \
-  ./edgevox-onnx-streaming-zipformer-en-2023-06-26/test_wavs/0.wav \
-  ./edgevox-onnx-streaming-zipformer-en-2023-06-26/test_wavs/1.wav \
-  ./edgevox-onnx-streaming-zipformer-en-2023-06-26/test_wavs/8k.wav
+  ./sherpa-onnx-streaming-zipformer-en-2023-06-26/test_wavs/0.wav \
+  ./sherpa-onnx-streaming-zipformer-en-2023-06-26/test_wavs/1.wav \
+  ./sherpa-onnx-streaming-zipformer-en-2023-06-26/test_wavs/8k.wav
 
 (2) Streaming paraformer
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
-tar xvf edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
-rm edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+tar xvf sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+rm sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
 
 ./python-api-examples/online-decode-files.py \
-  --tokens=./edgevox-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt \
-  --paraformer-encoder=./edgevox-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx \
-  --paraformer-decoder=./edgevox-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx \
-  ./edgevox-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/0.wav \
-  ./edgevox-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/1.wav \
-  ./edgevox-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/2.wav \
-  ./edgevox-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/3.wav \
-  ./edgevox-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/8k.wav
+  --tokens=./sherpa-onnx-streaming-paraformer-bilingual-zh-en/tokens.txt \
+  --paraformer-encoder=./sherpa-onnx-streaming-paraformer-bilingual-zh-en/encoder.int8.onnx \
+  --paraformer-decoder=./sherpa-onnx-streaming-paraformer-bilingual-zh-en/decoder.int8.onnx \
+  ./sherpa-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/0.wav \
+  ./sherpa-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/1.wav \
+  ./sherpa-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/2.wav \
+  ./sherpa-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/3.wav \
+  ./sherpa-onnx-streaming-paraformer-bilingual-zh-en/test_wavs/8k.wav
 
 (3) Streaming Zipformer2 CTC
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
-tar xvf edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
-rm edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
-ls -lh edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
+tar xvf sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
+rm sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13.tar.bz2
+ls -lh sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13
 
 ./python-api-examples/online-decode-files.py \
-  --zipformer2-ctc=./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/ctc-epoch-20-avg-1-chunk-16-left-128.onnx \
-  --tokens=./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/tokens.txt \
-  ./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000000.wav \
-  ./edgevox-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000001.wav
+  --zipformer2-ctc=./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/ctc-epoch-20-avg-1-chunk-16-left-128.onnx \
+  --tokens=./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/tokens.txt \
+  ./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000000.wav \
+  ./sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13/test_wavs/DEV_T0000000001.wav
 
 (4) Streaming Conformer CTC from WeNet
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-zh-wenet-wenetspeech.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-zh-wenet-wenetspeech.tar.bz2
 tar xvf edgevox-onnx-zh-wenet-wenetspeech.tar.bz2
 rm edgevox-onnx-zh-wenet-wenetspeech.tar.bz2
 

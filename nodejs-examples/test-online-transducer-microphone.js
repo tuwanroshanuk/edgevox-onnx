@@ -8,17 +8,17 @@ const edgevox_onnx = require('edgevox-onnx');
 function createOnlineRecognizer() {
   let onlineTransducerModelConfig = {
     encoder:
-        './edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.int8.onnx',
+        './sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.int8.onnx',
     decoder:
-        './edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx',
+        './sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx',
     joiner:
-        './edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.int8.onnx',
+        './sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.int8.onnx',
   };
 
   let onlineModelConfig = {
     transducer: onlineTransducerModelConfig,
     tokens:
-        './edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt',
+        './sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt',
     numThreads: 1,
     provider: 'cpu',
     debug: 1,

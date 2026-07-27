@@ -16,13 +16,13 @@ from gen_calib_configs import SENTENCES
 config = edgevox_onnx.OfflineTtsConfig(
     model=edgevox_onnx.OfflineTtsModelConfig(
         supertonic=edgevox_onnx.OfflineTtsSupertonicModelConfig(
-            duration_predictor="./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
-            text_encoder="./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
-            vector_estimator="./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
-            vocoder="./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
-            tts_json="./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
-            unicode_indexer="./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
-            voice_style="./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin",
+            duration_predictor="./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+            text_encoder="./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+            vector_estimator="./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+            vocoder="./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+            tts_json="./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+            unicode_indexer="./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+            voice_style="./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin",
         ),
         debug=False,
         num_threads=2,

@@ -5,13 +5,13 @@ const edgevox_onnx = require('edgevox-onnx');
 /* Please use the following commands to download files
    used in this script
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-segmentation-models/edgevox-onnx-pyannote-segmentation-3-0.tar.bz2
-tar xvf edgevox-onnx-pyannote-segmentation-3-0.tar.bz2
-rm edgevox-onnx-pyannote-segmentation-3-0.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-segmentation-models/sherpa-onnx-pyannote-segmentation-3-0.tar.bz2
+tar xvf sherpa-onnx-pyannote-segmentation-3-0.tar.bz2
+rm sherpa-onnx-pyannote-segmentation-3-0.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-segmentation-models/0-four-speakers-zh.wav
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-segmentation-models/0-four-speakers-zh.wav
 
  */
 // clang-format on
@@ -19,7 +19,7 @@ curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-seg
 const config = {
   segmentation: {
     pyannote: {
-      model: './edgevox-onnx-pyannote-segmentation-3-0/model.onnx',
+      model: './sherpa-onnx-pyannote-segmentation-3-0/model.onnx',
       debug: 1,
     },
   },

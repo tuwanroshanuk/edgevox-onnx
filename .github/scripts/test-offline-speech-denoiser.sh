@@ -20,8 +20,8 @@ which $EXE
 log "------------------------------------------------------------"
 log "Run gtcrn"
 log "------------------------------------------------------------"
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/gtcrn_simple.onnx
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/speech_with_noise.wav
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/gtcrn_simple.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/speech_with_noise.wav
 
 $EXE \
   --debug=1 \

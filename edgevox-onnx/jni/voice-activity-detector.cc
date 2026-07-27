@@ -16,7 +16,7 @@ static VadModelConfig GetVadModelConfig(JNIEnv *env, jobject config, bool *ok) {
 
   // silero_vad
   fid = env->GetFieldID(cls, "sileroVadModelConfig",
-                        "Lcom/k2fsa/sherpa/onnx/SileroVadModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/SileroVadModelConfig;");
   jobject silero_vad_config = env->GetObjectField(config, fid);
   jclass silero_vad_config_cls = env->GetObjectClass(silero_vad_config);
 
@@ -42,7 +42,7 @@ static VadModelConfig GetVadModelConfig(JNIEnv *env, jobject config, bool *ok) {
                              silero_vad_config);
 
   fid = env->GetFieldID(cls, "tenVadModelConfig",
-                        "Lcom/k2fsa/sherpa/onnx/TenVadModelConfig;");
+                        "Lcom/nexus/edgevox/onnx/TenVadModelConfig;");
   jobject ten_vad_config = env->GetObjectField(config, fid);
   jclass ten_vad_config_cls = env->GetObjectClass(ten_vad_config);
 
@@ -80,7 +80,7 @@ static VadModelConfig GetVadModelConfig(JNIEnv *env, jobject config, bool *ok) {
 }  // namespace edgevox_onnx
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jlong JNICALL Java_com_k2fsa_edgevox_onnx_Vad_newFromAsset(
+JNIEXPORT jlong JNICALL Java_com_nexus_edgevox_onnx_Vad_newFromAsset(
     JNIEnv *env, jobject /*obj*/, jobject asset_manager, jobject _config) {
 #if __ANDROID_API__ >= 9
   AAssetManager *mgr = AAssetManager_fromJava(env, asset_manager);
@@ -110,7 +110,7 @@ JNIEXPORT jlong JNICALL Java_com_k2fsa_edgevox_onnx_Vad_newFromAsset(
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jlong JNICALL Java_com_k2fsa_edgevox_onnx_Vad_newFromFile(
+JNIEXPORT jlong JNICALL Java_com_nexus_edgevox_onnx_Vad_newFromFile(
     JNIEnv *env, jobject /*obj*/, jobject _config) {
   bool ok = false;
   auto config = edgevox_onnx::GetVadModelConfig(env, _config, &ok);
@@ -133,14 +133,14 @@ JNIEXPORT jlong JNICALL Java_com_k2fsa_edgevox_onnx_Vad_newFromFile(
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_Vad_delete(JNIEnv * /*env*/,
+JNIEXPORT void JNICALL Java_com_nexus_edgevox_onnx_Vad_delete(JNIEnv * /*env*/,
                                                              jobject /*obj*/,
                                                              jlong ptr) {
   delete reinterpret_cast<edgevox_onnx::VoiceActivityDetector *>(ptr);
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_Vad_acceptWaveform(
+JNIEXPORT void JNICALL Java_com_nexus_edgevox_onnx_Vad_acceptWaveform(
     JNIEnv *env, jobject /*obj*/, jlong ptr, jfloatArray samples) {
   SafeJNI(env, "Vad_acceptWaveform", [&] {
     if (!ValidatePointer(env, ptr, "Vad_acceptWaveform",
@@ -159,14 +159,14 @@ JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_Vad_acceptWaveform(
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jboolean JNICALL Java_com_k2fsa_edgevox_onnx_Vad_empty(
+JNIEXPORT jboolean JNICALL Java_com_nexus_edgevox_onnx_Vad_empty(
     JNIEnv * /*env*/, jobject /*obj*/, jlong ptr) {
   auto model = reinterpret_cast<edgevox_onnx::VoiceActivityDetector *>(ptr);
   return model->Empty();
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_Vad_pop(JNIEnv * /*env*/,
+JNIEXPORT void JNICALL Java_com_nexus_edgevox_onnx_Vad_pop(JNIEnv * /*env*/,
                                                           jobject /*obj*/,
                                                           jlong ptr) {
   auto model = reinterpret_cast<edgevox_onnx::VoiceActivityDetector *>(ptr);
@@ -174,7 +174,7 @@ JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_Vad_pop(JNIEnv * /*env*/,
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_Vad_clear(JNIEnv * /*env*/,
+JNIEXPORT void JNICALL Java_com_nexus_edgevox_onnx_Vad_clear(JNIEnv * /*env*/,
                                                             jobject /*obj*/,
                                                             jlong ptr) {
   auto model = reinterpret_cast<edgevox_onnx::VoiceActivityDetector *>(ptr);
@@ -182,7 +182,7 @@ JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_Vad_clear(JNIEnv * /*env*/,
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jobject JNICALL Java_com_k2fsa_edgevox_onnx_Vad_front(JNIEnv *env,
+JNIEXPORT jobject JNICALL Java_com_nexus_edgevox_onnx_Vad_front(JNIEnv *env,
                                                                jobject /*obj*/,
                                                                jlong ptr) {
   auto vad = reinterpret_cast<edgevox_onnx::VoiceActivityDetector *>(ptr);
@@ -204,9 +204,9 @@ JNIEXPORT jobject JNICALL Java_com_k2fsa_edgevox_onnx_Vad_front(JNIEnv *env,
                            static_cast<jsize>(front.samples.size()),
                            front.samples.data());
 
-  jclass cls = env->FindClass("com/k2fsa/sherpa/onnx/SpeechSegment");
+  jclass cls = env->FindClass("com/nexus/edgevox/onnx/SpeechSegment");
   if (!cls) {
-    EDGEVOX_ONNX_LOGE("Failed to find com/k2fsa/sherpa/onnx/SpeechSegment");
+    EDGEVOX_ONNX_LOGE("Failed to find com/nexus/edgevox/onnx/SpeechSegment");
 
     env->DeleteLocalRef(samples_arr);
     return nullptr;
@@ -231,14 +231,14 @@ JNIEXPORT jobject JNICALL Java_com_k2fsa_edgevox_onnx_Vad_front(JNIEnv *env,
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jboolean JNICALL Java_com_k2fsa_edgevox_onnx_Vad_isSpeechDetected(
+JNIEXPORT jboolean JNICALL Java_com_nexus_edgevox_onnx_Vad_isSpeechDetected(
     JNIEnv * /*env*/, jobject /*obj*/, jlong ptr) {
   auto model = reinterpret_cast<edgevox_onnx::VoiceActivityDetector *>(ptr);
   return model->IsSpeechDetected();
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_Vad_reset(JNIEnv *env,
+JNIEXPORT void JNICALL Java_com_nexus_edgevox_onnx_Vad_reset(JNIEnv *env,
                                                             jobject /*obj*/,
                                                             jlong ptr) {
   SafeJNI(env, "Vad_reset", [&] {
@@ -253,7 +253,7 @@ JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_Vad_reset(JNIEnv *env,
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_Vad_flush(JNIEnv * /*env*/,
+JNIEXPORT void JNICALL Java_com_nexus_edgevox_onnx_Vad_flush(JNIEnv * /*env*/,
                                                             jobject /*obj*/,
                                                             jlong ptr) {
   auto model = reinterpret_cast<edgevox_onnx::VoiceActivityDetector *>(ptr);
@@ -261,7 +261,7 @@ JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_Vad_flush(JNIEnv * /*env*/,
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jfloat JNICALL Java_com_k2fsa_edgevox_onnx_Vad_compute(
+JNIEXPORT jfloat JNICALL Java_com_nexus_edgevox_onnx_Vad_compute(
     JNIEnv *env, jobject /*obj*/, jlong ptr, jfloatArray samples) {
   return SafeJNI(
       env, "Vad_compute",

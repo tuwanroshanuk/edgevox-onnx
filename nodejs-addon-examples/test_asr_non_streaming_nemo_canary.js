@@ -2,7 +2,7 @@
 const edgevox_onnx = require('edgevox-onnx-node');
 
 // Please download test files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 const config = {
   'featConfig': {
     'sampleRate': 16000,
@@ -11,15 +11,15 @@ const config = {
   'modelConfig': {
     'canary': {
       'encoder':
-          './edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/encoder.int8.onnx',
+          './sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/encoder.int8.onnx',
       'decoder':
-          './edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/decoder.int8.onnx',
+          './sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/decoder.int8.onnx',
       'srcLang': 'en',
       'tgtLang': 'en',
       'usePnc': 1,
     },
     'tokens':
-        './edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/tokens.txt',
+        './sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/tokens.txt',
     'numThreads': 2,
     'provider': 'cpu',
     'debug': 0,
@@ -27,7 +27,7 @@ const config = {
 };
 
 const waveFilename =
-    './edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/en.wav';
+    './sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8/test_wavs/en.wav';
 
 const recognizer = new edgevox_onnx.OfflineRecognizer(config);
 console.log('Started');

@@ -10,10 +10,10 @@ fi
 # please visit
 # https://k2-fsa.github.io/sherpa/onnx/tts/supertonic.html
 # to download more models
-if [ ! -f ./edgevox-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
-  tar xf edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
-  rm edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+if [ ! -f ./sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx ]; then
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+  tar xf sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+  rm sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
 fi
 
 if [ ! -e ./tts-supertonic-en ]; then

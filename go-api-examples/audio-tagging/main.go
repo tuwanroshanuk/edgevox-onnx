@@ -2,23 +2,23 @@ package main
 
 import (
 	"fmt"
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 	"log"
 )
 
 func main() {
 	config := sherpa.AudioTaggingConfig{}
-	config.Model.Zipformer.Model = "./edgevox-onnx-zipformer-small-audio-tagging-2024-04-15/model.int8.onnx"
+	config.Model.Zipformer.Model = "./sherpa-onnx-zipformer-small-audio-tagging-2024-04-15/model.int8.onnx"
 	config.Model.NumThreads = 1
 	config.Model.Debug = 1
 	config.Model.Provider = "cpu"
-	config.Labels = "./edgevox-onnx-zipformer-small-audio-tagging-2024-04-15/class_labels_indices.csv"
+	config.Labels = "./sherpa-onnx-zipformer-small-audio-tagging-2024-04-15/class_labels_indices.csv"
 	config.TopK = 5
 
 	tagging := sherpa.NewAudioTagging(&config)
 	defer sherpa.DeleteAudioTagging(tagging)
 
-	wave_filename := "./edgevox-onnx-zipformer-small-audio-tagging-2024-04-15/test_wavs/3.wav"
+	wave_filename := "./sherpa-onnx-zipformer-small-audio-tagging-2024-04-15/test_wavs/3.wav"
 
 	wave := sherpa.ReadWave(wave_filename)
 	if wave == nil {

@@ -9,14 +9,14 @@ const config = {
   'modelConfig': {
     'cohereTranscribe': {
       'encoder':
-          './edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/encoder.int8.onnx',
+          './sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/encoder.int8.onnx',
       'decoder':
-          './edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/decoder.int8.onnx',
+          './sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/decoder.int8.onnx',
       'usePunct': 1,
       'useItn': 1,
     },
     'tokens':
-        './edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/tokens.txt',
+        './sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/tokens.txt',
     'numThreads': 2,
     'provider': 'cpu',
     'debug': 0,
@@ -24,7 +24,7 @@ const config = {
 };
 
 const waveFilename =
-    './edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/en.wav';
+    './sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/test_wavs/en.wav';
 
 const recognizer = new edgevox_onnx.OfflineRecognizer(config);
 const stream = recognizer.createStream();

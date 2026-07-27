@@ -469,7 +469,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "-lc++";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.k2-fsa.org.EdgevoxOnnx";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.k2-fsa.org.SherpaOnnx";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/../../swift-api-examples/EdgevoxOnnx-Bridging-Header.h";
@@ -502,7 +502,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "-lc++";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.k2-fsa.org.EdgevoxOnnx";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.k2-fsa.org.SherpaOnnx";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/../../swift-api-examples/EdgevoxOnnx-Bridging-Header.h";
@@ -521,7 +521,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.k2-fsa.org.EdgevoxOnnxTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.k2-fsa.org.SherpaOnnxTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -540,7 +540,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.k2-fsa.org.EdgevoxOnnxTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.k2-fsa.org.SherpaOnnxTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -557,7 +557,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.k2-fsa.org.EdgevoxOnnxUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.k2-fsa.org.SherpaOnnxUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -574,7 +574,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.k2-fsa.org.EdgevoxOnnxUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.k2-fsa.org.SherpaOnnxUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

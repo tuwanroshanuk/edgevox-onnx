@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -ex
 
-if [ ! -f ./edgevox-onnx-pocket-tts-int8-2026-01-26/encoder.onnx ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
-  tar xvf edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
-  rm edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+if [ ! -f ./sherpa-onnx-pocket-tts-int8-2026-01-26/encoder.onnx ]; then
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+  tar xvf sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+  rm sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
 fi
 
 cargo run --example pocket_tts

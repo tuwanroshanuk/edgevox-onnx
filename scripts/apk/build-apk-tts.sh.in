@@ -51,19 +51,19 @@ supertonic_tts_json={{ tts_model.supertonic_tts_json }}
 supertonic_unicode_indexer={{ tts_model.supertonic_unicode_indexer }}
 supertonic_voice_style={{ tts_model.supertonic_voice_style }}
 
-wget -qq https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/$model_dir.tar.bz2
+wget -qq https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/$model_dir.tar.bz2
 tar xf $model_dir.tar.bz2
 rm $model_dir.tar.bz2
 
 {% if tts_model.vocoder %}
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/$vocoder
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/$vocoder
 {% endif %}
 
 popd
 # Now we are at the project root directory
 
 git checkout .
-pushd android/EdgevoxOnnxTts/app/src/main/java/com/k2fsa/sherpa/onnx
+pushd android/EdgevoxOnnxTts/app/src/main/java/com/nexus/edgevox/onnx
 sed -i.bak s/"modelDir = null"/"modelDir = \"$model_dir\""/ ./MainActivity.kt
 
 

@@ -1,1 +1,1 @@
-../sherpa-onnx/kotlin-api/AudioTagging.kt
+../edgevox-onnx/kotlin-api/AudioTagging.kt

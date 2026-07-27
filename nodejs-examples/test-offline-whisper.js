@@ -8,13 +8,13 @@ console.log(`git date: ${edgevox_onnx.gitDate}`);
 function createOfflineRecognizer() {
   let modelConfig = {
     whisper: {
-      encoder: './edgevox-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx',
-      decoder: './edgevox-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx',
+      encoder: './sherpa-onnx-whisper-tiny.en/tiny.en-encoder.int8.onnx',
+      decoder: './sherpa-onnx-whisper-tiny.en/tiny.en-decoder.int8.onnx',
       language: '',
       task: 'transcribe',
       tailPaddings: -1,
     },
-    tokens: './edgevox-onnx-whisper-tiny.en/tiny.en-tokens.txt',
+    tokens: './sherpa-onnx-whisper-tiny.en/tiny.en-tokens.txt',
   };
 
   let config = {
@@ -27,7 +27,7 @@ function createOfflineRecognizer() {
 const recognizer = createOfflineRecognizer();
 const stream = recognizer.createStream();
 
-const waveFilename = './edgevox-onnx-whisper-tiny.en/test_wavs/0.wav';
+const waveFilename = './sherpa-onnx-whisper-tiny.en/test_wavs/0.wav';
 const wave = edgevox_onnx.readWave(waveFilename);
 stream.acceptWaveform(wave.sampleRate, wave.samples);
 

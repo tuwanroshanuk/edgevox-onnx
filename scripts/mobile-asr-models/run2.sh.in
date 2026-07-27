@@ -6,10 +6,10 @@ set -e
 src={{ model.model_name }}
 
 if [[ $src == *kws* ]]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/kws-models/$src.tar.bz2
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/kws-models/$src.tar.bz2
 
 else
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/$src.tar.bz2
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/$src.tar.bz2
 fi
 
 tar xvf $src.tar.bz2

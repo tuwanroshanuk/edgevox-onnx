@@ -15,10 +15,10 @@ async function createRecognizerAsync(numThreads = 2, debug = 1) {
     modelConfig: {
       fireRedAsrCtc: {
         model:
-            './edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/model.int8.onnx',
+            './sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/model.int8.onnx',
       },
       tokens:
-          './edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/tokens.txt',
+          './sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25/tokens.txt',
       numThreads,
       provider: 'cpu',
       debug,
@@ -40,7 +40,7 @@ function createStreamFromFile(recognizer, file) {
 }
 
 async function main() {
-  const modelDir = './edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25';
+  const modelDir = './sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25';
 
   // Async recognizer creation
   const recognizer = await createRecognizerAsync(modelDir);

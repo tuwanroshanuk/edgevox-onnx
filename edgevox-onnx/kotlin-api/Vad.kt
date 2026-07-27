@@ -1,5 +1,5 @@
 // Copyright (c)  2023  Xiaomi Corporation
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 import android.content.res.AssetManager
 
@@ -105,13 +105,13 @@ class Vad(
 }
 
 // Please visit
-// https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+// https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 // to download silero_vad.onnx
 // and put it inside the assets/
 // directory
 //
 // For ten-vad, please use
-// https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/ten-vad.onnx
+// https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/ten-vad.onnx
 //
 fun getVadModelConfig(type: Int): VadModelConfig? {
     when (type) {

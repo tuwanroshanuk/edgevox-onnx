@@ -9,9 +9,9 @@
 // external files API.
 // clang-format off
 // 
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/kws-models/edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile.tar.bz2
-// tar xvf edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile.tar.bz2
-// rm edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/kws-models/sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile.tar.bz2
+// tar xvf sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile.tar.bz2
+// rm sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile.tar.bz2
 //
 // clang-format on
 
@@ -50,22 +50,22 @@ static size_t ReadFile(const char *filename, const char **buffer_out) {
 
 int32_t main() {
   const char *wav_filename =
-      "edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/test_wavs/"
+      "sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/test_wavs/"
       "6.wav";
   const char *encoder_filename =
-      "edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+      "sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
       "encoder-epoch-12-avg-2-chunk-16-left-64.int8.onnx";
   const char *decoder_filename =
-      "edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+      "sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
       "decoder-epoch-12-avg-2-chunk-16-left-64.onnx";
   const char *joiner_filename =
-      "edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
+      "sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/"
       "joiner-epoch-12-avg-2-chunk-16-left-64.int8.onnx";
   const char *provider = "cpu";
   const char *tokens_filename =
-      "edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/tokens.txt";
+      "sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/tokens.txt";
   const char *keywords_filename =
-      "edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/test_wavs/"
+      "sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01-mobile/test_wavs/"
       "test_keywords.txt";
   const EdgevoxOnnxWave *wave = EdgevoxOnnxReadWave(wav_filename);
   if (wave == NULL) {

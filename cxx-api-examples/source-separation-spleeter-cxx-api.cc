@@ -9,10 +9,10 @@
 //
 // 1. Download the test model and audio
 //
-//  wget https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/edgevox-onnx-spleeter-2stems-fp16.tar.bz2
-//  tar xjf edgevox-onnx-spleeter-2stems-fp16.tar.bz2
+//  wget https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/sherpa-onnx-spleeter-2stems-fp16.tar.bz2
+//  tar xjf sherpa-onnx-spleeter-2stems-fp16.tar.bz2
 //
-//  wget https://github.com/k2-fsa/edgevox-onnx/releases/download/source-separation-models/qi-feng-le-zh.wav
+//  wget https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/qi-feng-le-zh.wav
 //
 // 2. Build
 //
@@ -39,9 +39,9 @@ int32_t main() {
 
   OfflineSourceSeparationConfig config;
   config.model.spleeter.vocals =
-      "./edgevox-onnx-spleeter-2stems-fp16/vocals.fp16.onnx";
+      "./sherpa-onnx-spleeter-2stems-fp16/vocals.fp16.onnx";
   config.model.spleeter.accompaniment =
-      "./edgevox-onnx-spleeter-2stems-fp16/accompaniment.fp16.onnx";
+      "./sherpa-onnx-spleeter-2stems-fp16/accompaniment.fp16.onnx";
   config.model.num_threads = 1;
 
   auto ss = OfflineSourceSeparation::Create(config);

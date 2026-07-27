@@ -20,4 +20,4 @@ export PKG_CONFIG_PATH=/usr/local/Cellar/portaudio/19.7.0
 
 so that `pkg-config --cflags --libs portaudio-2.0` can run successfully.
 
-[edgevox-onnx]: https://github.com/k2-fsa/edgevox-onnx
+[sherpa-onnx]: https://github.com/k2-fsa/sherpa-onnx

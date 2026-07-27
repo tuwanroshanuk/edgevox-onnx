@@ -8,7 +8,7 @@ Future<edgevox_onnx.OnlineModelConfig> getOnlineModelConfig(
   switch (type) {
     case 0:
       final modelDir =
-          'assets/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20';
+          'assets/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20';
       return edgevox_onnx.OnlineModelConfig(
         transducer: edgevox_onnx.OnlineTransducerModelConfig(
           encoder:
@@ -20,7 +20,7 @@ Future<edgevox_onnx.OnlineModelConfig> getOnlineModelConfig(
         modelType: 'zipformer',
       );
     case 1:
-      final modelDir = 'assets/edgevox-onnx-streaming-zipformer-en-2023-06-26';
+      final modelDir = 'assets/sherpa-onnx-streaming-zipformer-en-2023-06-26';
       return edgevox_onnx.OnlineModelConfig(
         transducer: edgevox_onnx.OnlineTransducerModelConfig(
           encoder: await copyAssetFile(
@@ -49,7 +49,7 @@ Future<edgevox_onnx.OnlineModelConfig> getOnlineModelConfig(
         modelType: 'zipformer2',
       );
     case 3:
-      final modelDir = 'assets/edgevox-onnx-streaming-zipformer-fr-2023-04-14';
+      final modelDir = 'assets/sherpa-onnx-streaming-zipformer-fr-2023-04-14';
       return edgevox_onnx.OnlineModelConfig(
         transducer: edgevox_onnx.OnlineTransducerModelConfig(
           encoder: await copyAssetFile(

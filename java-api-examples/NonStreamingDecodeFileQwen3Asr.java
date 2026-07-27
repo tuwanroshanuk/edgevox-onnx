@@ -3,11 +3,11 @@
 // This file shows how to use an offline Qwen3 ASR model,
 // i.e., non-streaming Qwen3 ASR model,
 // to decode files.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingDecodeFileQwen3Asr {
   public static void main(String[] args) {
-    String modelDir = "./edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25";
+    String modelDir = "./sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25";
     String convFrontend = modelDir + "/conv_frontend.onnx";
     String encoder = modelDir + "/encoder.int8.onnx";
     String decoder = modelDir + "/decoder.int8.onnx";

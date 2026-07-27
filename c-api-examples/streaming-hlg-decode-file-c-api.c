@@ -7,10 +7,10 @@ We use the following model as an example
 // clang-format off
 
 Download the model from
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
 
-tar xvf edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
-rm edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+tar xvf sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+rm sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
 
 build/bin/streaming-hlg-decode-file-c-api
 
@@ -26,11 +26,11 @@ int32_t main() {
   // clang-format off
   //
   // Please download the model from
-  // https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
-  const char *model = "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx";
-  const char *tokens = "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt";
-  const char *graph = "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst";
-  const char *wav_filename = "./edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/8k.wav";
+  // https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+  const char *model = "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/ctc-epoch-30-avg-3-chunk-16-left-128.int8.onnx";
+  const char *tokens = "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/tokens.txt";
+  const char *graph = "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/HLG.fst";
+  const char *wav_filename = "./sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18/test_wavs/8k.wav";
   // clang-format on
 
   EdgevoxOnnxOnlineRecognizerConfig config;

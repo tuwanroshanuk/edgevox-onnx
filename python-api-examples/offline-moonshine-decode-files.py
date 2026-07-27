@@ -6,13 +6,13 @@ https://github.com/usefulsensors/moonshine
 to decode files.
 
 Please download model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 
 For instance,
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
-tar xvf edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
-rm edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
+tar xvf sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
+rm sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
 """
 
 import datetime as dt
@@ -23,18 +23,18 @@ import soundfile as sf
 
 
 def create_recognizer():
-    preprocessor = "./edgevox-onnx-moonshine-tiny-en-int8/preprocess.onnx"
-    encoder = "./edgevox-onnx-moonshine-tiny-en-int8/encode.int8.onnx"
-    uncached_decoder = "./edgevox-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx"
-    cached_decoder = "./edgevox-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx"
+    preprocessor = "./sherpa-onnx-moonshine-tiny-en-int8/preprocess.onnx"
+    encoder = "./sherpa-onnx-moonshine-tiny-en-int8/encode.int8.onnx"
+    uncached_decoder = "./sherpa-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx"
+    cached_decoder = "./sherpa-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx"
 
-    tokens = "./edgevox-onnx-moonshine-tiny-en-int8/tokens.txt"
-    test_wav = "./edgevox-onnx-moonshine-tiny-en-int8/test_wavs/0.wav"
+    tokens = "./sherpa-onnx-moonshine-tiny-en-int8/tokens.txt"
+    test_wav = "./sherpa-onnx-moonshine-tiny-en-int8/test_wavs/0.wav"
 
     if not Path(preprocessor).is_file() or not Path(test_wav).is_file():
         raise ValueError(
             """Please download model files from
-            https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+            https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
             """
         )
     return (

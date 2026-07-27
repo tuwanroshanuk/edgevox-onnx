@@ -2,13 +2,13 @@
 
 // This file shows how to use an online T-one CTC model, i.e.,
 // streaming T-one CTC model, to decode files.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class StreamingDecodeFileToneCtc {
   public static void main(String[] args) {
-    String model = "./edgevox-onnx-streaming-t-one-russian-2025-09-08/model.onnx";
-    String tokens = "./edgevox-onnx-streaming-t-one-russian-2025-09-08/tokens.txt";
-    String waveFilename = "./edgevox-onnx-streaming-t-one-russian-2025-09-08/0.wav";
+    String model = "./sherpa-onnx-streaming-t-one-russian-2025-09-08/model.onnx";
+    String tokens = "./sherpa-onnx-streaming-t-one-russian-2025-09-08/tokens.txt";
+    String waveFilename = "./sherpa-onnx-streaming-t-one-russian-2025-09-08/0.wav";
 
     WaveReader reader = new WaveReader(waveFilename);
 

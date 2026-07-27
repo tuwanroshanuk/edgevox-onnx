@@ -30,12 +30,12 @@ var
   Config: TEdgevoxOnnxOfflineTtsConfig;
 begin
   Config := Default(TEdgevoxOnnxOfflineTtsConfig);
-  Config.Model.ZipVoice.Tokens := './edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt';
-  Config.Model.ZipVoice.Encoder := './edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx';
-  Config.Model.ZipVoice.Decoder := './edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx';
+  Config.Model.ZipVoice.Tokens := './sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt';
+  Config.Model.ZipVoice.Encoder := './sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx';
+  Config.Model.ZipVoice.Decoder := './sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx';
   Config.Model.ZipVoice.Vocoder := './vocos_24khz.onnx';
-  Config.Model.ZipVoice.DataDir := './edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data';
-  Config.Model.ZipVoice.Lexicon := './edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt';
+  Config.Model.ZipVoice.DataDir := './sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/espeak-ng-data';
+  Config.Model.ZipVoice.Lexicon := './sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt';
   Config.Model.ZipVoice.EspeakVoice := 'en-us';
   Config.Model.ZipVoice.FeatScale := 0.1;
   Config.Model.ZipVoice.Tshift := 0.5;
@@ -65,7 +65,7 @@ begin
   Text := '小米的价值观是真诚, 热爱. 真诚，就是不欺人也不自欺. 热爱, 就是全心投入并享受其中.';
   ReferenceText := '那还是三十六年前, 一九八七年. 我呢考上了武汉大学的计算机系.';
 
-  WaveFilename := './edgevox-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav';
+  WaveFilename := './sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/leijun-1.wav';
   Wave := EdgevoxOnnxReadWave(WaveFilename);
   GenerationConfig := Default(TEdgevoxOnnxGenerationConfig);
   GenerationConfig.SilenceScale := 0.2;

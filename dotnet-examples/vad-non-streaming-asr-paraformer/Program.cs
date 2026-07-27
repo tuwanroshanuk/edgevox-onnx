@@ -11,10 +11,10 @@ class VadNonStreamingAsrParaformer
   static void Main(string[] args)
   {
     // please download model files from
-    // https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+    // https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
     var config = new OfflineRecognizerConfig();
-    config.ModelConfig.Paraformer.Model = "./edgevox-onnx-paraformer-zh-2023-09-14/model.int8.onnx";
-    config.ModelConfig.Tokens = "./edgevox-onnx-paraformer-zh-2023-09-14/tokens.txt";
+    config.ModelConfig.Paraformer.Model = "./sherpa-onnx-paraformer-zh-2023-09-14/model.int8.onnx";
+    config.ModelConfig.Tokens = "./sherpa-onnx-paraformer-zh-2023-09-14/tokens.txt";
     config.ModelConfig.Debug = 0;
     var recognizer = new OfflineRecognizer(config);
 

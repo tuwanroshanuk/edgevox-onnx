@@ -14,7 +14,7 @@ namespace edgevox_onnx {
 void OnlineWenetCtcModelConfig::Register(ParseOptions *po) {
   po->Register("wenet-ctc-model", &model,
                "Path to CTC model.onnx from WeNet. Please see "
-               "https://github.com/k2-fsa/edgevox-onnx/pull/425");
+               "https://github.com/k2-fsa/sherpa-onnx/pull/425");
   po->Register("wenet-ctc-chunk-size", &chunk_size,
                "Chunk size after subsampling used for decoding.");
   po->Register("wenet-ctc-num-left-chunks", &num_left_chunks,

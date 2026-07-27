@@ -6,9 +6,9 @@
 // This file demonstrates how to use FunASR Nano with edgevox-onnx's C API.
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-funasr-nano-int8-2025-12-30.tar.bz2
-// tar xvf edgevox-onnx-funasr-nano-int8-2025-12-30.tar.bz2
-// rm edgevox-onnx-funasr-nano-int8-2025-12-30.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-funasr-nano-int8-2025-12-30.tar.bz2
+// tar xvf sherpa-onnx-funasr-nano-int8-2025-12-30.tar.bz2
+// rm sherpa-onnx-funasr-nano-int8-2025-12-30.tar.bz2
 //
 // clang-format on
 
@@ -20,11 +20,11 @@
 
 int32_t main() {
   // clang-format off
-  const char *wav_filename = "./edgevox-onnx-funasr-nano-int8-2025-12-30/test_wavs/dia_yue.wav";
-  const char *encoder_adaptor = "./edgevox-onnx-funasr-nano-int8-2025-12-30/encoder_adaptor.int8.onnx";
-  const char *embedding = "./edgevox-onnx-funasr-nano-int8-2025-12-30/embedding.int8.onnx";
-  const char *llm = "./edgevox-onnx-funasr-nano-int8-2025-12-30/llm.int8.onnx";
-  const char *tokenizer = "./edgevox-onnx-funasr-nano-int8-2025-12-30/Qwen3-0.6B";
+  const char *wav_filename = "./sherpa-onnx-funasr-nano-int8-2025-12-30/test_wavs/dia_yue.wav";
+  const char *encoder_adaptor = "./sherpa-onnx-funasr-nano-int8-2025-12-30/encoder_adaptor.int8.onnx";
+  const char *embedding = "./sherpa-onnx-funasr-nano-int8-2025-12-30/embedding.int8.onnx";
+  const char *llm = "./sherpa-onnx-funasr-nano-int8-2025-12-30/llm.int8.onnx";
+  const char *tokenizer = "./sherpa-onnx-funasr-nano-int8-2025-12-30/Qwen3-0.6B";
   // clang-format on
 
   const EdgevoxOnnxWave *wave = EdgevoxOnnxReadWave(wav_filename);

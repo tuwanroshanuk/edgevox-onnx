@@ -42,7 +42,7 @@ function createStreamFromFile(recognizer, file) {
 }
 
 async function main() {
-  const modelDir = './edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25';
+  const modelDir = './sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25';
 
   // Async recognizer creation
   const recognizer = await createRecognizerAsync(modelDir);

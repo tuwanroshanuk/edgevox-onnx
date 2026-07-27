@@ -13,9 +13,9 @@ extension AVAudioPCMBuffer {
 }
 
 func run() {
-  let encoder = "./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/encoder.int8.onnx"
-  let decoder = "./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/decoder.int8.onnx"
-  let tokens = "./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/tokens.txt"
+  let encoder = "./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/encoder.int8.onnx"
+  let decoder = "./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/decoder.int8.onnx"
+  let tokens = "./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/tokens.txt"
 
   let fireRedAsr = edgevoxOnnxOfflineFireRedAsrModelConfig(
     encoder: encoder,
@@ -39,7 +39,7 @@ func run() {
 
   let recognizer = EdgevoxOnnxOfflineRecognizer(config: &config)
 
-  let filePath = "./edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/0.wav"
+  let filePath = "./sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16/test_wavs/0.wav"
   let fileURL: NSURL = NSURL(fileURLWithPath: filePath)
   let audioFile = try! AVAudioFile(forReading: fileURL as URL)
 

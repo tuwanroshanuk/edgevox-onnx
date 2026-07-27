@@ -1,1 +1,1 @@
-../sherpa-onnx/kotlin-api/Vad.kt
+../edgevox-onnx/kotlin-api/Vad.kt

@@ -2,7 +2,7 @@
 const edgevox_onnx = require('edgevox-onnx-node');
 
 // Please download test files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 const config = {
   'featConfig': {
     'sampleRate': 16000,
@@ -11,10 +11,10 @@ const config = {
   'modelConfig': {
     'dolphin': {
       'model':
-          './edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/model.int8.onnx',
+          './sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/model.int8.onnx',
     },
     'tokens':
-        './edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/tokens.txt',
+        './sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/tokens.txt',
     'numThreads': 2,
     'provider': 'cpu',
     'debug': 1,
@@ -22,7 +22,7 @@ const config = {
 };
 
 const waveFilename =
-    './edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/test_wavs/0.wav';
+    './sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02/test_wavs/0.wav';
 
 const recognizer = new edgevox_onnx.OfflineRecognizer(config);
 console.log('Started');

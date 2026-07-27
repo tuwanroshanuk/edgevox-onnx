@@ -40,7 +40,7 @@ model_name={{ model.model_name }}
 short_name={{ model.short_name }}
 type={{ model.idx }}
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/audio-tagging-models/${model_name}.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/audio-tagging-models/${model_name}.tar.bz2
 tar xvf ${model_name}.tar.bz2
 rm -rfv $model_name/model.onnx
 rm -rfv $model_name/test_wavs
@@ -51,7 +51,7 @@ popd
 # Now we are at the project root directory
 
 git checkout .
-pushd android/EdgevoxOnnxAudioTagging/app/src/main/java/com/k2fsa/sherpa/onnx/audio/tagging/
+pushd android/EdgevoxOnnxAudioTagging/app/src/main/java/com/nexus/edgevox/onnx/audio/tagging/
 sed -i.bak s/"type = 0/type = $type/" ./Tagger.kt
 git diff
 popd

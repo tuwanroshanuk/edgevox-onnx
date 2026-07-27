@@ -20,13 +20,13 @@
 //! let mut config = OfflineRecognizerConfig::default();
 //! config.model_config.sense_voice = OfflineSenseVoiceModelConfig {
 //!     model: Some(
-//!         "./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/model.int8.onnx".into(),
+//!         "./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/model.int8.onnx".into(),
 //!     ),
 //!     language: Some("auto".into()),
 //!     use_itn: true,
 //! };
 //! config.model_config.tokens = Some(
-//!     "./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/tokens.txt".into(),
+//!     "./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8/tokens.txt".into(),
 //! );
 //!
 //! let recognizer = OfflineRecognizer::create(&config).expect("create recognizer");
@@ -633,12 +633,12 @@ pub struct OfflineRecognizerResult {
 /// let wave = Wave::read("./test.wav").expect("read wave");
 /// let mut config = OfflineRecognizerConfig::default();
 /// config.model_config.transducer = OfflineTransducerModelConfig {
-///     encoder: Some("./edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/encoder.int8.onnx".into()),
-///     decoder: Some("./edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/decoder.int8.onnx".into()),
-///     joiner: Some("./edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/joiner.int8.onnx".into()),
+///     encoder: Some("./sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/encoder.int8.onnx".into()),
+///     decoder: Some("./sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/decoder.int8.onnx".into()),
+///     joiner: Some("./sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/joiner.int8.onnx".into()),
 /// };
 /// config.model_config.tokens =
-///     Some("./edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8/tokens.txt".into());
+///     Some("./sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8/tokens.txt".into());
 /// config.model_config.model_type = Some("nemo_transducer".into());
 ///
 /// let recognizer = OfflineRecognizer::create(&config).expect("create recognizer");

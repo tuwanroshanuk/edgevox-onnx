@@ -3,13 +3,13 @@
 // This file shows how to use a punctuation model to add punctuations to text.
 //
 // The model supports both English and Chinese.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class OfflineAddPunctuation {
   public static void main(String[] args) {
     // please download the model from
-    // https://github.com/k2-fsa/edgevox-onnx/releases/tag/punctuation-models
-    String model = "./edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx";
+    // https://github.com/k2-fsa/sherpa-onnx/releases/tag/punctuation-models
+    String model = "./sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx";
     OfflinePunctuationModelConfig modelConfig =
         OfflinePunctuationModelConfig.builder()
             .setCtTransformer(model)

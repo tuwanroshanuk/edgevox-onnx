@@ -17,7 +17,7 @@
 namespace edgevox_onnx {
 
 // see
-// https://github.com/k2-fsa/edgevox-onnx/blob/master/scripts/nemo/canary/test_180m_flash.py
+// https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/nemo/canary/test_180m_flash.py
 class OfflineCanaryModel {
  public:
   explicit OfflineCanaryModel(const OfflineModelConfig &config);

@@ -3,10 +3,10 @@
 // This file shows how to do keyword spotting with edgevox-onnx.
 //
 // 1. Download a model from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/kws-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/kws-models
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/kws-models/edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
-// tar xvf edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/kws-models/sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
+// tar xvf sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
 //
 // 2. Now run it
 //
@@ -22,19 +22,19 @@ class KeywordSpotterDemo
     config.FeatConfig.SampleRate = 16000;
     config.FeatConfig.FeatureDim = 80;
 
-    config.ModelConfig.Transducer.Encoder = "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/encoder-epoch-12-avg-2-chunk-16-left-64.onnx";
-    config.ModelConfig.Transducer.Decoder = "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/decoder-epoch-12-avg-2-chunk-16-left-64.onnx";
-    config.ModelConfig.Transducer.Joiner = "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/joiner-epoch-12-avg-2-chunk-16-left-64.onnx";
+    config.ModelConfig.Transducer.Encoder = "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/encoder-epoch-12-avg-2-chunk-16-left-64.onnx";
+    config.ModelConfig.Transducer.Decoder = "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/decoder-epoch-12-avg-2-chunk-16-left-64.onnx";
+    config.ModelConfig.Transducer.Joiner = "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/joiner-epoch-12-avg-2-chunk-16-left-64.onnx";
 
-    config.ModelConfig.Tokens = "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/tokens.txt";
+    config.ModelConfig.Tokens = "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/tokens.txt";
     config.ModelConfig.Provider = "cpu";
     config.ModelConfig.NumThreads = 1;
     config.ModelConfig.Debug = 1;
-    config.KeywordsFile = "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/test_keywords.txt";
+    config.KeywordsFile = "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/test_keywords.txt";
 
     var kws = new KeywordSpotter(config);
 
-    var filename = "./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/3.wav";
+    var filename = "./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/3.wav";
 
     var waveReader = new WaveReader(filename);
 

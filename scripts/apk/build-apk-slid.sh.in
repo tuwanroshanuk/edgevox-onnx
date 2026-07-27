@@ -40,7 +40,7 @@ model_name={{ model.model_name }}
 short_name={{ model.short_name }}
 type={{ model.idx }}
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/${model_name}.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/${model_name}.tar.bz2
 tar xvf ${model_name}.tar.bz2
 rm -rfv $model_name/*-encoder.onnx
 rm -rfv $model_name/*-decoder.onnx
@@ -55,7 +55,7 @@ popd
 # Now we are at the project root directory
 
 git checkout .
-pushd android/EdgevoxOnnxSpokenLanguageIdentification/app/src/main/java/com/k2fsa/sherpa/onnx/slid/
+pushd android/EdgevoxOnnxSpokenLanguageIdentification/app/src/main/java/com/nexus/edgevox/onnx/slid/
 sed -i.bak s/"type = 0/type = $type/" ./slid.kt
 git diff
 popd

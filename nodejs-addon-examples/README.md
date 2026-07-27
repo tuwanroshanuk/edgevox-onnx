@@ -143,10 +143,10 @@ The following tables list the examples in this folder.
 |[./test_asr_non_streaming_cohere_transcribe_async.js](./test_asr_non_streaming_cohere_transcribe_async.js)|Async non-streaming speech recognition from multiple files using a Cohere Transcribe model|
 |[./test_asr_non_streaming_qwen3_asr.js](./test_asr_non_streaming_qwen3_asr.js)|Non-streaming speech recognition from a file using a [Qwen3 ASR](https://github.com/QwenLM/Qwen3-ASR) model|
 |[./test_asr_non_streaming_qwen3_asr_async.js](./test_asr_non_streaming_qwen3_asr_async.js)|Async non-streaming speech recognition from multiple files using a [Qwen3 ASR](https://github.com/QwenLM/Qwen3-ASR) model|
-|[./test_asr_non_streaming_nemo_canary.js](./test_asr_non_streaming_nemo_canary.js)|Non-streaming speech recognition from a file using a [NeMo](https://github.com/NVIDIA/NeMo) [Canary](https://k2-fsa.github.io/sherpa/onnx/nemo/canary.html#edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8-english-spanish-german-french) model|
+|[./test_asr_non_streaming_nemo_canary.js](./test_asr_non_streaming_nemo_canary.js)|Non-streaming speech recognition from a file using a [NeMo](https://github.com/NVIDIA/NeMo) [Canary](https://k2-fsa.github.io/sherpa/onnx/nemo/canary.html#sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8-english-spanish-german-french) model|
 |[./test_asr_non_streaming_zipformer_ctc.js](./test_asr_non_streaming_zipformer_ctc.js)|Non-streaming speech recognition from a file using a Zipformer CTC model with greedy search|
-|[./test_asr_non_streaming_nemo_parakeet_tdt_v2.js](./test_asr_non_streaming_nemo_parakeet_tdt_v2.js)|Non-streaming speech recognition from a file using a [NeMo](https://github.com/NVIDIA/NeMo) [parakeet-tdt-0.6b-v2](https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-transducer/nemo-transducer-models.html#edgevox-onnx-nemo-parakeet-tdt-0-6b-v2-int8-english) model with greedy search|
-|[./test_asr_non_streaming_nemo_parakeet_tdt_v2_hotwords.js](./test_asr_non_streaming_nemo_parakeet_tdt_v2_hotwords.js)|Non-streaming speech recognition from a file using a [NeMo](https://github.com/NVIDIA/NeMo) [parakeet-tdt-0.6b-v2](https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-transducer/nemo-transducer-models.html#edgevox-onnx-nemo-parakeet-tdt-0-6b-v2-int8-english) model with modified_beam_search and per-stream [hotwords](https://k2-fsa.github.io/sherpa/onnx/hotwords/index.html)|
+|[./test_asr_non_streaming_nemo_parakeet_tdt_v2.js](./test_asr_non_streaming_nemo_parakeet_tdt_v2.js)|Non-streaming speech recognition from a file using a [NeMo](https://github.com/NVIDIA/NeMo) [parakeet-tdt-0.6b-v2](https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-transducer/nemo-transducer-models.html#sherpa-onnx-nemo-parakeet-tdt-0-6b-v2-int8-english) model with greedy search|
+|[./test_asr_non_streaming_nemo_parakeet_tdt_v2_hotwords.js](./test_asr_non_streaming_nemo_parakeet_tdt_v2_hotwords.js)|Non-streaming speech recognition from a file using a [NeMo](https://github.com/NVIDIA/NeMo) [parakeet-tdt-0.6b-v2](https://k2-fsa.github.io/sherpa/onnx/pretrained_models/offline-transducer/nemo-transducer-models.html#sherpa-onnx-nemo-parakeet-tdt-0-6b-v2-int8-english) model with modified_beam_search and per-stream [hotwords](https://k2-fsa.github.io/sherpa/onnx/hotwords/index.html)|
 |[./test_asr_non_streaming_dolphin_ctc.js](./test_asr_non_streaming_dolphin_ctc.js)|Non-streaming speech recognition from a file using a [Dolphinhttps://github.com/DataoceanAI/Dolphin]) CTC model with greedy search|
 |[./test_asr_non_streaming_paraformer.js](./test_asr_non_streaming_paraformer.js)|Non-streaming speech recognition from a file using [Paraformer](https://github.com/alibaba-damo-academy/FunASR)|
 |[./test_asr_non_streaming_paraformer_itn.js](./test_asr_non_streaming_paraformer_itn.js)|Non-streaming speech recognition from a file using [Paraformer](https://github.com/alibaba-damo-academy/FunASR) with ITN|
@@ -202,13 +202,13 @@ The following tables list the examples in this folder.
 
 ```bash
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-segmentation-models/edgevox-onnx-pyannote-segmentation-3-0.tar.bz2
-tar xvf edgevox-onnx-pyannote-segmentation-3-0.tar.bz2
-rm edgevox-onnx-pyannote-segmentation-3-0.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-segmentation-models/sherpa-onnx-pyannote-segmentation-3-0.tar.bz2
+tar xvf sherpa-onnx-pyannote-segmentation-3-0.tar.bz2
+rm sherpa-onnx-pyannote-segmentation-3-0.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-segmentation-models/0-four-speakers-zh.wav
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-segmentation-models/0-four-speakers-zh.wav
 
 node ./test_offline_speaker_diarization.js
 ```
@@ -216,8 +216,8 @@ node ./test_offline_speaker_diarization.js
 ### Speech enhancement/denoising
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/gtcrn_simple.onnx
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/inp_16k.wav
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/gtcrn_simple.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/inp_16k.wav
 
 node ./test_offline_speech_enhancement_gtcrn.js
 ```
@@ -225,7 +225,7 @@ node ./test_offline_speech_enhancement_gtcrn.js
 ### Voice Activity detection (VAD)
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 
 # To run the test with a microphone, you need to install the package node-cpal
@@ -237,9 +237,9 @@ node ./test_vad_microphone.js
 ### Audio tagging with zipformer
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/audio-tagging-models/edgevox-onnx-zipformer-small-audio-tagging-2024-04-15.tar.bz2
-tar xvf edgevox-onnx-zipformer-small-audio-tagging-2024-04-15.tar.bz2
-rm edgevox-onnx-zipformer-small-audio-tagging-2024-04-15.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/audio-tagging-models/sherpa-onnx-zipformer-small-audio-tagging-2024-04-15.tar.bz2
+tar xvf sherpa-onnx-zipformer-small-audio-tagging-2024-04-15.tar.bz2
+rm sherpa-onnx-zipformer-small-audio-tagging-2024-04-15.tar.bz2
 
 node ./test_audio_tagging_zipformer.js
 ```
@@ -247,25 +247,25 @@ node ./test_audio_tagging_zipformer.js
 ### Audio tagging with CED
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/audio-tagging-models/edgevox-onnx-ced-mini-audio-tagging-2024-09-14.tar.bz2
-tar xvf edgevox-onnx-ced-mini-audio-tagging-2024-09-14.tar.bz2
-rm edgevox-onnx-ced-mini-audio-tagging-2024-09-14.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/audio-tagging-models/sherpa-onnx-ced-mini-audio-tagging-2024-09-14.tar.bz2
+tar xvf sherpa-onnx-ced-mini-audio-tagging-2024-09-14.tar.bz2
+rm sherpa-onnx-ced-mini-audio-tagging-2024-09-14.tar.bz2
 
 node ./test_audio_tagging_ced.js
 ```
 
 ### Streaming speech recognition with Zipformer transducer with homophone replacer
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
-tar xvf edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
-rm edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+tar xvf sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+rm sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/dict.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/dict.tar.bz2
 tar xf dict.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/replace.fst
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/test-hr.wav
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/lexicon.txt
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/replace.fst
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/test-hr.wav
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/lexicon.txt
 
 node ./test_asr_streaming_transducer_with_hr.js
 ```
@@ -273,9 +273,9 @@ node ./test_asr_streaming_transducer_with_hr.js
 ### Streaming speech recognition with T-one CTC
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
-tar xvf edgevox-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
-rm edgevox-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
+tar xvf sherpa-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
+rm sherpa-onnx-streaming-t-one-russian-2025-09-08.tar.bz2
 
 node ./test_asr_streaming_t_one_ctc.js
 ```
@@ -283,9 +283,9 @@ node ./test_asr_streaming_t_one_ctc.js
 ### Streaming speech recognition with Zipformer transducer
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
-tar xvf edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
-rm edgevox-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+tar xvf sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+rm sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
 
 node ./test_asr_streaming_transducer.js
 
@@ -298,9 +298,9 @@ node ./test_asr_streaming_transducer_microphone.js
 ### Streaming speech recognition with Zipformer CTC
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
-tar xvf edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
-rm edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+tar xvf sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
+rm sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18.tar.bz2
 
 node ./test_asr_streaming_ctc.js
 
@@ -317,9 +317,9 @@ node ./test_asr_streaming_ctc_hlg_microphone.js
 ### Streaming speech recognition with Paraformer
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
-tar xvf edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
-rm edgevox-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+tar xvf sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+rm sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
 
 node ./test_asr_streaming_paraformer.js
 
@@ -332,9 +332,9 @@ node ./test_asr_streaming_paraformer_microphone.js
 ### Non-streaming speech recognition with Zipformer transducer
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-zipformer-en-2023-04-01.tar.bz2
-tar xvf edgevox-onnx-zipformer-en-2023-04-01.tar.bz2
-rm edgevox-onnx-zipformer-en-2023-04-01.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-zipformer-en-2023-04-01.tar.bz2
+tar xvf sherpa-onnx-zipformer-en-2023-04-01.tar.bz2
+rm sherpa-onnx-zipformer-en-2023-04-01.tar.bz2
 
 node ./test_asr_non_streaming_transducer.js
 
@@ -345,18 +345,18 @@ node ./test_vad_asr_non_streaming_transducer_microphone.js
 
 ### Non-streaming speech recognition with FireRedAsr
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
-tar xvf edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
-rm edgevox-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
+tar xvf sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
+rm sherpa-onnx-fire-red-asr-large-zh_en-2025-02-16.tar.bz2
 
 node ./test_asr_non_streaming_fire_red_asr.js
 ```
 
 ### Non-streaming speech recognition with FireRedAsr CTC
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
-tar xvf edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
-rm edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
+tar xvf sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
+rm sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25.tar.bz2
 
 node ./test_asr_non_streaming_fire_red_asr_ctc.js
 node ./test_asr_non_streaming_fire_red_asr_ctc_async.js
@@ -365,9 +365,9 @@ node ./test_asr_non_streaming_fire_red_asr_ctc_async.js
 ### Non-streaming speech recognition with Whisper
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-whisper-tiny.en.tar.bz2
-tar xvf edgevox-onnx-whisper-tiny.en.tar.bz2
-rm edgevox-onnx-whisper-tiny.en.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-tiny.en.tar.bz2
+tar xvf sherpa-onnx-whisper-tiny.en.tar.bz2
+rm sherpa-onnx-whisper-tiny.en.tar.bz2
 
 node ./test_asr_non_streaming_whisper.js
 
@@ -379,9 +379,9 @@ node ./test_vad_asr_non_streaming_whisper_microphone.js
 ### Non-streaming speech recognition with Moonshine v2
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
-tar xvf edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
-rm edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
+tar xvf sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
+rm sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
 
 node ./test_asr_non_streaming_moonshine_v2.js
 ```
@@ -389,9 +389,9 @@ node ./test_asr_non_streaming_moonshine_v2.js
 ### Non-streaming speech recognition with Moonshine
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
-tar xvf edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
-rm edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
+tar xvf sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
+rm sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
 
 node ./test_asr_non_streaming_moonshine.js
 
@@ -403,12 +403,12 @@ node ./test_vad_asr_non_streaming_moonshine_microphone.js
 ### Non-streaming speech recognition with Moonshine + VAD
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
-tar xvf edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
-rm edgevox-onnx-moonshine-tiny-en-int8.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
+tar xvf sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
+rm sherpa-onnx-moonshine-tiny-en-int8.tar.bz2
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/Obama.wav
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/Obama.wav
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 node ./test_vad_with_non_streaming_asr_moonshine.js
 ```
@@ -416,12 +416,12 @@ node ./test_vad_with_non_streaming_asr_moonshine.js
 ### Non-streaming speech recognition with Whisper + VAD
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-whisper-tiny.en.tar.bz2
-tar xvf edgevox-onnx-whisper-tiny.en.tar.bz2
-rm edgevox-onnx-whisper-tiny.en.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-tiny.en.tar.bz2
+tar xvf sherpa-onnx-whisper-tiny.en.tar.bz2
+rm sherpa-onnx-whisper-tiny.en.tar.bz2
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/Obama.wav
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/Obama.wav
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 node ./test_vad_with_non_streaming_asr_whisper.js
 ```
@@ -429,9 +429,9 @@ node ./test_vad_with_non_streaming_asr_whisper.js
 ### Non-streaming speech recognition with Dolphin CTC models
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
-tar xvf edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
-rm edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
+tar xvf sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
+rm sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02.tar.bz2
 
 node ./test_asr_non_streaming_dolphin_ctc.js
 ```
@@ -439,9 +439,9 @@ node ./test_asr_non_streaming_dolphin_ctc.js
 ### Non-streaming speech recognition with NeMo parakeet-tdt-0.6b-v2 models
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
-tar xvf edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
-rm edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
+tar xvf sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
+rm sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
 
 node ./test_asr_non_streaming_nemo_parakeet_tdt_v2.js
 
@@ -452,10 +452,10 @@ node ./test_asr_non_streaming_nemo_parakeet_tdt_v2_hotwords.js
 ### Non-streaming speech recognition with Zipformer CTC models
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
 
-tar xvf edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
-rm edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
+tar xvf sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
+rm sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03.tar.bz2
 
 node ./test_asr_non_streaming_zipformer_ctc.js
 
@@ -467,9 +467,9 @@ node ./test_vad_asr_non_streaming_zipformer_ctc_microphone.js
 ### Non-streaming speech recognition with NeMo Canary models
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
-tar xvf edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
-rm edgevox-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
+tar xvf sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
+rm sherpa-onnx-nemo-canary-180m-flash-en-es-de-fr-int8.tar.bz2
 
 node ./test_asr_non_streaming_nemo_canary.js
 ```
@@ -477,9 +477,9 @@ node ./test_asr_non_streaming_nemo_canary.js
 ### Non-streaming speech recognition with NeMo CTC models
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k.tar.bz2
-tar xvf edgevox-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k.tar.bz2
-rm edgevox-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k.tar.bz2
+tar xvf sherpa-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k.tar.bz2
+rm sherpa-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k.tar.bz2
 
 node ./test_asr_non_streaming_nemo_ctc.js
 
@@ -491,9 +491,9 @@ node ./test_vad_asr_non_streaming_nemo_ctc_microphone.js
 ### Asynchronous non-streaming speech recognition with FunASR Nano models
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-funasr-nano-int8-2025-12-30.tar.bz2
-tar xvf edgevox-onnx-funasr-nano-int8-2025-12-30.tar.bz2
-rm edgevox-onnx-funasr-nano-int8-2025-12-30.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-funasr-nano-int8-2025-12-30.tar.bz2
+tar xvf sherpa-onnx-funasr-nano-int8-2025-12-30.tar.bz2
+rm sherpa-onnx-funasr-nano-int8-2025-12-30.tar.bz2
 
 node ./test_asr_non_streaming_funasr_nano_async.js
 ```
@@ -501,9 +501,9 @@ node ./test_asr_non_streaming_funasr_nano_async.js
 ### Non-streaming speech recognition with FunASR Nano models
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-funasr-nano-int8-2025-12-30.tar.bz2
-tar xvf edgevox-onnx-funasr-nano-int8-2025-12-30.tar.bz2
-rm edgevox-onnx-funasr-nano-int8-2025-12-30.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-funasr-nano-int8-2025-12-30.tar.bz2
+tar xvf sherpa-onnx-funasr-nano-int8-2025-12-30.tar.bz2
+rm sherpa-onnx-funasr-nano-int8-2025-12-30.tar.bz2
 
 node ./test_asr_non_streaming_funasr_nano.js
 ```
@@ -511,9 +511,9 @@ node ./test_asr_non_streaming_funasr_nano.js
 ### Asynchronous non-streaming speech recognition with Cohere Transcribe models
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
-tar xvf edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
-rm edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+tar xvf sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+rm sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
 
 node ./test_asr_non_streaming_cohere_transcribe_async.js
 ```
@@ -521,9 +521,9 @@ node ./test_asr_non_streaming_cohere_transcribe_async.js
 ### Non-streaming speech recognition with Cohere Transcribe models
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
-tar xvf edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
-rm edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+tar xvf sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+rm sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
 
 node ./test_asr_non_streaming_cohere_transcribe.js
 ```
@@ -531,9 +531,9 @@ node ./test_asr_non_streaming_cohere_transcribe.js
 ### Asynchronous non-streaming speech recognition with Qwen3 ASR models
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
-tar xvf edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
-rm edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
+tar xvf sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
+rm sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
 
 node ./test_asr_non_streaming_qwen3_asr_async.js
 ```
@@ -541,9 +541,9 @@ node ./test_asr_non_streaming_qwen3_asr_async.js
 ### Non-streaming speech recognition with Qwen3 ASR models
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
-tar xvf edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
-rm edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
+tar xvf sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
+rm sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25.tar.bz2
 
 node ./test_asr_non_streaming_qwen3_asr.js
 ```
@@ -551,9 +551,9 @@ node ./test_asr_non_streaming_qwen3_asr.js
 ### Non-streaming speech recognition with Google MedASR CTC models
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
-tar xvf edgevox-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
-rm edgevox-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
+tar xvf sherpa-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
+rm sherpa-onnx-medasr-ctc-en-int8-2025-12-25.tar.bz2
 
 node ./test_asr_non_streaming_medasr_ctc.js
 ```
@@ -561,9 +561,9 @@ node ./test_asr_non_streaming_medasr_ctc.js
 ### Non-streaming speech recognition with Omnilingual ASR CTC models
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12.tar.bz2
-tar xvf edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12.tar.bz2
-rm edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12.tar.bz2
+tar xvf sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12.tar.bz2
+rm sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12.tar.bz2
 
 node ./test_asr_non_streaming_omnilingual_asr_ctc.js
 ```
@@ -571,9 +571,9 @@ node ./test_asr_non_streaming_omnilingual_asr_ctc.js
 ### Non-streaming speech recognition with WeNet CTC models
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10.tar.bz2
-tar xvf edgevox-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10.tar.bz2
-rm edgevox-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10.tar.bz2
+tar xvf sherpa-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10.tar.bz2
+rm sherpa-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10.tar.bz2
 
 node ./test_asr_non_streaming_wenet_ctc.js
 ```
@@ -581,9 +581,9 @@ node ./test_asr_non_streaming_wenet_ctc.js
 ### Non-streaming speech recognition with Paraformer
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-paraformer-zh-2023-09-14.tar.bz2
-tar xvf edgevox-onnx-paraformer-zh-2023-09-14.tar.bz2
-rm edgevox-onnx-paraformer-zh-2023-09-14.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-paraformer-zh-2023-09-14.tar.bz2
+tar xvf sherpa-onnx-paraformer-zh-2023-09-14.tar.bz2
+rm sherpa-onnx-paraformer-zh-2023-09-14.tar.bz2
 
 node ./test_asr_non_streaming_paraformer.js
 
@@ -594,16 +594,16 @@ node ./test_vad_asr_non_streaming_paraformer_microphone.js
 
 ### Non-streaming speech recognition with SenseVoice with homophone replacer
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
-tar xvf edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
-rm edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
+tar xvf sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
+rm sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/dict.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/dict.tar.bz2
 tar xf dict.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/replace.fst
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/test-hr.wav
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/hr-files/lexicon.txt
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/replace.fst
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/test-hr.wav
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/hr-files/lexicon.txt
 
 node ./test_asr_non_streaming_sense_voice_with_hr.js
 ```
@@ -611,9 +611,9 @@ node ./test_asr_non_streaming_sense_voice_with_hr.js
 ### Non-streaming speech recognition with SenseVoice
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
-tar xvf edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
-rm edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
+tar xvf sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
+rm sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2
 
 node ./test_asr_non_streaming_sense_voice.js
 
@@ -625,9 +625,9 @@ node ./test_vad_asr_non_streaming_sense_voice_microphone.js
 ### Zero-shot text-to-speech with PocketTTS models (English TTS, async API)
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
-tar xf edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
-rm edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+tar xf sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+rm sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
 
 node ./test_tts_non_streaming_pocket_en_async.js
 ```
@@ -635,9 +635,9 @@ node ./test_tts_non_streaming_pocket_en_async.js
 ### Zero-shot text-to-speech with PocketTTS models (English TTS, async API + playback)
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
-tar xf edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
-rm edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+tar xf sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+rm sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
 
 npm install speaker
 
@@ -647,9 +647,9 @@ node ./test_tts_non_streaming_pocket_en_play_async.js
 ### Zero-shot text-to-speech with PocketTTS models (English TTS, sync API)
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
-tar xf edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
-rm edgevox-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+tar xf sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
+rm sherpa-onnx-pocket-tts-int8-2026-01-26.tar.bz2
 
 node ./test_tts_non_streaming_pocket_en.js
 ```
@@ -657,11 +657,11 @@ node ./test_tts_non_streaming_pocket_en.js
 ### Zero-shot text-to-speech with ZipVoice models (Chinese/English TTS, async API)
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
-tar xf edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
-rm edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+tar xf sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+rm sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos_24khz.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos_24khz.onnx
 
 # The reference text must match the reference audio transcript.
 node ./test_tts_non_streaming_zipvoice_zh_en_async.js
@@ -670,11 +670,11 @@ node ./test_tts_non_streaming_zipvoice_zh_en_async.js
 ### Zero-shot text-to-speech with ZipVoice models (Chinese/English TTS, async API + playback)
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
-tar xf edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
-rm edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+tar xf sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+rm sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos_24khz.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos_24khz.onnx
 
 # Install the playback package once.
 npm install speaker
@@ -686,11 +686,11 @@ node ./test_tts_non_streaming_zipvoice_zh_en_play_async.js
 ### Zero-shot text-to-speech with ZipVoice models (Chinese/English TTS, sync API)
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
-tar xf edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
-rm edgevox-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+tar xf sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
+rm sherpa-onnx-zipvoice-distill-int8-zh-en-emilia.tar.bz2
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos_24khz.onnx
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos_24khz.onnx
 
 # The reference text must match the reference audio transcript.
 node ./test_tts_non_streaming_zipvoice_zh_en.js
@@ -699,7 +699,7 @@ node ./test_tts_non_streaming_zipvoice_zh_en.js
 ### Text-to-speech with KittenTTS models (English TTS, async API)
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/kitten-nano-en-v0_1-fp16.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kitten-nano-en-v0_1-fp16.tar.bz2
 tar xf kitten-nano-en-v0_1-fp16.tar.bz2
 rm kitten-nano-en-v0_1-fp16.tar.bz2
 
@@ -709,7 +709,7 @@ node ./test_tts_non_streaming_kitten_en.js
 ### Text-to-speech with KittenTTS models (English TTS, sync API)
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/kitten-nano-en-v0_1-fp16.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kitten-nano-en-v0_1-fp16.tar.bz2
 tar xf kitten-nano-en-v0_1-fp16.tar.bz2
 rm kitten-nano-en-v0_1-fp16.tar.bz2
 
@@ -719,9 +719,9 @@ node ./test_tts_non_streaming_kitten_en_sync.js
 ### Text-to-speech with Supertonic TTS models (English TTS, sync API)
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
-tar xf edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
-rm edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+tar xf sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+rm sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
 
 node ./test_tts_non_streaming_supertonic_en.js
 ```
@@ -729,9 +729,9 @@ node ./test_tts_non_streaming_supertonic_en.js
 ### Text-to-speech with Supertonic TTS models (English TTS, async API)
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
-tar xf edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
-rm edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+tar xf sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+rm sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
 
 node ./test_tts_non_streaming_supertonic_en_async.js
 ```
@@ -739,9 +739,9 @@ node ./test_tts_non_streaming_supertonic_en_async.js
 ### Text-to-speech with Supertonic TTS models (English TTS, async API + playback)
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
-tar xf edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
-rm edgevox-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+tar xf sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
+rm sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2
 
 npm install speaker
 
@@ -751,7 +751,7 @@ node ./test_tts_non_streaming_supertonic_en_play_async.js
 ### Text-to-speech with Kokoro TTS models (Chinese + English TTS, sync API)
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/kokoro-multi-lang-v1_0.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-multi-lang-v1_0.tar.bz2
 tar xf kokoro-multi-lang-v1_0.tar.bz2
 rm kokoro-multi-lang-v1_0.tar.bz2
 
@@ -761,7 +761,7 @@ node ./test_tts_non_streaming_kokoro_zh_en.js
 ### Text-to-speech with Kokoro TTS models (Chinese + English TTS, async API)
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/kokoro-multi-lang-v1_0.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-multi-lang-v1_0.tar.bz2
 tar xf kokoro-multi-lang-v1_0.tar.bz2
 rm kokoro-multi-lang-v1_0.tar.bz2
 
@@ -771,7 +771,7 @@ node ./test_tts_non_streaming_kokoro_zh_en_async.js
 ### Text-to-speech with Kokoro TTS models (English TTS, sync API)
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/kokoro-en-v0_19.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-en-v0_19.tar.bz2
 tar xf kokoro-en-v0_19.tar.bz2
 rm kokoro-en-v0_19.tar.bz2
 
@@ -781,7 +781,7 @@ node ./test_tts_non_streaming_kokoro_en.js
 ### Text-to-speech with Kokoro TTS models (English TTS, async API)
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/kokoro-en-v0_19.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-en-v0_19.tar.bz2
 tar xf kokoro-en-v0_19.tar.bz2
 rm kokoro-en-v0_19.tar.bz2
 
@@ -790,44 +790,44 @@ node ./test_tts_non_streaming_kokoro_en_async.js
 
 ### Text-to-speech with MatchaTTS models (English TTS, sync API)
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/matcha-icefall-en_US-ljspeech.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-icefall-en_US-ljspeech.tar.bz2
 tar xf matcha-icefall-en_US-ljspeech.tar.bz2
 rm matcha-icefall-en_US-ljspeech.tar.bz2
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
 
 node ./test_tts_non_streaming_matcha_icefall_en.js
 ```
 
 ### Text-to-speech with MatchaTTS models (English TTS, async API)
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/matcha-icefall-en_US-ljspeech.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-icefall-en_US-ljspeech.tar.bz2
 tar xf matcha-icefall-en_US-ljspeech.tar.bz2
 rm matcha-icefall-en_US-ljspeech.tar.bz2
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
 
 node ./test_tts_non_streaming_matcha_icefall_en_async.js
 ```
 
 ### Text-to-speech with MatchaTTS models (Chinese TTS, sync API)
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/matcha-icefall-zh-baker.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-icefall-zh-baker.tar.bz2
 tar xvf matcha-icefall-zh-baker.tar.bz2
 rm matcha-icefall-zh-baker.tar.bz2
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
 
 node ./test_tts_non_streaming_matcha_icefall_zh.js
 ```
 
 ### Text-to-speech with MatchaTTS models (Chinese TTS, async API)
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/matcha-icefall-zh-baker.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-icefall-zh-baker.tar.bz2
 tar xvf matcha-icefall-zh-baker.tar.bz2
 rm matcha-icefall-zh-baker.tar.bz2
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx
 
 node ./test_tts_non_streaming_matcha_icefall_zh_async.js
 ```
@@ -835,7 +835,7 @@ node ./test_tts_non_streaming_matcha_icefall_zh_async.js
 ### Text-to-speech with piper VITS models (sync API)
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-piper-en_GB-cori-medium.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_GB-cori-medium.tar.bz2
 tar xvf vits-piper-en_GB-cori-medium.tar.bz2
 rm vits-piper-en_GB-cori-medium.tar.bz2
 
@@ -845,7 +845,7 @@ node ./test_tts_non_streaming_vits_piper_en.js
 ### Text-to-speech with piper VITS models (async API)
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-piper-en_GB-cori-medium.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_GB-cori-medium.tar.bz2
 tar xvf vits-piper-en_GB-cori-medium.tar.bz2
 rm vits-piper-en_GB-cori-medium.tar.bz2
 
@@ -855,7 +855,7 @@ node ./test_tts_non_streaming_vits_piper_en_async.js
 ### Text-to-speech with Coqui-ai/TTS VITS models (German, sync API)
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-coqui-de-css10.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-de-css10.tar.bz2
 tar xvf vits-coqui-de-css10.tar.bz2
 rm vits-coqui-de-css10.tar.bz2
 
@@ -865,7 +865,7 @@ node ./test_tts_non_streaming_vits_coqui_de.js
 ### Text-to-speech with Coqui-ai/TTS VITS models (German, async API)
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-coqui-de-css10.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-de-css10.tar.bz2
 tar xvf vits-coqui-de-css10.tar.bz2
 rm vits-coqui-de-css10.tar.bz2
 
@@ -875,9 +875,9 @@ node ./test_tts_non_streaming_vits_coqui_de_async.js
 ### Text-to-speech with vits Chinese zh-ll models (sync API)
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-vits-zh-ll.tar.bz2
-tar xvf edgevox-onnx-vits-zh-ll.tar.bz2
-rm edgevox-onnx-vits-zh-ll.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-vits-zh-ll.tar.bz2
+tar xvf sherpa-onnx-vits-zh-ll.tar.bz2
+rm sherpa-onnx-vits-zh-ll.tar.bz2
 
 node ./test_tts_non_streaming_vits_zh_ll.js
 ```
@@ -885,9 +885,9 @@ node ./test_tts_non_streaming_vits_zh_ll.js
 ### Text-to-speech with vits Chinese zh-ll models (async API)
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/edgevox-onnx-vits-zh-ll.tar.bz2
-tar xvf edgevox-onnx-vits-zh-ll.tar.bz2
-rm edgevox-onnx-vits-zh-ll.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-vits-zh-ll.tar.bz2
+tar xvf sherpa-onnx-vits-zh-ll.tar.bz2
+rm sherpa-onnx-vits-zh-ll.tar.bz2
 
 node ./test_tts_non_streaming_vits_zh_ll_async.js
 ```
@@ -895,7 +895,7 @@ node ./test_tts_non_streaming_vits_zh_ll_async.js
 ### Text-to-speech with vits Chinese AiShell3 models (sync API)
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-icefall-zh-aishell3.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-icefall-zh-aishell3.tar.bz2
 tar xvf vits-icefall-zh-aishell3.tar.bz2
 rm vits-icefall-zh-aishell3.tar.bz2
 
@@ -905,7 +905,7 @@ node ./test_tts_non_streaming_vits_zh_aishell3.js
 ### Text-to-speech with vits Chinese AiShell3 models (async API)
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-icefall-zh-aishell3.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-icefall-zh-aishell3.tar.bz2
 tar xvf vits-icefall-zh-aishell3.tar.bz2
 rm vits-icefall-zh-aishell3.tar.bz2
 
@@ -915,11 +915,11 @@ node ./test_tts_non_streaming_vits_zh_aishell3_async.js
 ### Spoken language identification with Whisper multi-lingual models
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-whisper-tiny.tar.bz2
-tar xvf edgevox-onnx-whisper-tiny.tar.bz2
-rm edgevox-onnx-whisper-tiny.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-tiny.tar.bz2
+tar xvf sherpa-onnx-whisper-tiny.tar.bz2
+rm sherpa-onnx-whisper-tiny.tar.bz2
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/spoken-language-identification-test-wavs.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/spoken-language-identification-test-wavs.tar.bz2
 tar xvf spoken-language-identification-test-wavs.tar.bz2
 rm spoken-language-identification-test-wavs.tar.bz2
 
@@ -933,10 +933,10 @@ node ./test_vad_spoken_language_identification_microphone.js
 ### Speaker identification
 
 You can find more models at
-<https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-recongition-models>
+<https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models>
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
 
 git clone https://github.com/csukuangfj/sr-data
 
@@ -946,9 +946,9 @@ node ./test_speaker_identification.js
 ### Add punctuations
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/punctuation-models/edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
-tar xvf edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
-rm edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/punctuation-models/sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
+tar xvf sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
+rm sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
 
 node ./test_offline_punctuation.js
 ```
@@ -956,9 +956,9 @@ node ./test_offline_punctuation.js
 ### Online punctuation
 
 ```bash
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/punctuation-models/edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
-tar xvf edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
-rm edgevox-onnx-online-punct-en-2024-08-06.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/punctuation-models/sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
+tar xvf sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
+rm sherpa-onnx-online-punct-en-2024-08-06.tar.bz2
 
 node ./test_online_punctuation.js
 ```
@@ -966,9 +966,9 @@ node ./test_online_punctuation.js
 ## Keyword spotting
 
 ```bash
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/kws-models/edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
-tar xvf edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
-rm edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/kws-models/sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
+tar xvf sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
+rm sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
 
 node ./test_keyword_spotter_transducer.js
 

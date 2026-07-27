@@ -34,7 +34,7 @@ def get_models():
     # see https://k2-fsa.github.io/sherpa/onnx/spolken-language-identification/pretrained_models.html#pre-trained-models
     whisper_models = [
         SlidModel(
-            model_name="edgevox-onnx-whisper-tiny",
+            model_name="sherpa-onnx-whisper-tiny",
             idx=0,
             short_name="whisper_tiny",
         ),

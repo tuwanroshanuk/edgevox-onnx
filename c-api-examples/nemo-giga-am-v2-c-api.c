@@ -8,9 +8,9 @@
 //
 // clang-format off
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19.tar.bz2
-// tar xvf edgevox-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19.tar.bz2
-// rm edgevox-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19.tar.bz2
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19.tar.bz2
+// tar xvf sherpa-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19.tar.bz2
+// rm sherpa-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19.tar.bz2
 //
 // clang-format on
 
@@ -22,19 +22,19 @@
 
 int32_t main() {
   const char *wav_filename =
-      "./edgevox-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
+      "./sherpa-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
       "test_wavs/example.wav";
   const char *encoder_filename =
-      "./edgevox-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
+      "./sherpa-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
       "encoder.int8.onnx";
   const char *decoder_filename =
-      "./edgevox-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
+      "./sherpa-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
       "decoder.onnx";
   const char *joiner_filename =
-      "./edgevox-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
+      "./sherpa-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
       "joiner.onnx";
   const char *tokens_filename =
-      "./edgevox-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
+      "./sherpa-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19/"
       "tokens.txt";
   const char *provider = "cpu";
 

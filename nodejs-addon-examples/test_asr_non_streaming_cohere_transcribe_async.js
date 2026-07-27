@@ -41,7 +41,7 @@ function createStreamFromFile(recognizer, file, language) {
 }
 
 async function main() {
-  const modelDir = './edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01';
+  const modelDir = './sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01';
 
   const recognizer = await createRecognizerAsync(modelDir);
 

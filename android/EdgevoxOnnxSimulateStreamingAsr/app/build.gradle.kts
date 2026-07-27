@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.k2fsa.sherpa.onnx.simulate.streaming.asr"
+    namespace = "com.nexus.edgevox.onnx.simulate.streaming.asr"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.k2fsa.sherpa.onnx.simulate.streaming.asr"
+        applicationId = "com.nexus.edgevox.onnx.simulate.streaming.asr"
         minSdk = 21
         targetSdk = 34
         versionCode = 20260707

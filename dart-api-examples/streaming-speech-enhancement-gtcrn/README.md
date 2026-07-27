@@ -5,7 +5,7 @@ models.
 
 Download GTCRN models and test wave files from:
 
-- https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+- https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
 
 Then run:
 

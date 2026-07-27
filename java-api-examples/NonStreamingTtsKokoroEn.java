@@ -2,7 +2,7 @@
 
 // This file shows how to use a Kokoro English model
 // to convert text to speech
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 
 public class NonStreamingTtsKokoroEn {
   public static void main(String[] args) {

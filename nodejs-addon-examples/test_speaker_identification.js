@@ -3,7 +3,7 @@ const edgevox_onnx = require('edgevox-onnx-node');
 const assert = require('node:assert');
 
 // Please download models files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-recongition-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models
 function createSpeakerEmbeddingExtractor() {
   const config = {
     model: './3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx',

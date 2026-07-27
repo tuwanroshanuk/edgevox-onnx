@@ -1,4 +1,4 @@
-package com.k2fsa.sherpa.onnx
+package com.nexus.edgevox.onnx
 
 import android.content.res.AssetManager
 
@@ -76,7 +76,7 @@ fun getSpokenLanguageIdentificationConfig(
 ): SpokenLanguageIdentificationConfig? {
     when (type) {
         0 -> {
-            val modelDir = "edgevox-onnx-whisper-tiny"
+            val modelDir = "sherpa-onnx-whisper-tiny"
             return SpokenLanguageIdentificationConfig(
                 whisper = SpokenLanguageIdentificationWhisperConfig(
                     encoder = "$modelDir/tiny-encoder.int8.onnx",
@@ -88,7 +88,7 @@ fun getSpokenLanguageIdentificationConfig(
         }
 
         1 -> {
-            val modelDir = "edgevox-onnx-whisper-base"
+            val modelDir = "sherpa-onnx-whisper-base"
             return SpokenLanguageIdentificationConfig(
                 whisper = SpokenLanguageIdentificationWhisperConfig(
                     encoder = "$modelDir/base-encoder.int8.onnx",

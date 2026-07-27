@@ -2,7 +2,7 @@
 const edgevox_onnx = require('edgevox-onnx-node');
 
 // Please download test files from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/kws-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/kws-models
 const config = {
   'featConfig': {
     'sampleRate': 16000,
@@ -11,24 +11,24 @@ const config = {
   'modelConfig': {
     'transducer': {
       'encoder':
-          './edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/encoder-epoch-12-avg-2-chunk-16-left-64.onnx',
+          './sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/encoder-epoch-12-avg-2-chunk-16-left-64.onnx',
       'decoder':
-          './edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/decoder-epoch-12-avg-2-chunk-16-left-64.onnx',
+          './sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/decoder-epoch-12-avg-2-chunk-16-left-64.onnx',
       'joiner':
-          './edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/joiner-epoch-12-avg-2-chunk-16-left-64.onnx',
+          './sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/joiner-epoch-12-avg-2-chunk-16-left-64.onnx',
     },
     'tokens':
-        './edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/tokens.txt',
+        './sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/tokens.txt',
     'numThreads': 1,
     'provider': 'cpu',
     'debug': 1,
   },
   'keywordsFile':
-      './edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/test_keywords.txt',
+      './sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/test_keywords.txt',
 };
 
 const waveFilename =
-    './edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/3.wav';
+    './sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01/test_wavs/3.wav';
 
 const kws = new edgevox_onnx.KeywordSpotter(config);
 console.log('Started');

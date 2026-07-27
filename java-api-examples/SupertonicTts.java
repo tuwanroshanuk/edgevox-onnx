@@ -1,7 +1,7 @@
 // Copyright 2026 Xiaomi Corporation
 
 // This file shows how to use a Supertonic TTS English model.
-import com.k2fsa.sherpa.onnx.*;
+import com.nexus.edgevox.onnx.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +11,7 @@ public class SupertonicTts {
     // please visit
     // https://k2-fsa.github.io/sherpa/onnx/tts/supertonic.html
     // to download model files
-    String modelDir = "./edgevox-onnx-supertonic-3-tts-int8-2026-05-11";
+    String modelDir = "./sherpa-onnx-supertonic-3-tts-int8-2026-05-11";
     String durationPredictor = modelDir + "/duration_predictor.int8.onnx";
     String textEncoder = modelDir + "/text_encoder.int8.onnx";
     String vectorEstimator = modelDir + "/vector_estimator.int8.onnx";

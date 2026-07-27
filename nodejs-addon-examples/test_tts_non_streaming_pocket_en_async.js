@@ -5,15 +5,15 @@ async function createOfflineTts() {
   const config = {
     model: {
       pocket: {
-        lmFlow: './edgevox-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx',
-        lmMain: './edgevox-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx',
-        encoder: './edgevox-onnx-pocket-tts-int8-2026-01-26/encoder.onnx',
-        decoder: './edgevox-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx',
+        lmFlow: './sherpa-onnx-pocket-tts-int8-2026-01-26/lm_flow.int8.onnx',
+        lmMain: './sherpa-onnx-pocket-tts-int8-2026-01-26/lm_main.int8.onnx',
+        encoder: './sherpa-onnx-pocket-tts-int8-2026-01-26/encoder.onnx',
+        decoder: './sherpa-onnx-pocket-tts-int8-2026-01-26/decoder.int8.onnx',
         textConditioner:
-            './edgevox-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx',
-        vocabJson: './edgevox-onnx-pocket-tts-int8-2026-01-26/vocab.json',
+            './sherpa-onnx-pocket-tts-int8-2026-01-26/text_conditioner.onnx',
+        vocabJson: './sherpa-onnx-pocket-tts-int8-2026-01-26/vocab.json',
         tokenScoresJson:
-            './edgevox-onnx-pocket-tts-int8-2026-01-26/token_scores.json',
+            './sherpa-onnx-pocket-tts-int8-2026-01-26/token_scores.json',
         voiceEmbeddingCacheCapacity: 50,
       },
       debug: false,  // set to true to see verbose logs
@@ -33,7 +33,7 @@ async function createOfflineTts() {
  */
 async function generateAudioAsync(tts, text) {
   const referenceAudioFilename =
-      './edgevox-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav';
+      './sherpa-onnx-pocket-tts-int8-2026-01-26/test_wavs/bria.wav';
   const referenceWave = edgevox_onnx.readWave(referenceAudioFilename);
 
   const generationConfig = new edgevox_onnx.GenerationConfig({

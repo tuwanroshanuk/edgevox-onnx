@@ -8,10 +8,10 @@ cd swift-api-examples
 ls -lh
 
 ./run-cohere-transcribe.sh
-rm -rf edgevox-onnx-cohere-transcribe-*
+rm -rf sherpa-onnx-cohere-transcribe-*
 
 ./run-source-separation-spleeter.sh
-rm -rf edgevox-onnx-spleeter-*
+rm -rf sherpa-onnx-spleeter-*
 rm vocals.wav accompaniment.wav
 
 ./run-source-separation-uvr.sh
@@ -25,7 +25,7 @@ rm -rf edgevox-onnx-qwen3-*
 ./run-test-version.sh
 
 ./run-moonshine-v2-asr.sh
-rm -rf edgevox-onnx-moonshine-*
+rm -rf sherpa-onnx-moonshine-*
 
 ./run-fire-red-asr-ctc.sh
 rm -rf edgevox-onnx-fire-red-*
@@ -36,13 +36,13 @@ rm -rf edgevox-onnx-pocket-*
 
 ./run-tts-supertonic-en.sh
 ls -lh
-rm -rf edgevox-onnx-supertonic-*
+rm -rf sherpa-onnx-supertonic-*
 
 ./run-medasr-ctc-asr.sh
 rm -rf edgevox-onnx-medasr-*
 
 ./run-funasr-nano-asr.sh
-rm -rf edgevox-onnx-funasr-nano-*
+rm -rf sherpa-onnx-funasr-nano-*
 
 ./run-omnilingual-asr-ctc-asr.sh
 rm -rf edgevox-onnx-omnilingual-*
@@ -61,14 +61,14 @@ rm -rf kitten-*
 rm -rf edgevox-onnx-*
 
 ./run-zipformer-ctc-asr.sh
-rm -rf edgevox-onnx-zipformer-*
+rm -rf sherpa-onnx-zipformer-*
 
 ./run-decode-file-sense-voice-with-hr.sh
-rm -rf edgevox-onnx-sense-voice-*
+rm -rf sherpa-onnx-sense-voice-*
 rm -rf dict lexicon.txt replace.fst test-hr.wav
 
 ./run-dolphin-ctc-asr.sh
-rm -rf edgevox-onnx-dolphin-*
+rm -rf sherpa-onnx-dolphin-*
 
 ./run-speech-enhancement-gtcrn.sh
 ./run-speech-enhancement-dpdfnet.sh
@@ -77,7 +77,7 @@ rm -rf edgevox-onnx-dolphin-*
 ls -lh *.wav
 
 ./run-fire-red-asr.sh
-rm -rf edgevox-onnx-fire-red-asr-*
+rm -rf sherpa-onnx-fire-red-asr-*
 
 ./run-tts-vits.sh
 ls -lh
@@ -101,21 +101,21 @@ rm -rf matcha-icefall-*
 
 ./run-tts-zipvoice.sh
 ls -lh
-rm -rf edgevox-onnx-zipvoice-*
+rm -rf sherpa-onnx-zipvoice-*
 rm -f vocos_24khz.onnx
 
 ./run-speaker-diarization.sh
 rm -rf *.onnx
-rm -rf edgevox-onnx-pyannote-segmentation-3-0
+rm -rf sherpa-onnx-pyannote-segmentation-3-0
 rm -fv *.wav
 
 ./run-add-punctuations.sh
 rm ./add-punctuations
-rm -rf edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12
+rm -rf sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12
 
 ./run-add-punctuations-online.sh
 rm ./add-punctuation-online
-rm -rf edgevox-onnx-online-punct-en-2024-08-06
+rm -rf sherpa-onnx-online-punct-en-2024-08-06
 
 ./run-keyword-spotting-from-file.sh
 rm ./keyword-spotting-from-file
@@ -123,7 +123,7 @@ rm -rf edgevox-onnx-kws-*
 
 ./run-streaming-hlg-decode-file.sh
 rm ./streaming-hlg-decode-file
-rm -rf edgevox-onnx-streaming-zipformer-ctc-small-2024-03-18
+rm -rf sherpa-onnx-streaming-zipformer-ctc-small-2024-03-18
 
 ./run-spoken-language-identification.sh
 rm -rf edgevox-onnx-whisper*

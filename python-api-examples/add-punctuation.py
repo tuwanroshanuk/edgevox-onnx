@@ -4,13 +4,13 @@
 This script shows how to add punctuations to text using edgevox-onnx Python API.
 
 Please download the model from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/punctuation-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/punctuation-models
 
 The following is an example
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/punctuation-models/edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
-tar xvf edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
-rm edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/punctuation-models/sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
+tar xvf sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
+rm sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12.tar.bz2
 """
 
 from pathlib import Path
@@ -19,7 +19,7 @@ import edgevox_onnx
 
 
 def main():
-    model = "./edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx"
+    model = "./sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx"
     if not Path(model).is_file():
         raise ValueError(f"{model} does not exist")
     config = edgevox_onnx.OfflinePunctuationConfig(

@@ -10,7 +10,7 @@ fi
 if [ ! -d ./vits-piper-en_US-amy-low ]; then
   echo "Download a pre-trained model for testing."
 
-  wget -q https://github.com/k2-fsa/edgevox-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2
+  wget -q https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2
   tar xf vits-piper-en_US-amy-low.tar.bz2
   rm vits-piper-en_US-amy-low.tar.bz2
 fi

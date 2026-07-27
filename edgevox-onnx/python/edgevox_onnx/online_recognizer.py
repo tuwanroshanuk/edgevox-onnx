@@ -90,8 +90,8 @@ class OnlineRecognizer(object):
 
     Please refer to the following files for more usages:
 
-    - `<https://github.com/k2-fsa/edgevox-onnx/blob/master/python-api-examples/online-decode-files.py>`_
-    - `<https://github.com/k2-fsa/edgevox-onnx/blob/master/python-api-examples/streaming-zipformer-rtf.py>`_
+    - `<https://github.com/k2-fsa/sherpa-onnx/blob/master/python-api-examples/online-decode-files.py>`_
+    - `<https://github.com/k2-fsa/sherpa-onnx/blob/master/python-api-examples/streaming-zipformer-rtf.py>`_
     """
 
     @classmethod
@@ -676,7 +676,7 @@ class OnlineRecognizer(object):
     ):
         """
         Please refer to
-        `<https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models>`_
+        `<https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models>`_
         to download pre-trained models.
 
         Args:
@@ -800,7 +800,7 @@ class OnlineRecognizer(object):
     ):
         """
         Please refer to
-        `<https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models>`_
+        `<https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models>`_
         to download pre-trained models.
 
         Args:

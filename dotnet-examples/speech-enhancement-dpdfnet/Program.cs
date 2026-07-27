@@ -6,17 +6,17 @@
 // Use dpdfnet2_48khz_hr.onnx for 48 kHz enhancement output.
 //
 // 1. Download a model from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/dpdfnet_baseline.onnx
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/dpdfnet2.onnx
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/dpdfnet4.onnx
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/dpdfnet8.onnx
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/dpdfnet2_48khz_hr.onnx
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/dpdfnet_baseline.onnx
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/dpdfnet2.onnx
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/dpdfnet4.onnx
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/dpdfnet8.onnx
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/dpdfnet2_48khz_hr.onnx
 //
 // 2. Download a test file
 //
-// wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/inp_16k.wav
+// wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/inp_16k.wav
 //
 // 3. Now run it
 //

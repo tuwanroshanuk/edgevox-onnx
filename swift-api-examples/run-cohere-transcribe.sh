@@ -7,7 +7,7 @@ if [ ! -d ../build-swift-macos ]; then
   exit 1
 fi
 
-if [ ! -f ./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/encoder.int8.onnx ]; then
+if [ ! -f ./sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01/encoder.int8.onnx ]; then
   echo "Please download the pre-trained model for testing."
   echo "You can refer to"
   echo ""
@@ -15,11 +15,11 @@ if [ ! -f ./edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01/encoder.int8.
   echo ""
   echo "for help"
 
-  wget -q https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
-  tar xvf edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
-  rm edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+  wget -q https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+  tar xvf sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
+  rm sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01.tar.bz2
 
-  ls -lh edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01
+  ls -lh sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01
 fi
 
 if [ ! -e ./cohere-transcribe ]; then

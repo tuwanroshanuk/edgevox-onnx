@@ -7,10 +7,10 @@ if [ ! -d ../build-swift-macos ]; then
   exit 1
 fi
 
-if [ ! -d ./edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01 ]; then
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/kws-models/edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
-  tar xf edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
-  rm edgevox-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
+if [ ! -d ./sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01 ]; then
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/kws-models/sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
+  tar xf sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
+  rm sherpa-onnx-kws-zipformer-wenetspeech-3.3M-2024-01-01.tar.bz2
 fi
 
 if [ ! -e ./keyword-spotting-from-file ]; then

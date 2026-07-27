@@ -1,6 +1,6 @@
 func run() {
-    let model = "./edgevox-onnx-online-punct-en-2024-08-06/model.onnx"
-    let bpe = "./edgevox-onnx-online-punct-en-2024-08-06/bpe.vocab"
+    let model = "./sherpa-onnx-online-punct-en-2024-08-06/model.onnx"
+    let bpe = "./sherpa-onnx-online-punct-en-2024-08-06/bpe.vocab"
     
     // Create model config
     let modelConfig = edgevoxOnnxOnlinePunctuationModelConfig(

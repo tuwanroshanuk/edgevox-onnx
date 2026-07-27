@@ -34,10 +34,10 @@ This program shows how to use VAD in edgevox-onnx.
     device_name
 
 Please download silero_vad.onnx from
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 For instance, use
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 The device name specifies which microphone to use in case there are several
 on your system. You can use

@@ -6,7 +6,7 @@ function createOfflinePunctuation() {
   const config = {
     model: {
       ctTransformer:
-          './edgevox-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx',
+          './sherpa-onnx-punct-ct-transformer-zh-en-vocab272727-2024-04-12/model.onnx',
       debug: 1,
       numThreads: 1,
       provider: 'cpu',

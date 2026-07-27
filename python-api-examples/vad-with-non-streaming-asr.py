@@ -39,20 +39,20 @@ Note that you need a non-streaming model for this script.
 
 ./python-api-examples/vad-with-non-streaming-asr.py  \
   --silero-vad-model=/path/to/silero_vad.onnx \
-  --moonshine-preprocessor=./edgevox-onnx-moonshine-tiny-en-int8/preprocess.onnx \
-  --moonshine-encoder=./edgevox-onnx-moonshine-tiny-en-int8/encode.int8.onnx \
-  --moonshine-uncached-decoder=./edgevox-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx \
-  --moonshine-cached-decoder=./edgevox-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx \
-  --tokens=./edgevox-onnx-moonshine-tiny-en-int8/tokens.txt \
+  --moonshine-preprocessor=./sherpa-onnx-moonshine-tiny-en-int8/preprocess.onnx \
+  --moonshine-encoder=./sherpa-onnx-moonshine-tiny-en-int8/encode.int8.onnx \
+  --moonshine-uncached-decoder=./sherpa-onnx-moonshine-tiny-en-int8/uncached_decode.int8.onnx \
+  --moonshine-cached-decoder=./sherpa-onnx-moonshine-tiny-en-int8/cached_decode.int8.onnx \
+  --tokens=./sherpa-onnx-moonshine-tiny-en-int8/tokens.txt \
   --num-threads=2
 
 (4) For Whisper models
 
 ./python-api-examples/vad-with-non-streaming-asr.py  \
   --silero-vad-model=/path/to/silero_vad.onnx \
-  --whisper-encoder=./edgevox-onnx-whisper-base.en/base.en-encoder.int8.onnx \
-  --whisper-decoder=./edgevox-onnx-whisper-base.en/base.en-decoder.int8.onnx \
-  --tokens=./edgevox-onnx-whisper-base.en/base.en-tokens.txt \
+  --whisper-encoder=./sherpa-onnx-whisper-base.en/base.en-encoder.int8.onnx \
+  --whisper-decoder=./sherpa-onnx-whisper-base.en/base.en-decoder.int8.onnx \
+  --tokens=./sherpa-onnx-whisper-base.en/base.en-tokens.txt \
   --whisper-task=transcribe \
   --num-threads=2
 
@@ -60,8 +60,8 @@ Note that you need a non-streaming model for this script.
 
 ./python-api-examples/vad-with-non-streaming-asr.py  \
   --silero-vad-model=/path/to/silero_vad.onnx \
-  --sense-voice=./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx \
-  --tokens=./edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/tokens.txt \
+  --sense-voice=./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx \
+  --tokens=./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/tokens.txt \
   --num-threads=2
 
 Please refer to
@@ -70,12 +70,12 @@ to install edgevox-onnx and to download non-streaming pre-trained models
 used in this file.
 
 Please visit
-https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 to download silero_vad.onnx
 
 For instance,
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/silero_vad.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 
 """
 import argparse

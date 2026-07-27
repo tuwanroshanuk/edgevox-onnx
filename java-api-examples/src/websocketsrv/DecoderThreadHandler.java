@@ -4,8 +4,8 @@
 // java DecoderThreadHandler
 package websocketsrv;
 
-import com.k2fsa.sherpa.onnx.OnlineRecognizer;
-import com.k2fsa.sherpa.onnx.OnlineStream;
+import com.nexus.edgevox.onnx.OnlineRecognizer;
+import com.nexus.edgevox.onnx.OnlineStream;
 import java.nio.*;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;

@@ -10,7 +10,7 @@
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jlong JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineSpeechDenoiser_newFromAsset(
+Java_com_nexus_edgevox_onnx_OfflineSpeechDenoiser_newFromAsset(
     JNIEnv *env, jobject /*obj*/, jobject asset_manager, jobject _config) {
 #if __ANDROID_API__ >= 9
   AAssetManager *mgr = AAssetManager_fromJava(env, asset_manager);
@@ -40,7 +40,7 @@ Java_com_k2fsa_edgevox_onnx_OfflineSpeechDenoiser_newFromAsset(
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jlong JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineSpeechDenoiser_newFromFile(JNIEnv *env,
+Java_com_nexus_edgevox_onnx_OfflineSpeechDenoiser_newFromFile(JNIEnv *env,
                                                              jobject /*obj*/,
                                                              jobject _config) {
   return SafeJNI(
@@ -69,14 +69,14 @@ Java_com_k2fsa_edgevox_onnx_OfflineSpeechDenoiser_newFromFile(JNIEnv *env,
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT void JNICALL Java_com_k2fsa_edgevox_onnx_OfflineSpeechDenoiser_delete(
+JNIEXPORT void JNICALL Java_com_nexus_edgevox_onnx_OfflineSpeechDenoiser_delete(
     JNIEnv * /*env*/, jobject /*obj*/, jlong ptr) {
   delete reinterpret_cast<edgevox_onnx::OfflineSpeechDenoiser *>(ptr);
 }
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jint JNICALL
-Java_com_k2fsa_edgevox_onnx_OfflineSpeechDenoiser_getSampleRate(JNIEnv * /*env*/,
+Java_com_nexus_edgevox_onnx_OfflineSpeechDenoiser_getSampleRate(JNIEnv * /*env*/,
                                                                jobject /*obj*/,
                                                                jlong ptr) {
   return reinterpret_cast<edgevox_onnx::OfflineSpeechDenoiser *>(ptr)
@@ -84,7 +84,7 @@ Java_com_k2fsa_edgevox_onnx_OfflineSpeechDenoiser_getSampleRate(JNIEnv * /*env*/
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jobject JNICALL Java_com_k2fsa_edgevox_onnx_OfflineSpeechDenoiser_run(
+JNIEXPORT jobject JNICALL Java_com_nexus_edgevox_onnx_OfflineSpeechDenoiser_run(
     JNIEnv *env, jobject /*obj*/, jlong ptr, jfloatArray samples,
     jint sample_rate) {
   auto speech_denoiser =
@@ -99,7 +99,7 @@ JNIEXPORT jobject JNICALL Java_com_k2fsa_edgevox_onnx_OfflineSpeechDenoiser_run(
 }
 
 EDGEVOX_ONNX_EXTERN_C
-JNIEXPORT jboolean JNICALL Java_com_k2fsa_edgevox_onnx_DenoisedAudio_saveImpl(
+JNIEXPORT jboolean JNICALL Java_com_nexus_edgevox_onnx_DenoisedAudio_saveImpl(
     JNIEnv *env, jobject /*obj*/, jstring filename, jfloatArray samples,
     jint sample_rate) {
   const char *p_filename = env->GetStringUTFChars(filename, nullptr);

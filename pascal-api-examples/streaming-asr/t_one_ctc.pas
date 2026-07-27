@@ -5,7 +5,7 @@ This file shows how to use a streaming T-one CTC model
 to decode files.
 
 You can download the model files from
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
 }
 
 program t_one_ctc;
@@ -36,15 +36,15 @@ var
 begin
   Initialize(Config);
 
-  {Please visit https://github.com/k2-fsa/edgevox-onnx/releases/tag/asr-models
+  {Please visit https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
   to download model files used in this file.}
-  Config.ModelConfig.ToneCtc.Model := './edgevox-onnx-streaming-t-one-russian-2025-09-08/model.onnx';
-  Config.ModelConfig.Tokens := './edgevox-onnx-streaming-t-one-russian-2025-09-08/tokens.txt';
+  Config.ModelConfig.ToneCtc.Model := './sherpa-onnx-streaming-t-one-russian-2025-09-08/model.onnx';
+  Config.ModelConfig.Tokens := './sherpa-onnx-streaming-t-one-russian-2025-09-08/tokens.txt';
   Config.ModelConfig.Provider := 'cpu';
   Config.ModelConfig.NumThreads := 1;
   Config.ModelConfig.Debug := False;
 
-  WaveFilename := './edgevox-onnx-streaming-t-one-russian-2025-09-08/0.wav';
+  WaveFilename := './sherpa-onnx-streaming-t-one-russian-2025-09-08/0.wav';
 
   Wave := EdgevoxOnnxReadWave(WaveFilename);
 

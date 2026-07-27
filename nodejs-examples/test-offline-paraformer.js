@@ -5,9 +5,9 @@ const edgevox_onnx = require('edgevox-onnx');
 function createOfflineRecognizer() {
   let modelConfig = {
     paraformer: {
-      model: './edgevox-onnx-paraformer-zh-2023-09-14/model.int8.onnx',
+      model: './sherpa-onnx-paraformer-zh-2023-09-14/model.int8.onnx',
     },
-    tokens: './edgevox-onnx-paraformer-zh-2023-09-14/tokens.txt',
+    tokens: './sherpa-onnx-paraformer-zh-2023-09-14/tokens.txt',
   };
 
   let config = {
@@ -20,7 +20,7 @@ function createOfflineRecognizer() {
 const recognizer = createOfflineRecognizer();
 const stream = recognizer.createStream();
 
-const waveFilename = './edgevox-onnx-paraformer-zh-2023-09-14/test_wavs/0.wav';
+const waveFilename = './sherpa-onnx-paraformer-zh-2023-09-14/test_wavs/0.wav';
 const wave = edgevox_onnx.readWave(waveFilename);
 stream.acceptWaveform(wave.sampleRate, wave.samples);
 

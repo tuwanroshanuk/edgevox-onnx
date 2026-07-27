@@ -7,7 +7,7 @@ if [ ! -d ../build-swift-macos ]; then
   exit 1
 fi
 
-if [ ! -f ./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/encoder_model.ort ]; then
+if [ ! -f ./sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27/encoder_model.ort ]; then
   echo "Please download the pre-trained model for testing."
   echo "You can refer to"
   echo ""
@@ -15,10 +15,10 @@ if [ ! -f ./edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27/encoder_model.or
   echo ""
   echo "for help"
 
-  curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
-  tar xvf edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
-  rm edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
-  ls -lh edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27
+  curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
+  tar xvf sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
+  rm sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2
+  ls -lh sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27
 fi
 
 if [ ! -e ./moonshine-v2-asr ]; then

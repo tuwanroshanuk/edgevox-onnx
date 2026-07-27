@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/gen2brain/malgo"
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 	flag "github.com/spf13/pflag"
 	"log"
 	"strings"

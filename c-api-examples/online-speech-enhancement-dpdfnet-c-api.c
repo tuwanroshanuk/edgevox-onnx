@@ -4,15 +4,15 @@
 //
 // We assume you have pre-downloaded model
 // from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
 // or
 // https://huggingface.co/Ceva-IP/DPDFNet
 //
 // An example command to download
 // clang-format off
 /*
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/dpdfnet_baseline.onnx
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/speech-enhancement-models/inp_16k.wav
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/dpdfnet_baseline.onnx
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/inp_16k.wav
 */
 // clang-format on
 

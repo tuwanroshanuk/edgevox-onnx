@@ -64,7 +64,7 @@ for wav in ${waves[@]}; do
   ls -lh *.wav
 done
 
-curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/spoken-language-identification-test-wavs.tar.bz2
+curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/spoken-language-identification-test-wavs.tar.bz2
 tar xvf spoken-language-identification-test-wavs.tar.bz2
 rm spoken-language-identification-test-wavs.tar.bz2
 data=spoken-language-identification-test-wavs
@@ -73,13 +73,13 @@ for name in ${names[@]}; do
   log "------------------------------------------------------------"
   log "Run $name"
   log "------------------------------------------------------------"
-  repo_url=https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/edgevox-onnx-whisper-$name.tar.bz2
+  repo_url=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-$name.tar.bz2
   curl -SL -O $repo_url
-  tar xvf edgevox-onnx-whisper-$name.tar.bz2
-  rm edgevox-onnx-whisper-$name.tar.bz2
+  tar xvf sherpa-onnx-whisper-$name.tar.bz2
+  rm sherpa-onnx-whisper-$name.tar.bz2
 
   log "Start testing ${repo_url}"
-  repo=edgevox-onnx-whisper-$name
+  repo=sherpa-onnx-whisper-$name
 
   for wav in ${waves[@]}; do
     log "test fp32 onnx"

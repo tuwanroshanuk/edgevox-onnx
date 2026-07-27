@@ -27,7 +27,7 @@ def get_args():
 @dataclass
 class Model:
     # We will download
-    # https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/{model_name}.tar.bz2
+    # https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/{model_name}.tar.bz2
     model_name: str
 
     # The type of the model, e..g, 0, 1, 2. It is hardcoded in the kotlin code
@@ -52,7 +52,7 @@ class Model:
 def get_models():
     models = [
         Model(
-            model_name="edgevox-onnx-whisper-tiny.en",
+            model_name="sherpa-onnx-whisper-tiny.en",
             idx=2,
             lang="en",
             lang2="English",
@@ -73,7 +73,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-paraformer-zh-2023-09-14",
+            model_name="sherpa-onnx-paraformer-zh-2023-09-14",
             idx=0,
             lang="zh_en",
             lang2="Chinese,English",
@@ -81,7 +81,7 @@ def get_models():
             rule_fsts="itn_zh_number.fst",
             cmd="""
             if [ ! -f itn_zh_number.fst ]; then
-              curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+              curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
             fi
             pushd $model_name
 
@@ -95,7 +95,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17",
+            model_name="sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17",
             idx=15,
             lang="zh_en_ko_ja_yue",
             lang2="中英粤日韩",
@@ -113,7 +113,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-paraformer-zh-small-2024-03-09",
+            model_name="sherpa-onnx-paraformer-zh-small-2024-03-09",
             idx=14,
             lang="zh_en",
             lang2="Chinese,English",
@@ -121,7 +121,7 @@ def get_models():
             rule_fsts="itn_zh_number.fst",
             cmd="""
             if [ ! -f itn_zh_number.fst ]; then
-              curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+              curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
             fi
             pushd $model_name
 
@@ -145,7 +145,7 @@ def get_models():
             rule_fsts="itn_zh_number.fst",
             cmd="""
             if [ ! -f itn_zh_number.fst ]; then
-              curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+              curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
             fi
             pushd $model_name
 
@@ -165,7 +165,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k",
+            model_name="sherpa-onnx-nemo-fast-conformer-ctc-be-de-en-es-fr-hr-it-pl-ru-uk-20k",
             idx=7,
             lang="be_de_en_es_fr_hr_it_pl_ru_uk",
             lang2="be_de_en_es_fr_hr_it_pl_ru_uk",
@@ -181,7 +181,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-fast-conformer-ctc-en-24500",
+            model_name="sherpa-onnx-nemo-fast-conformer-ctc-en-24500",
             idx=8,
             lang="en",
             lang2="English",
@@ -197,7 +197,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-fast-conformer-ctc-en-de-es-fr-14288",
+            model_name="sherpa-onnx-nemo-fast-conformer-ctc-en-de-es-fr-14288",
             idx=9,
             lang="en_de_es_fr",
             lang2="English,German,Spanish,French",
@@ -213,7 +213,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-fast-conformer-ctc-es-1424",
+            model_name="sherpa-onnx-nemo-fast-conformer-ctc-es-1424",
             idx=10,
             lang="es",
             lang2="Spanish",
@@ -229,7 +229,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-telespeech-ctc-int8-zh-2024-06-04",
+            model_name="sherpa-onnx-telespeech-ctc-int8-zh-2024-06-04",
             idx=11,
             lang="zh",
             lang2="Chinese",
@@ -237,7 +237,7 @@ def get_models():
             rule_fsts="itn_zh_number.fst",
             cmd="""
             if [ ! -f itn_zh_number.fst ]; then
-              curl -SL -O https://github.com/k2-fsa/edgevox-onnx/releases/download/asr-models/itn_zh_number.fst
+              curl -SL -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/itn_zh_number.fst
             fi
             pushd $model_name
 
@@ -250,7 +250,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-zipformer-thai-2024-06-20",
+            model_name="sherpa-onnx-zipformer-thai-2024-06-20",
             idx=12,
             lang="th",
             lang2="Thai",
@@ -272,7 +272,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-zipformer-korean-2024-06-24",
+            model_name="sherpa-onnx-zipformer-korean-2024-06-24",
             idx=13,
             lang="ko",
             lang2="Korean",
@@ -294,7 +294,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-zipformer-ja-reazonspeech-2024-08-01",
+            model_name="sherpa-onnx-zipformer-ja-reazonspeech-2024-08-01",
             idx=16,
             lang="ja",
             lang2="Japanese",
@@ -314,7 +314,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-zipformer-ru-2024-09-18",
+            model_name="sherpa-onnx-zipformer-ru-2024-09-18",
             idx=17,
             lang="ru",
             lang2="Russian",
@@ -356,7 +356,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-ctc-giga-am-russian-2024-10-24",
+            model_name="sherpa-onnx-nemo-ctc-giga-am-russian-2024-10-24",
             idx=19,
             lang="ru",
             lang2="Russian",
@@ -375,7 +375,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-transducer-giga-am-russian-2024-10-24",
+            model_name="sherpa-onnx-nemo-transducer-giga-am-russian-2024-10-24",
             idx=20,
             lang="ru",
             lang2="Russian",
@@ -394,7 +394,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-tiny-en-int8",
+            model_name="sherpa-onnx-moonshine-tiny-en-int8",
             idx=21,
             lang="en",
             lang2="English",
@@ -410,7 +410,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-base-en-int8",
+            model_name="sherpa-onnx-moonshine-base-en-int8",
             idx=22,
             lang="en",
             lang2="English",
@@ -426,7 +426,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-zipformer-zh-en-2023-11-22",
+            model_name="sherpa-onnx-zipformer-zh-en-2023-11-22",
             idx=23,
             lang="zh_en",
             lang2="Chinese,English",
@@ -446,7 +446,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02",
+            model_name="sherpa-onnx-dolphin-base-ctc-multi-lang-int8-2025-04-02",
             idx=25,
             lang="multi_lang",
             lang2="multi_lang",
@@ -462,7 +462,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-zipformer-vi-int8-2025-04-20",
+            model_name="sherpa-onnx-zipformer-vi-int8-2025-04-20",
             idx=26,
             lang="vi",
             lang2="Vietnamese",
@@ -479,7 +479,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19",
+            model_name="sherpa-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19",
             idx=27,
             lang="ru",
             lang2="Russian",
@@ -498,7 +498,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19",
+            model_name="sherpa-onnx-nemo-transducer-giga-am-v2-russian-2025-04-19",
             idx=28,
             lang="ru",
             lang2="Russian",
@@ -517,7 +517,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-zipformer-ru-int8-2025-04-20",
+            model_name="sherpa-onnx-zipformer-ru-int8-2025-04-20",
             idx=29,
             lang="ru",
             lang2="Russian",
@@ -535,7 +535,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-parakeet-tdt-0.6b-v2-int8",
+            model_name="sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8",
             idx=30,
             lang="en",
             lang2="English",
@@ -551,7 +551,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-zipformer-ctc-zh-int8-2025-07-03",
+            model_name="sherpa-onnx-zipformer-ctc-zh-int8-2025-07-03",
             idx=31,
             lang="zh",
             lang2="Chinese",
@@ -568,7 +568,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-parakeet_tdt_ctc_110m-en-36000-int8",
+            model_name="sherpa-onnx-nemo-parakeet_tdt_ctc_110m-en-36000-int8",
             idx=33,
             lang="en",
             lang2="English",
@@ -584,7 +584,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-parakeet-tdt_ctc-0.6b-ja-35000-int8",
+            model_name="sherpa-onnx-nemo-parakeet-tdt_ctc-0.6b-ja-35000-int8",
             idx=34,
             lang="ja",
             lang2="Japanese",
@@ -600,7 +600,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-transducer-stt_pt_fastconformer_hybrid_large_pc-int8",
+            model_name="sherpa-onnx-nemo-transducer-stt_pt_fastconformer_hybrid_large_pc-int8",
             idx=35,
             lang="pt",
             lang2="Portuguese",
@@ -616,7 +616,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-stt_pt_fastconformer_hybrid_large_pc-int8",
+            model_name="sherpa-onnx-nemo-stt_pt_fastconformer_hybrid_large_pc-int8",
             idx=36,
             lang="pt",
             lang2="Portuguese",
@@ -632,7 +632,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-transducer-stt_de_fastconformer_hybrid_large_pc-int8",
+            model_name="sherpa-onnx-nemo-transducer-stt_de_fastconformer_hybrid_large_pc-int8",
             idx=37,
             lang="de",
             lang2="German",
@@ -648,7 +648,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-stt_de_fastconformer_hybrid_large_pc-int8",
+            model_name="sherpa-onnx-nemo-stt_de_fastconformer_hybrid_large_pc-int8",
             idx=38,
             lang="de",
             lang2="German",
@@ -664,7 +664,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-zipformer-ctc-small-zh-int8-2025-07-16",
+            model_name="sherpa-onnx-zipformer-ctc-small-zh-int8-2025-07-16",
             idx=39,
             lang="zh",
             lang2="Chinese",
@@ -681,7 +681,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-parakeet-tdt-0.6b-v3-int8",
+            model_name="sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8",
             idx=40,
             lang="multi",
             lang2="25_languages",
@@ -697,7 +697,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-sense-voice-zh-en-ja-ko-yue-int8-2025-09-09",
+            model_name="sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2025-09-09",
             idx=41,
             lang="zh_en_ko_ja_yue",
             lang2="中英粤日韩",
@@ -714,7 +714,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10",
+            model_name="sherpa-onnx-wenetspeech-yue-u2pp-conformer-ctc-zh-en-cantonese-int8-2025-09-10",
             idx=42,
             lang="zh_en_yue",
             lang2="中英粤",
@@ -730,7 +730,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-paraformer-zh-int8-2025-10-07",
+            model_name="sherpa-onnx-paraformer-zh-int8-2025-10-07",
             idx=43,
             lang="zh",
             lang2="四川话",
@@ -746,7 +746,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12",
+            model_name="sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12",
             idx=44,
             lang="1600",
             lang2="1600_languages",
@@ -762,7 +762,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-medasr-ctc-en-int8-2025-12-25",
+            model_name="sherpa-onnx-medasr-ctc-en-int8-2025-12-25",
             idx=45,
             lang="en",
             lang2="英语",
@@ -778,7 +778,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-funasr-nano-int8-2025-12-30",
+            model_name="sherpa-onnx-funasr-nano-int8-2025-12-30",
             idx=46,
             lang="multi",
             lang2="31_languages",
@@ -826,7 +826,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-zipformer-vi-30M-int8-2026-02-09",
+            model_name="sherpa-onnx-zipformer-vi-30M-int8-2026-02-09",
             idx=49,
             lang="vi",
             lang2="Vietnamese",
@@ -842,7 +842,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25",
+            model_name="sherpa-onnx-fire-red-asr2-ctc-zh_en-int8-2026-02-25",
             idx=50,
             lang="zh_en",
             lang2="中英",
@@ -858,7 +858,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-tiny-ko-quantized-2026-02-27",
+            model_name="sherpa-onnx-moonshine-tiny-ko-quantized-2026-02-27",
             idx=51,
             lang="ko",
             lang2="Korean",
@@ -874,7 +874,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-tiny-ja-quantized-2026-02-27",
+            model_name="sherpa-onnx-moonshine-tiny-ja-quantized-2026-02-27",
             idx=52,
             lang="ja",
             lang2="Japanese",
@@ -890,7 +890,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-tiny-en-quantized-2026-02-27",
+            model_name="sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27",
             idx=53,
             lang="en",
             lang2="English",
@@ -906,7 +906,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-base-zh-quantized-2026-02-27",
+            model_name="sherpa-onnx-moonshine-base-zh-quantized-2026-02-27",
             idx=54,
             lang="zh",
             lang2="Chinese",
@@ -922,7 +922,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-base-vi-quantized-2026-02-27",
+            model_name="sherpa-onnx-moonshine-base-vi-quantized-2026-02-27",
             idx=55,
             lang="vi",
             lang2="Vietnamese",
@@ -938,7 +938,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-base-uk-quantized-2026-02-27",
+            model_name="sherpa-onnx-moonshine-base-uk-quantized-2026-02-27",
             idx=56,
             lang="uk",
             lang2="Ukrainian",
@@ -954,7 +954,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-base-ja-quantized-2026-02-27",
+            model_name="sherpa-onnx-moonshine-base-ja-quantized-2026-02-27",
             idx=57,
             lang="ja",
             lang2="Japanese",
@@ -970,7 +970,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-base-es-quantized-2026-02-27",
+            model_name="sherpa-onnx-moonshine-base-es-quantized-2026-02-27",
             idx=58,
             lang="es",
             lang2="Spanish",
@@ -986,7 +986,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-base-en-quantized-2026-02-27",
+            model_name="sherpa-onnx-moonshine-base-en-quantized-2026-02-27",
             idx=59,
             lang="en",
             lang2="English",
@@ -1002,7 +1002,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-moonshine-base-ar-quantized-2026-02-27",
+            model_name="sherpa-onnx-moonshine-base-ar-quantized-2026-02-27",
             idx=60,
             lang="ar",
             lang2="Arabic",
@@ -1018,7 +1018,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-qwen3-asr-0.6B-int8-2026-03-25",
+            model_name="sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25",
             idx=61,
             lang="52_lang",
             lang2="52_lang",
@@ -1034,7 +1034,7 @@ def get_models():
             """,
         ),
         Model(
-            model_name="edgevox-onnx-nemo-parakeet-unified-en-0.6b-int8-non-streaming",
+            model_name="sherpa-onnx-nemo-parakeet-unified-en-0.6b-int8-non-streaming",
             idx=62,
             lang="en",
             lang2="English",

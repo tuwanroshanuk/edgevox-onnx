@@ -3,7 +3,7 @@
 /*
 Please download test files used in this script from
 
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/speaker-recongition-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models
 */
 import Foundation
 

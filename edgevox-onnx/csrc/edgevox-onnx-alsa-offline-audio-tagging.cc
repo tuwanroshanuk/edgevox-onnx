@@ -87,17 +87,17 @@ int32_t main(int32_t argc, char *argv[]) {
 Audio tagging from microphone (Linux only).
 Usage:
 
-wget https://github.com/k2-fsa/edgevox-onnx/releases/download/audio-tagging-models/edgevox-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
-tar xvf edgevox-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
-rm edgevox-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
+wget https://github.com/k2-fsa/sherpa-onnx/releases/download/audio-tagging-models/sherpa-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
+tar xvf sherpa-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
+rm sherpa-onnx-zipformer-audio-tagging-2024-04-09.tar.bz2
 
 ./bin/edgevox-onnx-alsa-offline-audio-tagging \
-  --zipformer-model=./edgevox-onnx-zipformer-audio-tagging-2024-04-09/model.onnx \
-  --labels=./edgevox-onnx-zipformer-audio-tagging-2024-04-09/class_labels_indices.csv \
+  --zipformer-model=./sherpa-onnx-zipformer-audio-tagging-2024-04-09/model.onnx \
+  --labels=./sherpa-onnx-zipformer-audio-tagging-2024-04-09/class_labels_indices.csv \
     device_name
 
 Please refer to
-https://github.com/k2-fsa/edgevox-onnx/releases/tag/audio-tagging-models
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/audio-tagging-models
 for a list of pre-trained models to download.
 
 The device name specifies which microphone to use in case there are several

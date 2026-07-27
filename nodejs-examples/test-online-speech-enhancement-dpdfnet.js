@@ -1,7 +1,7 @@
 // Copyright (c)  2026  Xiaomi Corporation (authors: Fangjun Kuang)
 //
 // Please download a DPDFNet model and ./inp_16k.wav used in this file from
-// https://github.com/k2-fsa/edgevox-onnx/releases/tag/speech-enhancement-models
+// https://github.com/k2-fsa/sherpa-onnx/releases/tag/speech-enhancement-models
 // or https://huggingface.co/Ceva-IP/DPDFNet
 //
 // This script shows how to use the streaming speech enhancement API from

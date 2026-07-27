@@ -4,7 +4,7 @@ import (
 	"log"
 	"strings"
 
-	sherpa "github.com/k2-fsa/edgevox-onnx-go/edgevox_onnx"
+	sherpa "github.com/k2-fsa/sherpa-onnx-go/sherpa_onnx"
 )
 
 func main() {
@@ -12,10 +12,10 @@ func main() {
 
 	config := sherpa.OfflineRecognizerConfig{}
 
-	config.ModelConfig.MedAsr.Model = "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/model.int8.onnx"
-	config.ModelConfig.Tokens = "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/tokens.txt"
+	config.ModelConfig.MedAsr.Model = "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/model.int8.onnx"
+	config.ModelConfig.Tokens = "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/tokens.txt"
 
-	waveFilename := "./edgevox-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/0.wav"
+	waveFilename := "./sherpa-onnx-medasr-ctc-en-int8-2025-12-25/test_wavs/0.wav"
 
 	wave := sherpa.ReadWave(waveFilename)
 	if wave == nil {
