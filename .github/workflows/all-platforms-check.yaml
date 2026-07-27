@@ -1,0 +1,129 @@
+name: All Platforms Build Check
+
+# Lightweight, always-on smoke build across the core supported platforms.
+# This does NOT replace the full per-platform release workflows in this
+# directory (most of which are intentionally disabled via the .disabled
+# suffix and run on demand / on tag) -- it exists to give every push and PR
+# a fast, single required status check confirming edgevox-onnx still
+# configures and builds cleanly on each major OS + Android before anyone
+# triggers the heavier, dedicated workflows.
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch: {}
+
+concurrency:
+  group: all-platforms-check-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  linux:
+    name: Linux (Ubuntu x64)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure
+        run: |
+          mkdir -p build
+          cd build
+          cmake -DCMAKE_BUILD_TYPE=Release \
+                -DBUILD_SHARED_LIBS=ON \
+                -DEDGEVOX_ONNX_ENABLE_TESTS=OFF \
+                -DEDGEVOX_ONNX_ENABLE_PYTHON=OFF \
+                ..
+      - name: Build
+        run: |
+          cd build
+          cmake --build . --config Release -- -j2
+
+  macos:
+    name: macOS (arm64)
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure
+        run: |
+          mkdir -p build
+          cd build
+          cmake -DCMAKE_BUILD_TYPE=Release \
+                -DBUILD_SHARED_LIBS=ON \
+                -DEDGEVOX_ONNX_ENABLE_TESTS=OFF \
+                -DEDGEVOX_ONNX_ENABLE_PYTHON=OFF \
+                ..
+      - name: Build
+        run: |
+          cd build
+          cmake --build . --config Release -- -j2
+
+  windows:
+    name: Windows (x64)
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure
+        run: |
+          mkdir build
+          cd build
+          cmake -A x64 -DCMAKE_BUILD_TYPE=Release `
+                -DBUILD_SHARED_LIBS=ON `
+                -DEDGEVOX_ONNX_ENABLE_TESTS=OFF `
+                -DEDGEVOX_ONNX_ENABLE_PYTHON=OFF `
+                ..
+      - name: Build
+        run: |
+          cd build
+          cmake --build . --config Release
+
+  android:
+    name: Android (arm64-v8a)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Set up Android NDK
+        run: |
+          echo "y" | ${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager --install "ndk;26.1.10909125"
+      - name: Configure & build core lib for arm64-v8a
+        env:
+          ANDROID_NDK: ${{ env.ANDROID_SDK_ROOT }}/ndk/26.1.10909125
+        run: |
+          mkdir -p build-android
+          cd build-android
+          cmake -DCMAKE_TOOLCHAIN_FILE=${ANDROID_NDK}/build/cmake/android.toolchain.cmake \
+                -DANDROID_ABI=arm64-v8a \
+                -DANDROID_PLATFORM=android-24 \
+                -DBUILD_SHARED_LIBS=ON \
+                -DEDGEVOX_ONNX_ENABLE_TESTS=OFF \
+                -DEDGEVOX_ONNX_ENABLE_PYTHON=OFF \
+                ..
+          cmake --build . --config Release -- -j2
+
+  all-platforms-status:
+    name: All Platforms Status
+    needs: [linux, macos, windows, android]
+    runs-on: ubuntu-24.04
+    if: always()
+    steps:
+      - name: Fail if any platform build failed
+        run: |
+          if [ "${{ contains(needs.*.result, 'failure') }}" = "true" ] || \
+             [ "${{ contains(needs.*.result, 'cancelled') }}" = "true" ]; then
+            echo "One or more platform builds failed:"
+            echo "  linux:   ${{ needs.linux.result }}"
+            echo "  macos:   ${{ needs.macos.result }}"
+            echo "  windows: ${{ needs.windows.result }}"
+            echo "  android: ${{ needs.android.result }}"
+            exit 1
+          fi
+          echo "All platforms built successfully."
