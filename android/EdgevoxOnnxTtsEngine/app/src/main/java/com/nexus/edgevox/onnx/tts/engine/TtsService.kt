@@ -46,11 +46,11 @@ fra, BEL,
 fra, FRA,
 
 E  Failed to check TTS data, no activity found for Intent
-{ act=android.speech.tts.engine.CHECK_TTS_DATA pkg=com.k2fsa.sherpa.chapter5 })
+{ act=android.speech.tts.engine.CHECK_TTS_DATA pkg=com.nexus.edgevox.chapter5 })
 
-E Failed to get default language from engine com.k2fsa.sherpa.chapter5
-Engine failed voice data integrity check (null return)com.k2fsa.sherpa.chapter5
-Failed to get default language from engine com.k2fsa.sherpa.chapter5
+E Failed to get default language from engine com.nexus.edgevox.chapter5
+Engine failed voice data integrity check (null return)com.nexus.edgevox.chapter5
+Failed to get default language from engine com.nexus.edgevox.chapter5
 
 */
 
