@@ -94,10 +94,11 @@ jobs:
       - name: Set up Android NDK
         run: |
           echo "y" | ${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager --install "ndk;26.1.10909125"
+          echo "ANDROID_NDK=${ANDROID_SDK_ROOT}/ndk/26.1.10909125" >> "$GITHUB_ENV"
       - name: Configure & build core lib for arm64-v8a
-        env:
-          ANDROID_NDK: ${{ env.ANDROID_SDK_ROOT }}/ndk/26.1.10909125
         run: |
+          echo "Using ANDROID_NDK=${ANDROID_NDK}"
+          ls -lh "${ANDROID_NDK}"
           mkdir -p build-android
           cd build-android
           cmake -DCMAKE_TOOLCHAIN_FILE=${ANDROID_NDK}/build/cmake/android.toolchain.cmake \
