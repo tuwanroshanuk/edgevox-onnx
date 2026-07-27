@@ -192,3 +192,4 @@ edgevox-onnx-spleeter-2stems-fp16
 edgevox-onnx-cohere-transcribe-14-lang-int8-2026-04-01
 espeak-ng-data
 edgevox-onnx-nemo*
+.github/workflows/
