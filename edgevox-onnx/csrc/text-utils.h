@@ -223,7 +223,11 @@ std::vector<std::string> MergeShortSentences(
     const std::vector<std::string> &sentences, size_t min_chars);
 std::vector<std::string> SplitLongSentence(const std::string &sentence,
                                            size_t max_chars);
-std::vector<std::string> ChunkText(const std::string &text, size_t max_len);
+// Split text in paragraph -> sentence/punctuation -> whole-word order.
+// Paragraphs are never merged. Non-CJK words may exceed max_len rather than
+// being cut at an arbitrary Unicode code point.
+std::vector<std::string> ChunkText(const std::string &text, size_t max_len,
+                                   size_t min_len = 0);
 
 }  // namespace edgevox_onnx
 

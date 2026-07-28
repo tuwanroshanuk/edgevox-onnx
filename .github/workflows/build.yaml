@@ -9,35 +9,56 @@ on:
         default: false
         type: boolean
       npm_version:
-        description: 'npm version (e.g. 1.13.4-espeak-voice.5)'
+        description: 'Optional npm version override (empty = next available version)'
         required: false
-        default: '1.13.4-espeak-voice.5'
+        default: ''
         type: string
   push:
     branches:
       - master
-    paths:
-      - '.github/workflows/build.yaml'
-      - 'edgevox-onnx/c-api/**'
-      - 'edgevox-onnx/csrc/matcha-tts-lexicon.*'
-      - 'edgevox-onnx/csrc/text-utils.*'
-      - 'edgevox-onnx/csrc/offline-tts-zipvoice*'
-      - 'edgevox-onnx/kotlin-api/Tts.kt'
-      - 'harmony-os/EdgevoxOnnxHar/edgevox_onnx/src/main/cpp/**'
-      - 'wasm/**'
-      - 'scripts/nexuscloud-npm/**'
-      - 'scripts/node-addon-api/**'
-      - 'scripts/nodejs/**'
 
 concurrency:
   group: nexuscloud-edgevox-onnx-${{ github.ref }}
-  cancel-in-progress: true
+  # Do not cancel a run while it may be publishing a version.
+  cancel-in-progress: false
 
 permissions:
   contents: read
   id-token: write
 
 jobs:
+  resolve_npm_version:
+    name: Resolve npm version
+    runs-on: ubuntu-24.04
+    outputs:
+      npm_version: ${{ steps.version.outputs.npm_version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Select manual override or next available version
+        id: version
+        env:
+          REQUESTED_VERSION: ${{ github.event.inputs.npm_version }}
+        run: |
+          set -euo pipefail
+          if [ -n "${REQUESTED_VERSION:-}" ]; then
+            NPM_VERSION="$REQUESTED_VERSION"
+          else
+            NPM_VERSION=$(node scripts/nexuscloud-npm/scripts/resolve-npm-version.mjs \
+              @nexuscloud/edgevox-onnx 1.13.4-espeak-voice)
+          fi
+          npm view "@nexuscloud/edgevox-onnx@${NPM_VERSION}" version >/dev/null 2>&1 && {
+            echo "::error::npm version ${NPM_VERSION} already exists"
+            exit 1
+          }
+          echo "Resolved npm version: ${NPM_VERSION}"
+          echo "npm_version=${NPM_VERSION}" >> "$GITHUB_OUTPUT"
+
   # Cheap gate: catch JS syntax errors (e.g. stray '}}' after espeakVoice edits)
   # before spending ~30m on WASM/Android native builds.
   check-js-syntax:
@@ -68,6 +89,9 @@ jobs:
             fi
           done < <(find wasm/tts scripts/nodejs -name '*.js' -print0)
           exit "$fail"
+
+      - name: Test npm release version resolver
+        run: node --test scripts/nexuscloud-npm/scripts/resolve-npm-version.test.mjs
 
   build-wasm:
     name: WASM (Node.js)
@@ -213,7 +237,7 @@ jobs:
 
   assemble-npm:
     name: Assemble npm package
-    needs: [build-wasm, build-native-win-x64, build-android]
+    needs: [resolve_npm_version, build-wasm, build-native-win-x64, build-android]
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -240,7 +264,7 @@ jobs:
 
       - name: Assemble @nexuscloud/edgevox-onnx
         env:
-          NPM_VERSION: ${{ github.event.inputs.npm_version || '1.13.4-espeak-voice.5' }}
+          NPM_VERSION: ${{ needs.resolve_npm_version.outputs.npm_version }}
         run: |
           PKG=scripts/nexuscloud-npm
           OUT=nexuscloud-edgevox-onnx-package
@@ -298,12 +322,12 @@ jobs:
           retention-days: 30
 
       - name: Publish to npm
-        if: github.event_name == 'workflow_dispatch' && inputs.publish_npm == true
+        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.publish_npm == true)
         working-directory: nexuscloud-edgevox-onnx-package
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npm publish --access public --provenance
+          npm publish --access public --provenance --tag latest
 
       - name: Create GitHub release asset (manual dispatch)
         if: github.event_name == 'workflow_dispatch'

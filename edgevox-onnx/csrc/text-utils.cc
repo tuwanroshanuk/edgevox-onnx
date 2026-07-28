@@ -1311,6 +1311,10 @@ bool IsChunkBoundary(char32_t c) {
          c == U'，' || c == U'；' || c == U'：';
 }
 
+bool IsMinorChunkBoundary(char32_t c) {
+  return !IsSentenceBoundary(c) && IsChunkBoundary(c);
+}
+
 bool IsSpace(char32_t c) {
   return c == U' ' || c == U'\t' || c == U'\n' || c == U'\r' || c == U'\f' ||
          c == U'\v';
@@ -1415,18 +1419,39 @@ std::vector<std::string> SplitLongSentence(const std::string &sentence,
 
     size_t split_pos = end;
     bool found = false;
-    for (size_t i = end; i > start; --i) {
-      char32_t c = u32[i - 1];
-      if (IsSpace(c)) {
-        split_pos = i - 1;
-        found = true;
-        break;
+
+    // If max_chars lands exactly between words, retain the complete last word.
+    if (IsSpace(u32[end])) {
+      found = true;
+    } else {
+      // Prefer the strongest semantic boundary within the size target:
+      // sentence punctuation, then minor punctuation, then whitespace.
+      for (size_t i = end; i > start; --i) {
+        if (IsSentenceBoundary(u32[i - 1])) {
+          split_pos = i;
+          found = true;
+          break;
+        }
       }
 
-      if (IsChunkBoundary(c)) {
-        split_pos = i;
-        found = true;
-        break;
+      if (!found) {
+        for (size_t i = end; i > start; --i) {
+          if (IsMinorChunkBoundary(u32[i - 1])) {
+            split_pos = i;
+            found = true;
+            break;
+          }
+        }
+      }
+
+      if (!found) {
+        for (size_t i = end; i > start; --i) {
+          if (IsSpace(u32[i - 1])) {
+            split_pos = i - 1;
+            found = true;
+            break;
+          }
+        }
       }
     }
 
@@ -1473,7 +1498,8 @@ std::vector<std::string> SplitLongSentence(const std::string &sentence,
   return chunks;
 }
 
-std::vector<std::string> ChunkText(const std::string &text, size_t max_len) {
+std::vector<std::string> ChunkText(const std::string &text, size_t max_len,
+                                   size_t min_len) {
   std::vector<std::string> chunks;
   if (max_len == 0) return chunks;
 
@@ -1491,6 +1517,10 @@ std::vector<std::string> ChunkText(const std::string &text, size_t max_len) {
   auto paragraphs = SplitByBlankLines(text_single);
   for (const auto &para : paragraphs) {
     auto sentences = SplitByPunctuation(para);
+    if (min_len > 0) {
+      sentences = MergeShortSentences(sentences, min_len);
+    }
+
     for (const auto &sent : sentences) {
       auto pieces = SplitLongSentence(sent, max_len);
       for (auto &p : pieces) {
@@ -1515,9 +1545,12 @@ std::vector<std::string> ChunkText(const std::string &text, size_t max_len) {
         }
       }
     }
+
+    // A paragraph is a deliberate semantic boundary. Do not join it to the
+    // following paragraph merely because both would fit in one model chunk.
+    flush();
   }
 
-  flush();
   if (chunks.empty()) chunks.emplace_back(std::move(text_single));
   return chunks;
 }

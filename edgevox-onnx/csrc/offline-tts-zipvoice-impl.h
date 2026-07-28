@@ -162,11 +162,6 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
       return {};
     }
 
-    auto sentences = SplitByPunctuation(text);
-    if (sentences.empty()) {
-      return {};
-    }
-
     int32_t max_char_in_sentence =
         config.GetExtraInt("max_char_in_sentence", 200);
     int32_t min_char_in_sentence =
@@ -184,15 +179,11 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
       return {};
     }
 
-    sentences = MergeShortSentences(sentences, min_char_in_sentence);
-
-    std::vector<std::string> final_chunks;
-    for (const auto &s : sentences) {
-      auto pieces = SplitLongSentence(s, max_char_in_sentence);
-      final_chunks.insert(final_chunks.end(), pieces.begin(), pieces.end());
-    }
-
-    sentences = std::move(final_chunks);
+    // Keep paragraph boundaries, prefer sentence/punctuation boundaries, then
+    // split at whitespace. Non-CJK words are never cut merely to hit the limit.
+    auto sentences =
+        ChunkText(text, static_cast<size_t>(max_char_in_sentence),
+                  static_cast<size_t>(min_char_in_sentence));
     if (sentences.empty()) {
       return {};
     }

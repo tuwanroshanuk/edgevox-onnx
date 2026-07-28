@@ -153,4 +153,22 @@ TEST(SplitLongSentence, KeepsCjkCodepointLimit) {
   EXPECT_EQ(chunks[1], "中文测试");
 }
 
+TEST(ChunkText, PreservesParagraphBoundaries) {
+  auto chunks = ChunkText("පළමු ඡේදය.\n\nදෙවන ඡේදය.", 200, 30);
+
+  ASSERT_EQ(chunks.size(), 2);
+  EXPECT_EQ(chunks[0], "පළමු ඡේදය.");
+  EXPECT_EQ(chunks[1], "දෙවන ඡේදය.");
+}
+
+TEST(ChunkText, UsesWholeSinhalaWordsForLongSentences) {
+  auto chunks = ChunkText("සිංහල භාෂාව ඉතා ලස්සන භාෂාවකි", 9);
+
+  ASSERT_EQ(chunks.size(), 4);
+  EXPECT_EQ(chunks[0], "සිංහල");
+  EXPECT_EQ(chunks[1], "භාෂාව ඉතා");
+  EXPECT_EQ(chunks[2], "ලස්සන");
+  EXPECT_EQ(chunks[3], "භාෂාවකි");
+}
+
 }  // namespace edgevox_onnx
