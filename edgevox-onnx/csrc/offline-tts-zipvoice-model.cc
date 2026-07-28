@@ -72,7 +72,8 @@ class OfflineTtsZipvoiceModel::Impl {
 
   Ort::Value Run(Ort::Value tokens, Ort::Value prompt_tokens,
                  Ort::Value prompt_features, float speed, int32_t num_steps,
-                 float t_shift, float guidance_scale, int32_t seed) {
+                 float t_shift, float guidance_scale, int32_t seed,
+                 const ZipvoiceProgressCallback &progress_callback) {
     std::vector<int64_t> tokens_shape =
         tokens.GetTensorTypeAndShapeInfo().GetShape();
 
@@ -86,6 +87,10 @@ class OfflineTtsZipvoiceModel::Impl {
     Ort::Value text_condition =
         RunEncoder(std::move(tokens), std::move(prompt_tokens),
                    View(&prompt_features), speed);
+    const float progress_denominator = static_cast<float>(num_steps + 2);
+    if (progress_callback && !progress_callback(1.0f / progress_denominator)) {
+      return Ort::Value{nullptr};
+    }
 
     std::vector<int64_t> text_cond_shape =
         text_condition.GetTensorTypeAndShapeInfo().GetShape();
@@ -146,6 +151,11 @@ class OfflineTtsZipvoiceModel::Impl {
       const float *v_ptr = v.GetTensorData<float>();
       for (int64_t i = 0; i < N; ++i) {
         x_ptr[i] += v_ptr[i] * delta_t;
+      }
+      if (progress_callback &&
+          !progress_callback(static_cast<float>(step + 2) /
+                             progress_denominator)) {
+        return Ort::Value{nullptr};
       }
     }
 
@@ -382,10 +392,13 @@ Ort::Value OfflineTtsZipvoiceModel::Run(Ort::Value tokens,
                                         int32_t num_steps /*= 16*/,
                                         float t_shift /*= 0.5f*/,
                                         float guidance_scale /*= 1.0f*/,
-                                        int32_t seed /*= -1*/) const {
+                                        int32_t seed /*= -1*/,
+                                        ZipvoiceProgressCallback
+                                            progress_callback /*= nullptr*/)
+    const {
   return impl_->Run(std::move(tokens), std::move(prompt_tokens),
                     std::move(prompt_features), speed, num_steps, t_shift,
-                    guidance_scale, seed);
+                    guidance_scale, seed, progress_callback);
 }
 
 #if __ANDROID_API__ >= 9

@@ -9,9 +9,9 @@ on:
         default: false
         type: boolean
       npm_version:
-        description: 'npm version (e.g. 1.13.4-espeak-voice.4)'
+        description: 'npm version (e.g. 1.13.4-espeak-voice.5)'
         required: false
-        default: '1.13.4-espeak-voice.4'
+        default: '1.13.4-espeak-voice.5'
         type: string
   push:
     branches:
@@ -240,7 +240,7 @@ jobs:
 
       - name: Assemble @nexuscloud/edgevox-onnx
         env:
-          NPM_VERSION: ${{ github.event.inputs.npm_version || '1.13.4-espeak-voice.4' }}
+          NPM_VERSION: ${{ github.event.inputs.npm_version || '1.13.4-espeak-voice.5' }}
         run: |
           PKG=scripts/nexuscloud-npm
           OUT=nexuscloud-edgevox-onnx-package

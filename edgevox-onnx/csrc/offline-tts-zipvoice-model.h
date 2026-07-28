@@ -5,6 +5,7 @@
 #ifndef EDGEVOX_ONNX_CSRC_OFFLINE_TTS_ZIPVOICE_MODEL_H_
 #define EDGEVOX_ONNX_CSRC_OFFLINE_TTS_ZIPVOICE_MODEL_H_
 
+#include <functional>
 #include <memory>
 #include <string>
 
@@ -13,6 +14,8 @@
 #include "edgevox-onnx/csrc/offline-tts-zipvoice-model-meta-data.h"
 
 namespace edgevox_onnx {
+
+using ZipvoiceProgressCallback = std::function<bool(float)>;
 
 class OfflineTtsZipvoiceModel {
  public:
@@ -28,7 +31,8 @@ class OfflineTtsZipvoiceModel {
   Ort::Value Run(Ort::Value tokens, Ort::Value prompt_tokens,
                  Ort::Value prompt_features, float speed, int32_t num_steps,
                  float t_shift = 0.5f,
-                 float guidance_scale = 1.0f, int32_t seed = -1) const;
+                 float guidance_scale = 1.0f, int32_t seed = -1,
+                 ZipvoiceProgressCallback progress_callback = nullptr) const;
 
   const OfflineTtsZipvoiceModelMetaData &GetMetaData() const;
 

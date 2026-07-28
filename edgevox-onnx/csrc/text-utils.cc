@@ -1431,7 +1431,33 @@ std::vector<std::string> SplitLongSentence(const std::string &sentence,
     }
 
     if (!found || split_pos <= start) {
-      split_pos = end;
+      // Do not cut a non-CJK word at an arbitrary Unicode code point. That can
+      // separate Sinhala base letters from vowel signs/virama/ZWJ sequences.
+      // Extend to the next real word or punctuation boundary instead. CJK text
+      // remains safely splittable at individual code points.
+      bool contains_cjk = false;
+      for (size_t i = start; i < end; ++i) {
+        if (IsCJK(u32[i])) {
+          contains_cjk = true;
+          break;
+        }
+      }
+
+      if (contains_cjk) {
+        split_pos = end;
+      } else {
+        split_pos = len;
+        for (size_t i = end; i < len; ++i) {
+          if (IsSpace(u32[i])) {
+            split_pos = i;
+            break;
+          }
+          if (IsChunkBoundary(u32[i])) {
+            split_pos = i + 1;
+            break;
+          }
+        }
+      }
     }
 
     std::string piece = Trim(Utf32ToUtf8(u32.substr(start, split_pos - start)));

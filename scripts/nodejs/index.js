@@ -59,7 +59,10 @@ function nativeModelConfig(config) {
       supertonic: legacy.offlineTtsSupertonicModelConfig || {},
       numThreads: legacy.numThreads ?? 1,
       debug: legacy.debug ?? 0,
-      provider: legacy.provider || 'cpu',
+      // The packaged Windows ONNX Runtime currently ships CPUExecutionProvider
+      // only. Normalize unsupported desktop preferences before core creation so
+      // diagnostics report the effective provider and ORT does not warn/fallback.
+      provider: 'cpu',
     },
     ruleFsts: config.ruleFsts || '',
     ruleFars: config.ruleFars || '',
@@ -87,6 +90,9 @@ class NativeOfflineTts {
       text: config.text,
       sid: config.sid ?? 0,
       speed: config.speed ?? 1.0,
+      // Electron utility/worker processes reject Node-API external buffers.
+      // Copy into a regular V8-owned ArrayBuffer for desktop compatibility.
+      enableExternalBuffer: false,
     });
   }
 
@@ -95,6 +101,7 @@ class NativeOfflineTts {
     return nativeAddon.offlineTtsGenerateWithConfig(this.handle, {
       text,
       generationConfig,
+      enableExternalBuffer: false,
     });
   }
 
@@ -116,7 +123,7 @@ function createOfflineRecognizer(config) {
 function createOfflineTts(config) {
   const model = config && config.offlineTtsModelConfig || {};
   activeRuntimeConfig = {
-    provider: model.provider || 'cpu',
+    provider: nativeAddon ? 'cpu' : (model.provider || 'cpu'),
     effectiveThreads: model.numThreads ?? 1,
   };
   if (nativeAddon) {
@@ -153,7 +160,7 @@ function createOfflineSpeakerDiarization(config) {
 }
 
 function readWave(filename) {
-  if (nativeAddon) return nativeAddon.readWave(filename);
+  if (nativeAddon) return nativeAddon.readWave(filename, false);
   return edgevox_onnx_wave.readWave(filename, getWasmModule());
 }
 
@@ -163,7 +170,7 @@ function writeWave(filename, data) {
 }
 
 function readWaveFromBinaryData(uint8Array) {
-  if (nativeAddon) return nativeAddon.readWaveFromBinary(uint8Array);
+  if (nativeAddon) return nativeAddon.readWaveFromBinary(uint8Array, false);
   return edgevox_onnx_wave.readWaveFromBinaryData(
       uint8Array, getWasmModule());
 }

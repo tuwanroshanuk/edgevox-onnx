@@ -10,6 +10,7 @@
 #define EDGEVOX_ONNX_CSRC_OFFLINE_TTS_SUPERTONIC_IMPL_H_
 
 #include <array>
+#include <functional>
 #include <memory>
 #include <random>
 #include <string>
@@ -46,7 +47,9 @@ class OfflineTtsSupertonicImpl : public OfflineTtsImpl {
  private:
   GeneratedAudio Process(const std::string &text, const std::string &lang,
                          int64_t sid, int32_t num_steps, float speed,
-                         NormalDataGenerator &gen) const;
+                         NormalDataGenerator &gen,
+                         const std::function<bool(float)> &progress_callback =
+                             nullptr) const;
 
   GeneratedAudio ProcessChunksAndConcatenate(
       const std::vector<std::string> &text_chunks, const std::string &lang,

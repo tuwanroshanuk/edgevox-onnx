@@ -219,11 +219,21 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
               : static_cast<int32_t>(
                     (static_cast<uint32_t>(seed) + static_cast<uint32_t>(i)) &
                     0x7fffffffU);
+      bool keep_going = true;
+      ZipvoiceProgressCallback chunk_progress;
+      if (callback) {
+        chunk_progress = [&](float progress) {
+          keep_going =
+              callback(nullptr, 0, (i + progress) / static_cast<float>(total));
+          return keep_going;
+        };
+      }
       GeneratedAudio cur = GenerateChunk(
           sentences[i], prompt->tokens, prompt->features, speed, num_steps,
-          feat_scale, t_shift, guidance_scale, sentence_seed);
+          feat_scale, t_shift, guidance_scale, sentence_seed, chunk_progress);
 
       if (cur.samples.empty()) {
+        if (!keep_going) break;
         continue;
       }
 
@@ -377,7 +387,9 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
                                const std::vector<float> &prompt_features,
                                float speed, int32_t num_steps, float feat_scale,
                                float t_shift, float guidance_scale,
-                               int32_t seed) const {
+                               int32_t seed,
+                               ZipvoiceProgressCallback progress_callback =
+                                   nullptr) const {
     std::vector<TokenIDs> text_token_ids =
         frontend_->ConvertTextToTokenIds(text);
 
@@ -398,7 +410,8 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
     }
 
     return Process(tokens, prompt_tokens, prompt_features, speed, num_steps,
-                   feat_scale, t_shift, guidance_scale, seed);
+                   feat_scale, t_shift, guidance_scale, seed,
+                   std::move(progress_callback));
   }
 
   struct PreparedPrompt {
@@ -502,7 +515,9 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
                          const std::vector<int64_t> &prompt_tokens,
                          const std::vector<float> &prompt_features, float speed,
                          int32_t num_steps, float feat_scale, float t_shift,
-                         float guidance_scale, int32_t seed) const {
+                         float guidance_scale, int32_t seed,
+                         ZipvoiceProgressCallback progress_callback =
+                             nullptr) const {
     std::array<int64_t, 2> tokens_shape = {1,
                                            static_cast<int64_t>(tokens.size())};
 
@@ -530,7 +545,10 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
     Ort::Value mel =
         model_->Run(std::move(tokens_tensor), std::move(prompt_tokens_tensor),
                     std::move(prompt_features_tensor), speed, num_steps,
-                    t_shift, guidance_scale, seed);
+                    t_shift, guidance_scale, seed, progress_callback);
+    if (!mel) {
+      return {};
+    }
 
     // Assume mel_shape = {1, T, C}
     std::vector<int64_t> mel_shape = mel.GetTensorTypeAndShapeInfo().GetShape();
@@ -555,6 +573,9 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
     GeneratedAudio ans;
     ans.samples = vocoder_->Run(std::move(mel_new));
     ans.sample_rate = model_->GetMetaData().sample_rate;
+    if (progress_callback && !progress_callback(1.0f)) {
+      return {};
+    }
     return ans;
   }
 

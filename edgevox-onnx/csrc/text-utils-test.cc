@@ -135,4 +135,22 @@ TEST(RemoveInvalidUtf8Sequences, DebugSpaceFollowedByInvalidByte) {
   EXPECT_EQ(output, " ");  // Expect `0xc4` to be removed, leaving only space
 }
 
+TEST(SplitLongSentence, DoesNotSplitSinhalaWord) {
+  const std::string first_word = "සිංහලභාෂාවකි";
+  const std::string second_word = "තවත්";
+  auto chunks = SplitLongSentence(first_word + " " + second_word, 4);
+
+  ASSERT_EQ(chunks.size(), 2);
+  EXPECT_EQ(chunks[0], first_word);
+  EXPECT_EQ(chunks[1], second_word);
+}
+
+TEST(SplitLongSentence, KeepsCjkCodepointLimit) {
+  auto chunks = SplitLongSentence("你好世界中文测试", 4);
+
+  ASSERT_EQ(chunks.size(), 2);
+  EXPECT_EQ(chunks[0], "你好世界");
+  EXPECT_EQ(chunks[1], "中文测试");
+}
+
 }  // namespace edgevox_onnx

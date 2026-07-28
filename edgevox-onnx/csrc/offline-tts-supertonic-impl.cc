@@ -280,8 +280,10 @@ GeneratedAudio OfflineTtsSupertonicImpl::Generate(
 
 GeneratedAudio OfflineTtsSupertonicImpl::Process(
     const std::string &text, const std::string &lang, int64_t sid,
-    int32_t num_steps, float speed, NormalDataGenerator &gen) const {
+    int32_t num_steps, float speed, NormalDataGenerator &gen,
+    const std::function<bool(float)> &progress_callback) const {
   const auto &cfg = model_->GetConfig();
+  const float progress_denominator = static_cast<float>(num_steps + 3);
   StyleSliceView slice = GetStyleSliceForSid(sid);
   const int32_t bsz = 1;
 
@@ -335,6 +337,9 @@ GeneratedAudio OfflineTtsSupertonicImpl::Process(
     return {};
   }
   auto *dur_data = dp_output.GetTensorMutableData<float>();
+  if (progress_callback && !progress_callback(1.0f / progress_denominator)) {
+    return {};
+  }
   std::vector<float> duration(dur_data, dur_data + 1);
   if (speed != 1.0f) {
     for (auto &dur : duration) {
@@ -364,6 +369,9 @@ GeneratedAudio OfflineTtsSupertonicImpl::Process(
   }
   auto *text_emb_data = text_enc_output.GetTensorMutableData<float>();
   auto text_emb_shape = text_emb_info.GetShape();
+  if (progress_callback && !progress_callback(2.0f / progress_denominator)) {
+    return {};
+  }
 
   float wav_len_max =
       *std::max_element(duration.begin(), duration.end()) * cfg.ae.sample_rate;
@@ -473,6 +481,11 @@ GeneratedAudio OfflineTtsSupertonicImpl::Process(
     auto *denoised_data = vector_est_output.GetTensorMutableData<float>();
     std::memcpy(xt_flat.data(), denoised_data,
                 latent_total_size * sizeof(float));
+    if (progress_callback &&
+        !progress_callback(static_cast<float>(step + 3) /
+                           progress_denominator)) {
+      return {};
+    }
   }
 
   Ort::Value latent_tensor = Ort::Value::CreateTensor<float>(
@@ -554,16 +567,30 @@ GeneratedAudio OfflineTtsSupertonicImpl::ProcessChunksAndConcatenate(
   chunk_samples.reserve(text_chunks.size());
   int32_t num_chunks = static_cast<int32_t>(text_chunks.size());
   for (int32_t i = 0; i < num_chunks; ++i) {
-    auto chunk_result =
-        Process(text_chunks[i], lang, sid, num_steps, speed, gen);
+    bool keep_going = true;
+    std::function<bool(float)> chunk_progress;
+    if (callback) {
+      chunk_progress = [&](float progress) {
+        keep_going = callback(
+            nullptr, 0,
+            (static_cast<float>(i) + progress) /
+                static_cast<float>(num_chunks));
+        return keep_going;
+      };
+    }
+    auto chunk_result = Process(text_chunks[i], lang, sid, num_steps, speed,
+                                gen, chunk_progress);
     if (chunk_result.samples.empty()) {
+      if (!keep_going) break;
       continue;
     }
     if (callback) {
       float progress =
           static_cast<float>(i + 1) / static_cast<float>(num_chunks);
-      callback(chunk_result.samples.data(), chunk_result.samples.size(),
-               progress);
+      if (!callback(chunk_result.samples.data(), chunk_result.samples.size(),
+                    progress)) {
+        break;
+      }
     }
     chunk_samples.push_back(std::move(chunk_result.samples));
   }

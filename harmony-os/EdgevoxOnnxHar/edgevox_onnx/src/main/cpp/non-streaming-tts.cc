@@ -1017,7 +1017,9 @@ class TtsGenerateWorker : public Napi::AsyncWorker {
       }
 
       auto data = new TtsCallbackData;
-      data->samples = std::vector<float>{samples, samples + n};
+      if (samples && n > 0) {
+        data->samples.assign(samples, samples + n);
+      }
       data->progress = progress;
       data->cancelled = _this->cancelled_;
 
@@ -1238,7 +1240,9 @@ class TtsGenerateWithConfigWorker : public Napi::AsyncWorker {
       }
 
       auto data = new TtsCallbackData;
-      data->samples = std::vector<float>{samples, samples + n};
+      if (samples && n > 0) {
+        data->samples.assign(samples, samples + n);
+      }
       data->progress = progress;
       data->cancelled = _this->cancelled_;
 
