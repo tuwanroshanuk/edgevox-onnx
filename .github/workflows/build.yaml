@@ -9,9 +9,9 @@ on:
         default: false
         type: boolean
       npm_version:
-        description: 'npm version (e.g. 1.13.4-espeak-voice.1)'
+        description: 'npm version (e.g. 1.13.4-espeak-voice.4)'
         required: false
-        default: '1.13.4-espeak-voice.2'
+        default: '1.13.4-espeak-voice.4'
         type: string
   push:
     branches:
@@ -23,8 +23,11 @@ on:
       - 'edgevox-onnx/csrc/text-utils.*'
       - 'edgevox-onnx/csrc/offline-tts-zipvoice*'
       - 'edgevox-onnx/kotlin-api/Tts.kt'
+      - 'harmony-os/EdgevoxOnnxHar/edgevox_onnx/src/main/cpp/**'
       - 'wasm/**'
       - 'scripts/nexuscloud-npm/**'
+      - 'scripts/node-addon-api/**'
+      - 'scripts/nodejs/**'
 
 concurrency:
   group: nexuscloud-edgevox-onnx-${{ github.ref }}
@@ -98,6 +101,65 @@ jobs:
           path: build-wasm-simd-nodejs/install/bin/wasm/nodejs/
           retention-days: 14
 
+  build-native-win-x64:
+    name: Native Node addon (Windows x64)
+    needs: [check-js-syntax]
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Build and install edgevox-onnx
+        shell: pwsh
+        run: |
+          $install = Join-Path $PWD "build-native/install"
+          cmake -S . -B build-native `
+            -DCMAKE_BUILD_TYPE=Release `
+            "-DCMAKE_INSTALL_PREFIX=$install" `
+            -DBUILD_SHARED_LIBS=ON `
+            -DEDGEVOX_ONNX_ENABLE_WEBSOCKET=OFF `
+            -DEDGEVOX_ONNX_ENABLE_PORTAUDIO=OFF `
+            -DEDGEVOX_ONNX_ENABLE_BINARY=OFF `
+            -DBUILD_ESPEAK_NG_EXE=OFF `
+            -DEDGEVOX_ONNX_BUILD_C_API_EXAMPLES=OFF
+          cmake --build build-native --config Release --target install -- /m:6
+          "EDGEVOX_ONNX_INSTALL_DIR=$install" >> $env:GITHUB_ENV
+
+      - name: Build Node-API addon
+        working-directory: scripts/node-addon-api
+        shell: pwsh
+        run: |
+          npm install --ignore-scripts
+          npx cmake-js compile --log-level verbose
+
+      - name: Stage native runtime
+        shell: pwsh
+        run: |
+          $out = New-Item -ItemType Directory -Force native/win32-x64
+          $addon = Get-ChildItem scripts/node-addon-api/build -Recurse -Filter *.node |
+            Select-Object -First 1
+          if (-not $addon) { throw "Node addon was not produced" }
+          Copy-Item -LiteralPath $addon.FullName -Destination "$out/edgevox-onnx.node"
+          Get-ChildItem build-native/install -Recurse -Filter *.dll |
+            Copy-Item -Destination $out -Force
+          Get-ChildItem build-native/_deps/onnxruntime-src -Recurse -Filter *.dll |
+            Copy-Item -Destination $out -Force
+          Get-ChildItem $out
+          node -e "const a=require('./native/win32-x64/edgevox-onnx.node'); if(typeof a.createOfflineTts!=='function'||typeof a.offlineTtsGenerateWithConfig!=='function') process.exit(2); console.log('native addon load OK')"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: native-win-x64
+          path: native/win32-x64/
+          retention-days: 14
+
   build-android:
     name: Android jniLibs
     needs: [check-js-syntax]
@@ -151,7 +213,7 @@ jobs:
 
   assemble-npm:
     name: Assemble npm package
-    needs: [build-wasm, build-android]
+    needs: [build-wasm, build-native-win-x64, build-android]
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -166,6 +228,11 @@ jobs:
           name: android-jnilibs
           path: /tmp/jniLibs
 
+      - uses: actions/download-artifact@v4
+        with:
+          name: native-win-x64
+          path: /tmp/native-win-x64
+
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -173,13 +240,14 @@ jobs:
 
       - name: Assemble @nexuscloud/edgevox-onnx
         env:
-          NPM_VERSION: ${{ github.event.inputs.npm_version || '1.13.4-espeak-voice.2' }}
+          NPM_VERSION: ${{ github.event.inputs.npm_version || '1.13.4-espeak-voice.4' }}
         run: |
           PKG=scripts/nexuscloud-npm
           OUT=nexuscloud-edgevox-onnx-package
 
           rm -rf "$OUT"
-          mkdir -p "$OUT/android/jniLibs" "$OUT/android/kotlin-api" "$OUT/scripts"
+          mkdir -p "$OUT/android/jniLibs" "$OUT/android/kotlin-api" \
+            "$OUT/native/win32-x64" "$OUT/scripts"
 
           cp -v /tmp/wasm/* "$OUT/"
           # Prefer source-controlled Node TTS bindings (espeakVoice) over any
@@ -187,6 +255,8 @@ jobs:
           cp -v wasm/tts/edgevox-onnx-tts.node.js "$OUT/"
           cp -v scripts/nodejs/index.js "$OUT/"
           cp -v scripts/nexuscloud-npm/scripts/sync-android.mjs "$OUT/scripts/"
+          cp -v scripts/nexuscloud-npm/scripts/benchmark-zipvoice.js "$OUT/scripts/"
+          cp -v /tmp/native-win-x64/* "$OUT/native/win32-x64/"
           cp -v edgevox-onnx/kotlin-api/Tts.kt "$OUT/android/kotlin-api/"
           cp -rv /tmp/jniLibs/* "$OUT/android/jniLibs/"
 

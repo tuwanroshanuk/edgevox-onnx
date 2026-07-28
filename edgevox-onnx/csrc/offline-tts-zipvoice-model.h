@@ -28,7 +28,7 @@ class OfflineTtsZipvoiceModel {
   Ort::Value Run(Ort::Value tokens, Ort::Value prompt_tokens,
                  Ort::Value prompt_features, float speed, int32_t num_steps,
                  float t_shift = 0.5f,
-                 float guidance_scale = 1.0f) const;
+                 float guidance_scale = 1.0f, int32_t seed = -1) const;
 
   const OfflineTtsZipvoiceModelMetaData &GetMetaData() const;
 

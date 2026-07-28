@@ -8,7 +8,8 @@ Built from [tuwanroshanuk/edgevox-onnx](https://github.com/tuwanroshanuk/edgevox
 
 | Path | Purpose |
 |------|---------|
-| `edgevox-onnx-wasm-nodejs.js` + `.wasm` | Electron / Node desktop |
+| `native/win32-x64/` | Multithreaded Windows x64 Node addon and runtime DLLs |
+| `edgevox-onnx-wasm-nodejs.js` + `.wasm` | Portable Node fallback |
 | `edgevox-onnx-*.js` | JS bindings (`espeakVoice` in ZipVoice config) |
 | `android/jniLibs/{abi}/*.so` | Capacitor Android native engine |
 | `android/kotlin-api/Tts.kt` | Kotlin OfflineTts API |
@@ -28,18 +29,56 @@ From your app root:
 node node_modules/@nexuscloud/edgevox-onnx/scripts/sync-android.mjs --force
 ```
 
+## Windows runtime selection
+
+Windows x64 uses the native multithreaded addon by default and automatically
+falls back to WASM if the addon or one of its DLLs cannot load. To troubleshoot
+with the portable backend:
+
+```powershell
+$env:EDGEVOX_ONNX_FORCE_WASM = '1'
+```
+
+Inspect the active runtime after creating a TTS instance:
+
+```javascript
+console.log(edgevox.getRuntimeInfo());
+// { backend, provider, effectiveThreads, platform, fallbackOccurred, ... }
+```
+
 ## ZipVoice espeakVoice (desktop)
 
 ```javascript
-const tts = createOfflineTts({
-  model: {
-    zipvoice: {
+const edgevox = require('@nexuscloud/edgevox-onnx');
+const tts = edgevox.createOfflineTts({
+  offlineTtsModelConfig: {
+    offlineTtsZipVoiceModelConfig: {
       // ...
       espeakVoice: 'si',  // Sinhala OOV phonemization
     },
+    numThreads: 2,
+    provider: 'cpu',
   },
 });
 ```
+
+ZipVoice generation accepts `extra.seed` for repeatable comparisons. Omitting
+it retains random sampling. Preview generation is recommended at 4 flow steps;
+use 8 steps for high-quality final output.
+
+## ZipVoice benchmark
+
+```bash
+npm run benchmark:zipvoice -- \
+  --model-dir=/path/to/voice \
+  --reference-wav=/path/to/reference.wav \
+  --reference-text="Reference transcript" \
+  --threads=2 --steps=4 --seed=1234
+```
+
+The command reports the backend, provider, thread count, precision,
+initialization time, cold/warm generation time, audio duration, RTF, and
+process peak RSS.
 
 ## Local validation (before publish)
 

@@ -45,6 +45,7 @@
     EDGEVOX_ONNX_DELETE_C_STR(c.model.zipvoice.vocoder);         \
     EDGEVOX_ONNX_DELETE_C_STR(c.model.zipvoice.data_dir);        \
     EDGEVOX_ONNX_DELETE_C_STR(c.model.zipvoice.lexicon);         \
+    EDGEVOX_ONNX_DELETE_C_STR(c.model.zipvoice.espeak_voice);     \
                                                                  \
     EDGEVOX_ONNX_DELETE_C_STR(c.model.kokoro.model);             \
     EDGEVOX_ONNX_DELETE_C_STR(c.model.kokoro.voices);            \
@@ -125,6 +126,30 @@ static EdgevoxOnnxGenerationConfig GetGenerationConfig(Napi::Object o) {
   }
 
   return c;
+}
+
+struct SyncTtsCallbackContext {
+  Napi::Function callback;
+};
+
+static int32_t SyncTtsProgressCallback(const float *samples, int32_t n,
+                                       float progress, void *opaque) {
+  auto *context = static_cast<SyncTtsCallbackContext *>(opaque);
+  Napi::Env env = context->callback.Env();
+  Napi::Float32Array chunk = Napi::Float32Array::New(env, n);
+  if (n > 0) {
+    std::copy(samples, samples + n, chunk.Data());
+  }
+  Napi::Value result = context->callback.Call(
+      {chunk, Napi::Number::New(env, n), Napi::Number::New(env, progress),
+       Napi::Number::New(env, 0)});
+  if (result.IsBoolean()) {
+    return result.As<Napi::Boolean>().Value() ? 1 : 0;
+  }
+  if (result.IsNumber()) {
+    return result.As<Napi::Number>().Int32Value() == 0 ? 0 : 1;
+  }
+  return 1;
 }
 
 static EdgevoxOnnxOfflineTtsVitsModelConfig GetOfflineTtsVitsModelConfig(
@@ -577,9 +602,17 @@ static Napi::Object OfflineTtsGenerateWithConfigWrapper(
 
   EdgevoxOnnxGenerationConfig gen_config = GetGenerationConfig(genObj);
 
+  std::unique_ptr<SyncTtsCallbackContext> callback_context;
+  if (genObj.Has("callback") && genObj.Get("callback").IsFunction()) {
+    callback_context = std::make_unique<SyncTtsCallbackContext>(
+        SyncTtsCallbackContext{genObj.Get("callback").As<Napi::Function>()});
+  }
   const EdgevoxOnnxGeneratedAudio *audio =
       EdgevoxOnnxOfflineTtsGenerateWithConfig(tts, text.c_str(), &gen_config,
-                                             nullptr, nullptr);
+                                             callback_context
+                                                 ? SyncTtsProgressCallback
+                                                 : nullptr,
+                                             callback_context.get());
 
   EDGEVOX_ONNX_DELETE_GENERATION_C_STR(gen_config);
 

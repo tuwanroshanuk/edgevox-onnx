@@ -1,18 +1,20 @@
 {
   "name": "@nexuscloud/edgevox-onnx",
   "version": "__NPM_VERSION__",
-  "description": "edgevox-onnx __SHERPA_VERSION__ with ZipVoice espeakVoice config. WASM for Electron/Node + Android jniLibs + Kotlin Tts.kt.",
+  "description": "edgevox-onnx __SHERPA_VERSION__ with native Windows x64 and Android TTS, portable WASM fallback, and ZipVoice espeakVoice support.",
   "main": "index.js",
   "files": [
     "index.js",
     "edgevox-onnx-*.js",
     "edgevox-onnx-wasm-nodejs.wasm",
+    "native/**",
     "android/**",
     "scripts/**",
     "README.md"
   ],
   "scripts": {
-    "sync-android": "node scripts/sync-android.mjs"
+    "sync-android": "node scripts/sync-android.mjs",
+    "benchmark:zipvoice": "node scripts/benchmark-zipvoice.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
     "edgevox-onnx",
     "text-to-speech",
     "zipvoice",
+    "native",
     "wasm",
     "android",
     "offline-tts",

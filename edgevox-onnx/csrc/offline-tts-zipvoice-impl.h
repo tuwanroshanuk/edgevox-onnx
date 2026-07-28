@@ -6,7 +6,10 @@
 
 #include <algorithm>
 #include <cmath>
+#include <cstdint>
+#include <list>
 #include <memory>
+#include <mutex>
 #include <sstream>
 #include <string>
 #include <utility>
@@ -32,6 +35,8 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
  public:
   explicit OfflineTtsZipvoiceImpl(const OfflineTtsConfig &config)
       : config_(config),
+        memory_info_(
+            Ort::MemoryInfo::CreateCpu(OrtDeviceAllocator, OrtMemTypeDefault)),
         model_(std::make_unique<OfflineTtsZipvoiceModel>(config.model)),
         vocoder_(Vocoder::Create(config.model)) {
     InitFrontend();
@@ -42,6 +47,8 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
   template <typename Manager>
   OfflineTtsZipvoiceImpl(Manager *mgr, const OfflineTtsConfig &config)
       : config_(config),
+        memory_info_(
+            Ort::MemoryInfo::CreateCpu(OrtDeviceAllocator, OrtMemTypeDefault)),
         model_(std::make_unique<OfflineTtsZipvoiceModel>(mgr, config.model)),
         vocoder_(Vocoder::Create(mgr, config.model)) {
     InitFrontend(mgr);
@@ -70,6 +77,8 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
     //     config.model.zipvoice.target_rms)
     //   - "guidance_scale" (float): Classifier-free guidance scale for the
     //     decoder (default: config.model.zipvoice.guidance_scale)
+    //   - "seed" (int): Optional deterministic noise seed. The default -1
+    //     preserves random generation.
     if (config_.model.debug) {
       EDGEVOX_ONNX_LOGE("%s", config.ToString().c_str());
     }
@@ -132,32 +141,24 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
       return {};
     }
 
-    std::vector<TokenIDs> prompt_token_ids =
-        frontend_->ConvertTextToTokenIds(config.reference_text);
-    if (prompt_token_ids.empty() ||
-        (prompt_token_ids.size() == 1 && prompt_token_ids[0].tokens.empty())) {
-#if __OHOS__
-      EDGEVOX_ONNX_LOGE(
-          "Failed to convert prompt text '%{public}s' to token IDs",
-          config.reference_text.c_str());
-#else
-      EDGEVOX_ONNX_LOGE("Failed to convert prompt text '%s' to token IDs",
-                       config.reference_text.c_str());
-#endif
+    int32_t seed = config.GetExtraInt("seed", -1);
+    if (seed < -1) {
+      EDGEVOX_ONNX_LOGE("seed must be >= -1. Given: %d", seed);
       return {};
     }
 
-    std::vector<int64_t> prompt_tokens;
-    for (const auto &t : prompt_token_ids) {
-      prompt_tokens.insert(prompt_tokens.end(), t.tokens.begin(),
-                           t.tokens.end());
-    }
-
-    std::vector<float> prompt_features = ComputePromptFeatures(
-        config.reference_audio, config.reference_sample_rate, feat_scale,
-        target_rms);
-    if (prompt_features.empty()) {
-      EDGEVOX_ONNX_LOGE("No frames extracted from the prompt audio");
+    auto prompt = PreparePrompt(config.reference_text, config.reference_audio,
+                                config.reference_sample_rate, feat_scale,
+                                target_rms);
+    if (!prompt) {
+#if __OHOS__
+      EDGEVOX_ONNX_LOGE(
+          "Failed to prepare ZipVoice prompt '%{public}s'",
+          config.reference_text.c_str());
+#else
+      EDGEVOX_ONNX_LOGE("Failed to prepare ZipVoice prompt '%s'",
+                       config.reference_text.c_str());
+#endif
       return {};
     }
 
@@ -212,9 +213,15 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
 #endif
       }
 
+      const int32_t sentence_seed =
+          seed < 0
+              ? -1
+              : static_cast<int32_t>(
+                    (static_cast<uint32_t>(seed) + static_cast<uint32_t>(i)) &
+                    0x7fffffffU);
       GeneratedAudio cur = GenerateChunk(
-          sentences[i], prompt_tokens, prompt_features, speed, num_steps,
-          feat_scale, t_shift, guidance_scale);
+          sentences[i], prompt->tokens, prompt->features, speed, num_steps,
+          feat_scale, t_shift, guidance_scale, sentence_seed);
 
       if (cur.samples.empty()) {
         continue;
@@ -254,7 +261,19 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
   }
 
  private:
-  void PostInit() { InitMelBanks(); }
+  void PostInit() {
+    InitMelBanks();
+
+    const auto &meta = model_->GetMetaData();
+    knf::StftConfig stft_config;
+    stft_config.n_fft = meta.n_fft;
+    stft_config.hop_length = meta.hop_length;
+    stft_config.win_length = meta.window_length;
+    stft_config.window_type = "hann";
+    stft_config.center = true;
+    stft_ = std::make_unique<knf::Stft>(stft_config);
+    magnitude_spectrum_.resize(meta.n_fft / 2 + 1);
+  }
 
   void InitMelBanks() {
     const auto &meta = model_->GetMetaData();
@@ -328,35 +347,24 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
     const auto &meta = model_->GetMetaData();
 
     int32_t n_fft = meta.n_fft;
-    int32_t hop_length = meta.hop_length;
-    int32_t win_length = meta.window_length;
     int32_t num_mels = meta.num_mels;
 
-    knf::StftConfig stft_config;
-    stft_config.n_fft = n_fft;
-    stft_config.hop_length = hop_length;
-    stft_config.win_length = win_length;
-    stft_config.window_type = "hann";
-    stft_config.center = true;
-
-    knf::Stft stft(stft_config);
-    auto stft_result = stft.Compute(samples.data(), samples.size());
+    std::lock_guard<std::mutex> feature_lock(feature_mutex_);
+    auto stft_result = stft_->Compute(samples.data(), samples.size());
     int32_t num_frames = stft_result.num_frames;
     int32_t fft_bins = n_fft / 2 + 1;
 
     prompt_features->resize(num_frames * num_mels);
     float *p = prompt_features->data();
 
-    std::vector<float> magnitude_spectrum(fft_bins);
-
     for (int32_t i = 0; i < num_frames; ++i, p += num_mels) {
       for (int32_t k = 0; k < fft_bins; ++k) {
         float real = stft_result.real[i * fft_bins + k];
         float imag = stft_result.imag[i * fft_bins + k];
-        magnitude_spectrum[k] = std::sqrt(real * real + imag * imag);
+        magnitude_spectrum_[k] = std::sqrt(real * real + imag * imag);
       }
 
-      mel_banks_->Compute(magnitude_spectrum.data(), p);
+      mel_banks_->Compute(magnitude_spectrum_.data(), p);
 
       for (int32_t j = 0; j < num_mels; ++j) {
         p[j] = std::log(p[j] + 1e-10f) * feat_scale;
@@ -368,7 +376,8 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
                                const std::vector<int64_t> &prompt_tokens,
                                const std::vector<float> &prompt_features,
                                float speed, int32_t num_steps, float feat_scale,
-                               float t_shift, float guidance_scale) const {
+                               float t_shift, float guidance_scale,
+                               int32_t seed) const {
     std::vector<TokenIDs> text_token_ids =
         frontend_->ConvertTextToTokenIds(text);
 
@@ -389,7 +398,80 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
     }
 
     return Process(tokens, prompt_tokens, prompt_features, speed, num_steps,
-                   feat_scale, t_shift, guidance_scale);
+                   feat_scale, t_shift, guidance_scale, seed);
+  }
+
+  struct PreparedPrompt {
+    std::vector<int64_t> tokens;
+    std::vector<float> features;
+  };
+
+  static uint64_t HashBytes(uint64_t hash, const void *data, size_t size) {
+    const auto *p = static_cast<const uint8_t *>(data);
+    for (size_t i = 0; i < size; ++i) {
+      hash ^= p[i];
+      hash *= 1099511628211ULL;
+    }
+    return hash;
+  }
+
+  static uint64_t PromptCacheKey(const std::string &text,
+                                 const std::vector<float> &samples,
+                                 int32_t sample_rate, float feat_scale,
+                                 float target_rms) {
+    uint64_t hash = 1469598103934665603ULL;
+    hash = HashBytes(hash, text.data(), text.size());
+    hash = HashBytes(hash, &sample_rate, sizeof(sample_rate));
+    hash = HashBytes(hash, &feat_scale, sizeof(feat_scale));
+    hash = HashBytes(hash, &target_rms, sizeof(target_rms));
+    if (!samples.empty()) {
+      hash = HashBytes(hash, samples.data(), samples.size() * sizeof(float));
+    }
+    return hash;
+  }
+
+  std::shared_ptr<const PreparedPrompt> PreparePrompt(
+      const std::string &text, const std::vector<float> &samples,
+      int32_t sample_rate, float feat_scale, float target_rms) const {
+    const uint64_t key =
+        PromptCacheKey(text, samples, sample_rate, feat_scale, target_rms);
+    {
+      std::lock_guard<std::mutex> lock(prompt_cache_mutex_);
+      for (auto it = prompt_cache_.begin(); it != prompt_cache_.end(); ++it) {
+        if (it->first == key) {
+          auto prepared = it->second;
+          prompt_cache_.splice(prompt_cache_.begin(), prompt_cache_, it);
+          return prepared;
+        }
+      }
+    }
+
+    std::vector<TokenIDs> prompt_token_ids =
+        frontend_->ConvertTextToTokenIds(text);
+    if (prompt_token_ids.empty() ||
+        (prompt_token_ids.size() == 1 && prompt_token_ids[0].tokens.empty())) {
+      return nullptr;
+    }
+
+    auto prepared = std::make_shared<PreparedPrompt>();
+    for (const auto &t : prompt_token_ids) {
+      prepared->tokens.insert(prepared->tokens.end(), t.tokens.begin(),
+                              t.tokens.end());
+    }
+    prepared->features =
+        ComputePromptFeatures(samples, sample_rate, feat_scale, target_rms);
+    if (prepared->features.empty()) {
+      return nullptr;
+    }
+
+    {
+      std::lock_guard<std::mutex> lock(prompt_cache_mutex_);
+      prompt_cache_.emplace_front(key, prepared);
+      if (prompt_cache_.size() > 2) {
+        prompt_cache_.pop_back();
+      }
+    }
+    return prepared;
   }
 
   std::vector<float> ComputePromptFeatures(
@@ -420,22 +502,19 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
                          const std::vector<int64_t> &prompt_tokens,
                          const std::vector<float> &prompt_features, float speed,
                          int32_t num_steps, float feat_scale, float t_shift,
-                         float guidance_scale) const {
-    auto memory_info =
-        Ort::MemoryInfo::CreateCpu(OrtDeviceAllocator, OrtMemTypeDefault);
-
+                         float guidance_scale, int32_t seed) const {
     std::array<int64_t, 2> tokens_shape = {1,
                                            static_cast<int64_t>(tokens.size())};
 
     Ort::Value tokens_tensor = Ort::Value::CreateTensor(
-        memory_info, const_cast<int64_t *>(tokens.data()), tokens.size(),
+        memory_info_, const_cast<int64_t *>(tokens.data()), tokens.size(),
         tokens_shape.data(), tokens_shape.size());
 
     std::array<int64_t, 2> prompt_tokens_shape = {
         1, static_cast<int64_t>(prompt_tokens.size())};
 
     Ort::Value prompt_tokens_tensor = Ort::Value::CreateTensor(
-        memory_info, const_cast<int64_t *>(prompt_tokens.data()),
+        memory_info_, const_cast<int64_t *>(prompt_tokens.data()),
         prompt_tokens.size(), prompt_tokens_shape.data(),
         prompt_tokens_shape.size());
 
@@ -445,13 +524,13 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
 
     std::array<int64_t, 3> shape = {1, num_frames, mel_dim};
     auto prompt_features_tensor = Ort::Value::CreateTensor(
-        memory_info, const_cast<float *>(prompt_features.data()),
+        memory_info_, const_cast<float *>(prompt_features.data()),
         prompt_features.size(), shape.data(), shape.size());
 
     Ort::Value mel =
         model_->Run(std::move(tokens_tensor), std::move(prompt_tokens_tensor),
                     std::move(prompt_features_tensor), speed, num_steps,
-                    t_shift, guidance_scale);
+                    t_shift, guidance_scale, seed);
 
     // Assume mel_shape = {1, T, C}
     std::vector<int64_t> mel_shape = mel.GetTensorTypeAndShapeInfo().GetShape();
@@ -470,7 +549,7 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
 
     std::array<int64_t, 3> new_shape = {1, C, T};
     Ort::Value mel_new = Ort::Value::CreateTensor<float>(
-        memory_info, mel_permuted.data(), mel_permuted.size(), new_shape.data(),
+        memory_info_, mel_permuted.data(), mel_permuted.size(), new_shape.data(),
         new_shape.size());
 
     GeneratedAudio ans;
@@ -481,11 +560,19 @@ class OfflineTtsZipvoiceImpl : public OfflineTtsImpl {
 
  private:
   OfflineTtsConfig config_;
+  Ort::MemoryInfo memory_info_;
   std::unique_ptr<OfflineTtsZipvoiceModel> model_;
   std::unique_ptr<Vocoder> vocoder_;
   std::unique_ptr<OfflineTtsFrontend> frontend_;
 
   std::unique_ptr<knf::MelBanks> mel_banks_;
+  mutable std::unique_ptr<knf::Stft> stft_;
+  mutable std::vector<float> magnitude_spectrum_;
+  mutable std::mutex feature_mutex_;
+  mutable std::mutex prompt_cache_mutex_;
+  mutable std::list<
+      std::pair<uint64_t, std::shared_ptr<const PreparedPrompt>>>
+      prompt_cache_;
 };
 
 }  // namespace edgevox_onnx

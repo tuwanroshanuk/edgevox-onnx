@@ -6,6 +6,7 @@
 #include "edgevox-onnx/csrc/ort-env.h"
 
 #include <algorithm>
+#include <array>
 #include <cstring>
 #include <iostream>
 #include <memory>
@@ -38,7 +39,9 @@ class OfflineTtsZipvoiceModel::Impl {
       : config_(config),
         env_(CreateOrtEnv()),
         sess_opts_(GetSessionOptions(config)),
-        allocator_{} {
+        allocator_{},
+        memory_info_(
+            Ort::MemoryInfo::CreateCpu(OrtDeviceAllocator, OrtMemTypeDefault)) {
     encoder_sess_ = std::make_unique<Ort::Session>(
         env_, EDGEVOX_ONNX_TO_ORT_PATH(config.zipvoice.encoder), sess_opts_);
     InitEncoder(nullptr, 0);
@@ -53,7 +56,9 @@ class OfflineTtsZipvoiceModel::Impl {
       : config_(config),
         env_(CreateOrtEnv()),
         sess_opts_(GetSessionOptions(config)),
-        allocator_{} {
+        allocator_{},
+        memory_info_(
+            Ort::MemoryInfo::CreateCpu(OrtDeviceAllocator, OrtMemTypeDefault)) {
     auto buf = ReadFile(mgr, config.zipvoice.encoder);
     InitEncoder(buf.data(), buf.size());
 
@@ -67,7 +72,7 @@ class OfflineTtsZipvoiceModel::Impl {
 
   Ort::Value Run(Ort::Value tokens, Ort::Value prompt_tokens,
                  Ort::Value prompt_features, float speed, int32_t num_steps,
-                 float t_shift, float guidance_scale) {
+                 float t_shift, float guidance_scale, int32_t seed) {
     std::vector<int64_t> tokens_shape =
         tokens.GetTensorTypeAndShapeInfo().GetShape();
 
@@ -88,52 +93,55 @@ class OfflineTtsZipvoiceModel::Impl {
 
     int64_t feat_dim = meta_data_.feat_dim;
 
-    std::vector<float> x_data(batch_size * num_frames * feat_dim);
+    x_data_.resize(batch_size * num_frames * feat_dim);
 
-    normal_gen_.Fill(x_data.data(), x_data.size());
+    if (seed >= 0) {
+      NormalDataGenerator deterministic_normal_gen(0.0f, 1.0f, seed);
+      deterministic_normal_gen.Fill(x_data_.data(), x_data_.size());
+    } else {
+      normal_gen_.Fill(x_data_.data(), x_data_.size());
+    }
 
-    auto memory_info =
-        Ort::MemoryInfo::CreateCpu(OrtDeviceAllocator, OrtMemTypeDefault);
-
-    std::vector<int64_t> x_shape = {batch_size, num_frames, feat_dim};
+    std::array<int64_t, 3> x_shape = {batch_size, num_frames, feat_dim};
     Ort::Value x = Ort::Value::CreateTensor<float>(
-        memory_info, x_data.data(), x_data.size(), x_shape.data(),
+        memory_info_, x_data_.data(), x_data_.size(), x_shape.data(),
         x_shape.size());
 
-    std::vector<float> speech_cond_data(batch_size * num_frames * feat_dim);
+    speech_cond_data_.resize(batch_size * num_frames * feat_dim);
     const float *src = prompt_features.GetTensorData<float>();
-    float *dst = speech_cond_data.data();
+    float *dst = speech_cond_data_.data();
     std::copy(src, src + batch_size * prompt_feat_len * feat_dim, dst);
     prompt_features = Ort::Value{nullptr};
 
-    std::vector<int64_t> speech_cond_shape = {batch_size, num_frames, feat_dim};
+    std::array<int64_t, 3> speech_cond_shape = {batch_size, num_frames,
+                                                feat_dim};
 
     Ort::Value speech_condition = Ort::Value::CreateTensor<float>(
-        memory_info, speech_cond_data.data(), speech_cond_data.size(),
+        memory_info_, speech_cond_data_.data(), speech_cond_data_.size(),
         speech_cond_shape.data(), speech_cond_shape.size());
 
-    std::vector<float> timesteps(num_steps + 1);
+    timesteps_.resize(num_steps + 1);
     for (int32_t i = 0; i <= num_steps; ++i) {
       float t = static_cast<float>(i) / num_steps;
-      timesteps[i] = t_shift * t / (1.0f + (t_shift - 1.0f) * t);
+      timesteps_[i] = t_shift * t / (1.0f + (t_shift - 1.0f) * t);
     }
 
     int64_t guidance_scale_shape = 1;
     Ort::Value guidance_scale_tensor = Ort::Value::CreateTensor<float>(
-        memory_info, &guidance_scale, 1, &guidance_scale_shape, 1);
+        memory_info_, &guidance_scale, 1, &guidance_scale_shape, 1);
 
     float *x_ptr = x.GetTensorMutableData<float>();
 
     int64_t N = batch_size * num_frames * feat_dim;
 
     for (int32_t step = 0; step < num_steps; ++step) {
-      float t = timesteps[step];
+      float t = timesteps_[step];
 
       Ort::Value v =
           RunDecoder(t, View(&x), View(&text_condition),
                      View(&speech_condition), View(&guidance_scale_tensor));
 
-      float delta_t = timesteps[step + 1] - timesteps[step];
+      float delta_t = timesteps_[step + 1] - timesteps_[step];
 
       const float *v_ptr = v.GetTensorData<float>();
       for (int64_t i = 0; i < N; ++i) {
@@ -143,7 +151,7 @@ class OfflineTtsZipvoiceModel::Impl {
 
     int64_t kept_frames = num_frames - prompt_feat_len;
 
-    std::vector<int64_t> out_shape = {batch_size, kept_frames, feat_dim};
+    std::array<int64_t, 3> out_shape = {batch_size, kept_frames, feat_dim};
 
     Ort::Value ans = Ort::Value::CreateTensor<float>(
         allocator_, out_shape.data(), out_shape.size());
@@ -269,9 +277,6 @@ class OfflineTtsZipvoiceModel::Impl {
 
   Ort::Value RunEncoder(Ort::Value tokens, Ort::Value prompt_tokens,
                         Ort::Value prompt_features, float speed) {
-    auto memory_info =
-        Ort::MemoryInfo::CreateCpu(OrtDeviceAllocator, OrtMemTypeDefault);
-
     std::vector<int64_t> tokens_shape =
         tokens.GetTensorTypeAndShapeInfo().GetShape();
 
@@ -288,18 +293,15 @@ class OfflineTtsZipvoiceModel::Impl {
     int64_t prompt_feat_len = prompt_feat_shape[1];
     int64_t prompt_feat_len_shape = 1;
     Ort::Value prompt_feat_len_tensor = Ort::Value::CreateTensor<int64_t>(
-        memory_info, &prompt_feat_len, 1, &prompt_feat_len_shape, 1);
+        memory_info_, &prompt_feat_len, 1, &prompt_feat_len_shape, 1);
 
     int64_t speed_shape = 1;
     Ort::Value speed_tensor = Ort::Value::CreateTensor<float>(
-        memory_info, &speed, 1, &speed_shape, 1);
+        memory_info_, &speed, 1, &speed_shape, 1);
 
-    std::vector<Ort::Value> encoder_inputs;
-    encoder_inputs.reserve(4);
-    encoder_inputs.push_back(std::move(tokens));
-    encoder_inputs.push_back(std::move(prompt_tokens));
-    encoder_inputs.push_back(std::move(prompt_feat_len_tensor));
-    encoder_inputs.push_back(std::move(speed_tensor));
+    std::array<Ort::Value, 4> encoder_inputs = {
+        std::move(tokens), std::move(prompt_tokens),
+        std::move(prompt_feat_len_tensor), std::move(speed_tensor)};
 
     auto encoder_out = encoder_sess_->Run(
         {}, encoder_names_ptr_.data(), encoder_inputs.data(),
@@ -312,20 +314,13 @@ class OfflineTtsZipvoiceModel::Impl {
   Ort::Value RunDecoder(float t, Ort::Value x, Ort::Value text_condition,
                         Ort::Value speech_condition,
                         Ort::Value guidance_scale_tensor) {
-    auto memory_info =
-        Ort::MemoryInfo::CreateCpu(OrtDeviceAllocator, OrtMemTypeDefault);
-
     int64_t t_shape = 1;
     Ort::Value t_tensor =
-        Ort::Value::CreateTensor<float>(memory_info, &t, 1, &t_shape, 1);
+        Ort::Value::CreateTensor<float>(memory_info_, &t, 1, &t_shape, 1);
 
-    std::vector<Ort::Value> decoder_inputs;
-    decoder_inputs.reserve(5);
-    decoder_inputs.emplace_back(std::move(t_tensor));
-    decoder_inputs.push_back(std::move(x));
-    decoder_inputs.push_back(std::move(text_condition));
-    decoder_inputs.push_back(std::move(speech_condition));
-    decoder_inputs.push_back(std::move(guidance_scale_tensor));
+    std::array<Ort::Value, 5> decoder_inputs = {
+        std::move(t_tensor), std::move(x), std::move(text_condition),
+        std::move(speech_condition), std::move(guidance_scale_tensor)};
 
     auto decoder_out = decoder_sess_->Run(
         {}, decoder_input_names_ptr_.data(), decoder_inputs.data(),
@@ -340,6 +335,10 @@ class OfflineTtsZipvoiceModel::Impl {
   Ort::Env env_;
   Ort::SessionOptions sess_opts_;
   Ort::AllocatorWithDefaultOptions allocator_;
+  Ort::MemoryInfo memory_info_;
+  std::vector<float> x_data_;
+  std::vector<float> speech_cond_data_;
+  std::vector<float> timesteps_;
 
   std::unique_ptr<Ort::Session> encoder_sess_;
   std::unique_ptr<Ort::Session> decoder_sess_;
@@ -382,10 +381,11 @@ Ort::Value OfflineTtsZipvoiceModel::Run(Ort::Value tokens,
                                         float speed /*= 1.0*/,
                                         int32_t num_steps /*= 16*/,
                                         float t_shift /*= 0.5f*/,
-                                        float guidance_scale /*= 1.0f*/) const {
+                                        float guidance_scale /*= 1.0f*/,
+                                        int32_t seed /*= -1*/) const {
   return impl_->Run(std::move(tokens), std::move(prompt_tokens),
                     std::move(prompt_features), speed, num_steps, t_shift,
-                    guidance_scale);
+                    guidance_scale, seed);
 }
 
 #if __ANDROID_API__ >= 9

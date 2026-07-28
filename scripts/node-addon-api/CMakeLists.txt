@@ -32,26 +32,35 @@ endif()
 
 include_directories(${CMAKE_JS_INC})
 
+set(addon_src_dir "${CMAKE_CURRENT_SOURCE_DIR}/src")
+if(WIN32)
+  # Git checkouts on Windows commonly materialize the source symlinks in
+  # scripts/node-addon-api/src as small text files. Compile their real targets.
+  set(addon_src_dir
+      "${CMAKE_CURRENT_SOURCE_DIR}/../../harmony-os/EdgevoxOnnxHar/edgevox_onnx/src/main/cpp")
+endif()
+
 set(srcs
-  src/audio-tagging.cc
-  src/keyword-spotting.cc
-  src/non-streaming-asr.cc
-  src/non-streaming-speaker-diarization.cc
-  src/non-streaming-speech-denoiser.cc
-  src/non-streaming-tts.cc
-  src/offline-punctuation.cc
-  src/online-punctuation.cc
-  src/streaming-speech-denoiser.cc
-  src/edgevox-onnx-node-addon-api.cc
-  src/speaker-identification.cc
-  src/spoken-language-identification.cc
-  src/streaming-asr.cc
-  src/vad.cc
-  src/version.cc
-  src/wave-reader.cc
-  src/wave-writer.cc
-  src/resampler.cc
+  ${addon_src_dir}/audio-tagging.cc
+  ${addon_src_dir}/keyword-spotting.cc
+  ${addon_src_dir}/non-streaming-asr.cc
+  ${addon_src_dir}/non-streaming-speaker-diarization.cc
+  ${addon_src_dir}/non-streaming-speech-denoiser.cc
+  ${addon_src_dir}/non-streaming-tts.cc
+  ${addon_src_dir}/offline-punctuation.cc
+  ${addon_src_dir}/online-punctuation.cc
+  ${addon_src_dir}/streaming-speech-denoiser.cc
+  ${addon_src_dir}/edgevox-onnx-node-addon-api.cc
+  ${addon_src_dir}/speaker-identification.cc
+  ${addon_src_dir}/spoken-language-identification.cc
+  ${addon_src_dir}/streaming-asr.cc
+  ${addon_src_dir}/vad.cc
+  ${addon_src_dir}/version.cc
+  ${addon_src_dir}/wave-reader.cc
+  ${addon_src_dir}/wave-writer.cc
+  ${addon_src_dir}/resampler.cc
 )
+include_directories(${addon_src_dir})
 
 if(NOT DEFINED ENV{EDGEVOX_ONNX_INSTALL_DIR})
   message(FATAL_ERROR "
@@ -89,9 +98,13 @@ target_link_libraries(${PROJECT_NAME} ${CMAKE_JS_LIB})
 target_link_libraries(${PROJECT_NAME}
   edgevox-onnx-c-api
   onnxruntime
-  -Wl,-rpath,$ENV{EDGEVOX_ONNX_INSTALL_DIR}/lib
-  -Wl,-rpath,${EDGEVOX_ONNX_RPATH_ORIGIN}
 )
+if(NOT WIN32)
+  target_link_options(${PROJECT_NAME} PRIVATE
+    -Wl,-rpath,$ENV{EDGEVOX_ONNX_INSTALL_DIR}/lib
+    -Wl,-rpath,${EDGEVOX_ONNX_RPATH_ORIGIN}
+  )
+endif()
 
 if(MSVC AND CMAKE_JS_NODELIB_DEF AND CMAKE_JS_NODELIB_TARGET)
   # Generate node.lib
