@@ -85,6 +85,7 @@ class FunASRNanoTokenizer {
   std::vector<AddedToken> added_tokens_;
   std::vector<TrieNode> trie_;
   std::unordered_set<std::string> added_token_contents_;
+  bool use_gpt2_pattern_ = false;
 };
 
 }  // namespace edgevox_onnx

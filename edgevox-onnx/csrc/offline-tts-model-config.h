@@ -7,6 +7,7 @@
 
 #include <string>
 
+#include "edgevox-onnx/csrc/offline-tts-chatterbox-model-config.h"
 #include "edgevox-onnx/csrc/offline-tts-kitten-model-config.h"
 #include "edgevox-onnx/csrc/offline-tts-kokoro-model-config.h"
 #include "edgevox-onnx/csrc/offline-tts-matcha-model-config.h"
@@ -26,6 +27,7 @@ struct OfflineTtsModelConfig {
   OfflineTtsKittenModelConfig kitten;
   OfflineTtsPocketModelConfig pocket;
   OfflineTtsSupertonicModelConfig supertonic;
+  OfflineTtsChatterboxModelConfig chatterbox;
 
   int32_t num_threads = 1;
   bool debug = false;
@@ -40,6 +42,7 @@ struct OfflineTtsModelConfig {
                         const OfflineTtsKittenModelConfig &kitten,
                         const OfflineTtsPocketModelConfig &pocket,
                         const OfflineTtsSupertonicModelConfig &supertonic,
+                        const OfflineTtsChatterboxModelConfig &chatterbox,
                         int32_t num_threads, bool debug,
                         const std::string &provider)
       : vits(vits),
@@ -49,6 +52,7 @@ struct OfflineTtsModelConfig {
         kitten(kitten),
         pocket(pocket),
         supertonic(supertonic),
+        chatterbox(chatterbox),
         num_threads(num_threads),
         debug(debug),
         provider(provider) {}

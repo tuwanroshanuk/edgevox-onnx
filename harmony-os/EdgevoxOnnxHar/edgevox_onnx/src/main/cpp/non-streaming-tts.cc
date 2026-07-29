@@ -69,6 +69,12 @@
     EDGEVOX_ONNX_DELETE_C_STR(c.model.supertonic.tts_json);            \
     EDGEVOX_ONNX_DELETE_C_STR(c.model.supertonic.unicode_indexer);     \
     EDGEVOX_ONNX_DELETE_C_STR(c.model.supertonic.voice_style);         \
+                                                                      \
+    EDGEVOX_ONNX_DELETE_C_STR(c.model.chatterbox.speech_encoder);      \
+    EDGEVOX_ONNX_DELETE_C_STR(c.model.chatterbox.embed_tokens);        \
+    EDGEVOX_ONNX_DELETE_C_STR(c.model.chatterbox.language_model);      \
+    EDGEVOX_ONNX_DELETE_C_STR(c.model.chatterbox.conditional_decoder); \
+    EDGEVOX_ONNX_DELETE_C_STR(c.model.chatterbox.tokenizer);           \
                                                                 \
     EDGEVOX_ONNX_DELETE_C_STR(c.model.provider);                 \
                                                                 \
@@ -310,6 +316,20 @@ GetOfflineTtsSupertonicModelConfig(Napi::Object obj) {
   return c;
 }
 
+static EdgevoxOnnxOfflineTtsChatterboxModelConfig
+GetOfflineTtsChatterboxModelConfig(Napi::Object obj) {
+  EdgevoxOnnxOfflineTtsChatterboxModelConfig c;
+  memset(&c, 0, sizeof(c));
+  if (!obj.Has("chatterbox") || !obj.Get("chatterbox").IsObject()) return c;
+  Napi::Object o = obj.Get("chatterbox").As<Napi::Object>();
+  EDGEVOX_ONNX_ASSIGN_ATTR_STR(speech_encoder, speechEncoder);
+  EDGEVOX_ONNX_ASSIGN_ATTR_STR(embed_tokens, embedTokens);
+  EDGEVOX_ONNX_ASSIGN_ATTR_STR(language_model, languageModel);
+  EDGEVOX_ONNX_ASSIGN_ATTR_STR(conditional_decoder, conditionalDecoder);
+  EDGEVOX_ONNX_ASSIGN_ATTR_STR(tokenizer, tokenizer);
+  return c;
+}
+
 static EdgevoxOnnxOfflineTtsModelConfig GetOfflineTtsModelConfig(
     Napi::Object obj) {
   EdgevoxOnnxOfflineTtsModelConfig c;
@@ -328,6 +348,7 @@ static EdgevoxOnnxOfflineTtsModelConfig GetOfflineTtsModelConfig(
   c.zipvoice = GetOfflineTtsZipvoiceModelConfig(o);
   c.pocket = GetOfflineTtsPocketModelConfig(o);
   c.supertonic = GetOfflineTtsSupertonicModelConfig(o);
+  c.chatterbox = GetOfflineTtsChatterboxModelConfig(o);
 
   EDGEVOX_ONNX_ASSIGN_ATTR_INT32(num_threads, numThreads);
 

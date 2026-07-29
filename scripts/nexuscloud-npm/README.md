@@ -80,6 +80,46 @@ The command reports the backend, provider, thread count, precision,
 initialization time, cold/warm generation time, audio duration, RTF, and
 process peak RSS.
 
+## Chatterbox Turbo
+
+Chatterbox Turbo uses the official four-graph ONNX export and GPT-2 tokenizer.
+It provides local English zero-shot voice cloning and expressive tags such as
+`[laugh]`, `[chuckle]`, and `[cough]`. The Q4 models are recommended for the
+best CPU latency and memory use.
+
+```javascript
+const reference = edgevox.readWave('/path/to/reference.wav');
+const tts = edgevox.createOfflineTts({
+  offlineTtsModelConfig: {
+    offlineTtsChatterboxModelConfig: {
+      speechEncoder: '/models/onnx/speech_encoder_q4.onnx',
+      embedTokens: '/models/onnx/embed_tokens_q4.onnx',
+      languageModel: '/models/onnx/language_model_q4.onnx',
+      conditionalDecoder: '/models/onnx/conditional_decoder_q4.onnx',
+      tokenizer: '/models',
+    },
+    numThreads: 4,
+    provider: 'cpu',
+  },
+});
+const audio = tts.generateWithConfig(
+    'That is wonderful! [chuckle] Thanks for calling.',
+    {
+      referenceAudio: reference.samples,
+      referenceSampleRate: reference.sampleRate,
+      extra: {max_new_tokens: 1024, repetition_penalty: 1.2},
+    });
+```
+
+Benchmark it with:
+
+```bash
+npm run benchmark:chatterbox -- \
+  --model-dir=/path/to/chatterbox_turbo \
+  --reference-wav=/path/to/reference.wav \
+  --output=chatterbox-test.wav
+```
+
 ## Local validation (before publish)
 
 ```bash

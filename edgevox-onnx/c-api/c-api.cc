@@ -1580,6 +1580,18 @@ static edgevox_onnx::OfflineTtsConfig GetOfflineTtsConfig(
   tts_config.model.supertonic.voice_style =
       EDGEVOX_ONNX_OR(config->model.supertonic.voice_style, "");
 
+  // chatterbox
+  tts_config.model.chatterbox.speech_encoder =
+      EDGEVOX_ONNX_OR(config->model.chatterbox.speech_encoder, "");
+  tts_config.model.chatterbox.embed_tokens =
+      EDGEVOX_ONNX_OR(config->model.chatterbox.embed_tokens, "");
+  tts_config.model.chatterbox.language_model =
+      EDGEVOX_ONNX_OR(config->model.chatterbox.language_model, "");
+  tts_config.model.chatterbox.conditional_decoder =
+      EDGEVOX_ONNX_OR(config->model.chatterbox.conditional_decoder, "");
+  tts_config.model.chatterbox.tokenizer =
+      EDGEVOX_ONNX_OR(config->model.chatterbox.tokenizer, "");
+
   tts_config.model.num_threads = EDGEVOX_ONNX_OR(config->model.num_threads, 1);
   tts_config.model.debug = config->model.debug;
   tts_config.model.provider = EDGEVOX_ONNX_OR(config->model.provider, "cpu");

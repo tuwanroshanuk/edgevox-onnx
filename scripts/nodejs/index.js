@@ -57,6 +57,7 @@ function nativeModelConfig(config) {
       },
       pocket: legacy.offlineTtsPocketModelConfig || {},
       supertonic: legacy.offlineTtsSupertonicModelConfig || {},
+      chatterbox: legacy.offlineTtsChatterboxModelConfig || {},
       numThreads: legacy.numThreads ?? 1,
       debug: legacy.debug ?? 0,
       // The packaged Windows ONNX Runtime currently ships CPUExecutionProvider

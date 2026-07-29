@@ -18,6 +18,7 @@ void OfflineTtsModelConfig::Register(ParseOptions *po) {
   kitten.Register(po);
   pocket.Register(po);
   supertonic.Register(po);
+  chatterbox.Register(po);
 
   po->Register("num-threads", &num_threads,
                "Number of threads to run the neural network");
@@ -63,6 +64,10 @@ bool OfflineTtsModelConfig::Validate() const {
     return supertonic.Validate();
   }
 
+  if (!chatterbox.speech_encoder.empty()) {
+    return chatterbox.Validate();
+  }
+
   EDGEVOX_ONNX_LOGE("Please provide exactly one tts model.");
 
   return false;
@@ -79,6 +84,7 @@ std::string OfflineTtsModelConfig::ToString() const {
   os << "kitten=" << kitten.ToString() << ", ";
   os << "pocket=" << pocket.ToString() << ", ";
   os << "supertonic=" << supertonic.ToString() << ", ";
+  os << "chatterbox=" << chatterbox.ToString() << ", ";
   os << "num_threads=" << num_threads << ", ";
   os << "debug=" << (debug ? "True" : "False") << ", ";
   os << "provider=\"" << provider << "\")";

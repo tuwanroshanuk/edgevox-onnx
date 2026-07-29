@@ -17,6 +17,7 @@
 #endif
 
 #include "edgevox-onnx/csrc/offline-tts-kitten-impl.h"
+#include "edgevox-onnx/csrc/offline-tts-chatterbox-impl.h"
 #include "edgevox-onnx/csrc/offline-tts-kokoro-impl.h"
 #include "edgevox-onnx/csrc/offline-tts-matcha-impl.h"
 #include "edgevox-onnx/csrc/offline-tts-pocket-impl.h"
@@ -55,6 +56,8 @@ std::unique_ptr<OfflineTtsImpl> OfflineTtsImpl::Create(
     return std::make_unique<OfflineTtsPocketImpl>(config);
   } else if (!config.model.supertonic.tts_json.empty()) {
     return std::make_unique<OfflineTtsSupertonicImpl>(config);
+  } else if (!config.model.chatterbox.speech_encoder.empty()) {
+    return std::make_unique<OfflineTtsChatterboxImpl>(config);
   }
 
   EDGEVOX_ONNX_LOGE("Please provide a tts model.");
@@ -80,6 +83,11 @@ std::unique_ptr<OfflineTtsImpl> OfflineTtsImpl::Create(
     return std::make_unique<OfflineTtsPocketImpl>(mgr, config);
   } else if (!config.model.supertonic.tts_json.empty()) {
     return std::make_unique<OfflineTtsSupertonicImpl>(mgr, config);
+  } else if (!config.model.chatterbox.speech_encoder.empty()) {
+    EDGEVOX_ONNX_LOGE(
+        "Chatterbox Turbo resource-manager loading is not supported; use "
+        "filesystem model paths");
+    return {};
   }
 
   EDGEVOX_ONNX_LOGE("Please provide a tts model.");

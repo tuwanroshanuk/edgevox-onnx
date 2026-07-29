@@ -32,6 +32,10 @@ function freeConfig(config, Module) {
     freeConfig(config.supertonic, Module)
   }
 
+  if ('chatterbox' in config) {
+    freeConfig(config.chatterbox, Module)
+  }
+
   if (config.ptr) {
     Module._free(config.ptr);
   }
@@ -508,6 +512,25 @@ function initEdgevoxOnnxOfflineTtsSupertonicModelConfig(config, Module) {
   };
 }
 
+function initEdgevoxOnnxOfflineTtsChatterboxModelConfig(config, Module) {
+  const keys = [
+    'speechEncoder', 'embedTokens', 'languageModel', 'conditionalDecoder',
+    'tokenizer'
+  ];
+  const lengths = keys.map(
+      key => Module.lengthBytesUTF8(config[key] || '') + 1);
+  const buffer = Module._malloc(lengths.reduce((a, b) => a + b, 0));
+  const len = keys.length * 4;
+  const ptr = Module._malloc(len);
+  let offset = 0;
+  keys.forEach((key, i) => {
+    Module.stringToUTF8(config[key] || '', buffer + offset, lengths[i]);
+    Module.setValue(ptr + i * 4, buffer + offset, 'i8*');
+    offset += lengths[i];
+  });
+  return {buffer, ptr, len};
+}
+
 function initEdgevoxOnnxOfflineTtsModelConfig(config, Module) {
   if (!('offlineTtsVitsModelConfig' in config)) {
     config.offlineTtsVitsModelConfig = {
@@ -594,6 +617,16 @@ function initEdgevoxOnnxOfflineTtsModelConfig(config, Module) {
     };
   }
 
+  if (!('offlineTtsChatterboxModelConfig' in config)) {
+    config.offlineTtsChatterboxModelConfig = {
+      speechEncoder: '',
+      embedTokens: '',
+      languageModel: '',
+      conditionalDecoder: '',
+      tokenizer: '',
+    };
+  }
+
   const vitsModelConfig = initEdgevoxOnnxOfflineTtsVitsModelConfig(
       config.offlineTtsVitsModelConfig, Module);
 
@@ -614,10 +647,13 @@ function initEdgevoxOnnxOfflineTtsModelConfig(config, Module) {
 
   const supertonicModelConfig = initEdgevoxOnnxOfflineTtsSupertonicModelConfig(
       config.offlineTtsSupertonicModelConfig, Module);
+  const chatterboxModelConfig = initEdgevoxOnnxOfflineTtsChatterboxModelConfig(
+      config.offlineTtsChatterboxModelConfig, Module);
 
   const len = vitsModelConfig.len + matchaModelConfig.len +
       kokoroModelConfig.len + kittenModelConfig.len + zipVoiceModelConfig.len +
-      pocketModelConfig.len + supertonicModelConfig.len + 3 * 4;
+      pocketModelConfig.len + supertonicModelConfig.len +
+      chatterboxModelConfig.len + 3 * 4;
 
   const ptr = Module._malloc(len);
 
@@ -657,6 +693,10 @@ function initEdgevoxOnnxOfflineTtsModelConfig(config, Module) {
       supertonicModelConfig.ptr, supertonicModelConfig.len, ptr + offset);
   offset += supertonicModelConfig.len;
 
+  Module._CopyHeap(
+      chatterboxModelConfig.ptr, chatterboxModelConfig.len, ptr + offset);
+  offset += chatterboxModelConfig.len;
+
   return {
     buffer: buffer,
     ptr: ptr,
@@ -668,6 +708,7 @@ function initEdgevoxOnnxOfflineTtsModelConfig(config, Module) {
     zipvoice: zipVoiceModelConfig,
     pocket: pocketModelConfig,
     supertonic: supertonicModelConfig,
+    chatterbox: chatterboxModelConfig,
   };
 }
 

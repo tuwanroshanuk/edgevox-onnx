@@ -2381,12 +2381,26 @@ typedef struct EdgevoxOnnxOfflineTtsSupertonicModelConfig {
   const char *voice_style;
 } EdgevoxOnnxOfflineTtsSupertonicModelConfig;
 
+/** @brief Configuration for ResembleAI Chatterbox Turbo ONNX. */
+typedef struct EdgevoxOnnxOfflineTtsChatterboxModelConfig {
+  /** Path to speech_encoder*.onnx. */
+  const char *speech_encoder;
+  /** Path to embed_tokens*.onnx. */
+  const char *embed_tokens;
+  /** Path to language_model*.onnx. */
+  const char *language_model;
+  /** Path to conditional_decoder*.onnx. */
+  const char *conditional_decoder;
+  /** Directory containing tokenizer.json. */
+  const char *tokenizer;
+} EdgevoxOnnxOfflineTtsChatterboxModelConfig;
+
 /**
  * @brief Configuration shared by offline TTS models.
  *
  * Exactly one TTS model family should be configured. For example, set only one
- * of @c vits, @c matcha, @c kokoro, @c kitten, @c zipvoice, @c pocket, or
- * @c supertonic.
+ * of @c vits, @c matcha, @c kokoro, @c kitten, @c zipvoice, @c pocket,
+ * @c supertonic, or @c chatterbox.
  *
  * If multiple model families are configured at the same time, the
  * implementation will choose one of them, and which one is used is
@@ -2419,6 +2433,8 @@ typedef struct EdgevoxOnnxOfflineTtsModelConfig {
   EdgevoxOnnxOfflineTtsPocketModelConfig pocket;
   /** Supertonic configuration. */
   EdgevoxOnnxOfflineTtsSupertonicModelConfig supertonic;
+  /** Chatterbox Turbo configuration. */
+  EdgevoxOnnxOfflineTtsChatterboxModelConfig chatterbox;
 } EdgevoxOnnxOfflineTtsModelConfig;
 
 /**

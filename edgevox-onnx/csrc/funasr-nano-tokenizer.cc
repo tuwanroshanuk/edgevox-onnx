@@ -27,6 +27,7 @@
 
 #include "edgevox-onnx/csrc/file-utils.h"
 #include "edgevox-onnx/csrc/macros.h"
+#include "nlohmann/json.hpp"
 
 namespace edgevox_onnx {
 
@@ -923,6 +924,120 @@ static std::vector<std::string> SplitByQwen3Pattern(const std::string &text) {
   return out;
 }
 
+// GPT-2 ByteLevel pre-tokenization. Chatterbox Turbo uses the stock GPT-2
+// tokenizer, whose regex differs from Qwen primarily by grouping digits.
+static std::vector<std::string> SplitByGpt2Pattern(const std::string &text) {
+  std::vector<std::string> out;
+  size_t i = 0;
+  while (i < text.size()) {
+    if (text[i] == '\'') {
+      for (const char *suffix : {"'re", "'ve", "'ll", "'s", "'t", "'m",
+                                 "'d"}) {
+        const size_t n = std::strlen(suffix);
+        if (text.compare(i, n, suffix) == 0) {
+          out.push_back(text.substr(i, n));
+          i += n;
+          goto next_piece;
+        }
+      }
+    }
+
+    {
+      size_t start = i;
+      bool leading_space = text[i] == ' ';
+      size_t j = i + (leading_space ? 1 : 0);
+      if (j < text.size()) {
+        size_t t = j;
+        uint32_t cp = 0;
+        size_t n = 0;
+        if (Utf8Next(text, &t, &cp, &n)) {
+          auto consume = [&](auto predicate) {
+            size_t k = j;
+            while (k < text.size()) {
+              size_t u = k;
+              uint32_t x = 0;
+              size_t bytes = 0;
+              if (!Utf8Next(text, &u, &x, &bytes) || !predicate(x)) break;
+              k += bytes;
+            }
+            return k;
+          };
+          size_t end = j;
+          if (IsLetter(cp)) {
+            end = consume([](uint32_t x) { return IsLetter(x); });
+          } else if (IsNumber(cp)) {
+            end = consume([](uint32_t x) { return IsNumber(x); });
+          } else if (!IsWhitespace(cp)) {
+            end = consume([](uint32_t x) {
+              return !IsWhitespace(x) && !IsLetter(x) && !IsNumber(x);
+            });
+          }
+          if (end > j) {
+            out.push_back(text.substr(start, end - start));
+            i = end;
+            goto next_piece;
+          }
+        }
+      }
+    }
+
+    {
+      size_t t = i;
+      uint32_t cp = 0;
+      size_t n = 0;
+      if (Utf8Next(text, &t, &cp, &n) && IsWhitespace(cp)) {
+        size_t j = i;
+        while (j < text.size()) {
+          size_t u = j;
+          uint32_t x = 0;
+          size_t bytes = 0;
+          if (!Utf8Next(text, &u, &x, &bytes) || !IsWhitespace(x)) break;
+          j += bytes;
+        }
+        out.push_back(text.substr(i, j - i));
+        i = j;
+      } else {
+        out.push_back(text.substr(i, n > 0 ? n : 1));
+        i += n > 0 ? n : 1;
+      }
+    }
+  next_piece:
+    continue;
+  }
+  return out;
+}
+
+static bool ParseEmbeddedBpe(const std::string &blob,
+                             std::unordered_map<std::string, int32_t> *vocab,
+                             std::unordered_map<std::string, int32_t> *merges,
+                             bool *is_gpt2) {
+  auto j = nlohmann::json::parse(blob, nullptr, false);
+  if (j.is_discarded() || !j.contains("model")) return false;
+  const auto &model = j["model"];
+  if (!model.contains("vocab") || !model.contains("merges")) return false;
+  vocab->clear();
+  for (auto it = model["vocab"].begin(); it != model["vocab"].end(); ++it) {
+    (*vocab)[it.key()] = it.value().get<int32_t>();
+  }
+  merges->clear();
+  int32_t rank = 0;
+  for (const auto &entry : model["merges"]) {
+    std::string left;
+    std::string right;
+    if (entry.is_array() && entry.size() == 2) {
+      left = entry[0].get<std::string>();
+      right = entry[1].get<std::string>();
+    } else if (entry.is_string()) {
+      std::istringstream is(entry.get<std::string>());
+      if (!(is >> left >> right)) continue;
+    }
+    (*merges)[left + "\t" + right] = rank++;
+  }
+  *is_gpt2 = j.value("pre_tokenizer", nlohmann::json::object())
+                 .value("type", "") == "ByteLevel";
+  return !vocab->empty() && !merges->empty();
+}
+
 static std::vector<std::string> SplitUtf8ToChars(const std::string &s) {
   std::vector<std::string> out;
   out.reserve(s.size());
@@ -1152,21 +1267,15 @@ void FunASRNanoTokenizer::Init(const std::string &tokenizer_dir) {
     EDGEVOX_ONNX_EXIT(-1);
   }
   std::string vocab_json = FindVocabJson(tokenizer_dir);
-  if (vocab_json.empty()) {
-    EDGEVOX_ONNX_LOGE("Cannot find vocab.json in: %s", tokenizer_dir.c_str());
-    EDGEVOX_ONNX_EXIT(-1);
-  }
   std::string merges_txt = FindMergesTxt(tokenizer_dir);
-  if (merges_txt.empty()) {
-    EDGEVOX_ONNX_LOGE("Cannot find merges.txt in: %s", tokenizer_dir.c_str());
-    EDGEVOX_ONNX_EXIT(-1);
-  }
 
   const std::string tok_blob = LoadBytesFromFile(tok_json);
-  const std::string vocab_blob = LoadBytesFromFile(vocab_json);
-  const std::string merges_blob = LoadBytesFromFile(merges_txt);
+  const std::string vocab_blob =
+      vocab_json.empty() ? std::string{} : LoadBytesFromFile(vocab_json);
+  const std::string merges_blob =
+      merges_txt.empty() ? std::string{} : LoadBytesFromFile(merges_txt);
 
-  if (tok_blob.empty() || vocab_blob.empty() || merges_blob.empty()) {
+  if (tok_blob.empty()) {
     EDGEVOX_ONNX_LOGE("Failed to read tokenizer files from: %s",
                      tokenizer_dir.c_str());
     EDGEVOX_ONNX_EXIT(-1);
@@ -1175,12 +1284,17 @@ void FunASRNanoTokenizer::Init(const std::string &tokenizer_dir) {
   // Build ByteLevel bytes_to_unicode mapping
   BuildBytesToUnicode(byte_to_unicode_, &unicode_to_byte_);
 
-  if (!ParseVocabJson(vocab_blob, &token2id_)) {
-    EDGEVOX_ONNX_LOGE("Failed to parse vocab.json: %s", vocab_json.c_str());
-    EDGEVOX_ONNX_EXIT(-1);
-  }
-  if (!ParseMergesTxt(merges_blob, &merges_rank_)) {
-    EDGEVOX_ONNX_LOGE("Failed to parse merges.txt: %s", merges_txt.c_str());
+  if (vocab_blob.empty() || merges_blob.empty()) {
+    if (!ParseEmbeddedBpe(tok_blob, &token2id_, &merges_rank_,
+                          &use_gpt2_pattern_)) {
+      EDGEVOX_ONNX_LOGE("Failed to parse embedded BPE from: %s",
+                       tok_json.c_str());
+      EDGEVOX_ONNX_EXIT(-1);
+    }
+  } else if (!ParseVocabJson(vocab_blob, &token2id_) ||
+             !ParseMergesTxt(merges_blob, &merges_rank_)) {
+    EDGEVOX_ONNX_LOGE("Failed to parse tokenizer vocabulary in: %s",
+                     tokenizer_dir.c_str());
     EDGEVOX_ONNX_EXIT(-1);
   }
 
@@ -1208,7 +1322,7 @@ void FunASRNanoTokenizer::Init(Manager *mgr, const std::string &tokenizer_dir) {
   const std::string vocab_blob = LoadBytesFromFile(mgr, vocab_json);
   const std::string merges_blob = LoadBytesFromFile(mgr, merges_txt);
 
-  if (tok_blob.empty() || vocab_blob.empty() || merges_blob.empty()) {
+  if (tok_blob.empty()) {
     EDGEVOX_ONNX_LOGE(
         "Failed to read tokenizer files via resource manager "
         "(tokenizer_dir=%s)",
@@ -1218,12 +1332,15 @@ void FunASRNanoTokenizer::Init(Manager *mgr, const std::string &tokenizer_dir) {
 
   BuildBytesToUnicode(byte_to_unicode_, &unicode_to_byte_);
 
-  if (!ParseVocabJson(vocab_blob, &token2id_)) {
-    EDGEVOX_ONNX_LOGE("Failed to parse vocab.json: %s", vocab_json.c_str());
-    EDGEVOX_ONNX_EXIT(-1);
-  }
-  if (!ParseMergesTxt(merges_blob, &merges_rank_)) {
-    EDGEVOX_ONNX_LOGE("Failed to parse merges.txt: %s", merges_txt.c_str());
+  if (vocab_blob.empty() || merges_blob.empty()) {
+    if (!ParseEmbeddedBpe(tok_blob, &token2id_, &merges_rank_,
+                          &use_gpt2_pattern_)) {
+      EDGEVOX_ONNX_LOGE("Failed to parse embedded tokenizer.json");
+      EDGEVOX_ONNX_EXIT(-1);
+    }
+  } else if (!ParseVocabJson(vocab_blob, &token2id_) ||
+             !ParseMergesTxt(merges_blob, &merges_rank_)) {
+    EDGEVOX_ONNX_LOGE("Failed to parse tokenizer vocabulary");
     EDGEVOX_ONNX_EXIT(-1);
   }
 
@@ -1371,7 +1488,8 @@ std::vector<int64_t> FunASRNanoTokenizer::Encode(const std::string &text) {
     if (mlen > 0 && tidx >= 0) {
       if (pos > last) {
         std::string seg = text.substr(last, pos - last);
-        auto pieces = SplitByQwen3Pattern(seg);
+        auto pieces = use_gpt2_pattern_ ? SplitByGpt2Pattern(seg)
+                                       : SplitByQwen3Pattern(seg);
         for (const auto &p : pieces) {
           std::string bl = ByteLevelEncode(p, byte_to_unicode_);
           auto bpe_toks = BpeEncodeWithCache(bl, merges_rank_, &bpe_cache_);
@@ -1398,7 +1516,8 @@ std::vector<int64_t> FunASRNanoTokenizer::Encode(const std::string &text) {
 
   if (last < text.size()) {
     std::string seg = text.substr(last);
-    auto pieces = SplitByQwen3Pattern(seg);
+    auto pieces = use_gpt2_pattern_ ? SplitByGpt2Pattern(seg)
+                                   : SplitByQwen3Pattern(seg);
     for (const auto &p : pieces) {
       std::string bl = ByteLevelEncode(p, byte_to_unicode_);
       auto bpe_toks = BpeEncodeWithCache(bl, merges_rank_, &bpe_cache_);
