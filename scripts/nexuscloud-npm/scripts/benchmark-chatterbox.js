@@ -24,7 +24,9 @@ const tts = edgevox.createOfflineTts({
       speechEncoder: model('speech_encoder'),
       embedTokens: model('embed_tokens'),
       languageModel: model('language_model'),
-      conditionalDecoder: model('conditional_decoder'),
+      conditionalDecoder: args.decoder ?
+          path.resolve(args.decoder) :
+          path.join(dir, 'onnx', 'conditional_decoder_quantized.onnx'),
       tokenizer: dir,
     },
     numThreads: Number(args.threads || 4),
@@ -40,9 +42,6 @@ const audio = tts.generateWithConfig(text, {
   extra: {
     max_new_tokens: Number(args['max-new-tokens'] || 1024),
     repetition_penalty: Number(args['repetition-penalty'] || 1.2),
-    normalize_output: 1,
-    target_rms: Number(args['target-rms'] || 0.08),
-    max_peak: 0.95,
   },
 });
 const generationMs = performance.now() - started;

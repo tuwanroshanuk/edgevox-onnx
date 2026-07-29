@@ -6,7 +6,6 @@
 #define EDGEVOX_ONNX_CSRC_OFFLINE_TTS_CHATTERBOX_IMPL_H_
 
 #include <algorithm>
-#include <cmath>
 #include <memory>
 #include <string>
 #include <vector>
@@ -67,36 +66,6 @@ class OfflineTtsChatterboxImpl : public OfflineTtsImpl {
     auto tokens = model_->Tokenize(text);
     result.samples =
         model_->Generate(tokens, reference, max_new_tokens, repetition_penalty);
-
-    // The official Q4 conditional decoder preserves the waveform shape but
-    // emits it at an extremely low level (typically around -57 dBFS RMS).
-    // Normalize with a peak limiter so the CPU-friendly Q4 package remains
-    // usable without clipping. This can be disabled or tuned per generation.
-    if (gen_config.GetExtraInt("normalize_output", 1) != 0 &&
-        !result.samples.empty()) {
-      const float target_rms =
-          gen_config.GetExtraFloat("target_rms", 0.08f);
-      const float max_peak =
-          gen_config.GetExtraFloat("max_peak", 0.95f);
-      double mean = 0;
-      for (float sample : result.samples) mean += sample;
-      mean /= result.samples.size();
-
-      double energy = 0;
-      float peak = 0;
-      for (float &sample : result.samples) {
-        sample -= static_cast<float>(mean);
-        energy += static_cast<double>(sample) * sample;
-        peak = std::max(peak, std::abs(sample));
-      }
-      const float rms =
-          static_cast<float>(std::sqrt(energy / result.samples.size()));
-      if (rms > 1e-7f && peak > 0 && target_rms > 0 && max_peak > 0) {
-        const float gain =
-            std::min(target_rms / rms, max_peak / peak);
-        for (float &sample : result.samples) sample *= gain;
-      }
-    }
 
     if (callback && !result.samples.empty()) {
       callback(result.samples.data(),

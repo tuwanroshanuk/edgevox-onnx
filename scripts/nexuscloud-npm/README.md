@@ -84,8 +84,10 @@ process peak RSS.
 
 Chatterbox Turbo uses the official four-graph ONNX export and GPT-2 tokenizer.
 It provides local English zero-shot voice cloning and expressive tags such as
-`[laugh]`, `[chuckle]`, and `[cough]`. The Q4 models are recommended for the
-best CPU latency and memory use.
+`[laugh]`, `[chuckle]`, and `[cough]`. For CPU use, Q4 is recommended for the
+speech encoder, token embedding, and language model. Use the INT8
+(`_quantized`) conditional decoder: the Q4 decoder can produce a corrupted,
+extremely low-level waveform with ONNX Runtime on CPU.
 
 ```javascript
 const reference = edgevox.readWave('/path/to/reference.wav');
@@ -95,7 +97,8 @@ const tts = edgevox.createOfflineTts({
       speechEncoder: '/models/onnx/speech_encoder_q4.onnx',
       embedTokens: '/models/onnx/embed_tokens_q4.onnx',
       languageModel: '/models/onnx/language_model_q4.onnx',
-      conditionalDecoder: '/models/onnx/conditional_decoder_q4.onnx',
+      conditionalDecoder:
+          '/models/onnx/conditional_decoder_quantized.onnx',
       tokenizer: '/models',
     },
     numThreads: 4,
@@ -107,15 +110,7 @@ const audio = tts.generateWithConfig(
     {
       referenceAudio: reference.samples,
       referenceSampleRate: reference.sampleRate,
-      extra: {
-        max_new_tokens: 1024,
-        repetition_penalty: 1.2,
-        // Q4 decoder output is normalized by default. Set to 0 to preserve
-        // the raw model level, or tune target_rms/max_peak.
-        normalize_output: 1,
-        target_rms: 0.08,
-        max_peak: 0.95,
-      },
+      extra: {max_new_tokens: 1024, repetition_penalty: 1.2},
     });
 ```
 

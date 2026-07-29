@@ -12,6 +12,8 @@ if (!modelDir || !referencePath) {
 }
 
 const graph = (name) => path.join(modelDir, 'onnx', `${name}_q4.onnx`);
+const decoder = path.join(
+    modelDir, 'onnx', 'conditional_decoder_quantized.onnx');
 const started = performance.now();
 const tts = new edgevox.OfflineTts({
   model: {
@@ -19,7 +21,8 @@ const tts = new edgevox.OfflineTts({
       speechEncoder: graph('speech_encoder'),
       embedTokens: graph('embed_tokens'),
       languageModel: graph('language_model'),
-      conditionalDecoder: graph('conditional_decoder'),
+      conditionalDecoder: process.env.CHATTERBOX_DECODER ||
+          decoder,
       tokenizer: modelDir,
     },
     numThreads: Number(process.env.CHATTERBOX_THREADS || 4),
@@ -38,9 +41,6 @@ const audio = tts.generate({
     extra: {
       max_new_tokens: Number(process.env.CHATTERBOX_MAX_TOKENS || 256),
       repetition_penalty: 1.2,
-      normalize_output: 1,
-      target_rms: 0.08,
-      max_peak: 0.95,
     },
   },
   enableExternalBuffer: false,
@@ -59,6 +59,10 @@ if (!audio.samples.length || audio.sampleRate !== 24000) {
     samples: audio.samples.length,
     sampleRate: audio.sampleRate,
   })}`);
+}
+if (peak < 0.05 || rms < 0.01) {
+  throw new Error(
+      `Chatterbox produced an invalid low-level waveform: peak=${peak}, rms=${rms}`);
 }
 const output = process.env.CHATTERBOX_OUTPUT_WAV ||
     path.join(modelDir, 'smoke-test.wav');
