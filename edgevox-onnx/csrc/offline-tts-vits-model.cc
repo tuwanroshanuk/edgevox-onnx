@@ -197,6 +197,10 @@ class OfflineTtsVitsModel::Impl {
       meta_data_.is_piper = true;
     }
 
+    if (comment.find("wfloat_emotional_vits") != std::string::npos) {
+      meta_data_.is_wfloat_emotional_vits = true;
+    }
+
     if (comment.find("coqui") != std::string::npos) {
       meta_data_.is_coqui = true;
     }

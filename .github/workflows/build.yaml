@@ -280,6 +280,8 @@ jobs:
           cp -v scripts/nodejs/index.js "$OUT/"
           cp -v scripts/nexuscloud-npm/scripts/sync-android.mjs "$OUT/scripts/"
           cp -v scripts/nexuscloud-npm/scripts/benchmark-zipvoice.js "$OUT/scripts/"
+          cp -v scripts/nexuscloud-npm/scripts/benchmark-chatterbox.js "$OUT/scripts/"
+          cp -v scripts/nexuscloud-npm/scripts/benchmark-wfloat.js "$OUT/scripts/"
           cp -v /tmp/native-win-x64/* "$OUT/native/win32-x64/"
           cp -v edgevox-onnx/kotlin-api/Tts.kt "$OUT/android/kotlin-api/"
           cp -rv /tmp/jniLibs/* "$OUT/android/jniLibs/"
@@ -294,13 +296,13 @@ jobs:
           # Without this, npm publish can ship a package that crashes on require().
           echo "Syntax-checking packaged JS..."
           fail=0
-          for f in "$OUT"/*.js; do
+          while IFS= read -r -d '' f; do
             echo "  node --check $f"
             if ! node --check "$f"; then
               echo "::error::Syntax error in $f"
               fail=1
             fi
-          done
+          done < <(find "$OUT" -name '*.js' -print0)
           if [ "$fail" -ne 0 ]; then
             exit 1
           fi

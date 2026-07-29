@@ -1,7 +1,7 @@
 {
   "name": "@nexuscloud/edgevox-onnx",
   "version": "__NPM_VERSION__",
-  "description": "edgevox-onnx __SHERPA_VERSION__ with native Windows x64 and Android TTS, portable WASM fallback, ZipVoice, and Chatterbox Turbo voice cloning.",
+  "description": "edgevox-onnx __SHERPA_VERSION__ with native Windows x64 and Android TTS, portable WASM fallback, ZipVoice, Chatterbox Turbo, and Wfloat emotional TTS.",
   "main": "index.js",
   "files": [
     "index.js",
@@ -15,7 +15,8 @@
   "scripts": {
     "sync-android": "node scripts/sync-android.mjs",
     "benchmark:zipvoice": "node scripts/benchmark-zipvoice.js",
-    "benchmark:chatterbox": "node scripts/benchmark-chatterbox.js"
+    "benchmark:chatterbox": "node scripts/benchmark-chatterbox.js",
+    "benchmark:wfloat": "node scripts/benchmark-wfloat.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,9 @@
     "text-to-speech",
     "zipvoice",
     "chatterbox",
+    "wfloat",
+    "openvoice",
+    "emotion",
     "native",
     "wasm",
     "android",

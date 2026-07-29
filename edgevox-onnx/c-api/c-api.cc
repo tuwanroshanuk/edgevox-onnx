@@ -1471,6 +1471,10 @@ static edgevox_onnx::OfflineTtsConfig GetOfflineTtsConfig(
       EDGEVOX_ONNX_OR(config->model.vits.noise_scale_w, 0.8);
   tts_config.model.vits.length_scale =
       EDGEVOX_ONNX_OR(config->model.vits.length_scale, 1.0);
+  tts_config.model.vits.openvoice_tone_encoder =
+      EDGEVOX_ONNX_OR(config->model.vits.openvoice_tone_encoder, "");
+  tts_config.model.vits.openvoice_tone_converter =
+      EDGEVOX_ONNX_OR(config->model.vits.openvoice_tone_converter, "");
 
   // matcha
   tts_config.model.matcha.acoustic_model =

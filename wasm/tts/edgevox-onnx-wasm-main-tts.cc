@@ -13,7 +13,7 @@
 
 extern "C" {
 
-static_assert(sizeof(EdgevoxOnnxOfflineTtsVitsModelConfig) == 8 * 4, "");
+static_assert(sizeof(EdgevoxOnnxOfflineTtsVitsModelConfig) == 10 * 4, "");
 static_assert(sizeof(EdgevoxOnnxOfflineTtsMatchaModelConfig) == 8 * 4, "");
 static_assert(sizeof(EdgevoxOnnxOfflineTtsKokoroModelConfig) == 8 * 4, "");
 static_assert(sizeof(EdgevoxOnnxOfflineTtsKittenModelConfig) == 5 * 4, "");

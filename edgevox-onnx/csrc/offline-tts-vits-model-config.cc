@@ -21,6 +21,10 @@ void OfflineTtsVitsModelConfig::Register(ParseOptions *po) {
                "given, --vits-lexicon is ignored.");
   po->Register("vits-dict-dir", &dict_dir,
                "Not used. You don't need to provide a value for it");
+  po->Register("vits-openvoice-tone-encoder", &openvoice_tone_encoder,
+               "Optional OpenVoice V2 tone reference encoder");
+  po->Register("vits-openvoice-tone-converter", &openvoice_tone_converter,
+               "Optional OpenVoice V2 tone converter");
   po->Register("vits-noise-scale", &noise_scale, "noise_scale for VITS models");
   po->Register("vits-noise-scale-w", &noise_scale_w,
                "noise_scale_w for VITS models");
@@ -85,6 +89,24 @@ bool OfflineTtsVitsModelConfig::Validate() const {
         "this model. Ignore it");
   }
 
+  if (openvoice_tone_encoder.empty() != openvoice_tone_converter.empty()) {
+    EDGEVOX_ONNX_LOGE(
+        "OpenVoice conversion requires both tone encoder and tone converter");
+    return false;
+  }
+  if (!openvoice_tone_encoder.empty() &&
+      !FileExists(openvoice_tone_encoder)) {
+    EDGEVOX_ONNX_LOGE("OpenVoice tone encoder '%s' does not exist",
+                     openvoice_tone_encoder.c_str());
+    return false;
+  }
+  if (!openvoice_tone_converter.empty() &&
+      !FileExists(openvoice_tone_converter)) {
+    EDGEVOX_ONNX_LOGE("OpenVoice tone converter '%s' does not exist",
+                     openvoice_tone_converter.c_str());
+    return false;
+  }
+
   return true;
 }
 
@@ -96,6 +118,8 @@ std::string OfflineTtsVitsModelConfig::ToString() const {
   os << "lexicon=\"" << lexicon << "\", ";
   os << "tokens=\"" << tokens << "\", ";
   os << "data_dir=\"" << data_dir << "\", ";
+  os << "openvoice_tone_encoder=\"" << openvoice_tone_encoder << "\", ";
+  os << "openvoice_tone_converter=\"" << openvoice_tone_converter << "\", ";
   os << "noise_scale=" << noise_scale << ", ";
   os << "noise_scale_w=" << noise_scale_w << ", ";
   os << "length_scale=" << length_scale << ")";

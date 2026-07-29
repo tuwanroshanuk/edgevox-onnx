@@ -309,6 +309,7 @@ if(EDGEVOX_ONNX_ENABLE_TTS)
     offline-tts-supertonic-model-config.cc
     offline-tts-supertonic-model.cc
     offline-tts-supertonic-unicode-processor.cc
+    offline-tts-openvoice.cc
     offline-tts-vits-model-config.cc
     offline-tts-vits-model.cc
     offline-tts-zipvoice-model-config.cc
@@ -848,6 +849,8 @@ if(EDGEVOX_ONNX_ENABLE_TESTS)
       sentence-piece-tokenizer-test.cc
       piper-phonemize-test.cc
       offline-tts-supertonic-unicode-processor-test.cc
+      offline-tts-openvoice-test.cc
+      offline-tts-wfloat-emotion-test.cc
       chatterbox-tokenizer-test.cc
     )
   endif()

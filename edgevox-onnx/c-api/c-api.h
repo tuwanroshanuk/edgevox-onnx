@@ -2261,6 +2261,10 @@ typedef struct EdgevoxOnnxOfflineTtsVitsModelConfig {
   float length_scale;
   /** Unused legacy field kept for ABI compatibility. */
   const char *dict_dir;
+  /** Optional OpenVoice V2 reference encoder ONNX model. */
+  const char *openvoice_tone_encoder;
+  /** Optional OpenVoice V2 tone converter ONNX model. */
+  const char *openvoice_tone_converter;
 } EdgevoxOnnxOfflineTtsVitsModelConfig;
 
 /** @brief Configuration for a Matcha TTS model. */

@@ -23,6 +23,12 @@ struct OfflineTtsVitsModelConfig {
   // Used for Chinese TTS models using jieba
   std::string dict_dir;
 
+  // Optional OpenVoice V2 tone-color conversion. When both paths are set and
+  // GenerationConfig contains reference audio, VITS output is converted to the
+  // reference speaker after synthesis.
+  std::string openvoice_tone_encoder;
+  std::string openvoice_tone_converter;
+
   float noise_scale = 0.667;
   float noise_scale_w = 0.8;
   float length_scale = 1;

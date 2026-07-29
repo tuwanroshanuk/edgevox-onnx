@@ -123,6 +123,63 @@ npm run benchmark:chatterbox -- \
   --output=chatterbox-test.wav
 ```
 
+## Wfloat Emotional VITS
+
+Wfloat provides fast **English-only** emotional TTS with 20 speakers, eight
+emotions, and intensity control. It is not a multilingual model. The Edgevox
+frontend preserves Wfloat's exact eSpeak token format instead of applying
+generic Piper BOS/EOS and blank tokens.
+
+```javascript
+const edgevox = require('@nexuscloud/edgevox-onnx');
+const modelDir = '/models/wfloat_emotional_vits';
+const tts = edgevox.createOfflineTts({
+  offlineTtsModelConfig: {
+    offlineTtsVitsModelConfig: {
+      model: `${modelDir}/wfloat_emotional_vits.onnx`,
+      tokens: `${modelDir}/tokens.txt`,
+      dataDir: `${modelDir}/espeak-ng-data`,
+      noiseScale: 0.667,
+      noiseScaleW: 0.8,
+      lengthScale: 1,
+      // Optional desktop voice conversion:
+      openvoiceToneEncoder:
+          `${modelDir}/openvoice_v2/tone_ref_encoder.onnx`,
+      openvoiceToneConverter:
+          `${modelDir}/openvoice_v2/tone_converter.onnx`,
+    },
+    numThreads: 2,
+    provider: 'cpu',
+  },
+});
+const audio = tts.generateWithConfig(
+    'This is a clear English emotional voice.',
+    {
+      sid: 10,
+      extra: {emotion: 'joy', emotion_intensity: 0.7},
+    });
+edgevox.writeWave('wfloat.wav', audio);
+```
+
+Supported emotion names are `neutral`, `joy`, `sadness`, `anger`, `fear`,
+`surprise`, `dismissive`, and `confusion`. Intensity is clamped to 0–1.
+
+OpenVoice V2 voice conversion is optional and currently supported on the
+desktop filesystem path. Add `referenceAudio` and `referenceSampleRate` to the
+generation config to convert Wfloat's output timbre. The reference embedding is
+cached while the TTS instance remains alive. OpenVoice changes timbre; it does
+not add languages to Wfloat.
+
+Benchmark plain generation and optional cloning with:
+
+```bash
+npm run benchmark:wfloat -- \
+  --model-dir=/path/to/wfloat_emotional_vits \
+  --emotion=joy --intensity=0.7 --speaker=10 \
+  --reference-wav=/path/to/reference.wav \
+  --output=wfloat-test.wav
+```
+
 ## Local validation (before publish)
 
 ```bash

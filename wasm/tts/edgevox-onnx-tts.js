@@ -49,12 +49,17 @@ function initEdgevoxOnnxOfflineTtsVitsModelConfig(config, Module) {
   const dataDirLen = Module.lengthBytesUTF8(config.dataDir || '') + 1;
   const dictDir = ''
   const dictDirLen = Module.lengthBytesUTF8(dictDir) + 1;
+  const openvoiceToneEncoderLen =
+      Module.lengthBytesUTF8(config.openvoiceToneEncoder || '') + 1;
+  const openvoiceToneConverterLen =
+      Module.lengthBytesUTF8(config.openvoiceToneConverter || '') + 1;
 
-  const n = modelLen + lexiconLen + tokensLen + dataDirLen + dictDirLen;
+  const n = modelLen + lexiconLen + tokensLen + dataDirLen + dictDirLen +
+      openvoiceToneEncoderLen + openvoiceToneConverterLen;
 
   const buffer = Module._malloc(n);
 
-  const len = 8 * 4;
+  const len = 10 * 4;
   const ptr = Module._malloc(len);
 
   let offset = 0;
@@ -72,6 +77,16 @@ function initEdgevoxOnnxOfflineTtsVitsModelConfig(config, Module) {
 
   Module.stringToUTF8(dictDir, buffer + offset, dictDirLen);
   offset += dictDirLen;
+
+  Module.stringToUTF8(
+      config.openvoiceToneEncoder || '', buffer + offset,
+      openvoiceToneEncoderLen);
+  offset += openvoiceToneEncoderLen;
+
+  Module.stringToUTF8(
+      config.openvoiceToneConverter || '', buffer + offset,
+      openvoiceToneConverterLen);
+  offset += openvoiceToneConverterLen;
 
   offset = 0;
   Module.setValue(ptr, buffer + offset, 'i8*');
@@ -91,6 +106,10 @@ function initEdgevoxOnnxOfflineTtsVitsModelConfig(config, Module) {
   Module.setValue(ptr + 24, config.lengthScale || 1.0, 'float');
   Module.setValue(ptr + 28, buffer + offset, 'i8*');
   offset += dictDirLen;
+  Module.setValue(ptr + 32, buffer + offset, 'i8*');
+  offset += openvoiceToneEncoderLen;
+  Module.setValue(ptr + 36, buffer + offset, 'i8*');
+  offset += openvoiceToneConverterLen;
 
   return {
     buffer: buffer,
@@ -541,6 +560,8 @@ function initEdgevoxOnnxOfflineTtsModelConfig(config, Module) {
       noiseScaleW: 0.8,
       lengthScale: 1.0,
       dataDir: '',
+      openvoiceToneEncoder: '',
+      openvoiceToneConverter: '',
     };
   }
 

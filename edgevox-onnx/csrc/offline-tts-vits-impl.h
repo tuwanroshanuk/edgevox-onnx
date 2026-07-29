@@ -22,7 +22,9 @@
 #include "edgevox-onnx/csrc/offline-tts-character-frontend.h"
 #include "edgevox-onnx/csrc/offline-tts-frontend.h"
 #include "edgevox-onnx/csrc/offline-tts-impl.h"
+#include "edgevox-onnx/csrc/offline-tts-openvoice.h"
 #include "edgevox-onnx/csrc/offline-tts-vits-model.h"
+#include "edgevox-onnx/csrc/offline-tts-wfloat-emotion.h"
 #include "edgevox-onnx/csrc/piper-phonemize-lexicon.h"
 #include "edgevox-onnx/csrc/text-utils.h"
 
@@ -34,6 +36,11 @@ class OfflineTtsVitsImpl : public OfflineTtsImpl {
       : config_(config),
         model_(std::make_unique<OfflineTtsVitsModel>(config.model)) {
     InitFrontend();
+    if (!config.model.vits.openvoice_tone_encoder.empty() &&
+        !config.model.vits.openvoice_tone_converter.empty()) {
+      openvoice_ =
+          std::make_unique<OfflineTtsOpenVoice>(config.model);
+    }
 
     if (!config.rule_fsts.empty()) {
       std::vector<std::string> files;
@@ -148,7 +155,12 @@ class OfflineTtsVitsImpl : public OfflineTtsImpl {
   //   - silence_scale: Scale applied to pauses in the generated audio
   //
   // Supported extra options in config.extra:
-  //   - None
+  //   Wfloat Emotional VITS models:
+  //   - emotion: neutral, joy, sadness, anger, fear, surprise, dismissive,
+  //              or confusion (default: neutral)
+  //   - emotion_intensity: 0 through 1 (default: 0.5)
+  //   OpenVoice V2 conversion is enabled when its two model paths are set in
+  //   VITS config and reference_audio/reference_sample_rate are provided.
   GeneratedAudio Generate(
       const std::string &_text, const GenerationConfig &gen_config,
       GeneratedAudioCallback callback = nullptr) const override {
@@ -226,6 +238,31 @@ class OfflineTtsVitsImpl : public OfflineTtsImpl {
       return {};
     }
 
+    if (meta_data.is_wfloat_emotional_vits) {
+      WfloatEmotionControl control;
+      std::string emotion = gen_config.GetExtraString("emotion", "neutral");
+      float intensity = gen_config.GetExtraFloat(
+          "emotion_intensity", gen_config.GetExtraFloat("intensity", 0.5f));
+      if (!GetWfloatEmotionControl(emotion, intensity, &control)) {
+        EDGEVOX_ONNX_LOGE(
+            "Unsupported Wfloat emotion '%s'. Expected neutral, joy, sadness, "
+            "anger, fear, surprise, dismissive, or confusion",
+            emotion.c_str());
+        return {};
+      }
+
+      std::vector<std::vector<int64_t>> groups;
+      groups.reserve(token_ids.size());
+      for (auto &item : token_ids) {
+        groups.push_back(std::move(item.tokens));
+      }
+      auto merged = MergeWfloatPiperTokenGroups(std::move(groups));
+      merged.push_back(control.emotion_token);
+      merged.push_back(control.intensity_token);
+      token_ids.clear();
+      token_ids.emplace_back(std::move(merged));
+    }
+
     std::vector<std::vector<int64_t>> x;
     std::vector<std::vector<int64_t>> tones;
 
@@ -255,9 +292,29 @@ class OfflineTtsVitsImpl : public OfflineTtsImpl {
     }
 
     int32_t x_size = static_cast<int32_t>(x.size());
+    bool use_openvoice =
+        openvoice_ && !gen_config.reference_audio.empty();
+    if (use_openvoice && gen_config.reference_sample_rate <= 0) {
+      EDGEVOX_ONNX_LOGE(
+          "OpenVoice reference_sample_rate must be greater than zero");
+      return {};
+    }
 
     if (config_.max_num_sentences <= 0 || x_size <= config_.max_num_sentences) {
       auto ans = Process(x, tones, sid, speed, gen_config.silence_scale);
+      if (use_openvoice) {
+        if (callback && !callback(nullptr, 0, 0.5f)) {
+          return {};
+        }
+        ans.samples = openvoice_->Convert(
+            ans.samples, ans.sample_rate, gen_config.reference_audio,
+            gen_config.reference_sample_rate);
+        ans.sample_rate = 22050;
+        if (ans.samples.empty()) {
+          EDGEVOX_ONNX_LOGE("OpenVoice conversion failed");
+          return {};
+        }
+      }
       if (callback) {
         callback(ans.samples.data(), ans.samples.size(), 1.0);
       }
@@ -310,7 +367,7 @@ class OfflineTtsVitsImpl : public OfflineTtsImpl {
       ans.sample_rate = audio.sample_rate;
       ans.samples.insert(ans.samples.end(), audio.samples.begin(),
                          audio.samples.end());
-      if (callback) {
+      if (callback && !use_openvoice) {
         should_continue = callback(audio.samples.data(), audio.samples.size(),
                                    (b + 1) * 1.0 / num_batches);
         // Caution(fangjun): audio is freed when the callback returns, so users
@@ -336,11 +393,28 @@ class OfflineTtsVitsImpl : public OfflineTtsImpl {
       ans.sample_rate = audio.sample_rate;
       ans.samples.insert(ans.samples.end(), audio.samples.begin(),
                          audio.samples.end());
-      if (callback) {
+      if (callback && !use_openvoice) {
         callback(audio.samples.data(), audio.samples.size(), 1.0);
         // Caution(fangjun): audio is freed when the callback returns, so users
         // should copy the data if they want to access the data after
         // the callback returns to avoid segmentation fault.
+      }
+    }
+
+    if (use_openvoice && should_continue) {
+      if (callback && !callback(nullptr, 0, 0.5f)) {
+        return {};
+      }
+      ans.samples = openvoice_->Convert(
+          ans.samples, ans.sample_rate, gen_config.reference_audio,
+          gen_config.reference_sample_rate);
+      ans.sample_rate = 22050;
+      if (ans.samples.empty()) {
+        EDGEVOX_ONNX_LOGE("OpenVoice conversion failed");
+        return {};
+      }
+      if (callback) {
+        callback(ans.samples.data(), ans.samples.size(), 1.0);
       }
     }
 
@@ -504,6 +578,7 @@ class OfflineTtsVitsImpl : public OfflineTtsImpl {
  private:
   OfflineTtsConfig config_;
   std::unique_ptr<OfflineTtsVitsModel> model_;
+  std::unique_ptr<OfflineTtsOpenVoice> openvoice_;
   std::vector<std::unique_ptr<kaldifst::TextNormalizer>> tn_list_;
   std::unique_ptr<OfflineTtsFrontend> frontend_;
 };

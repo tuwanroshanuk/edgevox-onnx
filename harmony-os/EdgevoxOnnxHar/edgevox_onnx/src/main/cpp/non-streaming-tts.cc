@@ -27,6 +27,8 @@
     EDGEVOX_ONNX_DELETE_C_STR(c.model.vits.lexicon);             \
     EDGEVOX_ONNX_DELETE_C_STR(c.model.vits.tokens);              \
     EDGEVOX_ONNX_DELETE_C_STR(c.model.vits.data_dir);            \
+    EDGEVOX_ONNX_DELETE_C_STR(c.model.vits.openvoice_tone_encoder);   \
+    EDGEVOX_ONNX_DELETE_C_STR(c.model.vits.openvoice_tone_converter); \
                                                                 \
     EDGEVOX_ONNX_DELETE_C_STR(c.model.matcha.acoustic_model);    \
     EDGEVOX_ONNX_DELETE_C_STR(c.model.matcha.vocoder);           \
@@ -175,6 +177,8 @@ static EdgevoxOnnxOfflineTtsVitsModelConfig GetOfflineTtsVitsModelConfig(
   EDGEVOX_ONNX_ASSIGN_ATTR_FLOAT(noise_scale, noiseScale);
   EDGEVOX_ONNX_ASSIGN_ATTR_FLOAT(noise_scale_w, noiseScaleW);
   EDGEVOX_ONNX_ASSIGN_ATTR_FLOAT(length_scale, lengthScale);
+  EDGEVOX_ONNX_ASSIGN_ATTR_STR(openvoice_tone_encoder, openvoiceToneEncoder);
+  EDGEVOX_ONNX_ASSIGN_ATTR_STR(openvoice_tone_converter, openvoiceToneConverter);
 
   return c;
 }

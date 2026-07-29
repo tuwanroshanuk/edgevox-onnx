@@ -529,6 +529,8 @@
  * @property {number} [noiseScale]
  * @property {number} [noiseScaleW]
  * @property {number} [lengthScale]
+ * @property {string} [openvoiceToneEncoder]
+ * @property {string} [openvoiceToneConverter]
  */
 
 /**

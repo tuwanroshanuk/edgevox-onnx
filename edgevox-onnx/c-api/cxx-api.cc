@@ -495,6 +495,10 @@ OfflineTts OfflineTts::Create(const OfflineTtsConfig &config) {
   c.model.vits.noise_scale = config.model.vits.noise_scale;
   c.model.vits.noise_scale_w = config.model.vits.noise_scale_w;
   c.model.vits.length_scale = config.model.vits.length_scale;
+  c.model.vits.openvoice_tone_encoder =
+      config.model.vits.openvoice_tone_encoder.c_str();
+  c.model.vits.openvoice_tone_converter =
+      config.model.vits.openvoice_tone_converter.c_str();
 
   c.model.matcha.acoustic_model = config.model.matcha.acoustic_model.c_str();
   c.model.matcha.vocoder = config.model.matcha.vocoder.c_str();

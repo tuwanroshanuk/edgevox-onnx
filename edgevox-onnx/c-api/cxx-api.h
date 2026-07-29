@@ -853,6 +853,10 @@ struct OfflineTtsVitsModelConfig {
   std::string data_dir;
   /** Reserved field. Currently unused by the wrapper. */
   std::string dict_dir;
+  /** Optional OpenVoice V2 reference encoder. */
+  std::string openvoice_tone_encoder;
+  /** Optional OpenVoice V2 tone converter. */
+  std::string openvoice_tone_converter;
 
   /** VITS noise scale. */
   float noise_scale = 0.667;
