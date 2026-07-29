@@ -107,7 +107,15 @@ const audio = tts.generateWithConfig(
     {
       referenceAudio: reference.samples,
       referenceSampleRate: reference.sampleRate,
-      extra: {max_new_tokens: 1024, repetition_penalty: 1.2},
+      extra: {
+        max_new_tokens: 1024,
+        repetition_penalty: 1.2,
+        // Q4 decoder output is normalized by default. Set to 0 to preserve
+        // the raw model level, or tune target_rms/max_peak.
+        normalize_output: 1,
+        target_rms: 0.08,
+        max_peak: 0.95,
+      },
     });
 ```
 

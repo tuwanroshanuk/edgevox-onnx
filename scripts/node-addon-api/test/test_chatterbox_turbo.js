@@ -38,12 +38,22 @@ const audio = tts.generate({
     extra: {
       max_new_tokens: Number(process.env.CHATTERBOX_MAX_TOKENS || 256),
       repetition_penalty: 1.2,
+      normalize_output: 1,
+      target_rms: 0.08,
+      max_peak: 0.95,
     },
   },
   enableExternalBuffer: false,
 });
 const generationMs = performance.now() - generationStarted;
 const audioSeconds = audio.samples.length / audio.sampleRate;
+let peak = 0;
+let energy = 0;
+for (const sample of audio.samples) {
+  peak = Math.max(peak, Math.abs(sample));
+  energy += sample * sample;
+}
+const rms = Math.sqrt(energy / audio.samples.length);
 if (!audio.samples.length || audio.sampleRate !== 24000) {
   throw new Error(`Invalid generated audio: ${JSON.stringify({
     samples: audio.samples.length,
@@ -60,5 +70,7 @@ console.log(JSON.stringify({
   rtf: generationMs / 1000 / audioSeconds,
   sampleRate: audio.sampleRate,
   samples: audio.samples.length,
+  peak,
+  rms,
   output,
 }, null, 2));

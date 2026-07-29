@@ -40,6 +40,9 @@ const audio = tts.generateWithConfig(text, {
   extra: {
     max_new_tokens: Number(args['max-new-tokens'] || 1024),
     repetition_penalty: Number(args['repetition-penalty'] || 1.2),
+    normalize_output: 1,
+    target_rms: Number(args['target-rms'] || 0.08),
+    max_peak: 0.95,
   },
 });
 const generationMs = performance.now() - started;
