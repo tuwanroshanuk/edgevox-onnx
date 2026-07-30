@@ -238,7 +238,10 @@ class OfflineTtsVitsImpl : public OfflineTtsImpl {
       return {};
     }
 
-    if (meta_data.is_wfloat_emotional_vits) {
+    const bool use_wfloat_emotion =
+        meta_data.is_wfloat_emotional_vits ||
+        gen_config.GetExtraInt("wfloat", 0) == 1;
+    if (use_wfloat_emotion) {
       WfloatEmotionControl control;
       std::string emotion = gen_config.GetExtraString("emotion", "neutral");
       float intensity = gen_config.GetExtraFloat(

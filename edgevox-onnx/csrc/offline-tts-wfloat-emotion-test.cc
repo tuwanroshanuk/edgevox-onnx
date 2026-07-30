@@ -46,6 +46,13 @@ TEST(WfloatEmotion, RejectsUnknownEmotion) {
   EXPECT_FALSE(GetWfloatEmotionControl("excited", 0.5, &control));
 }
 
+TEST(WfloatEmotion, MapsOfficialModelControlValues) {
+  WfloatEmotionControl control;
+  ASSERT_TRUE(GetWfloatEmotionControl("anger", 0.8, &control));
+  EXPECT_EQ(control.emotion_token, 162);
+  EXPECT_EQ(control.intensity_token, 181);
+}
+
 TEST(WfloatEmotion, PreservesPiperSequenceAndInsertsBeforeFinalPadding) {
   std::vector<int64_t> tokens = {1, 14, 0, 74, 0, 3, 0, 23, 0, 2};
   AppendWfloatEmotionControl(&tokens, {162, 182});
