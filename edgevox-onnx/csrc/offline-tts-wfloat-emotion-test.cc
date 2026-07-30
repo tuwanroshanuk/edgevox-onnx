@@ -46,16 +46,19 @@ TEST(WfloatEmotion, RejectsUnknownEmotion) {
   EXPECT_FALSE(GetWfloatEmotionControl("excited", 0.5, &control));
 }
 
-TEST(WfloatEmotion, RemovesGenericPiperFramingAndBlanks) {
+TEST(WfloatEmotion, PreservesPiperSequenceAndInsertsBeforeFinalPadding) {
   std::vector<int64_t> tokens = {1, 14, 0, 74, 0, 3, 0, 23, 0, 2};
-  NormalizeWfloatPiperTokens(&tokens);
-  EXPECT_EQ(tokens, (std::vector<int64_t>{14, 74, 3, 23}));
+  AppendWfloatEmotionControl(&tokens, {162, 182});
+  EXPECT_EQ(tokens,
+            (std::vector<int64_t>{1, 14, 0, 74, 0, 3, 0, 23, 0, 2, 162,
+                                  182}));
 }
 
-TEST(WfloatEmotion, JoinsSentencesBeforeAddingOneControlSuffix) {
-  auto tokens = MergeWfloatPiperTokenGroups(
-      {{1, 14, 0, 10, 0, 2}, {1, 32, 0, 18, 0, 2}});
-  EXPECT_EQ(tokens, (std::vector<int64_t>{14, 10, 3, 32, 18}));
+TEST(WfloatEmotion, InsertsBeforeTrailingPaddingToken) {
+  std::vector<int64_t> tokens = {1, 14, 0, 10, 0};
+  AppendWfloatEmotionControl(&tokens, {160, 178});
+  EXPECT_EQ(tokens,
+            (std::vector<int64_t>{1, 14, 0, 10, 160, 178, 0}));
 }
 
 TEST(WfloatEmotion, OptionalNativeFrontendParityProbe) {
@@ -70,18 +73,14 @@ TEST(WfloatEmotion, OptionalNativeFrontendParityProbe) {
   PiperPhonemizeLexicon frontend(tokens_path, data_dir, metadata);
   auto result = frontend.ConvertTextToTokenIds(
       "I cannot believe it. This changes everything!", "en-us");
-  std::vector<std::vector<int64_t>> groups;
   for (auto &item : result) {
-    groups.push_back(std::move(item.tokens));
+    AppendWfloatEmotionControl(&item.tokens, {160, 182});
+    std::ostringstream os;
+    for (auto id : item.tokens) {
+      os << id << " ";
+    }
+    std::cout << "WFLOAT_NATIVE_IDS=" << os.str() << "\n";
   }
-  auto merged = MergeWfloatPiperTokenGroups(std::move(groups));
-  merged.push_back(160);
-  merged.push_back(182);
-  std::ostringstream os;
-  for (auto id : merged) {
-    os << id << " ";
-  }
-  std::cout << "WFLOAT_NATIVE_IDS=" << os.str() << "\n";
 }
 
 }  // namespace edgevox_onnx

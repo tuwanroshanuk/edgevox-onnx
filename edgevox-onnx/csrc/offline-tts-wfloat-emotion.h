@@ -19,32 +19,16 @@ struct WfloatEmotionControl {
   int64_t intensity_token = 178;
 };
 
-inline void NormalizeWfloatPiperTokens(std::vector<int64_t> *tokens) {
-  // The generic Piper frontend emits ^, then inserts _ after every phoneme,
-  // and finally emits $. Wfloat was trained on the bare eSpeak phoneme stream.
-  if (!tokens->empty() && tokens->front() == 1) {
-    tokens->erase(tokens->begin());
+inline void AppendWfloatEmotionControl(
+    std::vector<int64_t> *tokens, const WfloatEmotionControl &control) {
+  // Wfloat is trained with Piper's complete sequence, including BOS/EOS and
+  // blank tokens. Its two style tokens belong immediately before the final
+  // padding token (when present), exactly as in the official Wfloat frontend.
+  auto insert_at = tokens->end();
+  if (!tokens->empty() && tokens->back() == 0) {
+    insert_at = tokens->end() - 1;
   }
-  if (!tokens->empty() && tokens->back() == 2) {
-    tokens->pop_back();
-  }
-  tokens->erase(std::remove(tokens->begin(), tokens->end(), 0), tokens->end());
-}
-
-inline std::vector<int64_t> MergeWfloatPiperTokenGroups(
-    std::vector<std::vector<int64_t>> groups) {
-  std::vector<int64_t> merged;
-  for (auto &group : groups) {
-    NormalizeWfloatPiperTokens(&group);
-    if (group.empty()) {
-      continue;
-    }
-    if (!merged.empty()) {
-      merged.push_back(3);  // The Wfloat token ID for an inter-sentence space.
-    }
-    merged.insert(merged.end(), group.begin(), group.end());
-  }
-  return merged;
+  tokens->insert(insert_at, {control.emotion_token, control.intensity_token});
 }
 
 inline bool GetWfloatEmotionControl(const std::string &value, float intensity,

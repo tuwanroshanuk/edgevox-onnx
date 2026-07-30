@@ -251,16 +251,9 @@ class OfflineTtsVitsImpl : public OfflineTtsImpl {
         return {};
       }
 
-      std::vector<std::vector<int64_t>> groups;
-      groups.reserve(token_ids.size());
       for (auto &item : token_ids) {
-        groups.push_back(std::move(item.tokens));
+        AppendWfloatEmotionControl(&item.tokens, control);
       }
-      auto merged = MergeWfloatPiperTokenGroups(std::move(groups));
-      merged.push_back(control.emotion_token);
-      merged.push_back(control.intensity_token);
-      token_ids.clear();
-      token_ids.emplace_back(std::move(merged));
     }
 
     std::vector<std::vector<int64_t>> x;
