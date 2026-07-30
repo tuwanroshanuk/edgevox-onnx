@@ -15,7 +15,7 @@ namespace edgevox_onnx {
 std::vector<float> ComputeOpenVoiceLinearSpectrogramForTest(
     const std::vector<float> &audio, int64_t *num_frames);
 
-// Optional OpenVoice V2 tone-color post-converter for VITS-family TTS.
+// Optional OpenVoice V2 tone-color post-converter for generated TTS audio.
 class OfflineTtsOpenVoice {
  public:
   explicit OfflineTtsOpenVoice(const OfflineTtsModelConfig &config);

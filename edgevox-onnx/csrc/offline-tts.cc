@@ -22,6 +22,7 @@
 #include "edgevox-onnx/csrc/file-utils.h"
 #include "edgevox-onnx/csrc/macros.h"
 #include "edgevox-onnx/csrc/offline-tts-impl.h"
+#include "edgevox-onnx/csrc/offline-tts-openvoice.h"
 #include "edgevox-onnx/csrc/text-utils.h"
 
 namespace edgevox_onnx {
@@ -252,13 +253,76 @@ std::string OfflineTtsConfig::ToString() const {
 }
 
 OfflineTts::OfflineTts(const OfflineTtsConfig &config)
-    : impl_(OfflineTtsImpl::Create(config)) {}
+    : impl_(OfflineTtsImpl::Create(config)) {
+  // VITS owns the converter internally for backwards-compatible chunk and
+  // callback behavior. Other model families use it here as a common final
+  // waveform post-processor.
+  if (config.model.vits.model.empty() &&
+      !config.model.vits.openvoice_tone_encoder.empty() &&
+      !config.model.vits.openvoice_tone_converter.empty()) {
+    openvoice_ = std::make_unique<OfflineTtsOpenVoice>(config.model);
+  }
+}
 
 template <typename Manager>
 OfflineTts::OfflineTts(Manager *mgr, const OfflineTtsConfig &config)
     : impl_(OfflineTtsImpl::Create(mgr, config)) {}
 
 OfflineTts::~OfflineTts() = default;
+
+GeneratedAudio OfflineTts::GenerateWithPostProcessing(
+    const std::string &text, const GenerationConfig &config,
+    GeneratedAudioCallback callback) const {
+  bool use_openvoice = openvoice_ && !config.reference_audio.empty();
+  if (!use_openvoice) {
+    return impl_->Generate(text, config, std::move(callback));
+  }
+
+  if (config.reference_sample_rate <= 0) {
+    EDGEVOX_ONNX_LOGE(
+        "OpenVoice reference_sample_rate must be greater than zero");
+    return {};
+  }
+
+  float last_progress = 0;
+  GeneratedAudioCallback source_callback;
+  if (callback) {
+    // Source-model chunks are not the final cloned voice, so report progress
+    // without exposing those samples. The converted waveform is delivered at
+    // completion, matching the existing VITS + OpenVoice behavior.
+    source_callback = [&callback, &last_progress](
+                          const float *, int32_t, float progress) -> int32_t {
+      last_progress = std::max(0.0f, std::min(1.0f, progress)) * 0.5f;
+      return callback(nullptr, 0, last_progress);
+    };
+  }
+
+  auto ans =
+      impl_->Generate(text, config, std::move(source_callback));
+  if (ans.samples.empty()) {
+    return ans;
+  }
+
+  if (callback && last_progress < 0.5f &&
+      !callback(nullptr, 0, 0.5f)) {
+    return {};
+  }
+
+  ans.samples = openvoice_->Convert(
+      ans.samples, ans.sample_rate, config.reference_audio,
+      config.reference_sample_rate);
+  ans.sample_rate = 22050;
+  if (ans.samples.empty()) {
+    EDGEVOX_ONNX_LOGE("OpenVoice conversion failed");
+    return {};
+  }
+
+  if (callback && !callback(ans.samples.data(),
+                            static_cast<int32_t>(ans.samples.size()), 1.0f)) {
+    return {};
+  }
+  return ans;
+}
 
 GeneratedAudio OfflineTts::Generate(
     const std::string &text, int64_t sid /*=0*/, float speed /*= 1.0*/,
@@ -267,10 +331,10 @@ GeneratedAudio OfflineTts::Generate(
   config.sid = static_cast<int32_t>(sid);
   config.speed = speed;
 #if !defined(_WIN32)
-  return impl_->Generate(text, config, std::move(callback));
+  return GenerateWithPostProcessing(text, config, std::move(callback));
 #else
   if (IsUtf8(text)) {
-    return impl_->Generate(text, config, std::move(callback));
+    return GenerateWithPostProcessing(text, config, std::move(callback));
   } else if (IsGB2312(text)) {
     auto utf8_text = Gb2312ToUtf8(text);
     static bool printed = false;
@@ -279,12 +343,12 @@ GeneratedAudio OfflineTts::Generate(
           "Detected GB2312 encoded string! Converting it to UTF8.");
       printed = true;
     }
-    return impl_->Generate(utf8_text, config, std::move(callback));
+    return GenerateWithPostProcessing(utf8_text, config, std::move(callback));
   } else {
     EDGEVOX_ONNX_LOGE(
         "Non UTF8 encoded string is received. You would not get expected "
         "results!");
-    return impl_->Generate(text, config, std::move(callback));
+    return GenerateWithPostProcessing(text, config, std::move(callback));
   }
 #endif
 }
@@ -301,7 +365,7 @@ GeneratedAudio OfflineTts::Generate(
   config.reference_text = prompt_text;
   config.num_steps = num_steps;
 #if !defined(_WIN32)
-  return impl_->Generate(text, config, std::move(callback));
+  return GenerateWithPostProcessing(text, config, std::move(callback));
 #else
   static bool printed = false;
   auto utf8_text = text;
@@ -323,12 +387,12 @@ GeneratedAudio OfflineTts::Generate(
   }
   config.reference_text = utf8_prompt_text;
   if (IsUtf8(utf8_text) && IsUtf8(utf8_prompt_text)) {
-    return impl_->Generate(utf8_text, config, std::move(callback));
+    return GenerateWithPostProcessing(utf8_text, config, std::move(callback));
   } else {
     EDGEVOX_ONNX_LOGE(
         "Non UTF8 encoded string is received. You would not get expected "
         "results!");
-    return impl_->Generate(utf8_text, config, std::move(callback));
+    return GenerateWithPostProcessing(utf8_text, config, std::move(callback));
   }
 #endif
 }
@@ -337,10 +401,10 @@ GeneratedAudio OfflineTts::Generate(
     const std::string &text, const GenerationConfig &config,
     GeneratedAudioCallback callback /*= nullptr*/) const {
 #if !defined(_WIN32)
-  return impl_->Generate(text, config, std::move(callback));
+  return GenerateWithPostProcessing(text, config, std::move(callback));
 #else
   if (IsUtf8(text)) {
-    return impl_->Generate(text, config, std::move(callback));
+    return GenerateWithPostProcessing(text, config, std::move(callback));
   } else if (IsGB2312(text)) {
     auto utf8_text = Gb2312ToUtf8(text);
     static bool printed = false;
@@ -349,12 +413,12 @@ GeneratedAudio OfflineTts::Generate(
           "Detected GB2312 encoded string! Converting it to UTF8.");
       printed = true;
     }
-    return impl_->Generate(utf8_text, config, std::move(callback));
+    return GenerateWithPostProcessing(utf8_text, config, std::move(callback));
   } else {
     EDGEVOX_ONNX_LOGE(
         "Non UTF8 encoded string is received. You would not get expected "
         "results!");
-    return impl_->Generate(text, config, std::move(callback));
+    return GenerateWithPostProcessing(text, config, std::move(callback));
   }
 #endif
 }

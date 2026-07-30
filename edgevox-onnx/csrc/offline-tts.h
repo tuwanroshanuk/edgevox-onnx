@@ -91,6 +91,7 @@ struct GenerationConfig {
 };
 
 class OfflineTtsImpl;
+class OfflineTtsOpenVoice;
 
 // If the callback returns 0, then it stops generating
 // if the callback returns 1, then it keeps generating
@@ -156,7 +157,14 @@ class OfflineTts {
   int32_t NumSpeakers() const;
 
  private:
+  GeneratedAudio GenerateWithPostProcessing(
+      const std::string &text, const GenerationConfig &config,
+      GeneratedAudioCallback callback) const;
+
   std::unique_ptr<OfflineTtsImpl> impl_;
+  // For non-VITS model families, OpenVoice can be configured as a shared
+  // post-processor. VITS retains its existing in-implementation converter.
+  std::unique_ptr<OfflineTtsOpenVoice> openvoice_;
 };
 
 }  // namespace edgevox_onnx
