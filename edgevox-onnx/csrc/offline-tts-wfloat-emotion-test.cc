@@ -53,19 +53,16 @@ TEST(WfloatEmotion, MapsOfficialModelControlValues) {
   EXPECT_EQ(control.intensity_token, 181);
 }
 
-TEST(WfloatEmotion, PreservesPiperSequenceAndInsertsBeforeFinalPadding) {
+TEST(WfloatEmotion, ConvertsGenericPiperSequenceToRawWfloatPhonemes) {
   std::vector<int64_t> tokens = {1, 14, 0, 74, 0, 3, 0, 23, 0, 2};
   AppendWfloatEmotionControl(&tokens, {162, 182});
-  EXPECT_EQ(tokens,
-            (std::vector<int64_t>{1, 14, 0, 74, 0, 3, 0, 23, 0, 2, 162,
-                                  182}));
+  EXPECT_EQ(tokens, (std::vector<int64_t>{14, 74, 3, 23, 162, 182}));
 }
 
-TEST(WfloatEmotion, InsertsBeforeTrailingPaddingToken) {
+TEST(WfloatEmotion, KeepsEverySentenceIndependent) {
   std::vector<int64_t> tokens = {1, 14, 0, 10, 0};
   AppendWfloatEmotionControl(&tokens, {160, 178});
-  EXPECT_EQ(tokens,
-            (std::vector<int64_t>{1, 14, 0, 10, 160, 178, 0}));
+  EXPECT_EQ(tokens, (std::vector<int64_t>{14, 10, 160, 178}));
 }
 
 TEST(WfloatEmotion, OptionalNativeFrontendParityProbe) {

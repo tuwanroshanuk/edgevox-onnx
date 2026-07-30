@@ -21,14 +21,17 @@ struct WfloatEmotionControl {
 
 inline void AppendWfloatEmotionControl(
     std::vector<int64_t> *tokens, const WfloatEmotionControl &control) {
-  // Wfloat is trained with Piper's complete sequence, including BOS/EOS and
-  // blank tokens. Its two style tokens belong immediately before the final
-  // padding token (when present), exactly as in the official Wfloat frontend.
-  auto insert_at = tokens->end();
-  if (!tokens->empty() && tokens->back() == 0) {
-    insert_at = tokens->end() - 1;
+  // The generic VITS Piper frontend emits BOS + (phoneme, PAD)* + EOS.
+  // Wfloat 1.0.2 has use_eos_bos=0 and was trained on raw phoneme IDs.
+  if (!tokens->empty() && tokens->front() == 1) {
+    tokens->erase(tokens->begin());
   }
-  tokens->insert(insert_at, {control.emotion_token, control.intensity_token});
+  if (!tokens->empty() && tokens->back() == 2) {
+    tokens->pop_back();
+  }
+  tokens->erase(std::remove(tokens->begin(), tokens->end(), 0), tokens->end());
+  tokens->push_back(control.emotion_token);
+  tokens->push_back(control.intensity_token);
 }
 
 inline bool GetWfloatEmotionControl(const std::string &value, float intensity,
