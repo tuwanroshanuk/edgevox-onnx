@@ -1451,8 +1451,10 @@ void EdgevoxOnnxVoiceActivityDetectorFlush(
 
 #if EDGEVOX_ONNX_ENABLE_TTS == 1
 struct EdgevoxOnnxOfflineTts {
-  std::unique_ptr<edgevox_onnx::OfflineTts> impl;
+  // Declared before impl so reverse-order destruction tears down all ONNX
+  // sessions before zeroing their owned in-memory model resources.
   std::unique_ptr<edgevox_onnx::MemoryResourceManager> resources;
+  std::unique_ptr<edgevox_onnx::OfflineTts> impl;
 };
 
 static edgevox_onnx::OfflineTtsConfig GetOfflineTtsConfig(
