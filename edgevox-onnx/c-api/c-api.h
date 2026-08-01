@@ -71,6 +71,7 @@
 #ifndef EDGEVOX_ONNX_C_API_C_API_H_
 #define EDGEVOX_ONNX_C_API_C_API_H_
 
+#include <stddef.h>
 #include <stdint.h>
 
 #ifdef __cplusplus
