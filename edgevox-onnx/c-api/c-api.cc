@@ -1452,6 +1452,7 @@ void EdgevoxOnnxVoiceActivityDetectorFlush(
 #if EDGEVOX_ONNX_ENABLE_TTS == 1
 struct EdgevoxOnnxOfflineTts {
   std::unique_ptr<edgevox_onnx::OfflineTts> impl;
+  std::unique_ptr<edgevox_onnx::MemoryResourceManager> resources;
 };
 
 static edgevox_onnx::OfflineTtsConfig GetOfflineTtsConfig(
@@ -1633,6 +1634,38 @@ const EdgevoxOnnxOfflineTts *EdgevoxOnnxCreateOfflineTts(
   tts->impl = std::make_unique<edgevox_onnx::OfflineTts>(tts_config);
 
   return tts;
+}
+
+const EdgevoxOnnxOfflineTts *EdgevoxOnnxCreateOfflineTtsFromMemory(
+    const EdgevoxOnnxOfflineTtsConfig *config,
+    const EdgevoxOnnxMemoryResource *resources, size_t num_resources) {
+  if (!config || (!resources && num_resources != 0)) return nullptr;
+  auto tts_config = GetOfflineTtsConfig(config);
+  // The ordinary validator checks std::filesystem paths. In memory mode the
+  // same config values are logical resource names, so filesystem validation
+  // would reject every valid package before the provider can resolve it.
+  try {
+    auto tts = std::make_unique<EdgevoxOnnxOfflineTts>();
+    tts->resources = std::make_unique<edgevox_onnx::MemoryResourceManager>();
+    for (size_t i = 0; i != num_resources; ++i) {
+      if (!resources[i].name || (!resources[i].data && resources[i].size)) {
+        return nullptr;
+      }
+      const char *begin = static_cast<const char *>(resources[i].data);
+      tts->resources->Put(resources[i].name,
+                          std::vector<char>(begin, begin + resources[i].size));
+    }
+    tts->impl =
+        std::make_unique<edgevox_onnx::OfflineTts>(tts->resources.get(),
+                                                   tts_config);
+    return tts.release();
+  } catch (const std::exception &e) {
+    EDGEVOX_ONNX_LOGE("Failed to create memory TTS: %s", e.what());
+    return nullptr;
+  } catch (...) {
+    EDGEVOX_ONNX_LOGE("Failed to create memory TTS");
+    return nullptr;
+  }
 }
 
 void EdgevoxOnnxDestroyOfflineTts(const EdgevoxOnnxOfflineTts *tts) {

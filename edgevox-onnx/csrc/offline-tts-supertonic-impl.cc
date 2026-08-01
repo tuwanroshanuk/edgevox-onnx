@@ -675,6 +675,9 @@ OfflineTtsSupertonicImpl::GetStyleSliceForSid(int64_t sid) const {
   return out;
 }
 
+template OfflineTtsSupertonicImpl::OfflineTtsSupertonicImpl(
+    MemoryResourceManager *mgr, const OfflineTtsConfig &config);
+
 #if __ANDROID_API__ >= 9
 template OfflineTtsSupertonicImpl::OfflineTtsSupertonicImpl(
     AAssetManager *mgr, const OfflineTtsConfig &config);

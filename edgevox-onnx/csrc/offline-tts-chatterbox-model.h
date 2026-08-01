@@ -16,6 +16,9 @@ namespace edgevox_onnx {
 class OfflineTtsChatterboxModel {
  public:
   explicit OfflineTtsChatterboxModel(const OfflineTtsModelConfig &config);
+  template <typename Manager>
+  OfflineTtsChatterboxModel(Manager *mgr,
+                            const OfflineTtsModelConfig &config);
   ~OfflineTtsChatterboxModel();
 
   std::vector<int64_t> Tokenize(const std::string &text);

@@ -281,8 +281,9 @@ class OfflineTtsSupertonicModel::Impl {
 
   template <typename Manager>
   void Init(Manager *mgr) {
-    std::string tts_config_path =
-        ResolveAbsolutePath(config_.supertonic.tts_json);
+    // Resource-manager paths are logical package names. Resolving them against
+    // the process working directory turns a valid key into a filesystem path.
+    std::string tts_config_path = config_.supertonic.tts_json;
     LoadConfig(mgr, tts_config_path);
     PrintDebugInfo(tts_config_path);
     LoadModels(mgr);
@@ -441,6 +442,9 @@ OfflineTtsSupertonicModel::OfflineTtsSupertonicModel(
     : impl_(std::make_unique<Impl>(mgr, config)) {}
 
 OfflineTtsSupertonicModel::~OfflineTtsSupertonicModel() = default;
+
+template OfflineTtsSupertonicModel::OfflineTtsSupertonicModel(
+    MemoryResourceManager *mgr, const OfflineTtsModelConfig &config);
 
 #if __ANDROID_API__ >= 9
 template OfflineTtsSupertonicModel::OfflineTtsSupertonicModel(

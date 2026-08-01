@@ -15,6 +15,8 @@
 #include <vector>
 
 #include "kaldi-native-fbank/csrc/rfft.h"
+#include "edgevox-onnx/csrc/file-utils.h"
+#include "edgevox-onnx/csrc/memory-resource-manager.h"
 #include "edgevox-onnx/csrc/ort-env.h"
 #include "edgevox-onnx/csrc/resample.h"
 #include "edgevox-onnx/csrc/session.h"
@@ -130,6 +132,12 @@ class OfflineTtsOpenVoice::Impl {
         env_(CreateOrtEnv()),
         session_options_(GetSessionOptions(config)) {}
 
+  Impl(MemoryResourceManager *mgr, const OfflineTtsModelConfig &config)
+      : config_(config),
+        memory_resources_(mgr),
+        env_(CreateOrtEnv()),
+        session_options_(GetSessionOptions(config)) {}
+
   std::vector<float> Convert(const std::vector<float> &source,
                              int32_t source_sample_rate,
                              const std::vector<float> &reference,
@@ -192,14 +200,25 @@ class OfflineTtsOpenVoice::Impl {
     if (encoder_) {
       return;
     }
-    encoder_ = std::make_unique<Ort::Session>(
-        env_,
-        EDGEVOX_ONNX_TO_ORT_PATH(config_.vits.openvoice_tone_encoder),
-        session_options_);
-    converter_ = std::make_unique<Ort::Session>(
-        env_,
-        EDGEVOX_ONNX_TO_ORT_PATH(config_.vits.openvoice_tone_converter),
-        session_options_);
+    if (memory_resources_) {
+      auto encoder_bytes =
+          ReadFile(memory_resources_, config_.vits.openvoice_tone_encoder);
+      auto converter_bytes =
+          ReadFile(memory_resources_, config_.vits.openvoice_tone_converter);
+      encoder_ = std::make_unique<Ort::Session>(
+          env_, encoder_bytes.data(), encoder_bytes.size(), session_options_);
+      converter_ = std::make_unique<Ort::Session>(
+          env_, converter_bytes.data(), converter_bytes.size(), session_options_);
+    } else {
+      encoder_ = std::make_unique<Ort::Session>(
+          env_,
+          EDGEVOX_ONNX_TO_ORT_PATH(config_.vits.openvoice_tone_encoder),
+          session_options_);
+      converter_ = std::make_unique<Ort::Session>(
+          env_,
+          EDGEVOX_ONNX_TO_ORT_PATH(config_.vits.openvoice_tone_converter),
+          session_options_);
+    }
   }
 
   std::vector<float> ExtractEmbedding(const std::vector<float> &spec,
@@ -249,6 +268,7 @@ class OfflineTtsOpenVoice::Impl {
 
  private:
   OfflineTtsModelConfig config_;
+  MemoryResourceManager *memory_resources_ = nullptr;
   Ort::Env env_;
   Ort::SessionOptions session_options_;
   mutable std::mutex models_mutex_;
@@ -261,6 +281,10 @@ class OfflineTtsOpenVoice::Impl {
 
 OfflineTtsOpenVoice::OfflineTtsOpenVoice(const OfflineTtsModelConfig &config)
     : impl_(std::make_unique<Impl>(config)) {}
+
+OfflineTtsOpenVoice::OfflineTtsOpenVoice(
+    MemoryResourceManager *mgr, const OfflineTtsModelConfig &config)
+    : impl_(std::make_unique<Impl>(mgr, config)) {}
 
 OfflineTtsOpenVoice::~OfflineTtsOpenVoice() = default;
 

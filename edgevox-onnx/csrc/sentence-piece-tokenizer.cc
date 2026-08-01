@@ -23,6 +23,7 @@
 #include "nlohmann/json.hpp"
 #include "edgevox-onnx/csrc/file-utils.h"
 #include "edgevox-onnx/csrc/macros.h"
+#include "edgevox-onnx/csrc/memory-resource-manager.h"
 
 namespace edgevox_onnx {
 
@@ -286,5 +287,9 @@ template SentencePieceTokenizer::SentencePieceTokenizer(
     NativeResourceManager *mgr, const std::string &vocab_json,
     const std::string &token_scores_json);
 #endif
+
+template SentencePieceTokenizer::SentencePieceTokenizer(
+    MemoryResourceManager *mgr, const std::string &vocab_json,
+    const std::string &token_scores_json);
 
 }  // namespace edgevox_onnx

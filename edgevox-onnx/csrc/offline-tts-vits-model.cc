@@ -387,6 +387,9 @@ const OfflineTtsVitsModelMetaData &OfflineTtsVitsModel::GetMetaData() const {
   return impl_->GetMetaData();
 }
 
+template OfflineTtsVitsModel::OfflineTtsVitsModel(
+    MemoryResourceManager *mgr, const OfflineTtsModelConfig &config);
+
 #if __ANDROID_API__ >= 9
 template OfflineTtsVitsModel::OfflineTtsVitsModel(
     AAssetManager *mgr, const OfflineTtsModelConfig &config);

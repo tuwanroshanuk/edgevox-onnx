@@ -21,6 +21,7 @@
 
 #include "edgevox-onnx/csrc/file-utils.h"
 #include "edgevox-onnx/csrc/macros.h"
+#include "edgevox-onnx/csrc/memory-resource-manager.h"
 #include "edgevox-onnx/csrc/onnx-utils.h"
 #include "edgevox-onnx/csrc/session.h"
 #include "edgevox-onnx/csrc/text-utils.h"
@@ -125,5 +126,9 @@ template HifiganVocoder::HifiganVocoder(NativeResourceManager *mgr,
                                         const std::string &provider,
                                         const std::string &model);
 #endif
+
+template HifiganVocoder::HifiganVocoder(
+    MemoryResourceManager *mgr, int32_t num_threads,
+    const std::string &provider, const std::string &model);
 
 }  // namespace edgevox_onnx

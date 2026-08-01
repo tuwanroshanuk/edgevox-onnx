@@ -31,6 +31,7 @@
 #include "phonemize.hpp"    // NOLINT
 #include "edgevox-onnx/csrc/file-utils.h"
 #include "edgevox-onnx/csrc/macros.h"
+#include "edgevox-onnx/csrc/memory-resource-manager.h"
 #include "edgevox-onnx/csrc/onnx-utils.h"
 #include "edgevox-onnx/csrc/phrase-matcher.h"
 #include "edgevox-onnx/csrc/symbol-table.h"
@@ -519,5 +520,10 @@ template MatchaTtsLexicon::MatchaTtsLexicon(NativeResourceManager *mgr,
                                             bool debug, bool skip_replacement,
                                             const std::string &espeak_voice);
 #endif
+
+template MatchaTtsLexicon::MatchaTtsLexicon(
+    MemoryResourceManager *mgr, const std::string &lexicon,
+    const std::string &tokens, const std::string &data_dir, bool debug,
+    bool skip_replacement, const std::string &espeak_voice);
 
 }  // namespace edgevox_onnx

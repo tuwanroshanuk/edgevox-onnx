@@ -7,6 +7,7 @@
 #include <cmath>
 #include <map>
 #include <string>
+#include <type_traits>
 #include <utility>
 #include <vector>
 
@@ -266,7 +267,15 @@ OfflineTts::OfflineTts(const OfflineTtsConfig &config)
 
 template <typename Manager>
 OfflineTts::OfflineTts(Manager *mgr, const OfflineTtsConfig &config)
-    : impl_(OfflineTtsImpl::Create(mgr, config)) {}
+    : impl_(OfflineTtsImpl::Create(mgr, config)) {
+  if constexpr (std::is_same_v<Manager, MemoryResourceManager>) {
+    if (config.model.vits.model.empty() &&
+        !config.model.vits.openvoice_tone_encoder.empty() &&
+        !config.model.vits.openvoice_tone_converter.empty()) {
+      openvoice_ = std::make_unique<OfflineTtsOpenVoice>(mgr, config.model);
+    }
+  }
+}
 
 OfflineTts::~OfflineTts() = default;
 
@@ -426,6 +435,9 @@ GeneratedAudio OfflineTts::Generate(
 int32_t OfflineTts::SampleRate() const { return impl_->SampleRate(); }
 
 int32_t OfflineTts::NumSpeakers() const { return impl_->NumSpeakers(); }
+
+template OfflineTts::OfflineTts(MemoryResourceManager *mgr,
+                                const OfflineTtsConfig &config);
 
 #if __ANDROID_API__ >= 9
 template OfflineTts::OfflineTts(AAssetManager *mgr,

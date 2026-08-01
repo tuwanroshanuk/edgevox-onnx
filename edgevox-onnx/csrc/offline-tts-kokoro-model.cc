@@ -253,6 +253,9 @@ Ort::Value OfflineTtsKokoroModel::Run(Ort::Value x, int64_t sid /*= 0*/,
   return impl_->Run(std::move(x), sid, speed);
 }
 
+template OfflineTtsKokoroModel::OfflineTtsKokoroModel(
+    MemoryResourceManager *mgr, const OfflineTtsModelConfig &config);
+
 #if __ANDROID_API__ >= 9
 template OfflineTtsKokoroModel::OfflineTtsKokoroModel(
     AAssetManager *mgr, const OfflineTtsModelConfig &config);

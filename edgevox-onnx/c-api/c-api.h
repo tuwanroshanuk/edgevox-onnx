@@ -2551,6 +2551,23 @@ typedef struct EdgevoxOnnxOfflineTts EdgevoxOnnxOfflineTts;
 EDGEVOX_ONNX_API const EdgevoxOnnxOfflineTts *EdgevoxOnnxCreateOfflineTts(
     const EdgevoxOnnxOfflineTtsConfig *config);
 
+/** One immutable logical file supplied entirely from caller-owned memory. */
+typedef struct EdgevoxOnnxMemoryResource {
+  const char *name;
+  const void *data;
+  size_t size;
+} EdgevoxOnnxMemoryResource;
+
+/**
+ * Create TTS from logical in-memory resources. Model config fields contain
+ * resource names rather than filesystem paths. The engine copies resources
+ * it needs and never creates plaintext files.
+ */
+EDGEVOX_ONNX_API const EdgevoxOnnxOfflineTts *
+EdgevoxOnnxCreateOfflineTtsFromMemory(
+    const EdgevoxOnnxOfflineTtsConfig *config,
+    const EdgevoxOnnxMemoryResource *resources, size_t num_resources);
+
 /**
  * @brief Destroy an offline TTS engine.
  *

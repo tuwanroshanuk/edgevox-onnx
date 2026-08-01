@@ -17,6 +17,8 @@
 #include "onnxruntime_cxx_api.h"  // NOLINT
 #include "edgevox-onnx/csrc/funasr-nano-tokenizer.h"
 #include "edgevox-onnx/csrc/macros.h"
+#include "edgevox-onnx/csrc/file-utils.h"
+#include "edgevox-onnx/csrc/memory-resource-manager.h"
 #include "edgevox-onnx/csrc/onnx-utils.h"
 #include "edgevox-onnx/csrc/ort-env.h"
 #include "edgevox-onnx/csrc/session.h"
@@ -60,6 +62,33 @@ class OfflineTtsChatterboxModel::Impl {
         env_, EDGEVOX_ONNX_TO_ORT_PATH(config.chatterbox.conditional_decoder),
         opts_);
 
+    GetNames(speech_encoder_.get(), &speech_in_, &speech_in_ptr_, &speech_out_,
+             &speech_out_ptr_);
+    GetNames(embed_tokens_.get(), &embed_in_, &embed_in_ptr_, &embed_out_,
+             &embed_out_ptr_);
+    GetNames(language_model_.get(), &lm_in_, &lm_in_ptr_, &lm_out_,
+             &lm_out_ptr_);
+    GetNames(conditional_decoder_.get(), &decoder_in_, &decoder_in_ptr_,
+             &decoder_out_, &decoder_out_ptr_);
+  }
+
+  template <typename Manager>
+  Impl(Manager *mgr, const OfflineTtsModelConfig &config)
+      : tokenizer_(mgr, config.chatterbox.tokenizer),
+        env_(CreateOrtEnv()),
+        opts_(GetSessionOptions(config)) {
+    auto speech = ReadFile(mgr, config.chatterbox.speech_encoder);
+    auto embed = ReadFile(mgr, config.chatterbox.embed_tokens);
+    auto language = ReadFile(mgr, config.chatterbox.language_model);
+    auto decoder = ReadFile(mgr, config.chatterbox.conditional_decoder);
+    speech_encoder_ = std::make_unique<Ort::Session>(
+        env_, speech.data(), speech.size(), opts_);
+    embed_tokens_ = std::make_unique<Ort::Session>(
+        env_, embed.data(), embed.size(), opts_);
+    language_model_ = std::make_unique<Ort::Session>(
+        env_, language.data(), language.size(), opts_);
+    conditional_decoder_ = std::make_unique<Ort::Session>(
+        env_, decoder.data(), decoder.size(), opts_);
     GetNames(speech_encoder_.get(), &speech_in_, &speech_in_ptr_, &speech_out_,
              &speech_out_ptr_);
     GetNames(embed_tokens_.get(), &embed_in_, &embed_in_ptr_, &embed_out_,
@@ -264,6 +293,14 @@ class OfflineTtsChatterboxModel::Impl {
 OfflineTtsChatterboxModel::OfflineTtsChatterboxModel(
     const OfflineTtsModelConfig &config)
     : impl_(std::make_unique<Impl>(config)) {}
+
+template <typename Manager>
+OfflineTtsChatterboxModel::OfflineTtsChatterboxModel(
+    Manager *mgr, const OfflineTtsModelConfig &config)
+    : impl_(std::make_unique<Impl>(mgr, config)) {}
+
+template OfflineTtsChatterboxModel::OfflineTtsChatterboxModel(
+    MemoryResourceManager *mgr, const OfflineTtsModelConfig &config);
 
 OfflineTtsChatterboxModel::~OfflineTtsChatterboxModel() = default;
 

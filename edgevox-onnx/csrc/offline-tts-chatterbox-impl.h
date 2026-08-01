@@ -23,6 +23,12 @@ class OfflineTtsChatterboxImpl : public OfflineTtsImpl {
       : config_(config),
         model_(std::make_unique<OfflineTtsChatterboxModel>(config.model)) {}
 
+  template <typename Manager>
+  OfflineTtsChatterboxImpl(Manager *mgr, const OfflineTtsConfig &config)
+      : config_(config),
+        model_(std::make_unique<OfflineTtsChatterboxModel>(mgr,
+                                                           config.model)) {}
+
   int32_t SampleRate() const override { return 24000; }
   int32_t NumSpeakers() const override { return 1; }
 

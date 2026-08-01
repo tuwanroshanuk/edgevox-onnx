@@ -402,6 +402,9 @@ void SupertonicUnicodeProcessor::Process(
   text_mask_shape->assign({1, 1, static_cast<int64_t>(seq_len)});
 }
 
+template SupertonicUnicodeProcessor::SupertonicUnicodeProcessor(
+    MemoryResourceManager *mgr, const std::string &unicode_indexer_path);
+
 #if __ANDROID_API__ >= 9
 template SupertonicUnicodeProcessor::SupertonicUnicodeProcessor(
     AAssetManager *mgr, const std::string &unicode_indexer_path);

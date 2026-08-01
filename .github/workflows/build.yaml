@@ -176,7 +176,7 @@ jobs:
           Get-ChildItem build-native/_deps/onnxruntime-src -Recurse -Filter *.dll |
             Copy-Item -Destination $out -Force
           Get-ChildItem $out
-          node -e "const a=require('./native/win32-x64/edgevox-onnx.node'); if(typeof a.createOfflineTts!=='function'||typeof a.offlineTtsGenerateWithConfig!=='function') process.exit(2); console.log('native addon load OK')"
+          node -e "const a=require('./native/win32-x64/edgevox-onnx.node'); if(typeof a.createOfflineTts!=='function'||typeof a.createOfflineTtsFromMemory!=='function'||typeof a.offlineTtsGenerateWithConfig!=='function') process.exit(2); console.log('native memory addon load OK')"
 
       - uses: actions/upload-artifact@v4
         with:
@@ -308,7 +308,7 @@ jobs:
           fi
 
           # Smoke-load the package entry (requires wasm sibling files present).
-          node -e "const m=require('./$OUT'); if(typeof m.createOfflineTts!=='function') process.exit(2); console.log('require OK, version=', m.version);"
+          node -e "const m=require('./$OUT'); if(typeof m.createOfflineTts!=='function'||typeof m.createOfflineTtsFromMemory!=='function') process.exit(2); console.log('memory package require OK, version=', m.version);"
 
           ls -lhR "$OUT"
 

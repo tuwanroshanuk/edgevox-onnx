@@ -50,6 +50,11 @@ console.log(edgevox.getRuntimeInfo());
 
 ```javascript
 const edgevox = require('@nexuscloud/edgevox-onnx');
+
+// Native Windows builds can construct TTS sessions from logical package
+// resources without creating plaintext model files. `resources` maps the same
+// relative names used in the model config to Node Buffers.
+const memoryTts = edgevox.createOfflineTtsFromMemory(config, resources);
 const tts = edgevox.createOfflineTts({
   offlineTtsModelConfig: {
     offlineTtsZipVoiceModelConfig: {

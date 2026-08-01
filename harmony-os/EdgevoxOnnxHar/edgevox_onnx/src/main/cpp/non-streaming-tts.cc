@@ -521,6 +521,56 @@ static Napi::External<EdgevoxOnnxOfflineTts> CreateOfflineTtsWrapper(
       });
 }
 
+static Napi::Value CreateOfflineTtsFromMemoryWrapper(
+    const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  if (info.Length() != 2 || !info[0].IsObject() || !info[1].IsObject()) {
+    Napi::TypeError::New(env, "Expected config and resource Buffer object")
+        .ThrowAsJavaScriptException();
+    return env.Null();
+  }
+  Napi::Object config_obj = info[0].As<Napi::Object>();
+  Napi::Object resource_obj = info[1].As<Napi::Object>();
+  EdgevoxOnnxOfflineTtsConfig c;
+  memset(&c, 0, sizeof(c));
+  c.model = GetOfflineTtsModelConfig(config_obj);
+  Napi::Object o = config_obj;
+  EDGEVOX_ONNX_ASSIGN_TTS_ATTR();
+
+  Napi::Array names = resource_obj.GetPropertyNames();
+  std::vector<std::string> name_storage;
+  std::vector<EdgevoxOnnxMemoryResource> resources;
+  name_storage.reserve(names.Length());
+  resources.reserve(names.Length());
+  for (uint32_t i = 0; i != names.Length(); ++i) {
+    std::string name = names.Get(i).As<Napi::String>().Utf8Value();
+    Napi::Value value = resource_obj.Get(name);
+    if (!value.IsBuffer()) {
+      EDGEVOX_ONNX_DELETE_TTS_C_STR();
+      Napi::TypeError::New(env, "Every memory resource must be a Buffer")
+          .ThrowAsJavaScriptException();
+      return env.Null();
+    }
+    auto buffer = value.As<Napi::Buffer<uint8_t>>();
+    name_storage.push_back(std::move(name));
+    resources.push_back(
+        {name_storage.back().c_str(), buffer.Data(), buffer.Length()});
+  }
+  const EdgevoxOnnxOfflineTts *tts = EdgevoxOnnxCreateOfflineTtsFromMemory(
+      &c, resources.data(), resources.size());
+  EDGEVOX_ONNX_DELETE_TTS_C_STR();
+  if (!tts) {
+    Napi::Error::New(env, "Failed to create memory-only OfflineTts")
+        .ThrowAsJavaScriptException();
+    return env.Null();
+  }
+  return Napi::External<EdgevoxOnnxOfflineTts>::New(
+      env, const_cast<EdgevoxOnnxOfflineTts *>(tts),
+      [](Napi::Env, EdgevoxOnnxOfflineTts *value) {
+        EdgevoxOnnxDestroyOfflineTts(value);
+      });
+}
+
 static Napi::Number OfflineTtsSampleRateWrapper(
     const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
@@ -1389,6 +1439,8 @@ static Napi::Object OfflineTtsGenerateAsyncWithConfigWrapper(
 void InitNonStreamingTts(Napi::Env env, Napi::Object exports) {
   exports.Set(Napi::String::New(env, "createOfflineTts"),
               Napi::Function::New(env, CreateOfflineTtsWrapper));
+  exports.Set(Napi::String::New(env, "createOfflineTtsFromMemory"),
+              Napi::Function::New(env, CreateOfflineTtsFromMemoryWrapper));
 
   exports.Set(Napi::String::New(env, "createOfflineTtsAsync"),
               Napi::Function::New(env, CreateOfflineTtsAsyncWrapper));

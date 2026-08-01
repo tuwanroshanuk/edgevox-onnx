@@ -401,6 +401,9 @@ Ort::Value OfflineTtsZipvoiceModel::Run(Ort::Value tokens,
                     guidance_scale, seed, progress_callback);
 }
 
+template OfflineTtsZipvoiceModel::OfflineTtsZipvoiceModel(
+    MemoryResourceManager *mgr, const OfflineTtsModelConfig &config);
+
 #if __ANDROID_API__ >= 9
 template OfflineTtsZipvoiceModel::OfflineTtsZipvoiceModel(
     AAssetManager *mgr, const OfflineTtsModelConfig &config);

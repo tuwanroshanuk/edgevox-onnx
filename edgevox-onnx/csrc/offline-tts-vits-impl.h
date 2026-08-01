@@ -7,6 +7,7 @@
 #include <memory>
 #include <sstream>
 #include <string>
+#include <type_traits>
 #include <utility>
 #include <vector>
 
@@ -97,6 +98,14 @@ class OfflineTtsVitsImpl : public OfflineTtsImpl {
       : config_(config),
         model_(std::make_unique<OfflineTtsVitsModel>(mgr, config.model)) {
     InitFrontend(mgr);
+
+    if constexpr (std::is_same_v<Manager, MemoryResourceManager>) {
+      if (!config.model.vits.openvoice_tone_encoder.empty() &&
+          !config.model.vits.openvoice_tone_converter.empty()) {
+        openvoice_ =
+            std::make_unique<OfflineTtsOpenVoice>(mgr, config.model);
+      }
+    }
 
     if (!config.rule_fsts.empty()) {
       std::vector<std::string> files;

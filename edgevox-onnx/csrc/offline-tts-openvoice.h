@@ -11,6 +11,8 @@
 
 namespace edgevox_onnx {
 
+class MemoryResourceManager;
+
 // Exposed for deterministic preprocessing parity tests.
 std::vector<float> ComputeOpenVoiceLinearSpectrogramForTest(
     const std::vector<float> &audio, int64_t *num_frames);
@@ -19,6 +21,8 @@ std::vector<float> ComputeOpenVoiceLinearSpectrogramForTest(
 class OfflineTtsOpenVoice {
  public:
   explicit OfflineTtsOpenVoice(const OfflineTtsModelConfig &config);
+  OfflineTtsOpenVoice(MemoryResourceManager *mgr,
+                      const OfflineTtsModelConfig &config);
   ~OfflineTtsOpenVoice();
 
   std::vector<float> Convert(const std::vector<float> &source,

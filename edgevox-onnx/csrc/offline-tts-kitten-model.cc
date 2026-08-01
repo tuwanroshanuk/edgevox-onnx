@@ -333,6 +333,9 @@ Ort::Value OfflineTtsKittenModel::Run(Ort::Value x, int64_t sid /*= 0*/,
   return impl_->Run(std::move(x), sid, speed);
 }
 
+template OfflineTtsKittenModel::OfflineTtsKittenModel(
+    MemoryResourceManager *mgr, const OfflineTtsModelConfig &config);
+
 #if __ANDROID_API__ >= 9
 template OfflineTtsKittenModel::OfflineTtsKittenModel(
     AAssetManager *mgr, const OfflineTtsModelConfig &config);

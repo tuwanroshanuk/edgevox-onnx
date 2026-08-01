@@ -26,6 +26,7 @@
 
 #include "edgevox-onnx/csrc/file-utils.h"
 #include "edgevox-onnx/csrc/macros.h"
+#include "edgevox-onnx/csrc/memory-resource-manager.h"
 #include "edgevox-onnx/csrc/onnx-utils.h"
 #include "edgevox-onnx/csrc/phrase-matcher.h"
 #include "edgevox-onnx/csrc/symbol-table.h"
@@ -390,5 +391,9 @@ template CharacterLexicon::CharacterLexicon(NativeResourceManager *mgr,
                                             bool debug, bool use_g2pw);
 
 #endif
+
+template CharacterLexicon::CharacterLexicon(
+    MemoryResourceManager *mgr, const std::string &lexicon,
+    const std::string &tokens, bool debug, bool use_g2pw);
 
 }  // namespace edgevox_onnx

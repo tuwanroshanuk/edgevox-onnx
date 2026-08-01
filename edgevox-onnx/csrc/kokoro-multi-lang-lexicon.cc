@@ -27,6 +27,7 @@
 #include "phoneme_ids.hpp"  // NOLINT
 #include "phonemize.hpp"    // NOLINT
 #include "edgevox-onnx/csrc/file-utils.h"
+#include "edgevox-onnx/csrc/memory-resource-manager.h"
 #include "edgevox-onnx/csrc/onnx-utils.h"
 #include "edgevox-onnx/csrc/phrase-matcher.h"
 #include "edgevox-onnx/csrc/symbol-table.h"
@@ -589,5 +590,10 @@ template KokoroMultiLangLexicon::KokoroMultiLangLexicon(
     const std::string &lexicon, const std::string &data_dir,
     const OfflineTtsKokoroModelMetaData &meta_data, bool debug);
 #endif
+
+template KokoroMultiLangLexicon::KokoroMultiLangLexicon(
+    MemoryResourceManager *mgr, const std::string &tokens,
+    const std::string &lexicon, const std::string &data_dir,
+    const OfflineTtsKokoroModelMetaData &meta_data, bool debug);
 
 }  // namespace edgevox_onnx

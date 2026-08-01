@@ -20,6 +20,7 @@
 #include "edgevox-onnx/csrc/file-utils.h"
 #include "edgevox-onnx/csrc/hifigan-vocoder.h"
 #include "edgevox-onnx/csrc/macros.h"
+#include "edgevox-onnx/csrc/memory-resource-manager.h"
 #include "edgevox-onnx/csrc/onnx-utils.h"
 #include "edgevox-onnx/csrc/session.h"
 #include "edgevox-onnx/csrc/text-utils.h"
@@ -185,5 +186,8 @@ template std::unique_ptr<Vocoder> Vocoder::Create(
 template std::unique_ptr<Vocoder> Vocoder::Create(
     NativeResourceManager *mgr, const OfflineTtsModelConfig &config);
 #endif
+
+template std::unique_ptr<Vocoder> Vocoder::Create(
+    MemoryResourceManager *mgr, const OfflineTtsModelConfig &config);
 
 }  // namespace edgevox_onnx

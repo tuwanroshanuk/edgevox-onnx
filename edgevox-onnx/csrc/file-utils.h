@@ -9,6 +9,8 @@
 #include <string>
 #include <vector>
 
+#include "edgevox-onnx/csrc/memory-resource-manager.h"
+
 #if __ANDROID_API__ >= 9
 #include "android/asset_manager.h"
 #include "android/asset_manager_jni.h"
@@ -34,6 +36,14 @@ bool FileExists(const std::string &filename);
 void AssertFileExists(const std::string &filename);
 
 std::vector<char> ReadFile(const std::string &filename);
+
+inline std::vector<char> ReadFile(MemoryResourceManager *mgr,
+                                  const std::string &filename) {
+  if (!mgr) {
+    throw std::invalid_argument("MemoryResourceManager is null");
+  }
+  return mgr->Read(filename);
+}
 
 #if __ANDROID_API__ >= 9
 std::vector<char> ReadFile(AAssetManager *mgr, const std::string &filename);

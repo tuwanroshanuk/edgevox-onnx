@@ -639,6 +639,23 @@ std::vector<TokenIDs> PiperPhonemizeLexicon::ConvertTextToTokenIdsVits(
   return ans;
 }
 
+template PiperPhonemizeLexicon::PiperPhonemizeLexicon(
+    MemoryResourceManager *mgr, const std::string &tokens,
+    const std::string &data_dir,
+    const OfflineTtsVitsModelMetaData &vits_meta_data);
+template PiperPhonemizeLexicon::PiperPhonemizeLexicon(
+    MemoryResourceManager *mgr, const std::string &tokens,
+    const std::string &data_dir,
+    const OfflineTtsMatchaModelMetaData &matcha_meta_data);
+template PiperPhonemizeLexicon::PiperPhonemizeLexicon(
+    MemoryResourceManager *mgr, const std::string &tokens,
+    const std::string &data_dir,
+    const OfflineTtsKokoroModelMetaData &kokoro_meta_data);
+template PiperPhonemizeLexicon::PiperPhonemizeLexicon(
+    MemoryResourceManager *mgr, const std::string &tokens,
+    const std::string &data_dir,
+    const OfflineTtsKittenModelMetaData &kitten_meta_data);
+
 #if __ANDROID_API__ >= 9
 template PiperPhonemizeLexicon::PiperPhonemizeLexicon(
     AAssetManager *mgr, const std::string &tokens, const std::string &data_dir,

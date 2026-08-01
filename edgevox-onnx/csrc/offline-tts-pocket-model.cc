@@ -440,6 +440,9 @@ OrtAllocator *OfflineTtsPocketModel::Allocator() const {
   return impl_->Allocator();
 }
 
+template OfflineTtsPocketModel::OfflineTtsPocketModel(
+    MemoryResourceManager *mgr, const OfflineTtsModelConfig &config);
+
 #if __ANDROID_API__ >= 9
 template OfflineTtsPocketModel::OfflineTtsPocketModel(
     AAssetManager *mgr, const OfflineTtsModelConfig &config);

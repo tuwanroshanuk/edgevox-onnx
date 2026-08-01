@@ -192,6 +192,10 @@ std::vector<TokenIDs> OfflineTtsCharacterFrontend::ConvertTextToTokenIds(
   return ans;
 }
 
+template OfflineTtsCharacterFrontend::OfflineTtsCharacterFrontend(
+    MemoryResourceManager *mgr, const std::string &tokens,
+    const OfflineTtsVitsModelMetaData &meta_data);
+
 #if __ANDROID_API__ >= 9
 template OfflineTtsCharacterFrontend::OfflineTtsCharacterFrontend(
     AAssetManager *mgr, const std::string &tokens,

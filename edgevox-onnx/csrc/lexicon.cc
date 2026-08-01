@@ -26,6 +26,7 @@
 
 #include "edgevox-onnx/csrc/file-utils.h"
 #include "edgevox-onnx/csrc/macros.h"
+#include "edgevox-onnx/csrc/memory-resource-manager.h"
 #include "edgevox-onnx/csrc/symbol-table.h"
 #include "edgevox-onnx/csrc/text-utils.h"
 
@@ -410,5 +411,11 @@ template Lexicon::Lexicon(NativeResourceManager *mgr,
                           const std::string &punctuations,
                           const std::string &language, bool debug = false);
 #endif
+
+template Lexicon::Lexicon(MemoryResourceManager *mgr,
+                          const std::string &lexicon,
+                          const std::string &tokens,
+                          const std::string &punctuations,
+                          const std::string &language, bool debug);
 
 }  // namespace edgevox_onnx

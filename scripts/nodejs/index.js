@@ -133,6 +133,20 @@ function createOfflineTts(config) {
   return edgevox_onnx_tts.createOfflineTts(getWasmModule(), config);
 }
 
+function createOfflineTtsFromMemory(config, resources) {
+  if (!nativeAddon ||
+      typeof nativeAddon.createOfflineTtsFromMemory !== 'function') {
+    throw new Error(
+        'Memory-only TTS requires the native edgevox-onnx runtime');
+  }
+  const instance = Object.create(NativeOfflineTts.prototype);
+  instance.handle =
+      nativeAddon.createOfflineTtsFromMemory(nativeModelConfig(config), resources);
+  instance.sampleRate = nativeAddon.getOfflineTtsSampleRate(instance.handle);
+  instance.numSpeakers = nativeAddon.getOfflineTtsNumSpeakers(instance.handle);
+  return instance;
+}
+
 function createKws(config) {
   return edgevox_onnx_kws.createKws(getWasmModule(), config);
 }
@@ -235,6 +249,7 @@ module.exports = {
   createOnlineRecognizer,
   createOfflineRecognizer,
   createOfflineTts,
+  createOfflineTtsFromMemory,
   createKws,
   readWave,
   readWaveFromBinaryData,

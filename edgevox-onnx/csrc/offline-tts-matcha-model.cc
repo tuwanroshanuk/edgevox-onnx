@@ -228,6 +228,9 @@ Ort::Value OfflineTtsMatchaModel::Run(Ort::Value x, int64_t sid /*= 0*/,
   return impl_->Run(std::move(x), sid, speed);
 }
 
+template OfflineTtsMatchaModel::OfflineTtsMatchaModel(
+    MemoryResourceManager *mgr, const OfflineTtsModelConfig &config);
+
 #if __ANDROID_API__ >= 9
 template OfflineTtsMatchaModel::OfflineTtsMatchaModel(
     AAssetManager *mgr, const OfflineTtsModelConfig &config);

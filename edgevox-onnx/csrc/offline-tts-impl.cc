@@ -3,6 +3,7 @@
 // Copyright (c)  2023  Xiaomi Corporation
 
 #include "edgevox-onnx/csrc/offline-tts-impl.h"
+#include "edgevox-onnx/csrc/memory-resource-manager.h"
 
 #include <memory>
 #include <vector>
@@ -84,15 +85,15 @@ std::unique_ptr<OfflineTtsImpl> OfflineTtsImpl::Create(
   } else if (!config.model.supertonic.tts_json.empty()) {
     return std::make_unique<OfflineTtsSupertonicImpl>(mgr, config);
   } else if (!config.model.chatterbox.speech_encoder.empty()) {
-    EDGEVOX_ONNX_LOGE(
-        "Chatterbox Turbo resource-manager loading is not supported; use "
-        "filesystem model paths");
-    return {};
+    return std::make_unique<OfflineTtsChatterboxImpl>(mgr, config);
   }
 
   EDGEVOX_ONNX_LOGE("Please provide a tts model.");
   return {};
 }
+
+template std::unique_ptr<OfflineTtsImpl> OfflineTtsImpl::Create(
+    MemoryResourceManager *mgr, const OfflineTtsConfig &config);
 
 #if __ANDROID_API__ >= 9
 template std::unique_ptr<OfflineTtsImpl> OfflineTtsImpl::Create(

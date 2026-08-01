@@ -27,6 +27,7 @@
 
 #include "edgevox-onnx/csrc/file-utils.h"
 #include "edgevox-onnx/csrc/macros.h"
+#include "edgevox-onnx/csrc/memory-resource-manager.h"
 #include "nlohmann/json.hpp"
 
 namespace edgevox_onnx {
@@ -74,6 +75,20 @@ static std::string LoadBytesFromFile(NativeResourceManager *mgr,
   return std::string(data.data(), data.size());
 }
 #endif
+
+template <typename Manager>
+static std::string LoadBytesFromFile(Manager *mgr, const std::string &path) {
+  std::vector<char> data = ReadFile(mgr, path);
+  if (data.empty()) return "";
+  return std::string(data.data(), data.size());
+}
+
+static std::string LoadBytesFromFile(MemoryResourceManager *mgr,
+                                     const std::string &path) {
+  if (!mgr || !mgr->Contains(path)) return "";
+  std::vector<char> data = mgr->Read(path);
+  return std::string(data.data(), data.size());
+}
 
 static inline void TrimInPlace(std::string *s) {
   if (!s) return;
@@ -1650,5 +1665,8 @@ template FunASRNanoTokenizer::FunASRNanoTokenizer(
 template FunASRNanoTokenizer::FunASRNanoTokenizer(
     NativeResourceManager *mgr, const std::string &tokenizer_dir);
 #endif
+
+template FunASRNanoTokenizer::FunASRNanoTokenizer(
+    MemoryResourceManager *mgr, const std::string &tokenizer_dir);
 
 }  // namespace edgevox_onnx

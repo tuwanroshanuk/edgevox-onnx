@@ -22,6 +22,7 @@
 #include "kaldi-native-fbank/csrc/istft.h"
 #include "edgevox-onnx/csrc/file-utils.h"
 #include "edgevox-onnx/csrc/macros.h"
+#include "edgevox-onnx/csrc/memory-resource-manager.h"
 #include "edgevox-onnx/csrc/onnx-utils.h"
 #include "edgevox-onnx/csrc/session.h"
 #include "edgevox-onnx/csrc/text-utils.h"
@@ -221,5 +222,8 @@ template VocosVocoder::VocosVocoder(AAssetManager *mgr,
 template VocosVocoder::VocosVocoder(NativeResourceManager *mgr,
                                     const OfflineTtsModelConfig &config);
 #endif
+
+template VocosVocoder::VocosVocoder(
+    MemoryResourceManager *mgr, const OfflineTtsModelConfig &config);
 
 }  // namespace edgevox_onnx
