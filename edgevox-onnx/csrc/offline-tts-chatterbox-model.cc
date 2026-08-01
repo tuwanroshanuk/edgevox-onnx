@@ -302,6 +302,16 @@ OfflineTtsChatterboxModel::OfflineTtsChatterboxModel(
 template OfflineTtsChatterboxModel::OfflineTtsChatterboxModel(
     MemoryResourceManager *mgr, const OfflineTtsModelConfig &config);
 
+#if __ANDROID_API__ >= 9
+template OfflineTtsChatterboxModel::OfflineTtsChatterboxModel(
+    AAssetManager *mgr, const OfflineTtsModelConfig &config);
+#endif
+
+#if __OHOS__
+template OfflineTtsChatterboxModel::OfflineTtsChatterboxModel(
+    NativeResourceManager *mgr, const OfflineTtsModelConfig &config);
+#endif
+
 OfflineTtsChatterboxModel::~OfflineTtsChatterboxModel() = default;
 
 std::vector<int64_t> OfflineTtsChatterboxModel::Tokenize(
