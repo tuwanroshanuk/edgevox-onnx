@@ -142,11 +142,14 @@ data class GenerationConfig(
 class OfflineTts(
     assetManager: AssetManager? = null,
     var config: OfflineTtsConfig,
+    resources: Map<String, ByteArray>? = null,
 ) {
     private var ptr: Long
 
     init {
-        ptr = if (assetManager != null) {
+        ptr = if (resources != null) {
+            newFromMemory(config, resources.keys.toTypedArray(), resources.values.toTypedArray())
+        } else if (assetManager != null) {
             newFromAsset(assetManager, config)
         } else {
             newFromFile(config)
@@ -228,6 +231,12 @@ class OfflineTts(
 
     private external fun newFromFile(
         config: OfflineTtsConfig,
+    ): Long
+
+    private external fun newFromMemory(
+        config: OfflineTtsConfig,
+        names: Array<String>,
+        data: Array<ByteArray>,
     ): Long
 
     private external fun delete(ptr: Long)

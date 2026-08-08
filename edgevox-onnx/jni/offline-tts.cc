@@ -4,15 +4,26 @@
 
 #include "edgevox-onnx/csrc/offline-tts.h"
 
+#include <memory>
 #include <string>
 #include <vector>
 
 #include "edgevox-onnx/csrc/macros.h"
+#include "edgevox-onnx/csrc/memory-resource-manager.h"
 #include "edgevox-onnx/csrc/text-utils.h"
 #include "edgevox-onnx/csrc/wave-writer.h"
 #include "edgevox-onnx/jni/common.h"
 
 namespace edgevox_onnx {
+
+struct AndroidOfflineTtsHandle {
+  std::unique_ptr<MemoryResourceManager> resources;
+  std::unique_ptr<OfflineTts> tts;
+};
+
+static AndroidOfflineTtsHandle *AsHandle(jlong ptr) {
+  return reinterpret_cast<AndroidOfflineTtsHandle *>(ptr);
+}
 
 // ------------------ JNI Config Helpers ------------------
 
@@ -458,13 +469,14 @@ JNIEXPORT jlong JNICALL Java_com_nexus_edgevox_onnx_OfflineTts_newFromAsset(
 #endif
   }
 
-  auto tts = new edgevox_onnx::OfflineTts(
+  auto handle = new edgevox_onnx::AndroidOfflineTtsHandle();
+  handle->tts = std::make_unique<edgevox_onnx::OfflineTts>(
 #if __ANDROID_API__ >= 9
       mgr,
 #endif
       config);
 
-  return reinterpret_cast<jlong>(tts);
+  return reinterpret_cast<jlong>(handle);
 }
 
 EDGEVOX_ONNX_EXTERN_C
@@ -488,28 +500,62 @@ JNIEXPORT jlong JNICALL Java_com_nexus_edgevox_onnx_OfflineTts_newFromFile(
           return 0;
         }
 
-        auto tts = new edgevox_onnx::OfflineTts(config);
-        return reinterpret_cast<jlong>(tts);
+        auto handle = new edgevox_onnx::AndroidOfflineTtsHandle();
+        handle->tts = std::make_unique<edgevox_onnx::OfflineTts>(config);
+        return reinterpret_cast<jlong>(handle);
       },
       (jlong)0);
 }
 
 EDGEVOX_ONNX_EXTERN_C
+JNIEXPORT jlong JNICALL Java_com_nexus_edgevox_onnx_OfflineTts_newFromMemory(
+    JNIEnv *env, jobject /*obj*/, jobject _config, jobjectArray names,
+    jobjectArray data) {
+  return SafeJNI(env, "OfflineTts_newFromMemory", [&]() -> jlong {
+    const jsize count = env->GetArrayLength(names);
+    if (count != env->GetArrayLength(data)) {
+      throw std::invalid_argument("Resource name/data count mismatch");
+    }
+    bool ok = false;
+    auto config = edgevox_onnx::GetOfflineTtsConfig(env, _config, &ok);
+    if (!ok) return 0;
+    auto handle = std::make_unique<edgevox_onnx::AndroidOfflineTtsHandle>();
+    handle->resources = std::make_unique<edgevox_onnx::MemoryResourceManager>();
+    for (jsize i = 0; i != count; ++i) {
+      auto name_obj = static_cast<jstring>(env->GetObjectArrayElement(names, i));
+      auto bytes_obj = static_cast<jbyteArray>(env->GetObjectArrayElement(data, i));
+      const char *name_chars = env->GetStringUTFChars(name_obj, nullptr);
+      const jsize byte_count = env->GetArrayLength(bytes_obj);
+      std::vector<char> bytes(static_cast<size_t>(byte_count));
+      env->GetByteArrayRegion(bytes_obj, 0, byte_count,
+                              reinterpret_cast<jbyte *>(bytes.data()));
+      handle->resources->Put(name_chars, std::move(bytes));
+      env->ReleaseStringUTFChars(name_obj, name_chars);
+      env->DeleteLocalRef(name_obj);
+      env->DeleteLocalRef(bytes_obj);
+    }
+    handle->tts = std::make_unique<edgevox_onnx::OfflineTts>(
+        handle->resources.get(), config);
+    return reinterpret_cast<jlong>(handle.release());
+  }, (jlong)0);
+}
+
+EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT void JNICALL Java_com_nexus_edgevox_onnx_OfflineTts_delete(
     JNIEnv * /*env*/, jobject /*obj*/, jlong ptr) {
-  delete reinterpret_cast<edgevox_onnx::OfflineTts *>(ptr);
+  delete edgevox_onnx::AsHandle(ptr);
 }
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jint JNICALL Java_com_nexus_edgevox_onnx_OfflineTts_getSampleRate(
     JNIEnv * /*env*/, jobject /*obj*/, jlong ptr) {
-  return reinterpret_cast<edgevox_onnx::OfflineTts *>(ptr)->SampleRate();
+  return edgevox_onnx::AsHandle(ptr)->tts->SampleRate();
 }
 
 EDGEVOX_ONNX_EXTERN_C
 JNIEXPORT jint JNICALL Java_com_nexus_edgevox_onnx_OfflineTts_getNumSpeakers(
     JNIEnv * /*env*/, jobject /*obj*/, jlong ptr) {
-  return reinterpret_cast<edgevox_onnx::OfflineTts *>(ptr)->NumSpeakers();
+  return edgevox_onnx::AsHandle(ptr)->tts->NumSpeakers();
 }
 
 EDGEVOX_ONNX_EXTERN_C
@@ -522,7 +568,7 @@ JNIEXPORT jobject JNICALL Java_com_nexus_edgevox_onnx_OfflineTts_generateImpl(
   config.sid = sid;
   config.speed = speed;
 
-  auto audio = reinterpret_cast<edgevox_onnx::OfflineTts *>(ptr)->Generate(
+  auto audio = edgevox_onnx::AsHandle(ptr)->tts->Generate(
       p_text, config);
 
   env->ReleaseStringUTFChars(text, p_text);
@@ -537,7 +583,7 @@ Java_com_nexus_edgevox_onnx_OfflineTts_generateWithCallbackImpl(
     jfloat speed, jobject callback) {
   const char *p_text = env->GetStringUTFChars(text, nullptr);
 
-  auto tts = reinterpret_cast<edgevox_onnx::OfflineTts *>(ptr);
+  auto tts = edgevox_onnx::AsHandle(ptr)->tts.get();
 
   edgevox_onnx::GenerationConfig config;
   config.sid = sid;
@@ -572,7 +618,7 @@ Java_com_nexus_edgevox_onnx_OfflineTts_generateWithConfigImpl(
     jobject callback) {
   const char *p_text = env->GetStringUTFChars(text, nullptr);
   auto gen_config = edgevox_onnx::GetGenerationConfig(env, _gen_config);
-  auto tts = reinterpret_cast<edgevox_onnx::OfflineTts *>(ptr);
+  auto tts = edgevox_onnx::AsHandle(ptr)->tts.get();
 
   edgevox_onnx::GeneratedAudio audio;
 
