@@ -142,7 +142,7 @@ data class GenerationConfig(
 class OfflineTts(
     assetManager: AssetManager? = null,
     var config: OfflineTtsConfig,
-    resources: Map<String, ByteArray>? = null,
+    private val resources: Map<String, ByteArray>? = null,
 ) {
     private var ptr: Long
 
@@ -200,7 +200,9 @@ class OfflineTts(
 
     fun allocate(assetManager: AssetManager? = null) {
         if (ptr == 0L) {
-            ptr = if (assetManager != null) {
+            ptr = if (resources != null) {
+                newFromMemory(config, resources.keys.toTypedArray(), resources.values.toTypedArray())
+            } else if (assetManager != null) {
                 newFromAsset(assetManager, config)
             } else {
                 newFromFile(config)
